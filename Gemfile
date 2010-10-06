@@ -35,7 +35,8 @@ group :test do
   gem "simplecov", "0.3.6" 
   gem "rspec", "2.0.0.beta.22" 
   gem "autotest" 
-  gem "webrat" 
+  gem "webrat"
+  gem 'factory_girl_rails'
   gem "machinist", "1.0.6" 
   gem "machinist_mongo", :require => 'machinist/mongo_mapper' 
   gem "remarkable", "4.0.0.alpha4" 

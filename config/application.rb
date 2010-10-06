@@ -33,7 +33,7 @@ module Gr
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.default_locale = :fi
 
     config.generators do |g|
        g.orm             :mongo_mapper
@@ -49,5 +49,13 @@ module Gr
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    
+    ### Part of a Spork hack. See http://bit.ly/arY19y
+    if Rails.env.test?
+      initializer :after => :initialize_dependency_mechanism do
+        # Work around initializer in railties/lib/rails/application/bootstrap.rb
+        ActiveSupport::Dependencies.mechanism = :load
+      end
+    end
   end
 end
