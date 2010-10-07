@@ -17,6 +17,16 @@ describe ServingSize do
     s.valid?.should == false
   end 
 
+  context "inflections" do
+    it 'should work with non-english characters' do
+      p = Factory(:aakkoset)
+      p.valid?.should == true
+      p.serving_sizes.last.singular = "äöå ÄÖÅФ ЫВА"
+      p.valid?.should == true
+      p.serving_sizes.last.singular.should == "äöå äöåф ыва"
+    end
+  end
+
   context "custom unit" do
     it "should have singular and plural forms" do
       p = Factory(:aakkoset)
@@ -52,7 +62,7 @@ describe ServingSize do
 
       s = ServingSize.new(:unit => 3,
                           :parent_amount => 10,
-                          :singular => "lÄÄtikko", 
+                          :singular => "laatikko", 
                           :plural => 'laatikkoa')
                           
       p.serving_sizes << s
@@ -63,9 +73,6 @@ describe ServingSize do
       p.valid?.should == false
       s.parent = p.serving_sizes[0]
       p.valid?.should == true
-      
-      p.save
-      p p.serving_sizes
     end
   end
   

@@ -20,6 +20,7 @@ gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo
 
 gem "haml", "3.0.18" 
 gem "responders", "0.6.2"
+gem "unicode"
 
 group :production do 
   gem "heroku", "1.10.5" 

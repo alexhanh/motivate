@@ -164,6 +164,7 @@ GEM
       polyglot (>= 0.3.1)
     trollop (1.16.2)
     tzinfo (0.3.23)
+    unicode (0.3.1)
     warden (0.10.7)
       rack (>= 1.0.0)
     webrat (0.7.1)
@@ -207,5 +208,6 @@ DEPENDENCIES
   ruby_parser (= 2.0.5)
   simplecov (= 0.3.6)
   spork
+  unicode
   webrat
   wirble

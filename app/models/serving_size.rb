@@ -1,3 +1,4 @@
+# coding: utf-8
 # do *not* add more than one serving size without saving in between
 # this will risk screwing up depth otherwise
 # this actually has been fixed by calling set_depth in parent=.. test to confirm
@@ -28,6 +29,7 @@ class ServingSize
   #TODO: replace lambdas with with_options
   validates_presence_of :parent_amount, :parent_id, :if => lambda { |s| !s.root? }
   validates_numericality_of :parent_amount, :greater_than => 0, :if => lambda { |s| !s.root? }
+  validates_format_of :singular, :plural, :with => /\A[[:alpha:] ]+\Z/, :if => lambda { |s| !s.root? }
   
   validates_length_of :singular, :plural, :in => 1..20, :if => lambda { |s| s.custom? }
   validates_presence_of :nutrition_data, :if => lambda { |s| s.root? }
@@ -113,7 +115,8 @@ class ServingSize
   #/////////////////////////
   
   def downcase_inflections
-    singular.downcase! if singular
-    plural.downcase! if plural
+    #TODO: monkey-patch string.downcase and use ActiveSupport (mbchars) instead
+    self.singular = Unicode::downcase(singular.strip) if singular
+    self.plural = Unicode::downcase(plural.strip) if plural
   end
 end
