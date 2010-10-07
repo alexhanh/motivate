@@ -1,4 +1,3 @@
-# coding: utf-8
 # do *not* add more than one serving size without saving in between
 # this will risk screwing up depth otherwise
 # this actually has been fixed by calling set_depth in parent=.. test to confirm
@@ -36,9 +35,25 @@ class ServingSize
   
   validates_numericality_of :depth, :less_than_or_equal_to => 2
   
+  validate :inflection_uniqueness
+  
   #/////////////////////////
   # Validations
   #/////////////////////////
+  
+  def inflection_uniqueness
+    self._root_document.serving_sizes.each do |s|
+      # since weight and volume gets validated by check_weight_volume
+      # it is enough to check custom units
+      if s.custom? && s.id != self.id && (
+            self.singular == s.singular || 
+            self.singular == s.plural ||
+            self.plural == s.plural ||
+            self.plural == s.singular)
+        self.errors.add(:singular, "Serving size name is already taken.")
+      end
+    end
+  end
   
   #/////////////////////////
   # Units

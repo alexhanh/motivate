@@ -10,4 +10,21 @@ class Recipe
   many :food_entries, :as => 'consumable'
   many :ingredients, :class_name => "Ingredient"#, :in => :product_ids
   many :serving_sizes
+  
+  validate :check_root
+  
+  #/////////////////////////
+  # Validations
+  #/////////////////////////
+  
+  def check_root
+    count = 0
+    self.serving_sizes.each do |s|
+      count += 1 if s.root?
+    end
+    
+    if count > 1
+      self.errors.add(:serving_sizes, "Recipe can have only one root serving size.")
+    end
+  end
 end

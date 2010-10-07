@@ -12,10 +12,22 @@ Factory.define :nutrition_data do |f|
   f.fat     7
 end
 
+Factory.define :candy, :class => ServingSize do |f|
+  f.unit 3
+  f.nutrition_data Factory(:nutrition_data)
+  f.sequence(:singular) {|n| "candy#{n}"}
+  f.sequence(:plural) {|n| "candies#{n}"}
+end
+
 Factory.define :gramma, :class => ServingSize do |f|
   #TODO: refactor this
   f.unit 1
-  f.nutrition_data Factory.create(:nutrition_data)
+  f.nutrition_data Factory(:nutrition_data)
+end
+
+Factory.define :litra, :class => ServingSize do |f|
+  f.unit 2
+  f.nutrition_data Factory(:nutrition_data)
 end
 
 Factory.define :aakkonen, :class => ServingSize do |f|
@@ -34,7 +46,8 @@ end
 
 Factory.define :aakkoset, :class => Product do |f|
   f.name "Aakkoset"
-  f.serving_sizes [Factory(:gramma), Factory(:aakkonen), Factory(:pussi)]
+  f.serving_sizes [Factory(:gramma), Factory(:aakkonen), 
+                   Factory(:pussi), Factory(:litra)]
   
   f.after_build do |n|
     n.serving_sizes[1].parent = n.serving_sizes[0]

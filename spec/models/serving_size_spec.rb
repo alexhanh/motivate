@@ -2,12 +2,13 @@
 require 'spec_helper'
 
 describe ServingSize do
-  before(:all) do 
-    #@product = Factor(:product)
+  before do 
+    @p = Factory(:aakkoset)
   end
    
   it "should have nutrition data if it's a root" do 
-    s = Factory(:gramma)
+    #s = Factory(:gramma)
+    s = @p.serving_sizes.first
  
     s.depth.should == 0
     s.nutrition_data.nil? == false
@@ -18,8 +19,9 @@ describe ServingSize do
   end 
 
   context "inflections" do
-    it 'should work with non-english characters' do
+    it 'should be downcased and work with non-english characters' do
       p = Factory(:aakkoset)
+      
       p.valid?.should == true
       p.serving_sizes.last.singular = "äöå ÄÖÅФ ЫВА"
       p.valid?.should == true
@@ -29,9 +31,7 @@ describe ServingSize do
 
   context "custom unit" do
     it "should have singular and plural forms" do
-      p = Factory(:aakkoset)
-
-      s = p.serving_sizes.last
+      s = @p.serving_sizes[2]
       s.custom?.should == true
       s.singular.nil?.should == false
       s.plural.nil?.should == false
@@ -48,33 +48,45 @@ describe ServingSize do
   end
   
   context "relationships" do
-    it 'should have a parent and parent amount if depth is greater than zero' do
-      p = Factory(:aakkoset)
-     
-      s = p.serving_sizes.last
+    it 'should have a parent and parent amount if depth is greater than zero' do    
+      s = @p.serving_sizes[2]
       s.parent_amount = nil
       s.root?.should == false
       s.valid?.should == false
     end
     
     it 'should not be valid if inheritance is too deep' do
-      p = Factory(:aakkoset)
-
       s = ServingSize.new(:unit => 3,
                           :parent_amount => 10,
                           :singular => "laatikko", 
                           :plural => 'laatikkoa')
                           
-      p.serving_sizes << s
-      s.parent = p.serving_sizes[2]
+      @p.serving_sizes << s
+      s.parent = @p.serving_sizes[2]
 
       s.depth.should == 3
 
-      p.valid?.should == false
-      s.parent = p.serving_sizes[0]
-      p.valid?.should == true
+      @p.valid?.should == false
+      s.parent = @p.serving_sizes[0]
+      @p.valid?.should == true
     end
   end
+  
+#  context 'update name' do
+#    it 'should update cached names in recipes' do
+#    
+#    end
+#  end
+
+#  it 'should not be removable' do
+#  
+#  end
+#  
+#  context 'disable' do
+#    it 'should not be referencable any more' do
+#    
+#    end
+#  end
   
   context 'nutrition data' do
     it 'should update all inherited serving sizes upon change' do
@@ -82,8 +94,7 @@ describe ServingSize do
     end
     
     it 'should scale nutrition data properly for inherited serving sizes' do
-      p = Factory(:aakkoset)
-      s = p.serving_sizes.last
+      s = @p.serving_sizes[2]
 
       s.singular.should == "pussi"
       s.compute_data(2).protein.should == 150
