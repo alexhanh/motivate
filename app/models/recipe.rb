@@ -1,6 +1,7 @@
 # http://pastie.org/1189314
 class Recipe
   include MongoMapper::Document
+  include Support::Consumable
   #include Support::Voteable
   
   key :name, String
@@ -8,16 +9,22 @@ class Recipe
   
  # key :product_ids, Array
   many :food_entries, :as => 'consumable'
-  many :ingredients, :class_name => "Ingredient"#, :in => :product_ids
+  many :ingredients, :class_name => "Ingredient"
   many :serving_sizes
   
-  validate :check_root
+  validate :check_roots
+  
+  # after create call update data
+  
+  def update_data
+    
+  end
   
   #/////////////////////////
   # Validations
   #/////////////////////////
   
-  def check_root
+  def check_roots
     count = 0
     self.serving_sizes.each do |s|
       count += 1 if s.root?

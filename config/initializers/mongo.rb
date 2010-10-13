@@ -8,3 +8,5 @@ if defined?(PhusionPassenger)
      MongoMapper.connection.connect_to_master if forked
    end
 end
+
+require 'support/consumable'

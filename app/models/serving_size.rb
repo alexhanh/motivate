@@ -3,14 +3,28 @@
 # this actually has been fixed by calling set_depth in parent=.. test to confirm
 
 # inherit servable or mixin servable?
+
+# for weight, nutrition_data should be always stored per one gram
+# for volume, nutrition_data should be always stored per one liter
+# for custom, nutrition_data should be always stored per one custom unit
+# :unit expressed the unit in which 
 class ServingSize
   include MongoMapper::EmbeddedDocument
   
+  # expresses in which units user originally expressed the relation
+  # so that we can build "purkki ~ 1 litra" again instead of "purkki ~ 1000 ml"
+  # it should only be set when this is inherited
+  # for custom, it remains custom
+  # for volume it is ml,cl,dl,l,teaspoon, etc.
+  # for weight is is ug, mg, g, kg
+  # this only affects how the relation will be rendered
+  key :parent_display_unit, Integer # TODO: if nil, use parent unit
   key :parent_amount, Float
   key :depth, Integer, :default => 0
-
-  key :unit, Integer # 0 custom, 10 =< weight <= 1000, 2000 =< volume <= 3000  ... 
-                     # or simply 1 for weight and 2 for volume and 3 for custom and assume grams and liters
+  # parent unit's type should equal to parent.type
+  
+  key :unit, Integer 
+                     
   key :singular, String
   key :plural, String
   
@@ -28,10 +42,14 @@ class ServingSize
   #TODO: replace lambdas with with_options
   validates_presence_of :parent_amount, :parent_id, :if => lambda { |s| !s.root? }
   validates_numericality_of :parent_amount, :greater_than => 0, :if => lambda { |s| !s.root? }
+  #validates_numericality_of :parent_display_unit, :greater_than_or_equal_to => 0, :if => lambda { |s| !s.root? }
   validates_format_of :singular, :plural, :with => /\A[[:alpha:] ]+\Z/, :if => lambda { |s| !s.root? }
   
   validates_length_of :singular, :plural, :in => 1..20, :if => lambda { |s| s.custom? }
   validates_presence_of :nutrition_data, :if => lambda { |s| s.root? }
+
+  validates_presence_of :unit
+  validates_numericality_of :unit, :greater_than_or_equal_to => 0
   
   validates_numericality_of :depth, :less_than_or_equal_to => 2
   
@@ -60,15 +78,15 @@ class ServingSize
   #/////////////////////////
   
   def weight?
-    self.unit == 1
+    unit.weight?
   end
   
   def volume?
-    self.unit == 2
+    unit.volume?
   end
   
   def custom?
-    self.unit == 3
+    unit.custom?
   end
   
   def compute_data(quantity=1)

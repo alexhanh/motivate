@@ -6,11 +6,14 @@ Spork.prefork do
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
   
-    # This file is copied to spec/ when you run 'rails generate rspec:install'
+  # This file is copied to spec/ when you run 'rails generate rspec:install'
   ENV["RAILS_ENV"] ||= 'test'
+
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'database_cleaner'
+  # Include lib/
+  Dir[Rails.root.join("lib/**/*.rb")].each {|f| require f}  
 
   include Devise::TestHelpers
 
@@ -53,7 +56,6 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-  
 end
 
 # --- Instructions ---

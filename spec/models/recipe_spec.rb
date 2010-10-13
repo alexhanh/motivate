@@ -1,13 +1,20 @@
 require 'spec_helper'
 
 describe Recipe do
-#  before(:all) do 
-#  end
-#  
-#  it 'should not be valid if it contains more than one root serving size' do
-#    
-#  end
-#  
+  before do 
+    @r = Factory(:aakkospirtelo)
+  end
+  
+  it 'should compute correct nutrition data for ingredients' do
+    @r.ingredients[0].compute_data.protein.should == 0.4
+    @r.ingredients[1].compute_data.protein.should == 25.0
+  end
+  
+  it 'should not be valid if it contains more than one root serving size' do
+    @r.serving_sizes << Factory(:candy)
+    @r.valid?.should == false
+  end  
+ 
 #  it '' do
 #    p = Product.new(:name => 'Soijamaito')
 #    s = ServingSize.new(:unit => 1) # weight

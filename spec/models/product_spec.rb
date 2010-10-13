@@ -42,6 +42,12 @@ describe Product do
     @p.valid?.should == false
   end
 
+  it 'should compute nutrition data given quantity and unit' do
+    @p.compute_data(1, Units::LITER).protein.should == 1
+    @p.compute_data(23.5, Units::LITER).protein.should == 23.5
+    @p.compute_data(1, Units::CUSTOM, "pussi").protein.should == 75
+  end
+
   context 'update' do
     it 'should update cached product name in recipes' do
     
