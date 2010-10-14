@@ -8,18 +8,6 @@
 
 Dir[Rails.root.join("lib/**/*.rb")].each {|f| require f}
 
-#class Post
-#  include MongoMapper::Document
-#  
-#  one :answer
-#end
-
-#class Answer
-#  include MongoMapper::Document
-#  
-#  
-#end
-
 Factory.define :nutrition_data do |f|
   f.energy  50
   f.carbs   10
@@ -77,20 +65,19 @@ end
 Factory.define :maito_ainesosa, :class => Ingredient do |f|
   f.quantity 4
   f.unit Units::DECILITER
-  #f.product Factory(:maito)
 end
 
 Factory.define :aakkonen_ainesosa, :class => Ingredient do |f|
   f.quantity 10
   f.custom_unit_name "aakkosta"
   f.unit Units::CUSTOM
-  #f.product Factory(:aakkoset)
 end
 
 Factory.define :aakkospirtelo, :class => Recipe do |f|
   f.sequence(:name) {|n| "Aakkospirtelo#{n}"}
   
-  f.servings_produced 4
+  f.units_produced 5
+  f.unit Units::DECILITER
   f.serving_sizes [Factory(:litra)]
   
   f.ingredients [Factory(:maito_ainesosa), Factory(:aakkonen_ainesosa)]
@@ -101,7 +88,16 @@ Factory.define :aakkospirtelo, :class => Recipe do |f|
   end
 end
 
-
+Factory.define :food_entry do |f| 
+  f.quantity 0.5
+  f.unit Units::CUSTOM
+  f.custom_unit_name "pussia"
+  
+  f.after_build do |n|
+    n.consumable = Factory(:aakkoset)
+    n.update_data
+  end
+end
 
 
 

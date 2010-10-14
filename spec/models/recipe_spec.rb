@@ -15,6 +15,10 @@ describe Recipe do
     @r.valid?.should == false
   end  
  
+  it '' do
+    @r.update_data
+  end
+ 
 #  it '' do
 #    p = Product.new(:name => 'Soijamaito')
 #    s = ServingSize.new(:unit => 1) # weight

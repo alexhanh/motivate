@@ -46,7 +46,7 @@ module Units
     return convert(quantity, unit, Units::GRAM) if unit.weight?
     return convert(quantity, unit, Units::LITER) if unit.volume?
   end
-  
+   
   def self.norm(s)
     s[0].downcase + s[1, s.length - 1].gsub(/([A-Z])/, "_\\1").downcase
   end

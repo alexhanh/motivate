@@ -8,7 +8,6 @@ class Product
   belongs_to :user
 
   many :ingredients, :class_name => 'Ingredient', :foreign_key => :product_id
-  many :serving_sizes
   
   validates_presence_of :name
    

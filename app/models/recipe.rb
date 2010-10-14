@@ -5,19 +5,26 @@ class Recipe
   #include Support::Voteable
   
   key :name, String
-  key :servings_produced, Float
+  key :units_produced, Float
+  key :unit, Integer
   
  # key :product_ids, Array
   many :food_entries, :as => 'consumable'
   many :ingredients, :class_name => "Ingredient"
-  many :serving_sizes
   
   validate :check_roots
+  validates_presence_of :unit, :units_produced
   
   # after create call update data
-  
+
+  #TODO: test  
   def update_data
-    
+    sum = NutritionStats.new
+    ingredients.each {|i| sum.add(i.compute_data)}
+    #TODO: concidering moving this to serving_size.set_data(4, Units::DECILITER, data)
+
+    factor = 1.0/Units::to_base(units_produced, unit)
+    serving_sizes[0].nutrition_data = sum.data.scale(factor)
   end
   
   #/////////////////////////

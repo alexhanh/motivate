@@ -9,11 +9,13 @@ class NutritionData
   #embedded_in :serving_size
   
   def scale(f)
-    self.energy *= f
-    self.carbs *= f
-    self.protein *= f
-    self.fat *= f
-    
-    return self
+    # bad idea, because this is slow
+    # see http://bit.ly/969w1z
+    NutritionData.new(
+      :energy => energy*f,
+      :carbs => carbs*f,
+      :protein => protein*f,
+      :fat => fat*f
+    )
   end
 end
