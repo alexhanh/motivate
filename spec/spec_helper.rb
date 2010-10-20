@@ -35,15 +35,15 @@ Spork.prefork do
     DatabaseCleaner.orm = "mongo_mapper"
     
     config.before(:suite) do
-      DatabaseCleaner.clean_with(:truncation)
+ #     DatabaseCleaner.clean_with(:truncation)
     end 
     
     config.before(:each) do
-      DatabaseCleaner.start
+#      DatabaseCleaner.start
     end
     
     config.after(:each) do
-      DatabaseCleaner.clean
+#      DatabaseCleaner.clean
     end
     
     ### Part of a Spork hack. See http://bit.ly/arY19y

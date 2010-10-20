@@ -15,6 +15,5 @@ describe FoodEntry do
   end
   
   it 'should update cache custom name when the serving size it references is changed' do
-    # low-priority, because the site is perfectly functional without this
   end
 end

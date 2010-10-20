@@ -14,6 +14,8 @@ class FoodEntry
   
   belongs_to :consumable, :polymorphic => true
   
+  #after_create :update_data
+  
   def update_data
     self.nutrition_data = consumable.compute_data(quantity, unit, custom_unit_name)
   end

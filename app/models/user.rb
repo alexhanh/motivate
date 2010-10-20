@@ -7,4 +7,7 @@ class User
          
   key :username, :unique => true
   key :email, String
+  
+  many :food_entries
+ 
 end
