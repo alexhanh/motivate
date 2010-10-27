@@ -8,6 +8,8 @@ require "active_resource/railtie"
 require "rails/test_unit/railtie"
 
 require 'unicode'
+# Include lib/support/*
+Dir[File.expand_path('../../lib/support/*.rb', __FILE__)].each {|f| require f}
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.

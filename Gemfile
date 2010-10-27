@@ -21,6 +21,7 @@ gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo
 gem "haml", "3.0.18" 
 gem "responders", "0.6.2"
 gem "unicode"
+gem "nifty-generators"
 
 group :production do 
   gem "heroku", "1.10.5" 
@@ -28,8 +29,8 @@ end
 group :development do 
   gem "hpricot", "0.8.2" # Only required for 'rails g devise:views' 
   gem "ruby_parser", "2.0.5" # Only required for 'rails g devise:views' 
-  gem "haml-rails", "0.2" # Template generator for HAML 
-  gem "jquery-rails", "0.1.3" # Template generator for jQuery 
+  gem "haml-rails" # Template generator for HAML 
+  gem "jquery-rails" # Template generator for jQuery 
   gem 'rails3-generators' # Template generator for Mongo Mapper 
 end 
 group :test do 

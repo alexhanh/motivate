@@ -4,8 +4,10 @@ module Consumable
     klass.class_eval do
       extend ClassMethods
       include InstanceMethods
+      include MongoMapper::NestedAttributes
       
       many :serving_sizes, :class_name => 'ServingSize'
+      accepts_nested_attributes_for :serving_sizes
       many :food_entries, :as => 'consumable' 
       
       validates_associated :serving_sizes
@@ -25,7 +27,6 @@ module Consumable
     def check_weight_volume
     #TODO: investigate why .count doesn't work
     #c = self.serving_sizes.count { |s| s.weight? }
-
     w = 0
     v = 0
     self.serving_sizes.each do |s|

@@ -1,0 +1,10 @@
+%p
+  %b Name:
+  = @product.name
+
+  - @product.serving_sizes.each do |ss|
+    .serving= ss.unit
+
+= link_to 'Edit', edit_product_path(@product)
+\|
+= link_to 'Back', product_path

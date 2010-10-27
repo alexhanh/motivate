@@ -1,0 +1,48 @@
+= form_for @product do |f|
+  -if @product.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
+      %ul
+        - @product.errors.full_messages.each do |msg|
+          %li= msg
+  -#if !@serving_size.nil? && @serving_size.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@serving_size.errors.count, "error")} prohibited this product from being saved:"
+      %ul
+        - @serving_size.errors.full_messages.each do |msg|
+          %li= msg
+  -#if !@nutrition_data.nil? && @nutrition_data.errors.any?
+    #errorExplanation
+      %h2= "#{pluralize(@nutrition_data.errors.count, "error")} prohibited this product from being saved:"
+      %ul
+        - @nutrition_data.errors.full_messages.each do |msg|
+          %li= msg
+  
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  
+  -if @product.new?
+    %fieldset
+      %legend Ravintoarvot
+      = f.fields_for :serving_sizes do |ss|
+        = ss.label :unit
+        = ss.text_field :unit
+
+        = ss.fields_for :nutrition_data do |nd|
+          .field
+            = nd.label :energy
+            = nd.text_field :energy
+          .field
+            = nd.label :protein
+            = nd.text_field :protein
+          .field
+            = nd.label :carbs
+            = nd.text_field :carbs
+          .field
+            = nd.label :fat
+            = nd.text_field :fat
+    
+  .actions
+    = f.submit 'Save'
