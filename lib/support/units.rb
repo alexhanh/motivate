@@ -1,3 +1,4 @@
+# coding: utf-8
 module Units
    
   CUSTOM      = 1
@@ -15,6 +16,9 @@ module Units
   TABLESPOON  = 1007
   COFFEESPOON = 1008
   CUP         = 1009
+  
+  All = {}
+  Common = [GRAM, DECILITER, MILLILITER, TEASPOON, TABLESPOON, CUP]
   
   Scales = {GRAM => 1.0, LITER => 1.0}
 
@@ -50,10 +54,32 @@ module Units
   def self.norm(s)
     s[0].downcase + s[1, s.length - 1].gsub(/([A-Z])/, "_\\1").downcase
   end
+   
+  def self.names
+    All.each_value.collect { |v| I18n.t("units.#{v.to_s.downcase}.name") }
+  end
   
-  self.constants.each do |c|
+  def self.common_names
+    Common.each.collect { |v| I18n.t("units.#{All[v].to_s.downcase}.name") }
+  end
+  
+  def self.find_code_by_string(s)
+    All.each do |key,value|
+      return key if I18n.t("units.#{value.to_s.downcase}.name").casecmp(s) == 0
+    end
+    Units::CUSTOM
+  end
+  
+  def self.find_string_by_code(code)
+    All.each do |key,value|
+      return I18n.t("units.#{value.to_s.downcase}.name") if key == code
+    end
+  end
+   
+  self.constants.each do |c|   
     s = norm(c.to_s)
     klass = self
+    All[klass.const_get(c)] = c
     Numeric.class_eval do
       define_method(s+"?") do
         self == klass.const_get(c)
@@ -85,6 +111,12 @@ module Units
     end
     define_method("custom?") do
       self.unit_type == Units::CUSTOM_TYPE
+    end
+    define_method("valid_unit?") do
+      Units::All.has_key?(self)
+    end
+    define_method("unit_name") do
+      @name ||= I18n.t("units.#{Units::All[self].to_s.downcase}.name", :default => Units::All[self].to_s.downcase) if self.valid_unit? && !self.custom?
     end
   end
 end

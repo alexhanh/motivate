@@ -31,7 +31,7 @@ describe Product do
   end
   
   it 'should not be valid if it contains more than one serving size with same names' do
-    @p.serving_sizes << ServingSize.new(:unit => 3, 
+    @p.serving_sizes << ServingSize.new(:unit => Units::CUSTOM,
                                        :singular => "foo", 
                                        :plural => "bar",
                                        :nutrition_data => Factory(:nutrition_data))

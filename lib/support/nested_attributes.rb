@@ -58,11 +58,22 @@ module MongoMapper
         raise TooManyDocuments, "Maximum #{options[:limit]} documents are allowed. Got #{attributes_collection.size} documents instead."
       end
 
+#      p "START====================================================================================="
+#      p association_name
+#      p attributes_collection
+
       if attributes_collection.is_a? Hash
+#        p "YES, A HASH"
         attributes_collection = attributes_collection.sort_by { |index, _| index.to_i }.map { |_, attributes| attributes }
       end
 
+#      p "AFTER SORT"
+#      p attributes_collection
+
+#      p "END========================================================================================"
+
       attributes_collection.each do |attributes|
+        p attributes
         attributes = attributes.with_indifferent_access
 
         if attributes['id'].blank?

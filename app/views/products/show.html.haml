@@ -3,8 +3,8 @@
   = @product.name
 
   - @product.serving_sizes.each do |ss|
-    .serving= ss.unit
+    .serving= ss.unit_name
 
 = link_to 'Edit', edit_product_path(@product)
 \|
-= link_to 'Back', product_path
+= link_to 'Back', products_path

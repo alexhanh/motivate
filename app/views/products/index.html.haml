@@ -1,16 +1,8 @@
 %h1 Listing products
 
-%table
-  %tr
-    %th Title
-    %th
-    %th
-    %th
+- @products.each do |product|
+  .product
+    = link_to product.name, product
 
-  - @products.each do |product|
-    %tr
-      %td= product.name
-      %td= link_to 'Show', product
 %br
-
 = link_to 'Lisää tuote', new_product_path

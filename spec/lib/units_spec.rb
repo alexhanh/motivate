@@ -27,4 +27,18 @@ describe Units do
     lambda {Units::convert(1, Units::GRAM, UNITS::DECILITER)}.should raise_error
     lambda {Units::convert(1, Units::CUSTOM, UNITS::DECILITER)}.should raise_error
   end
+  
+  it 'should give false for not valid units' do
+    Units::GRAM.valid_unit?.should == true
+    (-1).valid_unit?.should == false
+    Units::WEIGHT_TYPE.valid_unit?.should == false
+    Units::CUSTOM.valid_unit?.should == true
+  end
+  
+  it 'should give a unit name for valid units' do
+    p Units::GRAM.unit_name
+    p Units::WEIGHT_TYPE.unit_name
+    Units::GRAM.unit_name.nil?.should == false
+    Units::WEIGHT_TYPE.unit_name.nil?.should == true
+  end
 end

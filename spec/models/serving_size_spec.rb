@@ -56,7 +56,7 @@ describe ServingSize do
     end
     
     it 'should not be valid if inheritance is too deep' do
-      s = ServingSize.new(:unit => 3,
+      s = ServingSize.new(:unit => Units::CUSTOM,
                           :parent_amount => 10,
                           :singular => "laatikko", 
                           :plural => 'laatikkoa')

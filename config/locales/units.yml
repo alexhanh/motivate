@@ -1,0 +1,14 @@
+fi:
+  units:
+    gram:
+      name: g
+    deciliter:
+      name: dl
+    milliliter:
+      name: ml
+    teaspoon:
+      name: tl
+    tablespoon:
+      name: rkl
+    cup:
+      name: muki

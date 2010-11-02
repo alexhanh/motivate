@@ -19,18 +19,12 @@ class ProductsController < ApplicationController
   # GET /posts/new.xml
   def new
     @product = Product.new
-#    @product.serving_sizes.build
-#    @product.serving_sizes.first.nutrition_data.build
 
-    5.times do
+    #5.times do
       @product.serving_sizes.build
-      @product.serving_sizes.last.nutrition_data.build
-    end
-    
-    puts @product.serving_sizes.size
+      @product.serving_sizes.first.nutrition_data.build
+    #end
 
-#    @serving_size = "" #ServingSize.new
-#    @nutrition_data = NutritionData.new
     respond_with(@product)
   end
 
@@ -42,16 +36,8 @@ class ProductsController < ApplicationController
   # POST /posts
   # POST /posts.xml
   def create
-    @serving_size = ServingSize.new(params[:serving_size])
-    @serving_size.unit = Units::CUSTOM
-    @nutrition_data = NutritionData.new(params[:nutrition_data])
-    @serving_size.nutrition_data = @nutrition_data
     @product = Product.new(params[:product])
-    @product.serving_sizes = [@serving_size]
-    p @product
-    p @product.serving_sizes
     flash[:notice] = 'Product was successfully created.' if @product.save
-    p @product.valid?
     respond_with(@product)
   end
 

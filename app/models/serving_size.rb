@@ -10,7 +10,10 @@
 # :unit expressed the unit in which 
 class ServingSize
   include MongoMapper::EmbeddedDocument
-  
+  include MongoMapper::NestedAttributes
+
+  attr_accessor :quantity
+ 
   # expresses in which units user originally expressed the relation
   # so that we can build "purkki ~ 1 litra" again instead of "purkki ~ 1000 ml"
   # it should only be set when this is inherited
@@ -27,14 +30,21 @@ class ServingSize
                      
   key :singular, String
   key :plural, String
+  #key :custom_name, String
   
   key :parent_id, ObjectId
 
   one :nutrition_data
+  def nutrition_data_attributes=(d)
+    self.nutrition_data = NutritionData.new(d)
+  end
+#  accepts_nested_attributes_for :nutrition_data
+
   #embedded_in :product
   #belongs_to :product
 
   before_save :set_depth
+  before_save :normalize_units, :if => lambda { |s| !s.quantity.nil? }
 
   before_validation :downcase_inflections, :on => :create
 
@@ -54,6 +64,24 @@ class ServingSize
   validates_numericality_of :depth, :less_than_or_equal_to => 2
   
   validate :inflection_uniqueness
+  validate :unit_validness
+  
+  #/////////////////////////
+  # Virtual attributes
+  #/////////////////////////
+  
+  def unit_name=(s)
+    self.unit = Units::find_code_by_string(s)
+  end
+
+  def unit_name
+    return if self.unit.nil?
+    return self.singular if self.unit.custom?
+
+    Units::find_string_by_code(self.unit)
+  end
+  
+  #attr_accessor :new_unit_name
   
   #/////////////////////////
   # Validations
@@ -70,6 +98,12 @@ class ServingSize
             self.plural == s.singular)
         self.errors.add(:singular, "Serving size name is already taken.")
       end
+    end
+  end
+  
+  def unit_validness
+    unless self.unit.valid_unit?
+      self.errors.add(:test, "Not a valid unit.")
     end
   end
   
@@ -146,6 +180,10 @@ class ServingSize
   #/////////////////////////
   # Helpers
   #/////////////////////////
+  
+  def normalize_units
+    self.nutrition_data = self.nutrition_data.scale(1.0/Units::to_base(self.quantity.to_f, self.unit))
+  end
   
   def downcase_inflections
     #TODO: monkey-patch string.downcase and use ActiveSupport (mbchars) instead

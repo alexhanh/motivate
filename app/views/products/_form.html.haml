@@ -20,29 +20,40 @@
   
 
   .field
-    = f.label :name
+    = f.label :name, "Nimi"
     = f.text_field :name
   
   -if @product.new?
     %fieldset
       %legend Ravintoarvot
       = f.fields_for :serving_sizes do |ss|
-        = ss.label :unit
-        = ss.text_field :unit
+        = ss.label :quantity, "Maara"
+        = ss.text_field :quantity
+        
+        = ss.collection_select :unit_name, Units::common_names, :to_s, :to_s
+        
+        =# ss.label :new_unit_name, "tai maarittele uusi yksikko"
+        =# ss.text_field :new_unit_name
+
+        %hr
 
         = ss.fields_for :nutrition_data do |nd|
           .field
-            = nd.label :energy
+            = nd.label :energy, "Energiaa"
             = nd.text_field :energy
+            g
           .field
-            = nd.label :protein
+            = nd.label :protein, "Proteiinia"
             = nd.text_field :protein
+            g
           .field
-            = nd.label :carbs
+            = nd.label :carbs, "Hiilihydraatteja"
             = nd.text_field :carbs
+            g
           .field
-            = nd.label :fat
+            = nd.label :fat, "Rasvaa"
             = nd.text_field :fat
-    
+            g
+      
   .actions
-    = f.submit 'Save'
+    = f.submit 'Lisaa'
