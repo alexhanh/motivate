@@ -12,7 +12,7 @@ class ServingSize
   include MongoMapper::EmbeddedDocument
   include MongoMapper::NestedAttributes
 
-  attr_accessor :quantity
+  attr_accessor :quantity, :new_unit_name
  
   # expresses in which units user originally expressed the relation
   # so that we can build "purkki ~ 1 litra" again instead of "purkki ~ 1000 ml"
@@ -43,7 +43,7 @@ class ServingSize
   #embedded_in :product
   #belongs_to :product
 
-  before_save :set_depth
+  before_validation :set_depth
   before_save :normalize_units, :if => lambda { |s| !s.quantity.nil? }
 
   before_validation :downcase_inflections, :on => :create
@@ -79,6 +79,13 @@ class ServingSize
     return self.singular if self.unit.custom?
 
     Units::find_string_by_code(self.unit)
+  end
+  
+  def new_unit_name=(s)
+    self.unit = Units::CUSTOM
+    self.singular = s
+    self.plural = s
+    #set_depth
   end
   
   #attr_accessor :new_unit_name

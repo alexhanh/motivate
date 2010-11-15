@@ -5,6 +5,9 @@
   - @product.serving_sizes.each do |ss|
     .serving= ss.unit_name
 
+= link_to 'Lisaa annoskoko', new_product_serving_size_path(@product)
+%br
+
 = link_to 'Edit', edit_product_path(@product)
 \|
 = link_to 'Back', products_path

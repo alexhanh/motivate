@@ -1,0 +1,14 @@
+%h2="Uusi annoskoko tuotteelle #{@product.name}"
+
+= form_for [@product, @serving_size] do |f|
+  = f.label :new_unit_name, "Uusi annoskoko"
+  = f.text_field :new_unit_name
+
+  vastaa
+
+  = f.text_field :parent_amount
+  
+  = f.collection_select :parent_id, @product.serving_sizes, :id, :unit_name
+  = f.submit "Lisaa"
+  
+= link_to 'Takaisin', @product

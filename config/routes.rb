@@ -1,6 +1,8 @@
 Gr::Application.routes.draw do
   resources :posts
-  resources :products
+  resources :products do
+    resources :serving_sizes
+  end
 
   devise_for :users
 
