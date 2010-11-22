@@ -118,6 +118,12 @@ class ServingSize
   # Units
   #/////////////////////////
   
+  def parent_unit_name
+    return self.parent.unit_name if self.parent_display_unit.nil?
+
+    Units::find_string_by_code(self.parent_display_unit)
+  end
+  
   def weight?
     unit.weight?
   end

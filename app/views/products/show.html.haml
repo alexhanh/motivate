@@ -3,8 +3,13 @@
   = @product.name
 
   - @product.serving_sizes.each do |ss|
-    .serving= ss.unit_name
-
+    - if ss.root?
+      .serving= ss.unit_name
+    - else
+      .serving= ss.unit_name + " (#{ss.parent_amount} #{ss.parent_unit_name})"
+    .nutrition-data
+      = ss.compute_data.energy.to_s + " kcal"
+      
 = link_to 'Lisaa annoskoko', new_product_serving_size_path(@product)
 %br
 
