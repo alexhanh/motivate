@@ -35,7 +35,7 @@ module Units
   Scales[TEASPOON] =    Scales[MILLILITER]*5
   Scales[TABLESPOON] =  Scales[MILLILITER]*15
   Scales[CUP] =         Scales[MILLILITER]*250
-    
+  
   
   def self.convert(quantity, from, to)
     raise "Incompatible conversion" if from.unit_type != to.unit_type
@@ -52,7 +52,8 @@ module Units
   end
    
   def self.norm(s)
-    s[0].downcase + s[1, s.length - 1].gsub(/([A-Z])/, "_\\1").downcase
+    s.downcase
+    # s[0].downcase + s[1, s.length - 1].gsub(/([A-Z])/, "_\\1").downcase
   end
    
   def self.names
@@ -75,8 +76,8 @@ module Units
       return I18n.t("units.#{value.to_s.downcase}.name") if key == code
     end
   end
-   
-  self.constants.each do |c|   
+
+  self.constants.each do |c|
     s = norm(c.to_s)
     klass = self
     All[klass.const_get(c)] = c
