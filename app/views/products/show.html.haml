@@ -1,14 +1,10 @@
 %p
   %b Name:
   = @product.name
+  
+  %p= link_to "Syo", new_product_food_entry_path(@product)
 
-  - @product.serving_sizes.each do |ss|
-    - if ss.root?
-      .serving= ss.unit_name
-    - else
-      .serving= ss.unit_name + " (#{ss.parent_amount} #{ss.parent_unit_name})"
-    .nutrition-data
-      = ss.compute_data.energy.to_s + " kcal"
+  = render :partial => "serving_size", :collection => @product.serving_sizes
       
 = link_to 'Lisaa annoskoko', new_product_serving_size_path(@product)
 %br

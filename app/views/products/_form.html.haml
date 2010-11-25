@@ -30,7 +30,7 @@
         = ss.label :quantity, "Maara"
         = ss.text_field :quantity
         
-        = ss.collection_select :unit_name, Units::common_names, :to_s, :to_s
+        = ss.collection_select :unit_name, Units::Common, :to_s, :unit_name
         
         =# ss.label :new_unit_name, "tai maarittele uusi yksikko"
         =# ss.text_field :new_unit_name

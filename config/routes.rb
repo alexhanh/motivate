@@ -4,6 +4,14 @@ Gr::Application.routes.draw do
     resources :serving_sizes
   end
 
+  resources :products do
+    resources :food_entries
+  end
+  
+  resources :recipes do
+    resources :food_entries
+  end
+  
   devise_for :users
 
   root :to => "products#index"

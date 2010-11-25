@@ -1,0 +1,8 @@
+%h1 Uusi ruokalogi
+
+= form_for [@consumable, @food_entry] do |f|
+  = f.text_field :quantity
+  
+  = f.collection_select :unit, Units::, :to_s, :unit_name
+  
+  = f.submit "Lisaa"

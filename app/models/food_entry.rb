@@ -12,6 +12,8 @@ class FoodEntry
   key :user_id, ObjectId
   belongs_to :user
   
+  key :consumable_id, ObjectId
+  key :consumable_type, String
   belongs_to :consumable, :polymorphic => true
   
   #after_create :update_data

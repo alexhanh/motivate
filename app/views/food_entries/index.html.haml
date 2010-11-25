@@ -1,0 +1,8 @@
+- if @food_entries.count > 0
+  Consumables
+- @food_entries.each do |f|
+  .food_entry
+    = f.consumable_type
+    
+= form_for [@consumable, FoodEntry.new] do |f|
+  f.

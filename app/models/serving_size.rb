@@ -12,7 +12,7 @@ class ServingSize
   include MongoMapper::EmbeddedDocument
   include MongoMapper::NestedAttributes
 
-  attr_accessor :quantity, :new_unit_name
+  attr_accessor :quantity#, :new_unit_name
  
   # expresses in which units user originally expressed the relation
   # so that we can build "purkki ~ 1 litra" again instead of "purkki ~ 1000 ml"
@@ -61,7 +61,7 @@ class ServingSize
   validates_presence_of :unit
   validates_numericality_of :unit, :greater_than_or_equal_to => 0
   
-  validates_numericality_of :depth, :less_than_or_equal_to => 2
+  validates_numericality_of :depth, :less_than_or_equal_to => 3
   
   validate :inflection_uniqueness
   validate :unit_validness
@@ -72,6 +72,10 @@ class ServingSize
   
   def unit_name=(s)
     self.unit = Units::find_code_by_string(s)
+    if self.unit.custom?
+      self.singular = s
+      self.plural = s
+    end
   end
 
   def unit_name
@@ -81,12 +85,12 @@ class ServingSize
     Units::find_string_by_code(self.unit)
   end
   
-  def new_unit_name=(s)
-    self.unit = Units::CUSTOM
-    self.singular = s
-    self.plural = s
-    #set_depth
-  end
+  # def new_unit_name=(s)
+  #   self.unit = Units::CUSTOM
+  #   self.singular = s
+  #   self.plural = s
+  #   #set_depth
+  # end
   
   #attr_accessor :new_unit_name
   
@@ -118,7 +122,7 @@ class ServingSize
   # Units
   #/////////////////////////
   
-  def parent_unit_name
+  def parent_display_unit_name
     return self.parent.unit_name if self.parent_display_unit.nil?
 
     Units::find_string_by_code(self.parent_display_unit)

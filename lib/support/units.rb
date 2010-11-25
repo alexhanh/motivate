@@ -64,10 +64,16 @@ module Units
     Common.each.collect { |v| I18n.t("units.#{All[v].to_s.downcase}.name") }
   end
   
+  # def self.is_valid?(s)
+  #   s.to_i.valid_unit? if s.is_i? 
+  # end
+  
   def self.find_code_by_string(s)
-    All.each do |key,value|
-      return key if I18n.t("units.#{value.to_s.downcase}.name").casecmp(s) == 0
-    end
+    # All.each do |key,value|
+    #       return key if I18n.t("units.#{value.to_s.downcase}.name").casecmp(s) == 0
+    #     end
+    return s.to_i if s.is_i?
+    
     Units::CUSTOM
   end
   

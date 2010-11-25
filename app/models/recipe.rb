@@ -9,7 +9,6 @@ class Recipe
   key :unit, Integer
   
  # key :product_ids, Array
-  many :food_entries, :as => 'consumable'
   many :ingredients, :class_name => "Ingredient"
   
   validate :check_roots

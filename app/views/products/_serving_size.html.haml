@@ -1,0 +1,8 @@
+.p= "heh"
+
+- if serving_size.root?
+  .serving= serving_size.unit_name
+- else
+  .serving= serving_size.unit_name + " (#{serving_size.parent_amount} #{serving_size.parent_display_unit_name})"
+.nutrition-data
+  = serving_size.compute_data.energy.to_s + " kcal"
