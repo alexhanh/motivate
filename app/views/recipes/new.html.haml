@@ -1,0 +1,15 @@
+%h1 Uusi resepti
+
+= form_tag new_recipe_path, :method => "get", :id => 'products_search' do
+  = text_field_tag :search, params[:search], :autocomplete => "off"
+  = submit_tag "Hae", :name => nil
+
+#products  
+  = render 'products'
+
+#add_ingredient_dialog
+#ingredients
+
+= render :partial => 'form'
+
+= link_to 'Takaisin', recipes_path

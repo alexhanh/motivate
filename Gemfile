@@ -1,27 +1,22 @@
 source 'http://rubygems.org' 
-gem 'rails', '3.0.0' 
+gem 'rails', '3.0.3' 
 
 #MongoDB
-gem "mongo", "1.0.8" 
-# Using bson_ext 1.0.7 even though the console prints a warning that 
-# it "isn't being loaded 
-# because 1.0.9" is required b/c 1.0.9 throws an error for me: 
-# gems/ruby-1.9.2-head@rails3/gems/bson-1.0.9/lib/bson/byte_buffer.rb: 
-# 33:in `initialize': undefined method `pack' 
-# forismasterok??:BSON::ByteBuffer (NoMethodError) 
-# from gems/ruby-1.9.2-head@rails3/gems/bson-1.0.9/lib/bson/ 
-# bson_c.rb:28:in `new' 
-gem "bson_ext", "1.0.7" 
-gem "devise", "1.1.2" 
-# Using rails3 branch for ActiveModel support (i.e., object.to_xml) 
-gem "mongo_mapper", :git => "git://github.com/jnunemaker/mongomapper", :branch => "rails3" 
-# gem 'mm-devise', '1.1.3' 
+gem "mongo", "1.1" 
+#gem "bson_ext", "1.0.7" 
+gem "bson_ext", "1.1"
+gem "bson", "1.1"
+gem "devise", "1.1.3" 
+gem "mongo_mapper", :branch => "rails3", :git => "git://github.com/jnunemaker/mongomapper"
 gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo_mapper' 
+#gem 'hunt', :git => 'git://github.com/jnunemaker/hunt.git'
+gem 'fast-stemmer', :git => 'git://github.com/romanbsd/fast-stemmer.git'
 
 gem "haml", "3.0.18" 
 gem "responders", "0.6.2"
 gem "unicode"
 gem "nifty-generators"
+gem "will_paginate", "3.0.pre2"
 
 group :production do 
   gem "heroku", "1.10.5" 

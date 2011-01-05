@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @products = Product.all
+    @products = Product.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
     respond_with(@products)
   end
 
@@ -55,6 +55,11 @@ class ProductsController < ApplicationController
   def destroy
     @product = Post.first(params[:id])
     @product.destroy
+    respond_with(@product)
+  end
+  
+  def test
+    @product = Product.find(params[:id])
     respond_with(@product)
   end
 end

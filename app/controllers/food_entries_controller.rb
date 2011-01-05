@@ -4,7 +4,6 @@ class FoodEntriesController < ApplicationController
   # GET /posts.xml
   def index
     @consumable = find_consumable
-    p @consumable.class
   end
 
   # GET /posts/1
@@ -27,6 +26,19 @@ class FoodEntriesController < ApplicationController
   # POST /posts.xml
   def create
     @consumable = find_consumable
+    
+    # alternative syntax:
+    # @food_entry = FoodEntry.new(params[:food_entry])
+    # @food_entry.consumable = @consumable
+    @food_entry = @consumable.food_entries.build(params[:food_entry])
+
+    @food_entry.update_data
+    if @food_entry.save
+      flash[:notice] = 'Food entry was successfully created.'
+      redirect_to index
+    else
+      
+    end
   end
 
   # PUT /posts/1

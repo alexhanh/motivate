@@ -18,7 +18,21 @@ class FoodEntry
   
   #after_create :update_data
   
+  def unit_name
+    ""
+  end
+  
+  def unit_name=(s)
+    if s.is_i?
+      self.unit = s
+    else
+      self.unit = Units::CUSTOM
+      self.custom_unit_name = s
+    end
+  end
+  
   def update_data
     self.nutrition_data = consumable.compute_data(quantity, unit, custom_unit_name)
+    p self.nutrition_data
   end
 end

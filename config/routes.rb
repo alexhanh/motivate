@@ -1,8 +1,10 @@
 Gr::Application.routes.draw do
-  resources :posts
   resources :products do
     resources :serving_sizes
   end
+
+  match 'recipes/:id/find_ingredient/:ingredient_id' => 'recipes#find_ingredient'
+  match 'recipes/add_ingredient' => 'recipes#add_ingredient'
 
   resources :products do
     resources :food_entries
@@ -10,6 +12,7 @@ Gr::Application.routes.draw do
   
   resources :recipes do
     resources :food_entries
+    resources :ingredients
   end
   
   devise_for :users

@@ -1,0 +1,4 @@
+= form_for @ingredient, :url => "recipes/add_ingredient", :remote => true do |f|
+  = f.text_field :quantity
+  = f.collection_select :serving_size, @product.serving_sizes, :id, :unit_name
+  = f.submit "lisaa"

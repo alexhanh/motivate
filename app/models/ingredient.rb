@@ -18,4 +18,18 @@ class Ingredient
   def compute_data
     product.compute_data(quantity, unit, custom_unit_name)
   end
+  
+  #/////////////////////////
+  # Virtual attributes
+  #/////////////////////////
+  
+  def serving_size=(s)
+    serving_size = self.product.serving_sizes.find(s)
+    self.unit = serving_size.unit
+    self.custom_unit_name = serving_size.unit_name if serving_size.custom?
+  end
+  
+  def serving_size
+    
+  end
 end

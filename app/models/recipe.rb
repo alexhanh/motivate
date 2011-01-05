@@ -5,14 +5,17 @@ class Recipe
   #include Support::Voteable
   
   key :name, String
+  key :servings_produced, Float
   key :units_produced, Float
-  key :unit, Integer
+  #key :unit, Integer
   
  # key :product_ids, Array
   many :ingredients, :class_name => "Ingredient"
   
   validate :check_roots
-  validates_presence_of :unit, :units_produced
+  validates_presence_of :units_produced
+  
+  validates_numericality_of :units_produced, :greater_than_or_equal_to => 0
   
   # after create call update data
 
