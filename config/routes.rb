@@ -3,8 +3,9 @@ Gr::Application.routes.draw do
     resources :serving_sizes
   end
 
-  match 'recipes/:id/find_ingredient/:ingredient_id' => 'recipes#find_ingredient'
+  match 'recipes/find_ingredient/:ingredient_id' => 'recipes#find_ingredient'
   match 'recipes/add_ingredient' => 'recipes#add_ingredient'
+  match 'recipes/:id/remove_ingredient/:ingredient_id' => 'recipes#remove_ingredient'
 
   resources :products do
     resources :food_entries

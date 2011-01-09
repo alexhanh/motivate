@@ -1,0 +1,11 @@
+%h1 Reseptit
+
+- @recipes.each do |recipe|
+  .recipe
+    = link_to recipe.name, recipe
+    = link_to "edit", edit_recipe_path(recipe)
+
+%br
+= will_paginate @recipes
+%br
+= link_to 'Lisää resepti', new_recipe_path

@@ -19,16 +19,35 @@ class Product
   #/////////////////////////
  
   def compute_data(quantity, unit, custom_name=nil)
+    # wanted_type = unit.unit_type
+    # self.serving_sizes.each do |s|
+    #   if s.unit.unit_type == wanted_type
+    #     if unit.custom?
+    #       if (custom_name.casecmp(s.custom_name))
+    #         return s.compute_data(quantity) 
+    #       end
+    #     else
+    #       return s.compute_data(Units::to_base(quantity, unit))
+    #     end
+    #   end
+    # end
+    s = find_serving_size(unit, custom_name)
+    return if s.nil?
+    return s.compute_data(quantity) if s.custom?
+    return s.compute_data(Units::to_base(quantity, unit))
+  end
+  
+  #//////
+  #/ Uncathegorized
+  #//////
+  def find_serving_size(unit, custom_name=nil)
     wanted_type = unit.unit_type
     self.serving_sizes.each do |s|
       if s.unit.unit_type == wanted_type
         if unit.custom?
-          if (custom_name.casecmp(s.singular) == 0 ||
-              custom_name.casecmp(s.plural) == 0)
-            return s.compute_data(quantity) 
-          end
+          return s if (custom_name.casecmp(s.custom_name))
         else
-          return s.compute_data(Units::to_base(quantity, unit))
+          return s
         end
       end
     end

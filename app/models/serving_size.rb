@@ -26,11 +26,9 @@ class ServingSize
   key :depth, Integer, :default => 0
   # parent unit's type should equal to parent.type
   
-  key :unit, Integer 
+  key :unit, Integer#, :default => 1
                      
-  key :singular, String
-  key :plural, String
-  #key :custom_name, String
+  key :custom_name, String
   
   key :parent_id, ObjectId
 
@@ -41,7 +39,7 @@ class ServingSize
 #  accepts_nested_attributes_for :nutrition_data
 
   #embedded_in :product
-  #belongs_to :product
+  #embedded_in :consumable
 
   before_validation :set_depth
   before_save :normalize_units, :if => lambda { |s| !s.quantity.nil? }
@@ -50,47 +48,40 @@ class ServingSize
 
   #TODO: add error messages  
   #TODO: replace lambdas with with_options
-  validates_presence_of :parent_amount, :parent_id, :if => lambda { |s| !s.root? }
-  validates_numericality_of :parent_amount, :greater_than => 0, :if => lambda { |s| !s.root? }
-  #validates_numericality_of :parent_display_unit, :greater_than_or_equal_to => 0, :if => lambda { |s| !s.root? }
-  validates_format_of :singular, :plural, :with => /\A[[:alpha:] ]+\Z/, :if => lambda { |s| !s.root? }
-  
-  validates_length_of :singular, :plural, :in => 1..20, :if => lambda { |s| s.custom? }
-  validates_presence_of :nutrition_data, :if => lambda { |s| s.root? }
-
+  # validates_presence_of :parent_amount, :parent_id, :if => lambda { |s| !s.root? }
+  # validates_numericality_of :parent_amount, :greater_than => 0, :if => lambda { |s| !s.root? }
+  # #validates_numericality_of :parent_display_unit, :greater_than_or_equal_to => 0, :if => lambda { |s| !s.root? }
+  # validates_format_of :custom_name, :with => /\A[[:alpha:] ]+\Z/, :if => lambda { |s| s.custom? }
+  # validates_length_of :custom_name, :in => 1..20, :if => lambda { |s| s.custom? }
+  # 
+  # validates_presence_of :nutrition_data, :if => lambda { |s| s.root? }
+  # 
   validates_presence_of :unit
   validates_numericality_of :unit, :greater_than_or_equal_to => 0
   
   validates_numericality_of :depth, :less_than_or_equal_to => 3
   
-  validate :inflection_uniqueness
   validate :unit_validness
+  validate :inflection_uniqueness
   
   #/////////////////////////
   # Virtual attributes
   #/////////////////////////
   
-  def unit_name=(s)
-    self.unit = Units::find_code_by_string(s)
-    if self.unit.custom?
-      self.singular = s
-      self.plural = s
-    end
-  end
+  # def unit_name=(s)
+  #   self.unit = Units::find_code_by_string(s)
+  #   
+  #   if self.unit.custom?
+  #     self.singular = s
+  #     self.plural = s
+  #   end
+  # end
 
   def unit_name
-    return if self.unit.nil?
-    return self.singular if self.unit.custom?
+    return self.custom_name if self.unit.custom?
 
     Units::find_string_by_code(self.unit)
   end
-  
-  # def new_unit_name=(s)
-  #   self.unit = Units::CUSTOM
-  #   self.singular = s
-  #   self.plural = s
-  #   #set_depth
-  # end
   
   #attr_accessor :new_unit_name
   
@@ -102,19 +93,17 @@ class ServingSize
     self._root_document.serving_sizes.each do |s|
       # since weight and volume gets validated by check_weight_volume
       # it is enough to check custom units
-      if s.custom? && s.id != self.id && (
-            self.singular == s.singular || 
-            self.singular == s.plural ||
-            self.plural == s.plural ||
-            self.plural == s.singular)
-        self.errors.add(:singular, "Serving size name is already taken.")
+      if s.custom? && s.id != self.id && (self.custom_name == s.custom_name)
+        self.errors.add(:custom_name, "Serving size name is already taken.")
+        return false
       end
     end
   end
   
   def unit_validness
     unless self.unit.valid_unit?
-      self.errors.add(:test, "Not a valid unit.")
+      self.errors.add(:custom_name, "Not a valid unit.")
+      return false
     end
   end
   
@@ -204,7 +193,6 @@ class ServingSize
   
   def downcase_inflections
     #TODO: monkey-patch string.downcase and use ActiveSupport (mbchars) instead
-    self.singular = Unicode::downcase(singular.strip) if singular
-    self.plural = Unicode::downcase(plural.strip) if plural
+    self.custom_name = Unicode::downcase(self.custom_name.strip) if custom_name
   end
 end

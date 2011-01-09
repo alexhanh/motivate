@@ -1,12 +1,13 @@
 %h1 Uusi ruokalogi
 
 = form_for [@consumable, @food_entry] do |f|
-  /= render 'shared/consumable', :f => f
+  = f.error_messages
+
   = f.text_field :quantity
 
-  = f.select "unit_name", @consumable.to_units
+  = f.select :unit_proxy, @consumable.to_units
   
-  = f.submit "Lisaa"
+  = f.submit "Lisää"
   
   
   

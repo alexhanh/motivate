@@ -1,3 +1,4 @@
+# coding: utf-8
 class ServingSizesController < ApplicationController
 #  respond_to :html, :xml
 #  def create
@@ -6,10 +7,14 @@ class ServingSizesController < ApplicationController
 #  end
   def create
     @product = Product.find(params[:product_id])
-    @product.serving_sizes << ServingSize.new(params[:serving_size])
-    p @product.serving_sizes.last
-    @product.save!
-    redirect_to @product, :notice => "Annoskoko lisattiin onnistuneesti!"
+    @serving_size = ServingSize.new(params[:serving_size])
+    @product.serving_sizes << @serving_size
+    if @serving_size.valid? && @product.save
+      redirect_to @product, :notice => "Annoskoko lisättiin onnistuneesti!"
+    else
+      @product.serving_sizes.delete_at(-1)
+      render :action => 'new'
+    end
   end
   
   def new

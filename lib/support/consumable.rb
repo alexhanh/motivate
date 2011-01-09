@@ -6,11 +6,12 @@ module Consumable
       include InstanceMethods
       include MongoMapper::NestedAttributes
       
-      many :serving_sizes, :class_name => 'ServingSize'
-      accepts_nested_attributes_for :serving_sizes
+      many :serving_sizes, :class_name => 'ServingSize', :dependent => :destroy
+      accepts_nested_attributes_for :serving_sizes, :allow_destroy => true
+      validates_associated :serving_sizes
+      
       many :food_entries, :as => 'consumable' 
       
-      validates_associated :serving_sizes
       validate :check_serving_size_count
       validate :check_weight_volume
     end
@@ -41,12 +42,23 @@ module Consumable
     end
     
     def to_units
+      p "sdffas"
       hash = Hash.new
+      has_weight = false
+      has_volume = false
       self.serving_sizes.each do |s|
         hash[s.unit_name] = s.unit_name if s.unit.custom?
-        hash[s.unit_name] = s.unit unless s.unit.custom?
+        # hash[s.unit_name] = s.unit unless s.unit.custom?
+        has_weight = true if s.unit.weight?
+        has_volume = true if s.unit.volume?
         # TODO: add perhaps a few more common units for weight and volume (if volume, then dl+cup+etc.)
       end
+      
+      add_units = []
+      add_units = add_units + Units::CommonWeight if has_weight
+      add_units = add_units + Units::CommonVolume if has_volume
+      
+      add_units.each { |u| hash[u.unit_name] = u }
       
       return hash
     end

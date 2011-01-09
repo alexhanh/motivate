@@ -1,8 +1,14 @@
 %h2="Uusi annoskoko tuotteelle #{@product.name}"
 
 = form_for [@product, @serving_size] do |f|
-  = f.label :unit_name, "Uusi annoskoko"
-  = f.text_field :unit_name
+  = f.error_messages
+  = error_messages_for @product
+
+  = f.label :custom_name, "Uusi annoskoko"
+
+  /= f.collection_select :unit, Units::Common, :to_s, :unit_name
+  = unit_select_list @product, f
+  = f.text_field :custom_name
 
   vastaa
 

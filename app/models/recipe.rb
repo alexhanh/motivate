@@ -2,22 +2,23 @@
 class Recipe
   include MongoMapper::Document
   include Support::Consumable
+  
   #include Support::Voteable
   
   key :name, String
   key :servings_produced, Float
-  key :units_produced, Float
+  key :quantity, Float
+  
+  #key :units_produced, Float
   #key :unit, Integer
   
  # key :product_ids, Array
-  many :ingredients, :class_name => "Ingredient"
+  many :ingredients, :dependent => :destroy, :class_name => "Ingredient"
+  accepts_nested_attributes_for :ingredients, :allow_destroy => true
   
   validate :check_roots
-  validates_presence_of :units_produced
   
-  validates_numericality_of :units_produced, :greater_than_or_equal_to => 0
-  
-  # after create call update data
+  before_save :update_data
 
   #TODO: test  
   def update_data
@@ -25,7 +26,7 @@ class Recipe
     ingredients.each {|i| sum.add(i.compute_data)}
     #TODO: concidering moving this to serving_size.set_data(4, Units::DECILITER, data)
 
-    factor = 1.0/Units::to_base(units_produced, unit)
+    factor = 1.0/(Units::to_base(quantity, unit)*servings_produced)
     serving_sizes[0].nutrition_data = sum.data.scale(factor)
   end
   

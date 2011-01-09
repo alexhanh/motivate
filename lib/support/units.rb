@@ -19,6 +19,8 @@ module Units
   
   All = {}
   Common = [GRAM, DECILITER, MILLILITER, TEASPOON, TABLESPOON, CUP]
+  CommonWeight = [GRAM]
+  CommonVolume = [DECILITER, MILLILITER, TEASPOON, TABLESPOON, CUP]
   
   Scales = {GRAM => 1.0, LITER => 1.0}
 

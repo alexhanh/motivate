@@ -1,17 +1,35 @@
+= form_tag new_recipe_path, :method => "get", :id => 'products_search' do
+  = text_field_tag :search, params[:search], :autocomplete => "off"
+  = submit_tag "Hae", :name => nil
+
+#products  
+  = render 'products'
+
+#add_ingredient_dialog
+
 = form_for @recipe do |f|
   = f.error_messages
 
+  %hr
+  #ingredients
+    - @recipe.ingredients.each do |ingredient|
+      .ingredient
+        %p= ingredient.product.name + "(" + ingredient.quantity.to_s + ingredient.unit_name + ")"
+        = link_to "Poista", "/recipes/"+@recipe.id.to_s+"/remove_ingredient/"+ingredient.id.to_s, :class => "remove_ingredient", :method => :delete, :remote => true
+  %hr
+  
   .field
     = f.label :name, "Nimi"
     = f.text_field :name
   
-  = f.label :units_produced, "Montako annosta tästä syntyy?"
-  = f.text_field :units_produced
+  .field
+    = f.label :servings_produced, "Montako annosta tästä syntyy?"
+    = f.text_field :servings_produced
 
-  = f.label :quantity, "Annoskoko"
-  /= f.text_field :quantity
   = f.fields_for :serving_sizes do |ss|
-    = ss.collection_select :unit_name, Units::Common, :to_s, :unit_name
+    = ss.text_field :quantity
+    = ss.collection_select :unit, Units::Common, :to_s, :unit_name
+    = ss.text_field :custom_name
 
   .actions
-    = f.submit 'Lisaa'
+    = f.submit 'Tallenna'

@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
       @product.serving_sizes.first.nutrition_data.build
     #end
 
-    respond_with(@product)
+    respond_with @product
   end
 
   # GET /posts/1/edit
@@ -37,8 +37,13 @@ class ProductsController < ApplicationController
   # POST /posts.xml
   def create
     @product = Product.new(params[:product])
-    flash[:notice] = 'Product was successfully created.' if @product.save
-    respond_with(@product)
+
+    if @product.save
+      flash[:notice] = 'Product was successfully created.'
+      redirect_to @product
+    else
+      render :action => 'new'
+    end
   end
 
   # PUT /posts/1

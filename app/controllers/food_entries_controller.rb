@@ -32,12 +32,11 @@ class FoodEntriesController < ApplicationController
     # @food_entry.consumable = @consumable
     @food_entry = @consumable.food_entries.build(params[:food_entry])
 
-    @food_entry.update_data
-    if @food_entry.save
+    if @food_entry.valid? && @food_entry.update_data && @food_entry.save
       flash[:notice] = 'Food entry was successfully created.'
       redirect_to index
     else
-      
+      render :action => 'new'
     end
   end
 

@@ -1,0 +1,10 @@
+= form_for @recipe, :url => "#" do |f|
+  .ingredient
+    - @recipe.ingredients.each do |ingredient|
+      = f.fields_for :ingredients, ingredient, :child_index => "#{Time.now.to_i.to_s+Time.now.usec.to_s}" do |i|
+        = i.hidden_field :quantity
+        = i.hidden_field :unit
+        = i.hidden_field :custom_unit_name
+        = i.hidden_field :product_id
+        %p= ingredient.product.name + "(" + ingredient.quantity.to_s + ingredient.unit_name + ")"
+        = link_to "Poista", "/recipes/"+@recipe.id.to_s+"/remove_ingredient/"+ingredient.id.to_s, :class => "remove_ingredient", :method => :delete, :remote => true
