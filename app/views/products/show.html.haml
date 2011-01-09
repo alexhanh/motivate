@@ -4,7 +4,7 @@
   
   %p= link_to "Syo", new_product_food_entry_path(@product)
 
-  = render :partial => "serving_size", :collection => @product.serving_sizes
+  = render :partial => "shared/serving_size", :collection => @product.serving_sizes
       
 = link_to 'Lisaa annoskoko', new_product_serving_size_path(@product)
 %br

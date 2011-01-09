@@ -4,17 +4,18 @@
   = f.error_messages
   = error_messages_for @product
 
-  = f.label :custom_name, "Uusi annoskoko"
+  = f.label :custom_unit, "Uusi annoskoko"
 
   /= f.collection_select :unit, Units::Common, :to_s, :unit_name
   = unit_select_list @product, f
-  = f.text_field :custom_name
+  = f.text_field :custom_unit
 
   vastaa
 
-  = f.text_field :parent_amount
+  = f.text_field :parent_quantity
   
-  = f.collection_select :parent_id, @product.serving_sizes, :id, :unit_name
+  /= f.collection_select :parent_id, @product.serving_sizes, :id, :unit_name
+  = f.select :parent_unit_proxy, @product.to_units
   = f.submit "Lisaa"
   
 = link_to 'Takaisin', @product

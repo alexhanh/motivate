@@ -1,6 +1,5 @@
 = form_tag new_recipe_path, :method => "get", :id => 'products_search' do
   = text_field_tag :search, params[:search], :autocomplete => "off"
-  = submit_tag "Hae", :name => nil
 
 #products  
   = render 'products'
@@ -22,14 +21,15 @@
     = f.label :name, "Nimi"
     = f.text_field :name
   
-  .field
-    = f.label :servings_produced, "Montako annosta tästä syntyy?"
-    = f.text_field :servings_produced
+  /.field
+  /= f.label :servings_produced, "Montako annosta tästä syntyy?"
+  /= f.text_field :servings_produced
 
+  = f.label :serving_sizes, "Montako annosta tästä syntyy?"
   = f.fields_for :serving_sizes do |ss|
     = ss.text_field :quantity
     = ss.collection_select :unit, Units::Common, :to_s, :unit_name
-    = ss.text_field :custom_name
+    = ss.text_field :custom_unit
 
   .actions
     = f.submit 'Tallenna'

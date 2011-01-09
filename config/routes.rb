@@ -7,6 +7,9 @@ Gr::Application.routes.draw do
   match 'recipes/add_ingredient' => 'recipes#add_ingredient'
   match 'recipes/:id/remove_ingredient/:ingredient_id' => 'recipes#remove_ingredient'
 
+  # hack to display food_entries (since they are nested)
+  match 'eaten' => 'food_entries#listtest', :as => :eaten
+
   resources :products do
     resources :food_entries
   end

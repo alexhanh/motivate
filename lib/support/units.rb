@@ -127,5 +127,10 @@ module Units
     define_method("unit_name") do
       @name ||= I18n.t("units.#{Units::All[self].to_s.downcase}.name", :default => Units::All[self].to_s.downcase) if self.valid_unit? && !self.custom?
     end
+    define_method("base") do
+      return self if custom?
+      return Units::GRAM if weight?
+      return Units::LITER if volume?
+    end
   end
 end

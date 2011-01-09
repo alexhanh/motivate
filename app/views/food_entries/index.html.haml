@@ -1,8 +1,5 @@
-- if @food_entries.count > 0
-  Consumables
 - @food_entries.each do |f|
   .food_entry
-    = f.consumable_type
+    = quantity_unit(f) + " #{f.consumable.name} (#{f.nutrition_data.energy} kcal)"
     
-= form_for [@consumable, FoodEntry.new] do |f|
-  f.
+= will_paginate @food_entries

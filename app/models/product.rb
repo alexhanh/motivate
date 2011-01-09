@@ -6,8 +6,6 @@ class Product
   
   key :user_id
   belongs_to :user
-
-  many :ingredients, :class_name => 'Ingredient', :foreign_key => :product_id
   
   validates_presence_of :name
    
@@ -18,40 +16,7 @@ class Product
   # Validations
   #/////////////////////////
  
-  def compute_data(quantity, unit, custom_name=nil)
-    # wanted_type = unit.unit_type
-    # self.serving_sizes.each do |s|
-    #   if s.unit.unit_type == wanted_type
-    #     if unit.custom?
-    #       if (custom_name.casecmp(s.custom_name))
-    #         return s.compute_data(quantity) 
-    #       end
-    #     else
-    #       return s.compute_data(Units::to_base(quantity, unit))
-    #     end
-    #   end
-    # end
-    s = find_serving_size(unit, custom_name)
-    return if s.nil?
-    return s.compute_data(quantity) if s.custom?
-    return s.compute_data(Units::to_base(quantity, unit))
-  end
-  
-  #//////
-  #/ Uncathegorized
-  #//////
-  def find_serving_size(unit, custom_name=nil)
-    wanted_type = unit.unit_type
-    self.serving_sizes.each do |s|
-      if s.unit.unit_type == wanted_type
-        if unit.custom?
-          return s if (custom_name.casecmp(s.custom_name))
-        else
-          return s
-        end
-      end
-    end
-  end
+
   
   #//////
   # Search

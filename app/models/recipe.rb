@@ -6,27 +6,24 @@ class Recipe
   #include Support::Voteable
   
   key :name, String
-  key :servings_produced, Float
-  key :quantity, Float
+  #key :servings_produced, Float
   
-  #key :units_produced, Float
-  #key :unit, Integer
-  
- # key :product_ids, Array
+  #key :product_ids, Array
   many :ingredients, :dependent => :destroy, :class_name => "Ingredient"
   accepts_nested_attributes_for :ingredients, :allow_destroy => true
   
   validate :check_roots
   
   before_save :update_data
+  
+  belongs_to :creator, :class_name => "User"
 
-  #TODO: test  
   def update_data
     sum = NutritionStats.new
     ingredients.each {|i| sum.add(i.compute_data)}
     #TODO: concidering moving this to serving_size.set_data(4, Units::DECILITER, data)
-
-    factor = 1.0/(Units::to_base(quantity, unit)*servings_produced)
+    s = serving_sizes[0]
+    factor = 1.0/(Units::to_base(s.quantity, s.unit))#*servings_produced)
     serving_sizes[0].nutrition_data = sum.data.scale(factor)
   end
   

@@ -1,1 +1,5 @@
 %h2= @recipe.name
+
+%p= link_to "Syo", new_recipe_food_entry_path(@recipe)
+
+= render :partial => "shared/serving_size", :collection => @recipe.serving_sizes

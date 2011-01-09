@@ -4,6 +4,7 @@
   .recipe
     = link_to recipe.name, recipe
     = link_to "edit", edit_recipe_path(recipe)
+    = link_to_eat(recipe)
 
 %br
 = will_paginate @recipes

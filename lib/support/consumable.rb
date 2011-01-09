@@ -19,6 +19,40 @@ module Consumable
   
   module InstanceMethods
     
+    def find_serving_size(unit, custom_unit=nil)
+      wanted_type = unit.unit_type
+      self.serving_sizes.each do |s|
+        if s.unit.unit_type == wanted_type
+          if unit.custom?
+            if (custom_unit.casecmp(s.custom_unit) == 0)
+              return s
+            end
+          else
+            return s
+          end
+        end
+      end
+    end
+    
+    def compute_data(quantity, unit, custom_name=nil)
+      # wanted_type = unit.unit_type
+      # self.serving_sizes.each do |s|
+      #   if s.unit.unit_type == wanted_type
+      #     if unit.custom?
+      #       if (custom_name.casecmp(s.custom_name))
+      #         return s.compute_data(quantity) 
+      #       end
+      #     else
+      #       return s.compute_data(Units::to_base(quantity, unit))
+      #     end
+      #   end
+      # end
+      s = find_serving_size(unit, custom_name)
+      return if s.nil?
+      return s.compute_data(quantity) if s.custom?
+      return s.compute_data(Units::to_base(quantity, unit))
+    end
+    
     def check_serving_size_count
       if self.serving_sizes.size > 10
         self.errors.add(:serving_sizes, "Cannot contain more than 10 serving sizes.")
@@ -42,16 +76,13 @@ module Consumable
     end
     
     def to_units
-      p "sdffas"
       hash = Hash.new
       has_weight = false
       has_volume = false
       self.serving_sizes.each do |s|
         hash[s.unit_name] = s.unit_name if s.unit.custom?
-        # hash[s.unit_name] = s.unit unless s.unit.custom?
         has_weight = true if s.unit.weight?
         has_volume = true if s.unit.volume?
-        # TODO: add perhaps a few more common units for weight and volume (if volume, then dl+cup+etc.)
       end
       
       add_units = []

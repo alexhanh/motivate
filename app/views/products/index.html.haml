@@ -1,9 +1,9 @@
-%h1 Listing products
+%h1 Tuotteet
 
 - @products.each do |product|
   .product
     = link_to product.name, product
-    = link_to "Syo", new_product_food_entry_path(product)
+    = link_to_eat(product)
 
 %br
 = will_paginate @products

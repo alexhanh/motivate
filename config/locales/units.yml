@@ -2,6 +2,8 @@ fi:
   units:
     gram:
       name: g
+    liter:
+      name: l
     deciliter:
       name: dl
     milliliter:

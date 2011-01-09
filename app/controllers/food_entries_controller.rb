@@ -5,6 +5,11 @@ class FoodEntriesController < ApplicationController
   def index
     @consumable = find_consumable
   end
+  
+  def listtest
+    @food_entries = FoodEntry.paginate(:per_page => 5, :page => params[:page])
+    render :index
+  end
 
   # GET /posts/1
   # GET /posts/1.xml

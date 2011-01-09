@@ -5,7 +5,7 @@ class Ingredient
   key :unit, Integer
   
   # cached values
-  key :custom_unit_name, String
+  key :custom_unit, String
   
   key :product_id, ObjectId
   belongs_to :product, :class_name => 'Product'
@@ -13,10 +13,10 @@ class Ingredient
   embedded_in :recipe
    
   validates_presence_of :product, :quantity, :unit
-  validates_presence_of :custom_unit_name, :if => lambda { unit.custom? }
+  validates_presence_of :custom_unit, :if => lambda { unit.custom? }
   
   def compute_data
-    product.compute_data(quantity, unit, custom_unit_name)
+    product.compute_data(quantity, unit, custom_unit)
   end
   
   #/////////////////////////
@@ -35,7 +35,7 @@ class Ingredient
   
   def unit_proxy
     return if unit.nil?
-    return custom_unit_name if unit.custom?
+    return custom_unit if unit.custom?
     return unit
   end
   
@@ -44,10 +44,10 @@ class Ingredient
       self.unit = s.to_i
     else
       self.unit = Units::CUSTOM
-      self.custom_unit_name = s
+      self.custom_unit = s
     end
     
-    s = product.find_serving_size(unit, custom_unit_name)
+    s = product.find_serving_size(unit, custom_unit)
     # TODO: Add an error here!
     return if s.nil?
   end
@@ -56,7 +56,7 @@ class Ingredient
   
   def unit_name
     return if self.unit.nil?
-    return self.custom_unit_name if self.unit.custom?
+    return self.custom_unit if self.unit.custom?
 
     Units::find_string_by_code(self.unit)
   end

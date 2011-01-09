@@ -17,9 +17,9 @@ $(document).ready(function() {
 	
 	
 	
-	var $units_select = $('#new_product select[name*="[unit]"], #new_recipe select[name*="[unit]"], #new_serving_size select[name*="[unit]"], .edit_serving_size select[name*="[unit]"]').append('<option value="1" id="new_unit_name_option">Uusi yksikkö</option>');
+	var $units_select = $('#new_product select[name*="[unit]"], #new_recipe select[name*="[unit]"], #new_serving_size select[name*="[unit]"], .edit_serving_size select[name*="[unit]"], .edit_recipe select[name*="[unit]"]').append('<option value="1" id="new_unit_name_option">Uusi yksikkö</option>');
 	
-	var $new_unit_name = $('input[name*="[custom_name]"]').hide();
+	var $new_unit_name = $('input[name*="[custom_unit]"]').hide();
 	
 	if ($new_unit_name.val() != '' || $units_select.val() == '1') {
 		$units_select.find("#new_unit_name_option").attr("selected", "true");

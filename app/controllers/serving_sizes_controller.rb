@@ -9,6 +9,7 @@ class ServingSizesController < ApplicationController
     @product = Product.find(params[:product_id])
     @serving_size = ServingSize.new(params[:serving_size])
     @product.serving_sizes << @serving_size
+
     if @serving_size.valid? && @product.save
       redirect_to @product, :notice => "Annoskoko lisättiin onnistuneesti!"
     else
