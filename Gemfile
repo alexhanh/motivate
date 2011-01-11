@@ -9,7 +9,10 @@ gem "bson_ext", "1.1"
 gem "bson", "1.1"
 
 gem "devise", "1.1.3" 
-gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo_mapper' 
+gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo_mapper'
+#todo: concider changing to https://github.com/kristianmandrup/mm-devise (seems to work with devise 1.1.5)
+#      or https://github.com/kristianmandrup/cream-app-mongo_mapper
+gem 'cancan'
 
 gem "haml"
 gem "will_paginate", "3.0.pre2"

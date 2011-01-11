@@ -1,4 +1,6 @@
+# coding: utf-8
 class FoodEntriesController < ApplicationController
+  before_filter :authenticate_user!
 
   # GET /posts
   # GET /posts.xml
@@ -6,9 +8,22 @@ class FoodEntriesController < ApplicationController
     @consumable = find_consumable
   end
   
-  def listtest
-    @food_entries = FoodEntry.paginate(:per_page => 5, :page => params[:page])
-    render :index
+  def listtest    
+    if params[:date].nil?
+      @time = Time.now
+    else
+      begin
+        @time = Time.strptime(params[:date], "%d%m%Y") + 12.hour # todo: why do we need to add 12 hours for this to work?
+      rescue
+        @time = Time.now
+      end
+    end
+
+    @food_entries = current_user.food_entries.on_date(@time + 1.hour).paginate(:per_page => 5, :page => params[:page])
+    @stats = NutritionStats.new
+    @food_entries.each { |food_entry| @stats.add(food_entry) }
+    
+    render :locker_room
   end
 
   # GET /posts/1
@@ -25,6 +40,7 @@ class FoodEntriesController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @food_entry = FoodEntry.find(params[:id])
   end
 
   # POST /posts
@@ -36,9 +52,10 @@ class FoodEntriesController < ApplicationController
     # @food_entry = FoodEntry.new(params[:food_entry])
     # @food_entry.consumable = @consumable
     @food_entry = @consumable.food_entries.build(params[:food_entry])
+    @food_entry.user = current_user
 
     if @food_entry.valid? && @food_entry.update_data && @food_entry.save
-      flash[:notice] = 'Food entry was successfully created.'
+      flash[:notice] = 'Ruokalogi lisättiin onnistuneesti!.'
       redirect_to index
     else
       render :action => 'new'
@@ -53,6 +70,12 @@ class FoodEntriesController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.xml
   def destroy
+    @food_entry = FoodEntry.find(params[:id])
+    if @food_entry.destroy
+      flash[:notice] = "Ruokalogi poistettiin onnistuneesti"
+      redirect_to eaten_path
+    end
+    #todo: check permission with cancan in ability.rb
   end
   
   private

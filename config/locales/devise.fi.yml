@@ -57,7 +57,8 @@ fi:
       signed_up: "Käyttäjätilin luominen onnistui. Mahdollinen vahvistus on lähetetty sähköpostiisi."
       updated: "Päivitit käyttäjätilisi onnistuneesti."
     sessions: 
-      new: 
+      new:
+        email: 'Sähköposti'
         alpha_software: "Olet aikeissa käyttää alpha-versiota ohjelmistosta."
         bugs_and_feedback: "Ota huomioon, että tulet kohtaamaan ohjelmistovirheitä. Kannustamme sinua ilmoittamaan kaikki huomaamasi virheet oikealla olevan Feedback-nappulan kautta! Työskentelemme niin nopeasti kuin voimme selvittääksemme ilmoittamasi virheet."
         bugs_and_feedback_mobile: "Tulet todennäköisesti kohtaamaan ohjelmistovirheitä. Kerro mahdollisista ongelmatilanteista ja virheistä meille. Pyrimme korjaamaan ilmoittamasi virheet niin nopeasti kuin voimme."

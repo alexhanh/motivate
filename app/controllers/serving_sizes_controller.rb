@@ -1,5 +1,6 @@
 # coding: utf-8
 class ServingSizesController < ApplicationController
+  before_filter :authenticate_user!
 #  respond_to :html, :xml
 #  def create
 #    @consumable = sdlhf.find(params[:consumable_id])

@@ -1,8 +1,11 @@
 $("#add_ingredient_dialog").html("<%= escape_javascript(render("ingredient")) %>").dialog({
 	modal:true,
+	show:'fade',
+	hide:'fade',
 	buttons: {
 		"Lisää": function () {
-			$("#ingredients").append($("#add_ingredient_form").html());
+			$(this).dialog("close")
+			$("#new_ingredient").submit();
 		},
 		Cancel: function() {
 			$(this).dialog("close");

@@ -10,7 +10,7 @@ module Consumable
       accepts_nested_attributes_for :serving_sizes, :allow_destroy => true
       validates_associated :serving_sizes
       
-      many :food_entries, :as => 'consumable' 
+      many :food_entries, :as => 'consumable'
       
       validate :check_serving_size_count
       validate :check_weight_volume

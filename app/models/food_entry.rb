@@ -9,6 +9,8 @@ class FoodEntry
   key :custom_unit, String
   one :nutrition_data
  
+  #key :consumable_name, String
+ 
   key :user_id, ObjectId
   belongs_to :user
   
@@ -16,10 +18,24 @@ class FoodEntry
   key :consumable_type, String
   belongs_to :consumable, :polymorphic => true
   
+  timestamps!
+  
+  scope :on_date, lambda { |date|
+    today = date.to_time.in_time_zone("UTC").beginning_of_day 
+    p today
+    tomorrow = (date+1.day).to_time.in_time_zone("UTC").beginning_of_day 
+    p tomorrow
+    where( 
+      :created_at.gte => today, 
+      :created_at.lt => tomorrow 
+    ) 
+  }
+  
   validates_presence_of :quantity
   validates_numericality_of :quantity, :greater_than_or_equal_to => 0.0
   
   #after_create :update_data
+  #before_safe :update_consumable_name
   
   def unit_proxy
     return if self.unit.nil?
@@ -35,6 +51,10 @@ class FoodEntry
       self.custom_unit = s
     end
   end
+  
+  # def update_consumable_name
+  #   self.consumable_name = consumable.name
+  # end
   
   def update_data
     self.nutrition_data = consumable.compute_data(self.quantity, self.unit, self.custom_unit)

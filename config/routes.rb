@@ -1,6 +1,12 @@
 Gr::Application.routes.draw do
   resources :products do
     resources :serving_sizes
+    resources :food_entries
+  end
+  
+  resources :recipes do
+    resources :food_entries
+    resources :ingredients
   end
 
   match 'recipes/find_ingredient/:ingredient_id' => 'recipes#find_ingredient'
@@ -9,17 +15,15 @@ Gr::Application.routes.draw do
 
   # hack to display food_entries (since they are nested)
   match 'eaten' => 'food_entries#listtest', :as => :eaten
-
-  resources :products do
-    resources :food_entries
-  end
   
-  resources :recipes do
-    resources :food_entries
-    resources :ingredients
-  end
+  match 'favorites/add/:favorable_type/:favorable_id' => 'favorites#add', :as => :add_to_favorites
+  match 'favorites/remove/:favorable_type/:favorable_id' => 'favorites#remove', :as => :remove_from_favorites
+  match 'favorites/' => 'favorites#index', :as => :favorites
+  
+  resources :food_entries
   
   devise_for :users
+  resource :users
 
   root :to => "products#index"
 

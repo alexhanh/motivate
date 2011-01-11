@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
   respond_to :html, :xml
 
   # GET /posts
@@ -39,6 +40,7 @@ class RecipesController < ApplicationController
     @products = Product.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
     
     @recipe = Recipe.new(params[:recipe])
+    @recipe.user = current_user
     if @recipe.save
       flash[:notice] = 'Resepti luotiin onnistuneesti!'
       redirect_to @recipe
@@ -56,7 +58,6 @@ class RecipesController < ApplicationController
       flash[:notice] = 'Resepti tallennettiin onnistuneesti!'
       redirect_to @recipe
     else
-      p "EI ONNISTUNUT"
       render :action => 'edit'
     end
   end

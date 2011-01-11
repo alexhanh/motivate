@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
+#  load_and_authorize_resource
+  
   respond_to :html, :xml
   
   # GET /posts
@@ -38,6 +41,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params[:product])
 
+    @product.user = current_user
+
     if @product.save
       flash[:notice] = 'Product was successfully created.'
       redirect_to @product
@@ -50,7 +55,6 @@ class ProductsController < ApplicationController
   # PUT /posts/1.xml
   def update
     @product = Product.find(params[:id])
-    p params
     flash[:notice] = 'Product was successfully updated.' if @product.update_attributes(params[:product])
     respond_with(@product)
   end
@@ -60,11 +64,6 @@ class ProductsController < ApplicationController
   def destroy
     @product = Post.first(params[:id])
     @product.destroy
-    respond_with(@product)
-  end
-  
-  def test
-    @product = Product.find(params[:id])
     respond_with(@product)
   end
 end

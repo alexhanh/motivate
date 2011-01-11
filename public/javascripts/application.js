@@ -28,10 +28,6 @@ $(document).ready(function() {
 	
 	$units_select.change(function()
   {
-		// if custom, unhide new_unit_name
-		// else hide
-		// on page load, test whether value of new_unit_name is empty, and show it if not
-		
     if ( $(this).val() == '1')
     {
       $new_unit_name.show().focus();

@@ -19,13 +19,22 @@ module ApplicationHelper
     link_to "Syö", send("new_#{consumable.class.name.downcase}_food_entry_path".to_sym, consumable)
   end
   
+  def link_to_add_to_favorites(favoritable)
+    link_to "Lisää suosikkeihin",
+            add_to_favorites_path(:favorable_type => favoritable.class.name.constantize, :favorable_id => favoritable.id), 
+            :method => :post#, :remote => true
+  end
+  
+  def link_to_remove_from_favorites(favoritable)
+    link_to "Poista suosikeista",
+            remove_from_favorites_path(:favorable_type => favoritable.class.name.constantize, :favorable_id => favoritable.id), 
+            :method => :post#, :remote => true
+  end
+  
   def quantity_unit(o)
-    p o
-    p o.unit
-    p o.unit.unit_name
-    s = "#{o.quantity}"
+    s = "#{o.quantity.round(1)}"
     if o.unit.custom?
-      s += o.custom_unit
+      s += " " + o.custom_unit
     else
       s += o.unit.unit_name
     end

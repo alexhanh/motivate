@@ -2,6 +2,7 @@
 class Recipe
   include MongoMapper::Document
   include Support::Consumable
+  include Support::Favorable
   
   #include Support::Voteable
   
@@ -16,7 +17,8 @@ class Recipe
   
   before_save :update_data
   
-  belongs_to :creator, :class_name => "User"
+  key :user_id
+  belongs_to :user
 
   def update_data
     sum = NutritionStats.new
