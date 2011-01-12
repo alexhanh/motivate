@@ -12,11 +12,11 @@ module Favorable
 
   module InstanceMethods
     def add_favorite!(user)
-      self.increment({:favorite_count => 1})
+      self.increment({:favorites_count => 1})
     end
 
     def remove_favorite!(user)
-      self.increment({:favorite_count => -1})
+      self.increment({:favorites_count => -1})
     end
   end
 

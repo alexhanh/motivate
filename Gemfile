@@ -2,6 +2,9 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3' 
 
+# HTML Parsing
+gem "nokogiri"
+
 #MongoDB
 gem "mongo", "1.1" 
 gem "mongo_mapper", :branch => "rails3", :git => "git://github.com/jnunemaker/mongomapper"

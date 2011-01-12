@@ -57,7 +57,7 @@ class ServingSize
   validates_numericality_of :parent_quantity, :greater_than => 0, :if => lambda { |s| !s.root? }
   
   #validates_numericality_of :parent_display_unit, :greater_than_or_equal_to => 0, :if => lambda { |s| !s.root? }
-  validates_format_of :custom_unit, :with => /\A[[:alpha:] ]+\Z/, :if => lambda { |s| s.custom? }
+  #validates_format_of :custom_unit, :with => /\A[[:alpha:] ]+\Z/, :if => lambda { |s| s.custom? }
   validates_length_of :custom_unit, :in => 1..20, :if => lambda { |s| s.custom? }
   
   #validates_presence_of :nutrition_data, :if => lambda { |s| s.root? }
@@ -202,9 +202,6 @@ class ServingSize
   #/////////////////////////
   
   def normalize_units
-    p "normalize"
-    p parent_custom_unit
-    p parent_unit
     self.parent = self._root_document.find_serving_size(parent_unit, self.parent_custom_unit) if !parent_unit.nil? && self.new?
     
     self.nutrition_data = self.nutrition_data.scale(1.0/Units::to_base(self.quantity.to_f, self.unit)) if self.new?

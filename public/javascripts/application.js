@@ -38,4 +38,13 @@ $(document).ready(function() {
       $new_unit_name.hide();
     }
 	});
+	
+	// Validations
+	// $("#new_product").validate({
+	// 	
+	// });
+	
+	// Style forms and buttons with jQuery UI
+	// $("form input:not(:submit)").addClass("ui-widget-content");
+	// $(":submit").button();
 });

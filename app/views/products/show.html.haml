@@ -1,10 +1,9 @@
-%p
-  %b Name:
-  = @product.name
-  
-  %p= link_to "Syö", new_product_food_entry_path(@product)
+%h2= @product.name
 
-  = render :partial => "shared/serving_size", :collection => @product.serving_sizes
+%p= @product.favorites_count.to_s + " ihmisellä on tämä suosikeissaan."
+%p= link_to "Syö", new_product_food_entry_path(@product)
+
+= render :partial => "shared/serving_size", :collection => @product.serving_sizes
       
 = link_to 'Lisää annoskoko', new_product_serving_size_path(@product)
 %br

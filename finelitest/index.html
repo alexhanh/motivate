@@ -1,0 +1,2336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link rel="stylesheet" href="screen.css" type="text/css" media="screen">
+<link rel="stylesheet" href="print.css" type="text/css" media="print">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="author" content="Terveyden ja hyvinvoinnin laitos">
+<meta name="DC.Publisher" content="Terveyden ja hyvinvoinnin laitos">
+<meta name="DC.Subject" content="fineli, elintarvike, ravintoarvo, ravintotekij&auml;">
+<meta name="DC.Title" content="Elintarvikkeet">
+<title>Fineli : Elintarvikkeet</title>
+</head>
+<body onload="document.getElementById('header_foodsearch').focus()">
+<div align="left">
+<table class="topbanner" border="0" cellspacing="0" cellpadding="0" width="95%">
+<tr class="topbanner_toprow">
+<td align="left" valign="top" width="33%">
+<a href="http://www.thl.fi/fi_FI/web/fi"><img src="img/thl-logo.fi.jpg" alt="THL logo" border="0"></a>
+</td>
+<td align="left" valign="top" width="33%">
+</td>
+<td width="33%">
+<p align="right">
+<a href="index.php?lang=fi"><img src="img/finelibanner-green.gif" alt="F I N E L I" border="0"></a>
+</td>
+</tr>
+<tr class="topbanner_bottomrow">
+<td colspan="3" width="100%" class="printhide">
+<table border="0" cellspacing="0" cellpadding="2" width="100%">
+<tr valign="middle">
+<td width="40%" align="left">
+&nbsp;<a href="/foodlist.php?foodname=%&amp;lang=fi" class="langselecttext"><img src="img/kielivalinta-valittu.gif" width="11" height="11" border="0" alt="(X)">&nbsp;SUOMEKSI</a>&nbsp;&nbsp;
+<a href="/foodlist.php?foodname=%&amp;lang=sv" class="langselecttext"><img src="img/kielivalinta-eivalittu.gif" width="11" height="11" border="0" alt="( )">&nbsp;P&Aring;&nbsp;SVENSKA</a>&nbsp;&nbsp;
+<a href="/foodlist.php?foodname=%&amp;lang=en" class="langselecttext"><img src="img/kielivalinta-eivalittu.gif" width="11" height="11" border="0" alt="( )">&nbsp;IN&nbsp;ENGLISH</a>
+</td>
+<td width="10%" align="center"><a class="headerlink" href="index.php?lang=fi">Etusivu</a></td>
+<td width="50%" align="right"><form action="foodsearch.php" method="get" class="foodsearch">
+<table border="0">
+<tr>
+<td>Elintarvike&nbsp;</td>
+<td><input type="text" name="name" id="header_foodsearch" size="40" value="">
+<input type="submit" value="Hae"></td>
+</tr>
+</table>
+<input type="hidden" name="lang" value="fi">
+</form>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br>
+<table class="contentarea" border="0" cellspacing="0" cellpadding="0" width="95%">
+<tr>
+<td class="printhide" rowspan="2" align="left" valign="top" width="25%">
+<table class="menubox" border="0" cellpadding="10" cellspacing="0">
+<tr><td class="menubox_items" width="70%">
+<table class="menuitems" border="0" cellspacing="2" cellpadding="1">
+<tr class="topmenuitem"><td>Elintarvikkeet</td></tr>
+<tr class="submenuitem"><td><a href="foodlist.php?lang=fi"><img src="img/submenuitem.gif" alt="*" border="0">&nbsp;Aakkosj&auml;rjestyksess&auml;</a></td></tr>
+<tr class="submenuitem"><td><a href="foodclass.php?classif=igclass&amp;lang=fi"><img src="img/submenuitem.gif" alt="*" border="0">&nbsp;Raaka-aineluokittain</a></td></tr>
+<tr class="submenuitem"><td><a href="foodclass.php?classif=fuclass&amp;lang=fi"><img src="img/submenuitem.gif" alt="*" border="0">&nbsp;Ruoank&auml;ytt&ouml;luokittain</a></td></tr>
+<tr class="submenuitem"><td><a href="specdiet.php?lang=fi"><img src="img/submenuitem.gif" alt="*" border="0">&nbsp;Erityisruokavaliot</a></td></tr>
+<tr class="submenuitem"><td><a href="foodbasket.php?lang=fi"><img src="img/submenuitem.gif" alt="*" border="0">&nbsp;Ruokakori</a></td></tr>
+<tr class="topmenuitem"><td><br>Ravintotekij&auml;t</td></tr>
+<tr class="submenuitem"><td><a href="component.php?order=asc&amp;lang=fi"><img src="img/submenuitem.gif" alt="*" border="0">&nbsp;Aakkosj&auml;rjestyksess&auml;</a></td></tr>
+<tr class="submenuitem"><td><a href="topfoods.php?lang=fi"><img src="img/submenuitem.gif" alt="*" border="0">&nbsp;Eniten ja v&auml;hiten</a></td></tr>
+<tr class="submenuitem"><td><a href="compbyfood.php?classif=igclass&amp;lang=fi"><img src="img/submenuitem.gif" alt="*" border="0">&nbsp;Raaka-aineluokittain</a></td></tr>
+<tr class="submenuitem"><td><a href="compbyfood.php?classif=fuclass&amp;lang=fi"><img src="img/submenuitem.gif" alt="*" border="0">&nbsp;Ruoank&auml;ytt&ouml;luokittain</a></td></tr>
+<tr class="topmenuitem"><td><br>Lis&auml;tietoa</td></tr>
+<tr class="submenuitem"><td><a href="showpage.php?page=faq&amp;lang=fi"><img src="img/submenuitem.gif" alt="*" border="0">&nbsp;FAQ - Kysymyksi&auml; ja vastauksia</a></td></tr>
+<tr class="submenuitem"><td><a href="showpage.php?page=help&amp;lang=fi"><img src="img/submenuitem.gif" alt="*" border="0">&nbsp;Ohje</a></td></tr>
+<tr class="submenuitem"><td><a href="showpage.php?page=links&amp;lang=fi"><img src="img/submenuitem.gif" alt="*" border="0">&nbsp;Linkit</a></td></tr>
+<tr class="submenuitem"><td><a href="showpage.php?page=pricelist&amp;lang=fi"><img src="img/submenuitem.gif" alt="*" border="0">&nbsp;Yritt&auml;j&auml;lle</a></td></tr>
+<tr class="submenuitem"><td><a href="http://www.thl.fi/fi_FI/web/fi"><img src="img/submenuitem.gif" alt="*" border="0">&nbsp;Terveyden ja hyvinvoinnin laitos</a></td></tr>
+<tr><td>
+<br><br>
+<a href="javascript:self.print()"><img src="img/printpage.gif" alt="*" border="">&nbsp;Tulosta sivu</a>
+</td></tr>
+<tr><td><br><img src="img/fineli-omppu.gif" alt="Fineli logo"></td></tr>
+<tr><td><font class="footertext">&copy; Terveyden ja hyvinvoinnin laitos, ravitsemusyksikk&ouml;</font></td></tr>
+<tr><td><font class="footertext">Perustuu Fineli-koostumustietokannan versioon 11 (1.6.2010)</font></td></tr>
+<tr><td><font size=1 color=white>
+<a target="_blank" href="http://extremetracking.com/open?login=finelifi">
+<img src="http://t1.extreme-dm.com/i.gif" height=38
+border=0 width=41 alt=""></a><script language="javascript1.2" type="text/javascript"><!--
+EXs=screen;EXw=EXs.width;navigator.appName!="Netscape"?
+EXb=EXs.colorDepth:EXb=EXs.pixelDepth;//-->
+</script><script language="javascript" type="text/javascript"><!--
+EXd=document;EXw?"":EXw="na";EXb?"":EXb="na";
+EXd.write("<img src=\"http://t0.extreme-dm.com",
+"/c.g?tag=finelifi&j=y&srw="+EXw+"&srb="+EXb+"&",
+"l="+escape(EXd.referrer)+"\" height=1 width=1>");//-->
+</script><noscript><img height=1 width=1 alt=""
+src="http://t0.extreme-dm.com/c.g?tag=finelifi&amp;j=n"></noscript>
+</font>
+</td></tr>
+</table>
+</td><td></td></tr>
+</table>
+</td>
+<td align="left" valign="top">
+<!-- sivun sisältö alkaa -->
+<h1>Elintarvikkeet</h1>
+<b>
+<a href="foodlist.php?foodname=A%&amp;lang=fi">A</a> 
+<a href="foodlist.php?foodname=B%&amp;lang=fi">B</a> 
+<a href="foodlist.php?foodname=C%&amp;lang=fi">C</a> 
+<a href="foodlist.php?foodname=D%&amp;lang=fi">D</a> 
+<a href="foodlist.php?foodname=E%&amp;lang=fi">E</a> 
+<a href="foodlist.php?foodname=F%&amp;lang=fi">F</a> 
+<a href="foodlist.php?foodname=G%&amp;lang=fi">G</a> 
+<a href="foodlist.php?foodname=H%&amp;lang=fi">H</a> 
+<a href="foodlist.php?foodname=I%&amp;lang=fi">I</a> 
+<a href="foodlist.php?foodname=J%&amp;lang=fi">J</a> 
+<a href="foodlist.php?foodname=K%&amp;lang=fi">K</a> 
+<a href="foodlist.php?foodname=L%&amp;lang=fi">L</a> 
+<a href="foodlist.php?foodname=M%&amp;lang=fi">M</a> 
+<a href="foodlist.php?foodname=N%&amp;lang=fi">N</a> 
+<a href="foodlist.php?foodname=O%&amp;lang=fi">O</a> 
+<a href="foodlist.php?foodname=P%&amp;lang=fi">P</a> 
+<a href="foodlist.php?foodname=Q%&amp;lang=fi">Q</a> 
+<a href="foodlist.php?foodname=R%&amp;lang=fi">R</a> 
+<a href="foodlist.php?foodname=S%&amp;lang=fi">S</a> 
+<a href="foodlist.php?foodname=T%&amp;lang=fi">T</a> 
+<a href="foodlist.php?foodname=U%&amp;lang=fi">U</a> 
+<a href="foodlist.php?foodname=V%&amp;lang=fi">V</a> 
+<a href="foodlist.php?foodname=W%&amp;lang=fi">W</a> 
+<a href="foodlist.php?foodname=X%&amp;lang=fi">X</a> 
+<a href="foodlist.php?foodname=Y%&amp;lang=fi">Y</a> 
+<a href="foodlist.php?foodname=Z%&amp;lang=fi">Z</a> 
+<a href="foodlist.php?foodname=Å%&amp;lang=fi">Å</a> 
+<a href="foodlist.php?foodname=Ä%&amp;lang=fi">Ä</a> 
+<a href="foodlist.php?foodname=Ö%&amp;lang=fi">Ö</a> 
+<a href="foodlist.php?foodname=%&amp;lang=fi">Kaikki</a>
+</b>
+<br>
+<br>
+<h2></h2>
+<ul>
+<li><a href="food.php?foodid=812&amp;lang=fi">Ahven</a></li>
+<li><a href="food.php?foodid=8009&amp;lang=fi">Ahven paistettu</a></li>
+<li><a href="food.php?foodid=29011&amp;lang=fi">Ahvenet foliossa</a></li>
+<li><a href="food.php?foodid=11056&amp;lang=fi">Ananas kuorittu</a></li>
+<li><a href="food.php?foodid=471&amp;lang=fi">Ananas omassa liemessään</a></li>
+<li><a href="food.php?foodid=417&amp;lang=fi">Ananas sokeriliemessä</a></li>
+<li><a href="food.php?foodid=28923&amp;lang=fi">Ananas, tuore, punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=438&amp;lang=fi">Ananastäysmehu</a></li>
+<li><a href="food.php?foodid=829&amp;lang=fi">Anjovis</a></li>
+<li><a href="food.php?foodid=8054&amp;lang=fi">Anjovispizza</a></li>
+<li><a href="food.php?foodid=821&amp;lang=fi">Ankerias</a></li>
+<li><a href="food.php?foodid=11045&amp;lang=fi">Appelsiini kuorittu</a></li>
+<li><a href="food.php?foodid=28924&amp;lang=fi">Appelsiini, punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=4010&amp;lang=fi">Appelsiinikeitto/kiisseli</a></li>
+<li><a href="food.php?foodid=11013&amp;lang=fi">Appelsiinimarmeladi</a></li>
+<li><a href="food.php?foodid=4011&amp;lang=fi">Appelsiiniriisi</a></li>
+<li><a href="food.php?foodid=434&amp;lang=fi">Appelsiinitäysmehu</a></li>
+<li><a href="food.php?foodid=11558&amp;lang=fi">Appelsiinitäysmehu sisältää kalsiumia</a></li>
+<li><a href="food.php?foodid=409&amp;lang=fi">Aprikoosi kuivattu</a></li>
+<li><a href="food.php?foodid=408&amp;lang=fi">Aprikoosi sokeriliemessä</a></li>
+<li><a href="food.php?foodid=11054&amp;lang=fi">Aprikoosi, keskiarvo,  kivetön</a></li>
+<li><a href="food.php?foodid=28921&amp;lang=fi">Aprikoosi, keskiarvo, punnittu kivineen</a></li>
+<li><a href="food.php?foodid=1532&amp;lang=fi">Aprikoosi/luumu-riisipuuro</a></li>
+<li><a href="food.php?foodid=4008&amp;lang=fi">Aprikoosikeitto/kiisseli</a></li>
+<li><a href="food.php?foodid=11196&amp;lang=fi">Aromisuola/yrttisuola suolapitoisuus 71 %</a></li>
+<li><a href="food.php?foodid=616&amp;lang=fi">Asidofiluspiimä, 2,5% rasvaa, a-piimä/ab-piimä</a></li>
+<li><a href="food.php?foodid=11212&amp;lang=fi">Auringonkukansiemen</a></li>
+<li><a href="food.php?foodid=540&amp;lang=fi">Auringonkukkaöljy</a></li>
+<li><a href="food.php?foodid=28967&amp;lang=fi">Aurinkosalaatti, majoneesikastike</a></li>
+<li><a href="food.php?foodid=11057&amp;lang=fi">Avokado kuorittu, kivetön</a></li>
+<li><a href="food.php?foodid=28933&amp;lang=fi">Avokado punnittu kuorineen ja kivineen</a></li>
+<li><a href="food.php?foodid=29029&amp;lang=fi">Avokado-pestorisotto</a></li>
+<li><a href="food.php?foodid=3328&amp;lang=fi">Avokadokastike guacamole</a></li>
+<li><a href="food.php?foodid=30274&amp;lang=fi">Balkanmakkara</a></li>
+<li><a href="food.php?foodid=30295&amp;lang=fi">Balkanmakkara, kevyt</a></li>
+<li><a href="food.php?foodid=11135&amp;lang=fi">Bambunverso</a></li>
+<li><a href="food.php?foodid=11049&amp;lang=fi">Banaani kuorittu</a></li>
+<li><a href="food.php?foodid=28934&amp;lang=fi">Banaani punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=1325&amp;lang=fi">Banaanikakku</a></li>
+<li><a href="food.php?foodid=11505&amp;lang=fi">Banaanilastu, kuivattu banaani</a></li>
+<li><a href="food.php?foodid=6011&amp;lang=fi">Banaanipirtelö kevytmaito, kermajäätelö</a></li>
+<li><a href="food.php?foodid=11189&amp;lang=fi">Basilika kuivattu</a></li>
+<li><a href="food.php?foodid=11134&amp;lang=fi">Basilika, tuore</a></li>
+<li><a href="food.php?foodid=30223&amp;lang=fi">Bataatti, kuorittu</a></li>
+<li><a href="food.php?foodid=30603&amp;lang=fi">Bataatti, kuorittu, keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=30602&amp;lang=fi">Bataatti, kuorittu, keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=30601&amp;lang=fi">Bataatti, paistettu</a></li>
+<li><a href="food.php?foodid=30600&amp;lang=fi">Bataatti, uunissa</a></li>
+<li><a href="food.php?foodid=30604&amp;lang=fi">Bataattikeitto veteen</a></li>
+<li><a href="food.php?foodid=5009&amp;lang=fi">Bearnaisekastike</a></li>
+<li><a href="food.php?foodid=1228&amp;lang=fi">Blini kevytmaito</a></li>
+<li><a href="food.php?foodid=947&amp;lang=fi">Bloody mary tomaattimehuvodka</a></li>
+<li><a href="food.php?foodid=30639&amp;lang=fi">Booli</a></li>
+<li><a href="food.php?foodid=30792&amp;lang=fi">Broileri koipi-reisi, nahaton</a></li>
+<li><a href="food.php?foodid=30796&amp;lang=fi">Broileri koipi-reisi, nahaton, grillattu</a></li>
+<li><a href="food.php?foodid=30795&amp;lang=fi">Broileri koipi-reisi, nahaton, uunissa paistettu</a></li>
+<li><a href="food.php?foodid=11563&amp;lang=fi">Broileri koipi-reisi, nahkoineen</a></li>
+<li><a href="food.php?foodid=7537&amp;lang=fi">Broileri koipi-reisi, nahkoineen, grillattu</a></li>
+<li><a href="food.php?foodid=30733&amp;lang=fi">Broileri koipi-reisi, nahkoineen, uunissa paistettu</a></li>
+<li><a href="food.php?foodid=7522&amp;lang=fi">Broileri kokonainen nahkoineen ilman rasvalisää</a></li>
+<li><a href="food.php?foodid=751&amp;lang=fi">Broileri kokonainen, nahkoineen</a></li>
+<li><a href="food.php?foodid=11150&amp;lang=fi">Broileri marinoitu ilman nahkaa</a></li>
+<li><a href="food.php?foodid=7545&amp;lang=fi">Broileri rintafilee appelsiinikastikkeella</a></li>
+<li><a href="food.php?foodid=7530&amp;lang=fi">Broileri rintafilee paistettu, nahaton</a></li>
+<li><a href="food.php?foodid=11565&amp;lang=fi">Broileri rintafilee, nahaton</a></li>
+<li><a href="food.php?foodid=11564&amp;lang=fi">Broileri rintaleike, nahkoineen</a></li>
+<li><a href="food.php?foodid=7529&amp;lang=fi">Broileri rintaleike, paistettu nahkoineen</a></li>
+<li><a href="food.php?foodid=7523&amp;lang=fi">Broileri uunissa marinoitu nahkoineen</a></li>
+<li><a href="food.php?foodid=7510&amp;lang=fi">Broileri öljykastikkeessa</a></li>
+<li><a href="food.php?foodid=7520&amp;lang=fi">Broileri-kasviskastike, kermainen</a></li>
+<li><a href="food.php?foodid=7525&amp;lang=fi">Broileri-kasviswokki, tomaattisose, soijakastike</a></li>
+<li><a href="food.php?foodid=30225&amp;lang=fi">Broileri-kasviswokki, wokkivihannekset</a></li>
+<li><a href="food.php?foodid=31448&amp;lang=fi">Broileri-nuudeliwokki, wokkivihanneksista</a></li>
+<li><a href="food.php?foodid=7538&amp;lang=fi">Broileri-pastakeitto papuja, paprikaa, purjoa, porkkanaa</a></li>
+<li><a href="food.php?foodid=28979&amp;lang=fi">Broileri-perunalaatikko, kasvirasvakerma</a></li>
+<li><a href="food.php?foodid=28978&amp;lang=fi">Broileri-perunalaatikko, ruoanvalmistuskerma</a></li>
+<li><a href="food.php?foodid=7548&amp;lang=fi">Broileria salaattipedillä vihanneksia, fetajuustokastike</a></li>
+<li><a href="food.php?foodid=749&amp;lang=fi">Broilerifilee hunajamarinadi</a></li>
+<li><a href="food.php?foodid=29256&amp;lang=fi">Broilerifilee juustotäyte</a></li>
+<li><a href="food.php?foodid=7524&amp;lang=fi">Broilerifilee marinoitu</a></li>
+<li><a href="food.php?foodid=7549&amp;lang=fi">Broilerifilee uunissa</a></li>
+<li><a href="food.php?foodid=29225&amp;lang=fi">Broilerifilee, marinoitu, paistettu öljyssä</a></li>
+<li><a href="food.php?foodid=29075&amp;lang=fi">Broilerifileesuikale, paistettu, marinoitu</a></li>
+<li><a href="food.php?foodid=31462&amp;lang=fi">Broilerikolmioleipä</a></li>
+<li><a href="food.php?foodid=28981&amp;lang=fi">Broilerimureke</a></li>
+<li><a href="food.php?foodid=30271&amp;lang=fi">Broilerin siipi, marinoitu, raaka</a></li>
+<li><a href="food.php?foodid=30272&amp;lang=fi">Broilerin siipi, marinoitu, uunissa paistettu</a></li>
+<li><a href="food.php?foodid=30268&amp;lang=fi">Broilerin siipi, nahaton</a></li>
+<li><a href="food.php?foodid=30265&amp;lang=fi">Broilerin siipi, nahkoineen</a></li>
+<li><a href="food.php?foodid=7531&amp;lang=fi">Broilerinleike leivitetty</a></li>
+<li><a href="food.php?foodid=30316&amp;lang=fi">Broilerinleike leivitetty, teollinen , uunissa</a></li>
+<li><a href="food.php?foodid=7856&amp;lang=fi">Broilerinmaksakastike broilerinmaksa, sipuli</a></li>
+<li><a href="food.php?foodid=7540&amp;lang=fi">Broilerinuggetit friteerattu, laktoositon</a></li>
+<li><a href="food.php?foodid=7519&amp;lang=fi">Broileripata tomaattia, sieniä</a></li>
+<li><a href="food.php?foodid=28980&amp;lang=fi">Broileripyttipannu, ilman kananmunaa</a></li>
+<li><a href="food.php?foodid=7521&amp;lang=fi">Broileripyörykkä</a></li>
+<li><a href="food.php?foodid=29498&amp;lang=fi">Broileririsotto</a></li>
+<li><a href="food.php?foodid=7518&amp;lang=fi">Broilerisalaatti kasvispitoinen</a></li>
+<li><a href="food.php?foodid=754&amp;lang=fi">Broilerisuikale, keskiarvo</a></li>
+<li><a href="food.php?foodid=31148&amp;lang=fi">Broilerisuikale, paistettu</a></li>
+<li><a href="food.php?foodid=31447&amp;lang=fi">Broilerisuikalekastike ruoanvalmistuskerma</a></li>
+<li><a href="food.php?foodid=620&amp;lang=fi">Bulgarian jogurtti rasvaa 3,9%</a></li>
+<li><a href="food.php?foodid=30167&amp;lang=fi">Caesarsalaatti</a></li>
+<li><a href="food.php?foodid=7074&amp;lang=fi">Canneloni sika-nautajauhelihatäyte</a></li>
+<li><a href="food.php?foodid=7073&amp;lang=fi">Canneloni tonnikalatäyte</a></li>
+<li><a href="food.php?foodid=11086&amp;lang=fi">Cashewpähkinä</a></li>
+<li><a href="food.php?foodid=698&amp;lang=fi">Cheddar</a></li>
+<li><a href="food.php?foodid=7176&amp;lang=fi">Chili con carne sika-nauta</a></li>
+<li><a href="food.php?foodid=29757&amp;lang=fi">Cookie-keksi suklainen</a></li>
+<li><a href="food.php?foodid=11159&amp;lang=fi">Creme fraiche 15-18% rasvaa, ranskankerma</a></li>
+<li><a href="food.php?foodid=628&amp;lang=fi">Creme fraiche 28% rasvaa, ranskankerma</a></li>
+<li><a href="food.php?foodid=11201&amp;lang=fi">Dieettivalmiste juoma, veteen, dietta mini</a></li>
+<li><a href="food.php?foodid=11200&amp;lang=fi">Dieettivalmiste juoma, veteen, nutrilett</a></li>
+<li><a href="food.php?foodid=11160&amp;lang=fi">Dieettivalmiste juomajauhe, nutrilett</a></li>
+<li><a href="food.php?foodid=11161&amp;lang=fi">Dieettivalmiste, juomajauhe, dietta mini</a></li>
+<li><a href="food.php?foodid=1138&amp;lang=fi">Donitsi</a></li>
+<li><a href="food.php?foodid=28973&amp;lang=fi">Donitsi, sitruunakuorrutus</a></li>
+<li><a href="food.php?foodid=28971&amp;lang=fi">Donitsi, suklaakuorrutus</a></li>
+<li><a href="food.php?foodid=952&amp;lang=fi">Dry martini ginidrinkki</a></li>
+<li><a href="food.php?foodid=642&amp;lang=fi">Emmentaljuusto rasvaa 27-30 g, punaleima</a></li>
+<li><a href="food.php?foodid=691&amp;lang=fi">Emmentaljuusto rasvaa 27-30 g, suurikoloinen, sinileima/gruyere</a></li>
+<li><a href="food.php?foodid=29070&amp;lang=fi">Energiajuoma</a></li>
+<li><a href="food.php?foodid=11166&amp;lang=fi">Erikoishedelmä eksoottinen, keskiarvo, mango /papaija, kuivattu</a></li>
+<li><a href="food.php?foodid=11071&amp;lang=fi">Erikoishedelmä eksoottinen, keskiarvo, mango/papaija, kuorittu</a></li>
+<li><a href="food.php?foodid=28991&amp;lang=fi">Erikoiskahvijuoma, cafe au lait, makeuttamaton, täysmaitoa</a></li>
+<li><a href="food.php?foodid=28993&amp;lang=fi">Erikoiskahvijuoma, caffe latte, makeuttamaton, täysmaitoa</a></li>
+<li><a href="food.php?foodid=29091&amp;lang=fi">Erikoiskahvijuoma, cappuccino, makeuttamaton, rasvaton maito</a></li>
+<li><a href="food.php?foodid=932&amp;lang=fi">Erikoiskahvijuoma, cappuccino, makeuttamaton, täysmaitoa</a></li>
+<li><a href="food.php?foodid=864&amp;lang=fi">Etana</a></li>
+<li><a href="food.php?foodid=5010&amp;lang=fi">Etikkainen maustekastike säilöntäliemi</a></li>
+<li><a href="food.php?foodid=347&amp;lang=fi">Etikkakurkku</a></li>
+<li><a href="food.php?foodid=307&amp;lang=fi">Etikkapunajuuri</a></li>
+<li><a href="food.php?foodid=344&amp;lang=fi">Etikkasienisäilyke</a></li>
+<li><a href="food.php?foodid=30312&amp;lang=fi">Feta-kasvispannu</a></li>
+<li><a href="food.php?foodid=3332&amp;lang=fi">Feta-pinaattipiirakka muropohja</a></li>
+<li><a href="food.php?foodid=11211&amp;lang=fi">Fetajuusto 25 g rasvaa, vuohenmaito, suolaliemessä</a></li>
+<li><a href="food.php?foodid=29060&amp;lang=fi">Fetajuusto rasvaa 10-13 g, lehmänmaito, suolaliemessä</a></li>
+<li><a href="food.php?foodid=690&amp;lang=fi">Fetajuusto rasvaa 18 g, lehmänmaito, suolaliemessä</a></li>
+<li><a href="food.php?foodid=29228&amp;lang=fi">Fetajuusto, vuohenmaito,  öljyssä</a></li>
+<li><a href="food.php?foodid=4019&amp;lang=fi">Friteerattu banaani uppopaistettu</a></li>
+<li><a href="food.php?foodid=8096&amp;lang=fi">Friteerattu kala ka</a></li>
+<li><a href="food.php?foodid=8111&amp;lang=fi">Friteerattu mustekala</a></li>
+<li><a href="food.php?foodid=11058&amp;lang=fi">Gefilus-herajuoma</a></li>
+<li><a href="food.php?foodid=30576&amp;lang=fi">Gefilus-mehu, keskiarvo</a></li>
+<li><a href="food.php?foodid=11153&amp;lang=fi">Gefilus-piimä 1% rasvaa</a></li>
+<li><a href="food.php?foodid=909&amp;lang=fi">Gin long drink 5,5 til%</a></li>
+<li><a href="food.php?foodid=30638&amp;lang=fi">Gin long drink, kevyt 4,7 til%</a></li>
+<li><a href="food.php?foodid=950&amp;lang=fi">Gin tonic</a></li>
+<li><a href="food.php?foodid=185&amp;lang=fi">Gluteeniton jauhoseos vehnätärkkelysvalmiste</a></li>
+<li><a href="food.php?foodid=654&amp;lang=fi">Gouda / salaneuvos rasvaa 28-30 g rasvaa 48 % kuivapainosta, keskiarvo</a></li>
+<li><a href="food.php?foodid=30275&amp;lang=fi">Goutermakkara</a></li>
+<li><a href="food.php?foodid=28989&amp;lang=fi">Graavilohi, mausteinen, lohicarpaccio</a></li>
+<li><a href="food.php?foodid=111&amp;lang=fi">Grahamjauho</a></li>
+<li><a href="food.php?foodid=29767&amp;lang=fi">Grahamkorppu maitoon, kotitekoinen</a></li>
+<li><a href="food.php?foodid=29766&amp;lang=fi">Grahamkorppu veteen, teollinen</a></li>
+<li><a href="food.php?foodid=1269&amp;lang=fi">Grahamleipä kevytmaito, grahamjauho</a></li>
+<li><a href="food.php?foodid=1337&amp;lang=fi">Grahamleipä kevytmaito, hiivaleipä-, grahamjauho</a></li>
+<li><a href="food.php?foodid=1336&amp;lang=fi">Grahamleipä vesi, hiivaleipä-, grahamjauho</a></li>
+<li><a href="food.php?foodid=31484&amp;lang=fi">Grahamlihapiirakka</a></li>
+<li><a href="food.php?foodid=1268&amp;lang=fi">Grahammarjapuuro</a></li>
+<li><a href="food.php?foodid=29813&amp;lang=fi">Grahamnäkkileipä</a></li>
+<li><a href="food.php?foodid=29796&amp;lang=fi">Grahampaahtoleipä veteen</a></li>
+<li><a href="food.php?foodid=1266&amp;lang=fi">Grahampuuro vesi</a></li>
+<li><a href="food.php?foodid=1270&amp;lang=fi">Grahamsämpylä kevytmaito, graham-, vehnäjauho</a></li>
+<li><a href="food.php?foodid=11730&amp;lang=fi">Grahamsämpylä vesi, graham-, vehnäjauho</a></li>
+<li><a href="food.php?foodid=1265&amp;lang=fi">Grahamvelli maito</a></li>
+<li><a href="food.php?foodid=11047&amp;lang=fi">Greippi kuorittu</a></li>
+<li><a href="food.php?foodid=28926&amp;lang=fi">Greippi, keskiarvo, punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=435&amp;lang=fi">Greippitäysmehu</a></li>
+<li><a href="food.php?foodid=5008&amp;lang=fi">Grillauskastike</a></li>
+<li><a href="food.php?foodid=30342&amp;lang=fi">Grillimakkara paistettu ilman rasvaa</a></li>
+<li><a href="food.php?foodid=7189&amp;lang=fi">Grillimakkara uunissa</a></li>
+<li><a href="food.php?foodid=30157&amp;lang=fi">Grillimakkara, grillattu</a></li>
+<li><a href="food.php?foodid=30374&amp;lang=fi">Grillimakkara, juusto</a></li>
+<li><a href="food.php?foodid=30370&amp;lang=fi">Grillimakkara, juusto, lihaisa</a></li>
+<li><a href="food.php?foodid=30261&amp;lang=fi">Grillimakkara, keitetty</a></li>
+<li><a href="food.php?foodid=30572&amp;lang=fi">Grillimakkara, keskiarvo</a></li>
+<li><a href="food.php?foodid=30326&amp;lang=fi">Grillimakkara, kevyt, grillattu</a></li>
+<li><a href="food.php?foodid=30321&amp;lang=fi">Grillimakkara, kevyt, keskiarvo</a></li>
+<li><a href="food.php?foodid=30332&amp;lang=fi">Grillimakkara, kevyt, uunissa</a></li>
+<li><a href="food.php?foodid=30327&amp;lang=fi">Grillimakkara, lihaisa, grillattu</a></li>
+<li><a href="food.php?foodid=30573&amp;lang=fi">Grillimakkara, lihaisa, keskiarvo</a></li>
+<li><a href="food.php?foodid=30333&amp;lang=fi">Grillimakkara, lihaisa, uunissa</a></li>
+<li><a href="food.php?foodid=7188&amp;lang=fi">Grillimakkara, paistettu</a></li>
+<li><a href="food.php?foodid=7105&amp;lang=fi">Grillivartaat porsaanfilee ja kasvikset</a></li>
+<li><a href="food.php?foodid=34&amp;lang=fi">Halva seesamsiemenvalmiste</a></li>
+<li><a href="food.php?foodid=30168&amp;lang=fi">Hampurilainen,  naudanliha ja rouhesämpylä</a></li>
+<li><a href="food.php?foodid=29279&amp;lang=fi">Hampurilainen,  naudanlihapihvi ja vehnäsämpylä</a></li>
+<li><a href="food.php?foodid=31364&amp;lang=fi">Hampurilainen, sika-nautapihvi ja vehnäsämpylä</a></li>
+<li><a href="food.php?foodid=3335&amp;lang=fi">Hapanimeläkasviskastike</a></li>
+<li><a href="food.php?foodid=1011&amp;lang=fi">Hapanimeläleipä piimä, vehnä-, ruisjauho</a></li>
+<li><a href="food.php?foodid=3204&amp;lang=fi">Hapankaali</a></li>
+<li><a href="food.php?foodid=7011&amp;lang=fi">Hapankaalikeitto keskirasvainen sianliha</a></li>
+<li><a href="food.php?foodid=29772&amp;lang=fi">Hapankorppu</a></li>
+<li><a href="food.php?foodid=3015&amp;lang=fi">Hapanlohko nauris, peruna, kerma, ruisjauhot</a></li>
+<li><a href="food.php?foodid=375&amp;lang=fi">Hasselpähkinä</a></li>
+<li><a href="food.php?foodid=8098&amp;lang=fi">Haudutettu kampela</a></li>
+<li><a href="food.php?foodid=813&amp;lang=fi">Hauki</a></li>
+<li><a href="food.php?foodid=8010&amp;lang=fi">Hauki leivitetty, paistettu</a></li>
+<li><a href="food.php?foodid=11726&amp;lang=fi">Hedelmä-/marjaviili rasvaa 1 %, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=30450&amp;lang=fi">Hedelmä-/marjaviili rasvaa 2 %, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=29016&amp;lang=fi">Hedelmä-jogurttijuoma</a></li>
+<li><a href="food.php?foodid=11553&amp;lang=fi">Hedelmähillo keskiarvo</a></li>
+<li><a href="food.php?foodid=4018&amp;lang=fi">Hedelmähyytelö hyytelösokeri</a></li>
+<li><a href="food.php?foodid=1201&amp;lang=fi">Hedelmäkakku kuivakakku</a></li>
+<li><a href="food.php?foodid=69&amp;lang=fi">Hedelmäpastilli arabikumipastilli</a></li>
+<li><a href="food.php?foodid=30671&amp;lang=fi">Hedelmärahka kevytmaitoon, kotitekoinen</a></li>
+<li><a href="food.php?foodid=6016&amp;lang=fi">Hedelmärahka kuohukermaan, kotitekoinen</a></li>
+<li><a href="food.php?foodid=4015&amp;lang=fi">Hedelmäsalaatti appelsiini, banaani, omena, viinirypäle</a></li>
+<li><a href="food.php?foodid=4016&amp;lang=fi">Hedelmäsalaatti appelsiini, persikka, banaani, omena</a></li>
+<li><a href="food.php?foodid=4017&amp;lang=fi">Hedelmäsalaatti sokeriton, appelsiini, banaani, omena, viinirypäle</a></li>
+<li><a href="food.php?foodid=432&amp;lang=fi">Hedelmäsalaattisäilyke sokeriliemi</a></li>
+<li><a href="food.php?foodid=2&amp;lang=fi">Hedelmäsokeri</a></li>
+<li><a href="food.php?foodid=11469&amp;lang=fi">Hedelmäsose keskiarvo, teollinen lastenruoka</a></li>
+<li><a href="food.php?foodid=1208&amp;lang=fi">Hedelmätäytekakku liivatekuorrutus</a></li>
+<li><a href="food.php?foodid=11092&amp;lang=fi">Herajauhe</a></li>
+<li><a href="food.php?foodid=345&amp;lang=fi">Herkkusieni</a></li>
+<li><a href="food.php?foodid=3334&amp;lang=fi">Herkkusieni paistettu</a></li>
+<li><a href="food.php?foodid=11064&amp;lang=fi">Herkkusieni säilyke</a></li>
+<li><a href="food.php?foodid=3259&amp;lang=fi">Herkkusienikeitto</a></li>
+<li><a href="food.php?foodid=3260&amp;lang=fi">Herkkusienimuhennos kevytmaito</a></li>
+<li><a href="food.php?foodid=3263&amp;lang=fi">Herkkusienipizza</a></li>
+<li><a href="food.php?foodid=29410&amp;lang=fi">Herkkutatti</a></li>
+<li><a href="food.php?foodid=29411&amp;lang=fi">Herkkutatti kokoon keitetty</a></li>
+<li><a href="food.php?foodid=370&amp;lang=fi">Herne</a></li>
+<li><a href="food.php?foodid=371&amp;lang=fi">Herne kuivattu</a></li>
+<li><a href="food.php?foodid=396&amp;lang=fi">Herne-maissi-paprikakasvispakaste kasvissekoitus</a></li>
+<li><a href="food.php?foodid=3700&amp;lang=fi">Herne-maissi-paprikasekoitus, keitetty</a></li>
+<li><a href="food.php?foodid=29305&amp;lang=fi">Hernekeitto keskirasvainen naudanliha</a></li>
+<li><a href="food.php?foodid=7010&amp;lang=fi">Hernekeitto keskirasvainen sianliha</a></li>
+<li><a href="food.php?foodid=11070&amp;lang=fi">Hernekeitto säilyke, laimennettu, sianliha</a></li>
+<li><a href="food.php?foodid=11041&amp;lang=fi">Hernekeitto säilyke, laimentamaton, sianliha</a></li>
+<li><a href="food.php?foodid=3703&amp;lang=fi">Hernemuhennos kuivatut herneet</a></li>
+<li><a href="food.php?foodid=3701&amp;lang=fi">Hernemuhennos tuoreet herneet</a></li>
+<li><a href="food.php?foodid=29035&amp;lang=fi">Hernesosekeitto vesi, valkoviini</a></li>
+<li><a href="food.php?foodid=26&amp;lang=fi">Hiiva</a></li>
+<li><a href="food.php?foodid=1295&amp;lang=fi">Hiivaleipä vesi, hiivaleipäjauho</a></li>
+<li><a href="food.php?foodid=124&amp;lang=fi">Hiivaleipävehnäjauho</a></li>
+<li><a href="food.php?foodid=476&amp;lang=fi">Hillo fruktoosilla makeutettu</a></li>
+<li><a href="food.php?foodid=1181&amp;lang=fi">Hillopiirakka muropohja</a></li>
+<li><a href="food.php?foodid=1188&amp;lang=fi">Hillopiirakka piimätaikinapohja</a></li>
+<li><a href="food.php?foodid=1164&amp;lang=fi">Hillopiirakka pullapohja, kevytmaito</a></li>
+<li><a href="food.php?foodid=3237&amp;lang=fi">Hillosipulisäilyke</a></li>
+<li><a href="food.php?foodid=1575&amp;lang=fi">Hirssi keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=1578&amp;lang=fi">Hirssi keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=1542&amp;lang=fi">Hirssipuuro maito</a></li>
+<li><a href="food.php?foodid=1541&amp;lang=fi">Hirssipuuro vesi</a></li>
+<li><a href="food.php?foodid=160&amp;lang=fi">Hirssisuurimo / -jauho</a></li>
+<li><a href="food.php?foodid=1540&amp;lang=fi">Hirssivelli maito</a></li>
+<li><a href="food.php?foodid=735&amp;lang=fi">Hirvenliha</a></li>
+<li><a href="food.php?foodid=7311&amp;lang=fi">Hirvenliha paistettu</a></li>
+<li><a href="food.php?foodid=7313&amp;lang=fi">Hirvenlihakastike</a></li>
+<li><a href="food.php?foodid=30179&amp;lang=fi">Hirvenlihakastike ruoanvalmistuskermasta</a></li>
+<li><a href="food.php?foodid=30156&amp;lang=fi">Hirvenlihakäristys</a></li>
+<li><a href="food.php?foodid=7314&amp;lang=fi">Hirvenlihakäristys siansilavalla</a></li>
+<li><a href="food.php?foodid=29262&amp;lang=fi">Hirvenlihapyörykkä ei kermaa</a></li>
+<li><a href="food.php?foodid=29259&amp;lang=fi">Hirvenlihapyörykkä paistettu voissa</a></li>
+<li><a href="food.php?foodid=7026&amp;lang=fi">Hirvenlihapyörykkä/pulla</a></li>
+<li><a href="food.php?foodid=7312&amp;lang=fi">Hirvenpaisti</a></li>
+<li><a href="food.php?foodid=1246&amp;lang=fi">Hollantilaiskastike rasva, keltuainen, vehnäj.</a></li>
+<li><a href="food.php?foodid=8042&amp;lang=fi">Homburgin hauki kermassa</a></li>
+<li><a href="food.php?foodid=866&amp;lang=fi">Hummeri</a></li>
+<li><a href="food.php?foodid=28987&amp;lang=fi">Hummeri, keitetty</a></li>
+<li><a href="food.php?foodid=4&amp;lang=fi">Hunaja</a></li>
+<li><a href="food.php?foodid=934&amp;lang=fi">Hunaja-omena-viinietikka</a></li>
+<li><a href="food.php?foodid=11203&amp;lang=fi">Hunajameloni kuorittu</a></li>
+<li><a href="food.php?foodid=28944&amp;lang=fi">Hunajameloni, punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=7249&amp;lang=fi">Häränlihahöystö punaviinissä +ruskea kastike</a></li>
+<li><a href="food.php?foodid=463&amp;lang=fi">Höyrymehu laimennettu, sokeriton</a></li>
+<li><a href="food.php?foodid=461&amp;lang=fi">Höyrymehu laimennettu, sokeroitu</a></li>
+<li><a href="food.php?foodid=453&amp;lang=fi">Höyrymehu laimentamaton, sokeriton</a></li>
+<li><a href="food.php?foodid=451&amp;lang=fi">Höyrymehu laimentamaton, sokeroitu</a></li>
+<li><a href="food.php?foodid=944&amp;lang=fi">Irish coffee kahvijuoma</a></li>
+<li><a href="food.php?foodid=29149&amp;lang=fi">Italianpata</a></li>
+<li><a href="food.php?foodid=7631&amp;lang=fi">Italiansalaatti ei majoneesia</a></li>
+<li><a href="food.php?foodid=3318&amp;lang=fi">Italiansalaatti majoneesikastike</a></li>
+<li><a href="food.php?foodid=384&amp;lang=fi">Itu keskiarvo, sinimailanen, mungopapu</a></li>
+<li><a href="food.php?foodid=30319&amp;lang=fi">Jahtimakkara, keskiarvo</a></li>
+<li><a href="food.php?foodid=8033&amp;lang=fi">Janssoninkiusaus</a></li>
+<li><a href="food.php?foodid=29043&amp;lang=fi">Janssoninkiusaus, kasvirasvakerma</a></li>
+<li><a href="food.php?foodid=28930&amp;lang=fi">Jauheliha broilerin, 6-8 % rasvaa</a></li>
+<li><a href="food.php?foodid=29125&amp;lang=fi">Jauheliha broilerin, paistettu</a></li>
+<li><a href="food.php?foodid=28945&amp;lang=fi">Jauheliha kalkkunan, 5-6 % rasvaa</a></li>
+<li><a href="food.php?foodid=29148&amp;lang=fi">Jauheliha kalkkunan, paistettu</a></li>
+<li><a href="food.php?foodid=29147&amp;lang=fi">Jauheliha kalkkunan, paistettu ilman rasvaa</a></li>
+<li><a href="food.php?foodid=28929&amp;lang=fi">Jauheliha lampaan, 14 % rasvaa</a></li>
+<li><a href="food.php?foodid=29146&amp;lang=fi">Jauheliha lampaan, paistettu</a></li>
+<li><a href="food.php?foodid=29145&amp;lang=fi">Jauheliha lampaan, paistettu ilman rasvaa</a></li>
+<li><a href="food.php?foodid=11562&amp;lang=fi">Jauheliha naudan, 17% rasvaa</a></li>
+<li><a href="food.php?foodid=29175&amp;lang=fi">Jauheliha naudan, 17% rasvaa, paistettu ilman rasvaa</a></li>
+<li><a href="food.php?foodid=7190&amp;lang=fi">Jauheliha naudan, paistettu ilman rasvaa</a></li>
+<li><a href="food.php?foodid=712&amp;lang=fi">Jauheliha naudan, vähärasvainen, 7 % rasvaa</a></li>
+<li><a href="food.php?foodid=746&amp;lang=fi">Jauheliha naudanpaisti, 5 % rasvaa</a></li>
+<li><a href="food.php?foodid=7086&amp;lang=fi">Jauheliha naudanpaisti, paistettu ilman rasvaa</a></li>
+<li><a href="food.php?foodid=28946&amp;lang=fi">Jauheliha sian, 16 % rasvaa</a></li>
+<li><a href="food.php?foodid=711&amp;lang=fi">Jauheliha sika-nauta</a></li>
+<li><a href="food.php?foodid=7015&amp;lang=fi">Jauheliha sika-nauta, paistettu</a></li>
+<li><a href="food.php?foodid=7063&amp;lang=fi">Jauheliha-kasvispata ei perunaa, sika-nauta</a></li>
+<li><a href="food.php?foodid=7038&amp;lang=fi">Jauheliha-kasvispata sika-nauta</a></li>
+<li><a href="food.php?foodid=7184&amp;lang=fi">Jauheliha-kasvisrisotto naudanliha, 17 % rasvaa</a></li>
+<li><a href="food.php?foodid=7040&amp;lang=fi">Jauheliha-kasvisrisotto perusrisotto + sika-nauta</a></li>
+<li><a href="food.php?foodid=30192&amp;lang=fi">Jauheliha-papurisotto kotitekoinen</a></li>
+<li><a href="food.php?foodid=7182&amp;lang=fi">Jauheliha-pastakeitto naudanliha 17% rasvaa, kasviksia</a></li>
+<li><a href="food.php?foodid=7185&amp;lang=fi">Jauheliha-pastakeitto naudanpaisti, kasviksia</a></li>
+<li><a href="food.php?foodid=7183&amp;lang=fi">Jauheliha-pastakeitto sika-nauta, kasviksia</a></li>
+<li><a href="food.php?foodid=29277&amp;lang=fi">Jauheliha-perunalaatikko naudanpaisti, lihaliemi</a></li>
+<li><a href="food.php?foodid=7042&amp;lang=fi">Jauheliha-perunalaatikko naudanpaisti, maito</a></li>
+<li><a href="food.php?foodid=7041&amp;lang=fi">Jauheliha-perunalaatikko sika-nauta, maito</a></li>
+<li><a href="food.php?foodid=11476&amp;lang=fi">Jauhelihaa ja spagettia keskiarvo, teollinen lastenruoka</a></li>
+<li><a href="food.php?foodid=7088&amp;lang=fi">Jauhelihakastike naudanliha</a></li>
+<li><a href="food.php?foodid=7017&amp;lang=fi">Jauhelihakastike naudanpaisti</a></li>
+<li><a href="food.php?foodid=30155&amp;lang=fi">Jauhelihakastike sianjauheliha</a></li>
+<li><a href="food.php?foodid=7016&amp;lang=fi">Jauhelihakastike sika-nauta</a></li>
+<li><a href="food.php?foodid=7035&amp;lang=fi">Jauhelihakeitto keittojuurekset, peruna, sika-nauta</a></li>
+<li><a href="food.php?foodid=7091&amp;lang=fi">Jauhelihakeitto naudanliha</a></li>
+<li><a href="food.php?foodid=7078&amp;lang=fi">Jauhelihakeitto naudanpaisti</a></li>
+<li><a href="food.php?foodid=7039&amp;lang=fi">Jauhelihamakaronimuhennos sika-nauta</a></li>
+<li><a href="food.php?foodid=7079&amp;lang=fi">Jauhelihamuhennos naudanpaisti</a></li>
+<li><a href="food.php?foodid=7018&amp;lang=fi">Jauhelihamuhennos sika-nauta, kevytmaito</a></li>
+<li><a href="food.php?foodid=7058&amp;lang=fi">Jauhelihamunakas sika-nauta</a></li>
+<li><a href="food.php?foodid=29018&amp;lang=fi">Jauhelihapihvi broileri</a></li>
+<li><a href="food.php?foodid=29021&amp;lang=fi">Jauhelihapihvi kalkkuna</a></li>
+<li><a href="food.php?foodid=29019&amp;lang=fi">Jauhelihapihvi lampaanliha</a></li>
+<li><a href="food.php?foodid=7172&amp;lang=fi">Jauhelihapihvi naudanpaisti, munaton</a></li>
+<li><a href="food.php?foodid=7192&amp;lang=fi">Jauhelihapihvi naudanpaisti, paistettu ilman rasvaa</a></li>
+<li><a href="food.php?foodid=29020&amp;lang=fi">Jauhelihapihvi sianliha</a></li>
+<li><a href="food.php?foodid=7069&amp;lang=fi">Jauhelihapihvi sika-nauta</a></li>
+<li><a href="food.php?foodid=7029&amp;lang=fi">Jauhelihapihvi sika-nauta, munaton</a></li>
+<li><a href="food.php?foodid=7077&amp;lang=fi">Jauhelihapizza naudanpaisti</a></li>
+<li><a href="food.php?foodid=7062&amp;lang=fi">Jauhelihapizza, sika-nauta</a></li>
+<li><a href="food.php?foodid=7857&amp;lang=fi">Jauhemaksakastike</a></li>
+<li><a href="food.php?foodid=7853&amp;lang=fi">Jauhemaksapihvi maksa, peruna, sipuli</a></li>
+<li><a href="food.php?foodid=619&amp;lang=fi">Jogurtti maustamaton, 2,5 % rasvaa, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=11736&amp;lang=fi">Jogurtti maustamaton, rasvaa 1,5 %</a></li>
+<li><a href="food.php?foodid=637&amp;lang=fi">Jogurtti maustamaton, rasvaton, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=30608&amp;lang=fi">Jogurtti maustettu hillolla, rasvaton</a></li>
+<li><a href="food.php?foodid=29089&amp;lang=fi">Jogurtti, juotava, marja/hedelmä, rasvaa 0,1 g</a></li>
+<li><a href="food.php?foodid=30452&amp;lang=fi">Jogurtti, juotava, vähälaktoosinen, marja/hedelmä, rasvaa 0,1 g</a></li>
+<li><a href="food.php?foodid=11586&amp;lang=fi">Jogurtti, maustamaton, a+, rasva 2,5 %, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=73&amp;lang=fi">Jogurttirusina / jogurttihedelmä kuorrutettu kuivattu hedelmä</a></li>
+<li><a href="food.php?foodid=1347&amp;lang=fi">Joulutorttu luumutäyte</a></li>
+<li><a href="food.php?foodid=3355&amp;lang=fi">Juurespatee porkkana, lanttu, peruna</a></li>
+<li><a href="food.php?foodid=29036&amp;lang=fi">Juuressosekeitto kasvirasvakerma</a></li>
+<li><a href="food.php?foodid=29037&amp;lang=fi">Juuressosekeitto vesi</a></li>
+<li><a href="food.php?foodid=3272&amp;lang=fi">Juuressurvos kevytmaito</a></li>
+<li><a href="food.php?foodid=311&amp;lang=fi">Juuriselleri</a></li>
+<li><a href="food.php?foodid=29511&amp;lang=fi">Juuriselleri keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=28968&amp;lang=fi">Juuriselleri-omenasalaatti, waldorfin salaatti, majoneesikastike</a></li>
+<li><a href="food.php?foodid=651&amp;lang=fi">Juusto keskiarvo</a></li>
+<li><a href="food.php?foodid=11157&amp;lang=fi">Juusto, sisältää kasvirasvaa</a></li>
+<li><a href="food.php?foodid=29033&amp;lang=fi">Juusto-kasviskeitto</a></li>
+<li><a href="food.php?foodid=29017&amp;lang=fi">Juustofondue</a></li>
+<li><a href="food.php?foodid=31442&amp;lang=fi">Juustoinen kasvissosekeitto, teollinen</a></li>
+<li><a href="food.php?foodid=3354&amp;lang=fi">Juustoiset herkkusienet tuorejuusto-, pekonitäyte</a></li>
+<li><a href="food.php?foodid=1360&amp;lang=fi">Juustokakku makea</a></li>
+<li><a href="food.php?foodid=6027&amp;lang=fi">Juustokeitto kasvisliemi, juusto, vehnäjauhot</a></li>
+<li><a href="food.php?foodid=6028&amp;lang=fi">Juustokohokas kevytmaito, vehnäjauho, muna</a></li>
+<li><a href="food.php?foodid=8504&amp;lang=fi">Juustomunakas</a></li>
+<li><a href="food.php?foodid=1554&amp;lang=fi">Juustonaksu</a></li>
+<li><a href="food.php?foodid=29789&amp;lang=fi">Juustopatonki</a></li>
+<li><a href="food.php?foodid=6042&amp;lang=fi">Juustopiirakka muropohja, homejuusto</a></li>
+<li><a href="food.php?foodid=2031&amp;lang=fi">Juustoröstiperuna</a></li>
+<li><a href="food.php?foodid=6041&amp;lang=fi">Juustosalaatti kermaviilikastike</a></li>
+<li><a href="food.php?foodid=1461&amp;lang=fi">Juustosarvi hiivataikina</a></li>
+<li><a href="food.php?foodid=8100&amp;lang=fi">Juustosilakat tuorejuusto</a></li>
+<li><a href="food.php?foodid=29793&amp;lang=fi">Juustosämpylä veteen</a></li>
+<li><a href="food.php?foodid=736&amp;lang=fi">Jänis</a></li>
+<li><a href="food.php?foodid=7315&amp;lang=fi">Jänis grillattu/paistettu</a></li>
+<li><a href="food.php?foodid=30380&amp;lang=fi">Jäätee</a></li>
+<li><a href="food.php?foodid=667&amp;lang=fi">Jäätelö keinotekoisesti makeutettu</a></li>
+<li><a href="food.php?foodid=669&amp;lang=fi">Jäätelö rasvaton</a></li>
+<li><a href="food.php?foodid=11172&amp;lang=fi">Jäätelöpuikko kasvirasvajäätelö, suklaakuorrute</a></li>
+<li><a href="food.php?foodid=664&amp;lang=fi">Jäätelöpuikko kermajäätelö, suklaakuorrute, keskiarvo</a></li>
+<li><a href="food.php?foodid=11148&amp;lang=fi">Jäätelöpuikko kermajäätelö, suklainen, ka</a></li>
+<li><a href="food.php?foodid=11173&amp;lang=fi">Jäätelötuutti kasvirasvajäätelö</a></li>
+<li><a href="food.php?foodid=665&amp;lang=fi">Jäätelötuutti kermajäätelö</a></li>
+<li><a href="food.php?foodid=331&amp;lang=fi">Jäävuorisalaatti rapea, amerikansalaatti</a></li>
+<li><a href="food.php?foodid=29087&amp;lang=fi">Jäävuorisalaatti-porkkana-kesäkurpitsasalaatti</a></li>
+<li><a href="food.php?foodid=21&amp;lang=fi">Kaakaojauhe sokeroitu</a></li>
+<li><a href="food.php?foodid=20&amp;lang=fi">Kaakaojauhe, sokeroimaton</a></li>
+<li><a href="food.php?foodid=6051&amp;lang=fi">Kaakaojuoma kylmä, kevytmaito, sokeroitu</a></li>
+<li><a href="food.php?foodid=29071&amp;lang=fi">Kaakaojuoma kylmä, rasvaton maito, sokeroitu</a></li>
+<li><a href="food.php?foodid=6008&amp;lang=fi">Kaakaojuoma sokeriton, kevytmaito</a></li>
+<li><a href="food.php?foodid=6007&amp;lang=fi">Kaakaojuoma sokeroitu, kevytmaito</a></li>
+<li><a href="food.php?foodid=31255&amp;lang=fi">Kaakaojuoma veteen</a></li>
+<li><a href="food.php?foodid=3200&amp;lang=fi">Kaali, paistettu</a></li>
+<li><a href="food.php?foodid=3298&amp;lang=fi">Kaali-ananassalaatti</a></li>
+<li><a href="food.php?foodid=3302&amp;lang=fi">Kaali-herne-maissi-paprikasalaatti</a></li>
+<li><a href="food.php?foodid=3299&amp;lang=fi">Kaali-kurkku-purjosalaatti</a></li>
+<li><a href="food.php?foodid=3297&amp;lang=fi">Kaali-kurpitsasalaatti</a></li>
+<li><a href="food.php?foodid=3301&amp;lang=fi">Kaali-omena-maustekurkkusalaatti</a></li>
+<li><a href="food.php?foodid=3202&amp;lang=fi">Kaali-perunakeitto ei lihaa</a></li>
+<li><a href="food.php?foodid=3300&amp;lang=fi">Kaali-porkkana-appelsiinisalaatti</a></li>
+<li><a href="food.php?foodid=7050&amp;lang=fi">Kaali-porkkana-jauhelihalaatikko naudanpaisti</a></li>
+<li><a href="food.php?foodid=7049&amp;lang=fi">Kaali-porkkana-jauhelihalaatikko sika-nauta</a></li>
+<li><a href="food.php?foodid=3296&amp;lang=fi">Kaali-punajuurisalaatti</a></li>
+<li><a href="food.php?foodid=3295&amp;lang=fi">Kaali-puolukkasalaatti</a></li>
+<li><a href="food.php?foodid=7166&amp;lang=fi">Kaalikeitto ei perunaa, keskirasvainen nauta</a></li>
+<li><a href="food.php?foodid=7167&amp;lang=fi">Kaalikeitto ei perunaa, naudan paisti</a></li>
+<li><a href="food.php?foodid=7168&amp;lang=fi">Kaalikeitto perunaa, keskirasvainen nauta</a></li>
+<li><a href="food.php?foodid=3201&amp;lang=fi">Kaalikeitto ruskistettu kaali, ei lihaa</a></li>
+<li><a href="food.php?foodid=7052&amp;lang=fi">Kaalikääryle naudan paisti</a></li>
+<li><a href="food.php?foodid=7051&amp;lang=fi">Kaalikääryle sika-nauta</a></li>
+<li><a href="food.php?foodid=7048&amp;lang=fi">Kaalilaatikko naudanpaisti</a></li>
+<li><a href="food.php?foodid=7047&amp;lang=fi">Kaalilaatikko sika-nauta</a></li>
+<li><a href="food.php?foodid=30153&amp;lang=fi">Kaalilaatikko, lihaton</a></li>
+<li><a href="food.php?foodid=7037&amp;lang=fi">Kaalipata jauhelihasta riisi, sika-nauta</a></li>
+<li><a href="food.php?foodid=7036&amp;lang=fi">Kaalipata jauhelihasta sika-nauta</a></li>
+<li><a href="food.php?foodid=3205&amp;lang=fi">Kaalipihvi/pyörykkä ei lihaa</a></li>
+<li><a href="food.php?foodid=1219&amp;lang=fi">Kaalipiirakka voitaikina</a></li>
+<li><a href="food.php?foodid=900&amp;lang=fi">Kahvijuoma, keskiarvo</a></li>
+<li><a href="food.php?foodid=5902&amp;lang=fi">Kakkurasva</a></li>
+<li><a href="food.php?foodid=1355&amp;lang=fi">Kakun mokkakuorrutus</a></li>
+<li><a href="food.php?foodid=8000&amp;lang=fi">Kala keskiarvo keitetty</a></li>
+<li><a href="food.php?foodid=8074&amp;lang=fi">Kala keskiarvo paistettu</a></li>
+<li><a href="food.php?foodid=8002&amp;lang=fi">Kala keskiarvo, grillattu/hiillostettu/pariloitu</a></li>
+<li><a href="food.php?foodid=8006&amp;lang=fi">Kala keskiarvo, leivitetty, paistettu</a></li>
+<li><a href="food.php?foodid=824&amp;lang=fi">Kala keskiarvo, silakka/muikku/ahven/hauki</a></li>
+<li><a href="food.php?foodid=857&amp;lang=fi">Kala savustettu, keskiarvo, rasvainen</a></li>
+<li><a href="food.php?foodid=856&amp;lang=fi">Kala savustettu, keskiarvo, vähärasvainen</a></li>
+<li><a href="food.php?foodid=8046&amp;lang=fi">Kala-kasvispaistos sei, sekavihannekset, sulatejuusto, maito</a></li>
+<li><a href="food.php?foodid=8038&amp;lang=fi">Kala-kasvispaistos tuore kala, maito, sekavihannekset, muna</a></li>
+<li><a href="food.php?foodid=8097&amp;lang=fi">Kala-kasvisruukku</a></li>
+<li><a href="food.php?foodid=11475&amp;lang=fi">Kala-kasvissose keskiarvo, teollinen lastenruoka</a></li>
+<li><a href="food.php?foodid=11519&amp;lang=fi">Kala-kasvissose kotitekoinen lastenruoka, suolaton</a></li>
+<li><a href="food.php?foodid=29024&amp;lang=fi">Kala-kookosmaitokeitto</a></li>
+<li><a href="food.php?foodid=8034&amp;lang=fi">Kala-makaronilaatikko</a></li>
+<li><a href="food.php?foodid=8031&amp;lang=fi">Kala-perunalaatikko</a></li>
+<li><a href="food.php?foodid=8039&amp;lang=fi">Kala-perunapata</a></li>
+<li><a href="food.php?foodid=8035&amp;lang=fi">Kala-pinaattivuoka kevytmaito</a></li>
+<li><a href="food.php?foodid=8032&amp;lang=fi">Kala-riisilaatikko munamaito, kermaa</a></li>
+<li><a href="food.php?foodid=8056&amp;lang=fi">Kala-riisipiirakka muropohja</a></li>
+<li><a href="food.php?foodid=8024&amp;lang=fi">Kala-vihanneskeitto kala, peruna, keittojuurekset, veteen</a></li>
+<li><a href="food.php?foodid=7072&amp;lang=fi">Kalahampurilainen</a></li>
+<li><a href="food.php?foodid=8022&amp;lang=fi">Kalakeitto ei maitoa</a></li>
+<li><a href="food.php?foodid=8021&amp;lang=fi">Kalakeitto pakasteseiti, kevytmaito</a></li>
+<li><a href="food.php?foodid=8020&amp;lang=fi">Kalakeitto tuore kala, maito</a></li>
+<li><a href="food.php?foodid=8057&amp;lang=fi">Kalakukko</a></li>
+<li><a href="food.php?foodid=30311&amp;lang=fi">Kalakukko kirjolohesta</a></li>
+<li><a href="food.php?foodid=30434&amp;lang=fi">Kalalevite</a></li>
+<li><a href="food.php?foodid=75&amp;lang=fi">Kalaliemi laimennettu</a></li>
+<li><a href="food.php?foodid=29010&amp;lang=fi">Kalaliemikuutio</a></li>
+<li><a href="food.php?foodid=8026&amp;lang=fi">Kalamuhennos kevytmaito</a></li>
+<li><a href="food.php?foodid=8077&amp;lang=fi">Kalamureke kermainen</a></li>
+<li><a href="food.php?foodid=29247&amp;lang=fi">Kalamureke maidoton</a></li>
+<li><a href="food.php?foodid=8019&amp;lang=fi">Kalamureke maitoon</a></li>
+<li><a href="food.php?foodid=8075&amp;lang=fi">Kalapasteija tonnikala-, savukala-, lohipasteija, piirakka</a></li>
+<li><a href="food.php?foodid=8072&amp;lang=fi">Kalapiirakka muropohja, kermaviiliä</a></li>
+<li><a href="food.php?foodid=8015&amp;lang=fi">Kalapuikko leivitetty, pannulla paistettu</a></li>
+<li><a href="food.php?foodid=8016&amp;lang=fi">Kalapuikko leivitetty, uunissa paistettu</a></li>
+<li><a href="food.php?foodid=8018&amp;lang=fi">Kalapyörykkä keitetty</a></li>
+<li><a href="food.php?foodid=8017&amp;lang=fi">Kalapyörykkä paistettu</a></li>
+<li><a href="food.php?foodid=30303&amp;lang=fi">Kalapyörykkä, teollinen</a></li>
+<li><a href="food.php?foodid=8040&amp;lang=fi">Kalarisotto perusrisotto sisältää kalaa</a></li>
+<li><a href="food.php?foodid=1264&amp;lang=fi">Kalavoileipäkakku sekahiivaleipä</a></li>
+<li><a href="food.php?foodid=914&amp;lang=fi">Kalja kotiolut</a></li>
+<li><a href="food.php?foodid=168&amp;lang=fi">Kalja- / mämmimallas</a></li>
+<li><a href="food.php?foodid=7513&amp;lang=fi">Kalkkuna</a></li>
+<li><a href="food.php?foodid=752&amp;lang=fi">Kalkkuna nahkoineen</a></li>
+<li><a href="food.php?foodid=29086&amp;lang=fi">Kalkkuna-kasviswokki</a></li>
+<li><a href="food.php?foodid=30667&amp;lang=fi">Kalkkunakastike kasvirasvakerma</a></li>
+<li><a href="food.php?foodid=30666&amp;lang=fi">Kalkkunakastike ruoanvalmistuskerma</a></li>
+<li><a href="food.php?foodid=30299&amp;lang=fi">Kalkkunaleike, leivitetty, uunissa</a></li>
+<li><a href="food.php?foodid=11147&amp;lang=fi">Kalkkunaleikkele</a></li>
+<li><a href="food.php?foodid=11551&amp;lang=fi">Kalkkunan rintafilee</a></li>
+<li><a href="food.php?foodid=7535&amp;lang=fi">Kalkkunan rintafilee paistettu</a></li>
+<li><a href="food.php?foodid=7536&amp;lang=fi">Kalkkunan rintafilee uunissa paistettu</a></li>
+<li><a href="food.php?foodid=30668&amp;lang=fi">Kalkkunarisotto</a></li>
+<li><a href="food.php?foodid=820&amp;lang=fi">Kampela</a></li>
+<li><a href="food.php?foodid=8013&amp;lang=fi">Kampela, paistettu</a></li>
+<li><a href="food.php?foodid=30282&amp;lang=fi">Kampelafilee, leivitetty, paistettu pannulla</a></li>
+<li><a href="food.php?foodid=30286&amp;lang=fi">Kampelafilee, leivitetty, uunissa paistettu</a></li>
+<li><a href="food.php?foodid=750&amp;lang=fi">Kana</a></li>
+<li><a href="food.php?foodid=7500&amp;lang=fi">Kana keitetty</a></li>
+<li><a href="food.php?foodid=30199&amp;lang=fi">Kana-ananaspizza</a></li>
+<li><a href="food.php?foodid=7517&amp;lang=fi">Kana-kasviskastike kiinalainen hapanimelä</a></li>
+<li><a href="food.php?foodid=7503&amp;lang=fi">Kana-kasvispata porkkanaa, sieniä, ei perunaa</a></li>
+<li><a href="food.php?foodid=7504&amp;lang=fi">Kana-kasvisrisotto</a></li>
+<li><a href="food.php?foodid=11474&amp;lang=fi">Kana-kasvissose keskiarvo, teollinen lastenruoka</a></li>
+<li><a href="food.php?foodid=11520&amp;lang=fi">Kana-kasvissose kotitekoinen lastenruoka, suolaton</a></li>
+<li><a href="food.php?foodid=31445&amp;lang=fi">Kana-kookosmaitokeitto</a></li>
+<li><a href="food.php?foodid=7502&amp;lang=fi">Kana-vihanneskeitto perunaa, kasviksia</a></li>
+<li><a href="food.php?foodid=31467&amp;lang=fi">Kanaa tikka</a></li>
+<li><a href="food.php?foodid=30169&amp;lang=fi">Kanahampurilainen,  rouhesämpylä</a></li>
+<li><a href="food.php?foodid=7071&amp;lang=fi">Kanahampurilainen, vehnäsämpylä</a></li>
+<li><a href="food.php?foodid=7501&amp;lang=fi">Kanakeitto kasviksia</a></li>
+<li><a href="food.php?foodid=30314&amp;lang=fi">Kanakeitto kasviksia, kermainen</a></li>
+<li><a href="food.php?foodid=31443&amp;lang=fi">Kanakeitto, teollinen</a></li>
+<li><a href="food.php?foodid=30315&amp;lang=fi">Kanaliemi laimennettu</a></li>
+<li><a href="food.php?foodid=29009&amp;lang=fi">Kanaliemikuutio, sisältää vehnää</a></li>
+<li><a href="food.php?foodid=11510&amp;lang=fi">Kananliha, keitetty,  suolaton</a></li>
+<li><a href="food.php?foodid=29160&amp;lang=fi">Kananmuna  kuorineen punnittu</a></li>
+<li><a href="food.php?foodid=8513&amp;lang=fi">Kananmuna keitetty</a></li>
+<li><a href="food.php?foodid=858&amp;lang=fi">Kananmuna kuoreton</a></li>
+<li><a href="food.php?foodid=30641&amp;lang=fi">Kananmuna, omega, kuoreton</a></li>
+<li><a href="food.php?foodid=8500&amp;lang=fi">Kananmuna, paistettu</a></li>
+<li><a href="food.php?foodid=851&amp;lang=fi">Kananmunan keltuainen 34% kananmunan massasta</a></li>
+<li><a href="food.php?foodid=8501&amp;lang=fi">Kananmunan keltuainen, paistettu</a></li>
+<li><a href="food.php?foodid=852&amp;lang=fi">Kananmunan valkuainen 66% kananmunan massasta</a></li>
+<li><a href="food.php?foodid=8502&amp;lang=fi">Kananmunan valkuainen, paistettu</a></li>
+<li><a href="food.php?foodid=7506&amp;lang=fi">Kanapyörykkä/broileripyörykkä</a></li>
+<li><a href="food.php?foodid=7514&amp;lang=fi">Kanasalaatti riisi, herne, maustekurkku, purjo</a></li>
+<li><a href="food.php?foodid=7505&amp;lang=fi">Kanaviillokki</a></li>
+<li><a href="food.php?foodid=29217&amp;lang=fi">Kangasrousku</a></li>
+<li><a href="food.php?foodid=737&amp;lang=fi">Kani</a></li>
+<li><a href="food.php?foodid=7316&amp;lang=fi">Kani grillattu/paistettu</a></li>
+<li><a href="food.php?foodid=367&amp;lang=fi">Kantarelli</a></li>
+<li><a href="food.php?foodid=30478&amp;lang=fi">Kantarelli, paistettu</a></li>
+<li><a href="food.php?foodid=6035&amp;lang=fi">Karamellikastike</a></li>
+<li><a href="food.php?foodid=7153&amp;lang=fi">Karjalanpaisti nauta, keskirasvainen sika</a></li>
+<li><a href="food.php?foodid=7174&amp;lang=fi">Karjalanpaisti nauta, sika, maksa, munuainen, sydän</a></li>
+<li><a href="food.php?foodid=29295&amp;lang=fi">Karjalanpiirakka perinteinen, voideltu voilla</a></li>
+<li><a href="food.php?foodid=1013&amp;lang=fi">Karjalanpiirakka perinteinen, voideltu, riisi, ruisvehnäkuori</a></li>
+<li><a href="food.php?foodid=11094&amp;lang=fi">Karjalanpiirakka teollinen, tumma, laktoositon</a></li>
+<li><a href="food.php?foodid=28949&amp;lang=fi">Karjalanpiirakka, vehnäkuori</a></li>
+<li><a href="food.php?foodid=441&amp;lang=fi">Karpalo</a></li>
+<li><a href="food.php?foodid=30395&amp;lang=fi">Karpalo-puolukkatäysmehu</a></li>
+<li><a href="food.php?foodid=4402&amp;lang=fi">Karpalokeitto/kiisseli</a></li>
+<li><a href="food.php?foodid=446&amp;lang=fi">Karviainen</a></li>
+<li><a href="food.php?foodid=11552&amp;lang=fi">Kasslerpaisti / piknikpaisti marinoitu</a></li>
+<li><a href="food.php?foodid=7090&amp;lang=fi">Kasslerpaisti uunissa</a></li>
+<li><a href="food.php?foodid=377&amp;lang=fi">Kastanja</a></li>
+<li><a href="food.php?foodid=676&amp;lang=fi">Kasvirasvajäätelö</a></li>
+<li><a href="food.php?foodid=30613&amp;lang=fi">Kasvirasvalevite 23% becel pro-activ extra light</a></li>
+<li><a href="food.php?foodid=30614&amp;lang=fi">Kasvirasvalevite 25% pirkka/rainbow</a></li>
+<li><a href="food.php?foodid=11287&amp;lang=fi">Kasvirasvalevite 28% mini lätta</a></li>
+<li><a href="food.php?foodid=30612&amp;lang=fi">Kasvirasvalevite 30% keiju</a></li>
+<li><a href="food.php?foodid=11739&amp;lang=fi">Kasvirasvalevite 35% becel pro-activ</a></li>
+<li><a href="food.php?foodid=29158&amp;lang=fi">Kasvirasvalevite 70 % keskiarvo</a></li>
+<li><a href="food.php?foodid=30617&amp;lang=fi">Kasvirasvalevite 70% keiju laktoositon</a></li>
+<li><a href="food.php?foodid=594&amp;lang=fi">Kasvirasvalevite kevyt becel 35 % vähäsuolainen, laktoositon</a></li>
+<li><a href="food.php?foodid=599&amp;lang=fi">Kasvirasvalevite kevyt benecol 32 % kasvistanolia 8%</a></li>
+<li><a href="food.php?foodid=29030&amp;lang=fi">Kasvis-kookosmaitokeitto</a></li>
+<li><a href="food.php?foodid=3717&amp;lang=fi">Kasvis-sienipiirakka juustokuorrute</a></li>
+<li><a href="food.php?foodid=29032&amp;lang=fi">Kasvisgratiini kermainen</a></li>
+<li><a href="food.php?foodid=30170&amp;lang=fi">Kasvishampurilainen,  rouhesämpylä</a></li>
+<li><a href="food.php?foodid=29074&amp;lang=fi">Kasvishampurilainen, vehnäsämpylä</a></li>
+<li><a href="food.php?foodid=29222&amp;lang=fi">Kasvishernekeitto</a></li>
+<li><a href="food.php?foodid=3322&amp;lang=fi">Kasviskastike suurustamaton, tomaattia, juureksia</a></li>
+<li><a href="food.php?foodid=3276&amp;lang=fi">Kasvislaatikko peruna, keittojuurekset, kevytmaito</a></li>
+<li><a href="food.php?foodid=3326&amp;lang=fi">Kasvislasagne</a></li>
+<li><a href="food.php?foodid=29026&amp;lang=fi">Kasvisliemi laimennettu</a></li>
+<li><a href="food.php?foodid=29008&amp;lang=fi">Kasvisliemikuutio</a></li>
+<li><a href="food.php?foodid=28927&amp;lang=fi">Kasvismakkara, soijapitoinen</a></li>
+<li><a href="food.php?foodid=29267&amp;lang=fi">Kasvisminestronekeitto</a></li>
+<li><a href="food.php?foodid=1221&amp;lang=fi">Kasvispaistos kasviksia ja juustoa, muropohja</a></li>
+<li><a href="food.php?foodid=11110&amp;lang=fi">Kasvispihvi/pyörykkä</a></li>
+<li><a href="food.php?foodid=3280&amp;lang=fi">Kasvispihvi/pyörykkä</a></li>
+<li><a href="food.php?foodid=3281&amp;lang=fi">Kasvispizza sieni, sipuli, paprika, oliivi</a></li>
+<li><a href="food.php?foodid=3325&amp;lang=fi">Kasvispyttipannu sieniä</a></li>
+<li><a href="food.php?foodid=3279&amp;lang=fi">Kasvisrisotto</a></li>
+<li><a href="food.php?foodid=29034&amp;lang=fi">Kasvissosekeitto herne-porkkana-maissi, kasvirasvakerma</a></li>
+<li><a href="food.php?foodid=3268&amp;lang=fi">Kasvissosekeitto maito</a></li>
+<li><a href="food.php?foodid=358&amp;lang=fi">Kasvistuoremehu</a></li>
+<li><a href="food.php?foodid=1391&amp;lang=fi">Kasvisvoileipäkakku</a></li>
+<li><a href="food.php?foodid=835&amp;lang=fi">Katkarapu</a></li>
+<li><a href="food.php?foodid=29039&amp;lang=fi">Katkarapu-porkkanakeitto, kasvirasvakerma</a></li>
+<li><a href="food.php?foodid=8070&amp;lang=fi">Katkarapukastike kermainen</a></li>
+<li><a href="food.php?foodid=8025&amp;lang=fi">Katkarapukeitto suurustettu</a></li>
+<li><a href="food.php?foodid=31463&amp;lang=fi">Katkarapukolmioleipä</a></li>
+<li><a href="food.php?foodid=30164&amp;lang=fi">Katkarapusalaatti kananmunalla</a></li>
+<li><a href="food.php?foodid=8071&amp;lang=fi">Katkarapusalaatti, kermaviilikastike</a></li>
+<li><a href="food.php?foodid=1519&amp;lang=fi">Kaura-hedelmäpuuro</a></li>
+<li><a href="food.php?foodid=1516&amp;lang=fi">Kaura-luumukeitto</a></li>
+<li><a href="food.php?foodid=153&amp;lang=fi">Kaurahiutale</a></li>
+<li><a href="food.php?foodid=30190&amp;lang=fi">Kaurajauho</a></li>
+<li><a href="food.php?foodid=30208&amp;lang=fi">Kaurajuoma maidoton, lisätty kalsiumia</a></li>
+<li><a href="food.php?foodid=30209&amp;lang=fi">Kaurajuoma maidoton, lisätty kalsiumia ja vitamiineja</a></li>
+<li><a href="food.php?foodid=30210&amp;lang=fi">Kaurajuoma maidoton, oat drink</a></li>
+<li><a href="food.php?foodid=29760&amp;lang=fi">Kaurakeksi</a></li>
+<li><a href="food.php?foodid=1524&amp;lang=fi">Kauralastu, sisältää vehnää</a></li>
+<li><a href="food.php?foodid=1520&amp;lang=fi">Kauraleipä kevytmaito, vehnäjauho, kaurahiutale</a></li>
+<li><a href="food.php?foodid=29787&amp;lang=fi">Kauraleipä veteen</a></li>
+<li><a href="food.php?foodid=170&amp;lang=fi">Kauralese</a></li>
+<li><a href="food.php?foodid=30358&amp;lang=fi">Kauramakaroni keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=191&amp;lang=fi">Kauramakaroni keitinvedessä öljyä</a></li>
+<li><a href="food.php?foodid=190&amp;lang=fi">Kauramakaroni keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=173&amp;lang=fi">Kauramakaroni, sisältää vehnää ja kauraa</a></li>
+<li><a href="food.php?foodid=30377&amp;lang=fi">Kauramannapuuro maitoon</a></li>
+<li><a href="food.php?foodid=30378&amp;lang=fi">Kauramannavelli maitoon</a></li>
+<li><a href="food.php?foodid=29054&amp;lang=fi">Kaurapaahtoleipä, vesi, vehnäjauho, kaurahiutale</a></li>
+<li><a href="food.php?foodid=1514&amp;lang=fi">Kaurapuuro kevytmaitoon</a></li>
+<li><a href="food.php?foodid=30161&amp;lang=fi">Kaurapuuro rasvattomaan maitoon</a></li>
+<li><a href="food.php?foodid=1513&amp;lang=fi">Kaurapuuro vesi</a></li>
+<li><a href="food.php?foodid=30175&amp;lang=fi">Kaurapuuro, omena-kaneli</a></li>
+<li><a href="food.php?foodid=29307&amp;lang=fi">Kaurapuuro, sisältää kauraleseitä</a></li>
+<li><a href="food.php?foodid=1521&amp;lang=fi">Kaurasämpylä kevytmaito, hiivaleipäjauho, kaurahiutale</a></li>
+<li><a href="food.php?foodid=29794&amp;lang=fi">Kaurasämpylä veteen</a></li>
+<li><a href="food.php?foodid=1512&amp;lang=fi">Kauravelli maito</a></li>
+<li><a href="food.php?foodid=1511&amp;lang=fi">Kauravelli vesi</a></li>
+<li><a href="food.php?foodid=30198&amp;lang=fi">Kebab-sipuli-pepperonipizza</a></li>
+<li><a href="food.php?foodid=31446&amp;lang=fi">Kebabkiusaus, teollinen</a></li>
+<li><a href="food.php?foodid=30200&amp;lang=fi">Kebableipä, täytetty pitaleipä</a></li>
+<li><a href="food.php?foodid=29078&amp;lang=fi">Kebabliha</a></li>
+<li><a href="food.php?foodid=1017&amp;lang=fi">Keitinpiirakka riisiä ja munaa, ruiskuori</a></li>
+<li><a href="food.php?foodid=313&amp;lang=fi">Keittojuuressekoitus porkkana, lanttu, juuriselleri, purjo</a></li>
+<li><a href="food.php?foodid=779&amp;lang=fi">Keittokinkku</a></li>
+<li><a href="food.php?foodid=29751&amp;lang=fi">Keksi fruktoosilla makeutettu</a></li>
+<li><a href="food.php?foodid=29750&amp;lang=fi">Keksi teollinen keskiarvo</a></li>
+<li><a href="food.php?foodid=629&amp;lang=fi">Kerma 38 % rasvaa, vispikerma, vähälaktoosinen, iskukuumennettu</a></li>
+<li><a href="food.php?foodid=633&amp;lang=fi">Kerma, kevyt, kahvikerma, 10 % rasvaa, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=29066&amp;lang=fi">Kerma, rasvaa 35 g, kuohukerma</a></li>
+<li><a href="food.php?foodid=11136&amp;lang=fi">Kerma, vispikerma, kevyt,  25% rasvaa</a></li>
+<li><a href="food.php?foodid=641&amp;lang=fi">Kermajuusto rasvaa 30g, turunmaa/oltermanni/korsholm/masurkka</a></li>
+<li><a href="food.php?foodid=663&amp;lang=fi">Kermajäätelö</a></li>
+<li><a href="food.php?foodid=668&amp;lang=fi">Kermajäätelö >12% rasvaa, keskiarvo</a></li>
+<li><a href="food.php?foodid=6025&amp;lang=fi">Kermakastike salaatinkastike</a></li>
+<li><a href="food.php?foodid=942&amp;lang=fi">Kermalikööri 15-17 til% alkoholia</a></li>
+<li><a href="food.php?foodid=2021&amp;lang=fi">Kermaperuna</a></li>
+<li><a href="food.php?foodid=29268&amp;lang=fi">Kermaperuna kahvikerma</a></li>
+<li><a href="food.php?foodid=29269&amp;lang=fi">Kermaperuna kasvirasvakerma</a></li>
+<li><a href="food.php?foodid=1204&amp;lang=fi">Kermatäytekakku</a></li>
+<li><a href="food.php?foodid=31258&amp;lang=fi">Kermavaahto sokeroimaton, kotitekoinen</a></li>
+<li><a href="food.php?foodid=6006&amp;lang=fi">Kermavaahto sokeroitu, kotitekoinen</a></li>
+<li><a href="food.php?foodid=6043&amp;lang=fi">Kermavaahto vähälaktoosinen, sokeroitu</a></li>
+<li><a href="food.php?foodid=6052&amp;lang=fi">Kermavanukas rasvainen</a></li>
+<li><a href="food.php?foodid=615&amp;lang=fi">Kermaviili 10-12% rasvaa</a></li>
+<li><a href="food.php?foodid=11152&amp;lang=fi">Kermaviili vähälaktoosinen, 10-12% rasvaa</a></li>
+<li><a href="food.php?foodid=30455&amp;lang=fi">Kermaviili vähälaktoosinen, 3,5% rasvaa</a></li>
+<li><a href="food.php?foodid=30454&amp;lang=fi">Kermaviili vähälaktoosinen, 6% rasvaa</a></li>
+<li><a href="food.php?foodid=6037&amp;lang=fi">Kermaviilikastike</a></li>
+<li><a href="food.php?foodid=6045&amp;lang=fi">Kermaviilikastike sinappinen</a></li>
+<li><a href="food.php?foodid=7070&amp;lang=fi">Kerroshampurilainen</a></li>
+<li><a href="food.php?foodid=3267&amp;lang=fi">Kesäkeitto</a></li>
+<li><a href="food.php?foodid=3361&amp;lang=fi">Kesäkeitto uudesta perunasta</a></li>
+<li><a href="food.php?foodid=3800&amp;lang=fi">Kesäkurpitsa täytetty, jauheliha, paprika, tomaatti</a></li>
+<li><a href="food.php?foodid=3799&amp;lang=fi">Kesäkurpitsa täytetty, kasvikset</a></li>
+<li><a href="food.php?foodid=29266&amp;lang=fi">Kesäkurpitsa täytetty, soija, riisi</a></li>
+<li><a href="food.php?foodid=389&amp;lang=fi">Kesäkurpitsa zucchini</a></li>
+<li><a href="food.php?foodid=11570&amp;lang=fi">Kevytlevite 14 % rasvaa</a></li>
+<li><a href="food.php?foodid=684&amp;lang=fi">Kevytmaito 1,5% rasvaa</a></li>
+<li><a href="food.php?foodid=675&amp;lang=fi">Kevytmaito 1,5% rasvaa, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=618&amp;lang=fi">Kevytviili 2 % rasvaa</a></li>
+<li><a href="food.php?foodid=11154&amp;lang=fi">Kevytviili vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=29240&amp;lang=fi">Kevätkääryle jauhelihatäyte</a></li>
+<li><a href="food.php?foodid=29238&amp;lang=fi">Kevätkääryle kasvistäyte</a></li>
+<li><a href="food.php?foodid=793&amp;lang=fi">Kieli naudan</a></li>
+<li><a href="food.php?foodid=7869&amp;lang=fi">Kieli naudan, keitetty</a></li>
+<li><a href="food.php?foodid=359&amp;lang=fi">Kiinankaali</a></li>
+<li><a href="food.php?foodid=3310&amp;lang=fi">Kiinankaali-ananassalaatti</a></li>
+<li><a href="food.php?foodid=3313&amp;lang=fi">Kiinankaali-herne-maissi-paprikasalaatti</a></li>
+<li><a href="food.php?foodid=3312&amp;lang=fi">Kiinankaali-kurkku-tomaattisalaatti</a></li>
+<li><a href="food.php?foodid=3708&amp;lang=fi">Kiinankaali-kurkku-tomaattisalaatti kotitekoinen ranskalainen kastike</a></li>
+<li><a href="food.php?foodid=3315&amp;lang=fi">Kiinankaali-kurkku-tomaattisalaatti ranskalainen kastike</a></li>
+<li><a href="food.php?foodid=3311&amp;lang=fi">Kiinankaali-sipulisalaatti</a></li>
+<li><a href="food.php?foodid=11050&amp;lang=fi">Kiivi kuorittu</a></li>
+<li><a href="food.php?foodid=28939&amp;lang=fi">Kiivi, keskiarvo, punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=11089&amp;lang=fi">Kikherne suolattomassa vedessä, kahviherne</a></li>
+<li><a href="food.php?foodid=29242&amp;lang=fi">Kikherne-perunapata</a></li>
+<li><a href="food.php?foodid=28966&amp;lang=fi">Kikhernepyörykkä, falafel, uppopaistettu</a></li>
+<li><a href="food.php?foodid=30197&amp;lang=fi">Kinkku-ananas-sinihomejuustopizza</a></li>
+<li><a href="food.php?foodid=29220&amp;lang=fi">Kinkku-ananaspizza</a></li>
+<li><a href="food.php?foodid=29042&amp;lang=fi">Kinkku-perunalaatikko, kasvirasvakerma</a></li>
+<li><a href="food.php?foodid=7632&amp;lang=fi">Kinkku-perunalaatikko, ruoanvalmistuskerma</a></li>
+<li><a href="food.php?foodid=7629&amp;lang=fi">Kinkku-sienipizza</a></li>
+<li><a href="food.php?foodid=30182&amp;lang=fi">Kinkku-sinihomejuustokastike, rasva-jauhosuurus</a></li>
+<li><a href="food.php?foodid=7633&amp;lang=fi">Kinkkukastike</a></li>
+<li><a href="food.php?foodid=31452&amp;lang=fi">Kinkkukiusaus, teollinen</a></li>
+<li><a href="food.php?foodid=31464&amp;lang=fi">Kinkkukolmioleipä</a></li>
+<li><a href="food.php?foodid=799&amp;lang=fi">Kinkkuleikkele vähärasvainen</a></li>
+<li><a href="food.php?foodid=30273&amp;lang=fi">Kinkkumakkara</a></li>
+<li><a href="food.php?foodid=7630&amp;lang=fi">Kinkkumunakas</a></li>
+<li><a href="food.php?foodid=7636&amp;lang=fi">Kinkkupiirakka muropohja</a></li>
+<li><a href="food.php?foodid=7115&amp;lang=fi">Kinkkurisotto jambalaya (kinkku, katkarapu, meetvursti)</a></li>
+<li><a href="food.php?foodid=7635&amp;lang=fi">Kinkkusalaatti kasvispitoinen</a></li>
+<li><a href="food.php?foodid=6036&amp;lang=fi">Kinuskikastike</a></li>
+<li><a href="food.php?foodid=1206&amp;lang=fi">Kinuskitäytekakku</a></li>
+<li><a href="food.php?foodid=822&amp;lang=fi">Kirjolohi kokonainen, keskiarvo</a></li>
+<li><a href="food.php?foodid=848&amp;lang=fi">Kirjolohi meri, filee</a></li>
+<li><a href="food.php?foodid=8063&amp;lang=fi">Kirjolohi, leivitetty, paistettu</a></li>
+<li><a href="food.php?foodid=11209&amp;lang=fi">Kirjolohifilee</a></li>
+<li><a href="food.php?foodid=29263&amp;lang=fi">Kirjolohifilee kasvirasvakerma</a></li>
+<li><a href="food.php?foodid=8078&amp;lang=fi">Kirjolohifilee kermainen</a></li>
+<li><a href="food.php?foodid=861&amp;lang=fi">Kirjolohifilee kylmäsavustettu</a></li>
+<li><a href="food.php?foodid=870&amp;lang=fi">Kirjolohifilee tuoresuolattu</a></li>
+<li><a href="food.php?foodid=8089&amp;lang=fi">Kirjolohifilee vähärasvainen, uunissa paistettu</a></li>
+<li><a href="food.php?foodid=8088&amp;lang=fi">Kirjolohifilee, leivitetty, uunissa paistettu</a></li>
+<li><a href="food.php?foodid=31444&amp;lang=fi">Kirjolohikeitto , teollinen</a></li>
+<li><a href="food.php?foodid=8062&amp;lang=fi">Kirjolohikeitto maito</a></li>
+<li><a href="food.php?foodid=8092&amp;lang=fi">Kirjolohikiusaus fileestä</a></li>
+<li><a href="food.php?foodid=1392&amp;lang=fi">Kirjolohivoileipäkakku</a></li>
+<li><a href="food.php?foodid=613&amp;lang=fi">Kirnupiimä 0,3% rasvaa</a></li>
+<li><a href="food.php?foodid=11052&amp;lang=fi">Kirsikka kivetön</a></li>
+<li><a href="food.php?foodid=28920&amp;lang=fi">Kirsikka,  punnittu kivineen</a></li>
+<li><a href="food.php?foodid=30451&amp;lang=fi">Kivennäisvesi fruktoosilla makeutettu</a></li>
+<li><a href="food.php?foodid=915&amp;lang=fi">Kivennäisvesi mineraalivesi</a></li>
+<li><a href="food.php?foodid=921&amp;lang=fi">Kivennäisvesi vähänatriuminen</a></li>
+<li><a href="food.php?foodid=928&amp;lang=fi">Kolajuoma ka</a></li>
+<li><a href="food.php?foodid=941&amp;lang=fi">Kolajuoma light, makeutettu aspartaamilla</a></li>
+<li><a href="food.php?foodid=30224&amp;lang=fi">Kolajuoma light, makeutettu sukraloosilla</a></li>
+<li><a href="food.php?foodid=907&amp;lang=fi">Konjakki/rommi/viski 40 til% alkoholia</a></li>
+<li><a href="food.php?foodid=382&amp;lang=fi">Kookoshiutale</a></li>
+<li><a href="food.php?foodid=29014&amp;lang=fi">Kookosmaito</a></li>
+<li><a href="food.php?foodid=552&amp;lang=fi">Kookosrasva 100 %</a></li>
+<li><a href="food.php?foodid=126&amp;lang=fi">Korppujauho</a></li>
+<li><a href="food.php?foodid=11120&amp;lang=fi">Korvapuusti leipomo, veteen</a></li>
+<li><a href="food.php?foodid=1307&amp;lang=fi">Korvapuusti runsasrasvainen, kevytmaito</a></li>
+<li><a href="food.php?foodid=30160&amp;lang=fi">Korvapuusti runsasrasvainen, rasvaton maito</a></li>
+<li><a href="food.php?foodid=30174&amp;lang=fi">Korvapuusti veteen ja öljyyn</a></li>
+<li><a href="food.php?foodid=368&amp;lang=fi">Korvasieni</a></li>
+<li><a href="food.php?foodid=3716&amp;lang=fi">Korvasieni keitetty</a></li>
+<li><a href="food.php?foodid=3368&amp;lang=fi">Korvasienikeitto kermainen</a></li>
+<li><a href="food.php?foodid=650&amp;lang=fi">Kotijuusto rasvaa 9-14g, maalaisjuusto</a></li>
+<li><a href="food.php?foodid=643&amp;lang=fi">Kova pienikoloinen juusto, rasvaa 24-27g edam, rasvaa 40 % kuivapainosta</a></li>
+<li><a href="food.php?foodid=1207&amp;lang=fi">Kreemitäytekakku</a></li>
+<li><a href="food.php?foodid=3333&amp;lang=fi">Kreikkalainen salaatti ei kastiketta</a></li>
+<li><a href="food.php?foodid=3329&amp;lang=fi">Kreikkalainen salaatti fetajuustosalaatti, öljykastike</a></li>
+<li><a href="food.php?foodid=1032&amp;lang=fi">Kruskapuuro rouhepuuro</a></li>
+<li><a href="food.php?foodid=62&amp;lang=fi">Ksylitolipastilli</a></li>
+<li><a href="food.php?foodid=11210&amp;lang=fi">Ksylitolipastilli, c-vitaminoitu</a></li>
+<li><a href="food.php?foodid=65&amp;lang=fi">Ksylitolipurukumi</a></li>
+<li><a href="food.php?foodid=805&amp;lang=fi">Kuha</a></li>
+<li><a href="food.php?foodid=1198&amp;lang=fi">Kuivakakku, mausteinen, kermainen</a></li>
+<li><a href="food.php?foodid=322&amp;lang=fi">Kukkakaali</a></li>
+<li><a href="food.php?foodid=3346&amp;lang=fi">Kukkakaali keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=3342&amp;lang=fi">Kukkakaali keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=3209&amp;lang=fi">Kukkakaali kuorrutettu, kevytmaito</a></li>
+<li><a href="food.php?foodid=3208&amp;lang=fi">Kukkakaalimuhennos</a></li>
+<li><a href="food.php?foodid=3207&amp;lang=fi">Kukkakaalisosekeitto kerma</a></li>
+<li><a href="food.php?foodid=6050&amp;lang=fi">Kuorrutuskastike maitoa ja juustoa, esim. kasviksille</a></li>
+<li><a href="food.php?foodid=346&amp;lang=fi">Kurkku</a></li>
+<li><a href="food.php?foodid=29027&amp;lang=fi">Kurkkukeitto, kylmä</a></li>
+<li><a href="food.php?foodid=31469&amp;lang=fi">Kurkkuraita intialainen jogurttikastike</a></li>
+<li><a href="food.php?foodid=394&amp;lang=fi">Kurkkusalaatti kurkkupikkelssi, kurkkurelissi</a></li>
+<li><a href="food.php?foodid=350&amp;lang=fi">Kurpitsa</a></li>
+<li><a href="food.php?foodid=3264&amp;lang=fi">Kurpitsamuhennos</a></li>
+<li><a href="food.php?foodid=351&amp;lang=fi">Kurpitsasalaatti pikkelssi</a></li>
+<li><a href="food.php?foodid=29208&amp;lang=fi">Kuskus</a></li>
+<li><a href="food.php?foodid=29209&amp;lang=fi">Kuskus keitetty</a></li>
+<li><a href="food.php?foodid=30204&amp;lang=fi">Kuskus-kasvisrisotto</a></li>
+<li><a href="food.php?foodid=645&amp;lang=fi">Kutunjuusto rasvaa 20-25g, kova juusto</a></li>
+<li><a href="food.php?foodid=604&amp;lang=fi">Kutunmaito vuohenmaito</a></li>
+<li><a href="food.php?foodid=329&amp;lang=fi">Kyssäkaali kaalirapi</a></li>
+<li><a href="food.php?foodid=3214&amp;lang=fi">Kyssäkaalimuhennos</a></li>
+<li><a href="food.php?foodid=1326&amp;lang=fi">Kääretorttu gluteeniton</a></li>
+<li><a href="food.php?foodid=1191&amp;lang=fi">Kääretorttu vaalea</a></li>
+<li><a href="food.php?foodid=1193&amp;lang=fi">Kääretortun/täytekakun pohja sokeriton</a></li>
+<li><a href="food.php?foodid=1354&amp;lang=fi">Kääretortun/täytekakun pohja tumma, makea</a></li>
+<li><a href="food.php?foodid=1258&amp;lang=fi">Köyhät ritarit kevytmaito, ei kermaa, ei hilloa</a></li>
+<li><a href="food.php?foodid=814&amp;lang=fi">Lahna</a></li>
+<li><a href="food.php?foodid=844&amp;lang=fi">Lahna savustettu</a></li>
+<li><a href="food.php?foodid=8&amp;lang=fi">Lakritsi</a></li>
+<li><a href="food.php?foodid=7307&amp;lang=fi">Lammas-kaalipata</a></li>
+<li><a href="food.php?foodid=31471&amp;lang=fi">Lammascurry</a></li>
+<li><a href="food.php?foodid=7304&amp;lang=fi">Lammaspaisti</a></li>
+<li><a href="food.php?foodid=7302&amp;lang=fi">Lampaan- ja sianliha</a></li>
+<li><a href="food.php?foodid=7306&amp;lang=fi">Lampaankyljys leivitetty</a></li>
+<li><a href="food.php?foodid=731&amp;lang=fi">Lampaanliha rasvainen</a></li>
+<li><a href="food.php?foodid=730&amp;lang=fi">Lampaanliha vähärasvainen</a></li>
+<li><a href="food.php?foodid=7300&amp;lang=fi">Lampaanliha vähärasvainen, keitetty</a></li>
+<li><a href="food.php?foodid=29851&amp;lang=fi">Lampaanliha vähärasvainen, keitetty suolattomassa vedessä</a></li>
+<li><a href="food.php?foodid=7299&amp;lang=fi">Lampaanliharulla täytetty, purjo, persilja</a></li>
+<li><a href="food.php?foodid=732&amp;lang=fi">Lampaanpaisti</a></li>
+<li><a href="food.php?foodid=7305&amp;lang=fi">Lampaanpihvi</a></li>
+<li><a href="food.php?foodid=303&amp;lang=fi">Lanttu</a></li>
+<li><a href="food.php?foodid=3009&amp;lang=fi">Lanttu haudutettu</a></li>
+<li><a href="food.php?foodid=3356&amp;lang=fi">Lanttu keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=30384&amp;lang=fi">Lanttu keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=3290&amp;lang=fi">Lanttu-ananassalaatti raaste</a></li>
+<li><a href="food.php?foodid=3291&amp;lang=fi">Lanttu-appelsiini-rusinasalaatti raaste</a></li>
+<li><a href="food.php?foodid=3289&amp;lang=fi">Lanttu-rusinasalaatti raaste</a></li>
+<li><a href="food.php?foodid=1019&amp;lang=fi">Lanttukukko ruiskuori</a></li>
+<li><a href="food.php?foodid=3011&amp;lang=fi">Lanttulaatikko kevytmaito</a></li>
+<li><a href="food.php?foodid=3014&amp;lang=fi">Lanttupiirakka lanttusurvos, ruiskuori</a></li>
+<li><a href="food.php?foodid=3010&amp;lang=fi">Lanttusurvos</a></li>
+<li><a href="food.php?foodid=29257&amp;lang=fi">Lasagne broilerinliha</a></li>
+<li><a href="food.php?foodid=7093&amp;lang=fi">Lasagne naudanliha</a></li>
+<li><a href="food.php?foodid=29223&amp;lang=fi">Lasagne naudanpaisti</a></li>
+<li><a href="food.php?foodid=7065&amp;lang=fi">Lasagne sika-nauta</a></li>
+<li><a href="food.php?foodid=1351&amp;lang=fi">Laskiaispulla hillo + mantelimassa</a></li>
+<li><a href="food.php?foodid=29759&amp;lang=fi">Lastenkeksi</a></li>
+<li><a href="food.php?foodid=30345&amp;lang=fi">Lauantaimakkara paistettu</a></li>
+<li><a href="food.php?foodid=30344&amp;lang=fi">Lauantaimakkara paistettu ilman rasvaa</a></li>
+<li><a href="food.php?foodid=30320&amp;lang=fi">Lauantaimakkara, keskiarvo</a></li>
+<li><a href="food.php?foodid=30323&amp;lang=fi">Lauantaimakkara, kevyt, keskiarvo</a></li>
+<li><a href="food.php?foodid=326&amp;lang=fi">Lehtikaali</a></li>
+<li><a href="food.php?foodid=330&amp;lang=fi">Lehtisalaatti ruukkusalaatti, lollo rosso</a></li>
+<li><a href="food.php?foodid=3307&amp;lang=fi">Lehtisalaatti-kurkku-tomaattisalaatti</a></li>
+<li><a href="food.php?foodid=3709&amp;lang=fi">Lehtisalaatti-kurkku-tomaattisalaatti kotitekoinen ranskalainen kastike</a></li>
+<li><a href="food.php?foodid=3316&amp;lang=fi">Lehtisalaatti-kurkku-tomaattisalaatti ranskalainen kastike</a></li>
+<li><a href="food.php?foodid=339&amp;lang=fi">Lehtiselleri</a></li>
+<li><a href="food.php?foodid=30294&amp;lang=fi">Leikkelemakkara, vähäsuolainen, rasvaa 3 g</a></li>
+<li><a href="food.php?foodid=530&amp;lang=fi">Leipomoteollisuusmargariini 80% leivonta</a></li>
+<li><a href="food.php?foodid=5906&amp;lang=fi">Leipä- ja pizzarasva</a></li>
+<li><a href="food.php?foodid=11146&amp;lang=fi">Leipäjuusto vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=657&amp;lang=fi">Leipäjuusto/juustoleipä, rasvaa 17-23g</a></li>
+<li><a href="food.php?foodid=1022&amp;lang=fi">Leipäpuuro</a></li>
+<li><a href="food.php?foodid=74&amp;lang=fi">Leivinjauhe</a></li>
+<li><a href="food.php?foodid=593&amp;lang=fi">Leivontamargariini 80%</a></li>
+<li><a href="food.php?foodid=547&amp;lang=fi">Leivontamargariini 80% juokseva, keskiarvo</a></li>
+<li><a href="food.php?foodid=29749&amp;lang=fi">Leivoskeksi</a></li>
+<li><a href="food.php?foodid=7608&amp;lang=fi">Lenkkimakkara grillattu</a></li>
+<li><a href="food.php?foodid=7607&amp;lang=fi">Lenkkimakkara keitetty</a></li>
+<li><a href="food.php?foodid=30318&amp;lang=fi">Lenkkimakkara keskiarvo</a></li>
+<li><a href="food.php?foodid=7641&amp;lang=fi">Lenkkimakkara paistettu ilman rasvaa</a></li>
+<li><a href="food.php?foodid=30328&amp;lang=fi">Lenkkimakkara, kevyt, grillattu</a></li>
+<li><a href="food.php?foodid=30324&amp;lang=fi">Lenkkimakkara, kevyt, keskiarvo</a></li>
+<li><a href="food.php?foodid=30334&amp;lang=fi">Lenkkimakkara, kevyt, uunissa</a></li>
+<li><a href="food.php?foodid=7609&amp;lang=fi">Lenkkimakkara, paistettu</a></li>
+<li><a href="food.php?foodid=30292&amp;lang=fi">Lenkkimakkara, sis. juustoa</a></li>
+<li><a href="food.php?foodid=30331&amp;lang=fi">Lenkkimakkara, sis. juustoa, grillattu</a></li>
+<li><a href="food.php?foodid=30336&amp;lang=fi">Lenkkimakkara, sisältää juustoa, uunissa</a></li>
+<li><a href="food.php?foodid=30335&amp;lang=fi">Lenkkimakkara, uunissa</a></li>
+<li><a href="food.php?foodid=29782&amp;lang=fi">Lesemuro täysjyvävehnä</a></li>
+<li><a href="food.php?foodid=7516&amp;lang=fi">Liha-kasviskastike kiinalainen hapanimelä</a></li>
+<li><a href="food.php?foodid=7175&amp;lang=fi">Liha-kasvispata perunaa</a></li>
+<li><a href="food.php?foodid=7092&amp;lang=fi">Liha-makaronilaatikko naudanliha</a></li>
+<li><a href="food.php?foodid=29271&amp;lang=fi">Liha-makaronilaatikko naudanliha, lihaliemi</a></li>
+<li><a href="food.php?foodid=7045&amp;lang=fi">Liha-makaronilaatikko naudanpaisti</a></li>
+<li><a href="food.php?foodid=29270&amp;lang=fi">Liha-makaronilaatikko naudanpaisti, lihaliemi</a></li>
+<li><a href="food.php?foodid=30152&amp;lang=fi">Liha-makaronilaatikko sianjauheliha</a></li>
+<li><a href="food.php?foodid=7044&amp;lang=fi">Liha-makaronilaatikko sika-nauta</a></li>
+<li><a href="food.php?foodid=30425&amp;lang=fi">Liha-makaronilaatikko sika-nauta, laktoositon maitojuoma</a></li>
+<li><a href="food.php?foodid=28982&amp;lang=fi">Liha-makaronilaatikko sika-nauta, lihaliemi</a></li>
+<li><a href="food.php?foodid=29273&amp;lang=fi">Liha-makaronilaatikko tumma makaroni, naudanpaisti</a></li>
+<li><a href="food.php?foodid=7075&amp;lang=fi">Liha-makaronilaatikko tumma makaroni, sika-nauta</a></li>
+<li><a href="food.php?foodid=7187&amp;lang=fi">Liha-makaronilaatikko vähärasvainen naudanliha, munaton</a></li>
+<li><a href="food.php?foodid=31466&amp;lang=fi">Liha-makaronilaatikko, teollinen</a></li>
+<li><a href="food.php?foodid=31454&amp;lang=fi">Liha-perunasoselaatikko naudanlihasta</a></li>
+<li><a href="food.php?foodid=7043&amp;lang=fi">Liha-perunasoselaatikko sika-nautajauheliha</a></li>
+<li><a href="food.php?foodid=7060&amp;lang=fi">Liha-riisipasteija</a></li>
+<li><a href="food.php?foodid=7177&amp;lang=fi">Liha-sienimureke</a></li>
+<li><a href="food.php?foodid=747&amp;lang=fi">Lihahyytelö</a></li>
+<li><a href="food.php?foodid=7255&amp;lang=fi">Lihahyytelö kotitekoinen</a></li>
+<li><a href="food.php?foodid=7163&amp;lang=fi">Lihakeitto naudanlapa</a></li>
+<li><a href="food.php?foodid=7165&amp;lang=fi">Lihakeitto naudanpaisti</a></li>
+<li><a href="food.php?foodid=7164&amp;lang=fi">Lihakeitto sianliha</a></li>
+<li><a href="food.php?foodid=7171&amp;lang=fi">Lihakukko</a></li>
+<li><a href="food.php?foodid=7180&amp;lang=fi">Lihakääryle vähärasvainen, saunapalvikinkkua</a></li>
+<li><a href="food.php?foodid=29&amp;lang=fi">Lihaliemi laimennettu</a></li>
+<li><a href="food.php?foodid=38&amp;lang=fi">Lihaliemijauhe/tiiviste</a></li>
+<li><a href="food.php?foodid=41&amp;lang=fi">Lihaliemijauhe/tiiviste vähäsuolainen</a></li>
+<li><a href="food.php?foodid=7173&amp;lang=fi">Lihamureke naudanpaisti, kerma</a></li>
+<li><a href="food.php?foodid=29289&amp;lang=fi">Lihamureke naudanpaisti, vesi</a></li>
+<li><a href="food.php?foodid=7033&amp;lang=fi">Lihamureke sekavihannestäyte, sika-nauta, kerma</a></li>
+<li><a href="food.php?foodid=7031&amp;lang=fi">Lihamurekekääryle luumutäyte, sika-nauta</a></li>
+<li><a href="food.php?foodid=7169&amp;lang=fi">Lihapata naudanpaisti, lihaliemi, porkkana</a></li>
+<li><a href="food.php?foodid=29094&amp;lang=fi">Lihapata naudanpaisti, lihaliemi, porkkana, voi</a></li>
+<li><a href="food.php?foodid=29095&amp;lang=fi">Lihapata naudanpaisti, öljy, lihaliemi, porkkana</a></li>
+<li><a href="food.php?foodid=7097&amp;lang=fi">Lihapiirakka soijapitoinen</a></li>
+<li><a href="food.php?foodid=7089&amp;lang=fi">Lihapulla naudanliha, uunissa paistettu</a></li>
+<li><a href="food.php?foodid=7025&amp;lang=fi">Lihapulla naudanpaisti, paistettu</a></li>
+<li><a href="food.php?foodid=29103&amp;lang=fi">Lihapulla naudanpaisti, paistettu voissa</a></li>
+<li><a href="food.php?foodid=29104&amp;lang=fi">Lihapulla naudanpaisti, paistettu öljyssä</a></li>
+<li><a href="food.php?foodid=7023&amp;lang=fi">Lihapulla sika-nauta, keitetty</a></li>
+<li><a href="food.php?foodid=7022&amp;lang=fi">Lihapulla sika-nauta, paistettu</a></li>
+<li><a href="food.php?foodid=7024&amp;lang=fi">Lihapulla sika-nauta, uunissa paistettu</a></li>
+<li><a href="food.php?foodid=7080&amp;lang=fi">Lihapulla/pihvi naudanpaisti, uunissa</a></li>
+<li><a href="food.php?foodid=29253&amp;lang=fi">Lihapyörykkä naudanpaisti, uunissa paistettu</a></li>
+<li><a href="food.php?foodid=30205&amp;lang=fi">Lihapyörykkä teollinen</a></li>
+<li><a href="food.php?foodid=7161&amp;lang=fi">Lihastroganoff</a></li>
+<li><a href="food.php?foodid=1304&amp;lang=fi">Lihavoileipäkakku sekahiivaleipä</a></li>
+<li><a href="food.php?foodid=25&amp;lang=fi">Liivate</a></li>
+<li><a href="food.php?foodid=908&amp;lang=fi">Likööri 20-30 til% alkoholia</a></li>
+<li><a href="food.php?foodid=29254&amp;lang=fi">Lindströminpihvi naudanpaisti</a></li>
+<li><a href="food.php?foodid=7179&amp;lang=fi">Lindströminpihvi sika-nauta</a></li>
+<li><a href="food.php?foodid=399&amp;lang=fi">Linssi vihreä/ruskea</a></li>
+<li><a href="food.php?foodid=3711&amp;lang=fi">Linssikeitto</a></li>
+<li><a href="food.php?foodid=8001&amp;lang=fi">Lipeäkala</a></li>
+<li><a href="food.php?foodid=817&amp;lang=fi">Lohi kokonainen</a></li>
+<li><a href="food.php?foodid=8012&amp;lang=fi">Lohi leivitetty, paistettu</a></li>
+<li><a href="food.php?foodid=818&amp;lang=fi">Lohi tuoresuolattu</a></li>
+<li><a href="food.php?foodid=830&amp;lang=fi">Lohi öljyssä</a></li>
+<li><a href="food.php?foodid=871&amp;lang=fi">Lohifilee</a></li>
+<li><a href="food.php?foodid=30184&amp;lang=fi">Lohifilee paistettu</a></li>
+<li><a href="food.php?foodid=30731&amp;lang=fi">Lohikastike</a></li>
+<li><a href="food.php?foodid=30313&amp;lang=fi">Lohikastike, sisältää kermaa</a></li>
+<li><a href="food.php?foodid=8060&amp;lang=fi">Lohikeitto maito</a></li>
+<li><a href="food.php?foodid=8073&amp;lang=fi">Lohilasagne</a></li>
+<li><a href="food.php?foodid=2024&amp;lang=fi">Lohkoperuna</a></li>
+<li><a href="food.php?foodid=29210&amp;lang=fi">Luomukevytmaito 1,5% rasvaa, ei lisätty d-vitamiinia</a></li>
+<li><a href="food.php?foodid=1378&amp;lang=fi">Luonnonriisi riisi-villiriisiseos, keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=11053&amp;lang=fi">Luumu kivetön</a></li>
+<li><a href="food.php?foodid=11063&amp;lang=fi">Luumu kivetön, kuivattu</a></li>
+<li><a href="food.php?foodid=28918&amp;lang=fi">Luumu, tumma, punnittu kivineen</a></li>
+<li><a href="food.php?foodid=28919&amp;lang=fi">Luumu, tumma, punnittu kivineen, kuivattu</a></li>
+<li><a href="food.php?foodid=1518&amp;lang=fi">Luumu-kaurapuuro</a></li>
+<li><a href="food.php?foodid=6022&amp;lang=fi">Luumu-kermahyytelö</a></li>
+<li><a href="food.php?foodid=1538&amp;lang=fi">Luumu-riisijälkiruoka</a></li>
+<li><a href="food.php?foodid=4006&amp;lang=fi">Luumu-riisikeitto</a></li>
+<li><a href="food.php?foodid=4005&amp;lang=fi">Luumukeitto/kiisseli</a></li>
+<li><a href="food.php?foodid=4007&amp;lang=fi">Luumukohokas</a></li>
+<li><a href="food.php?foodid=29685&amp;lang=fi">Luumutäysmehu, sokeriton</a></li>
+<li><a href="food.php?foodid=1253&amp;lang=fi">Luumuvanukas</a></li>
+<li><a href="food.php?foodid=7087&amp;lang=fi">Lämminsavukylki rasvainen</a></li>
+<li><a href="food.php?foodid=310&amp;lang=fi">Maa-artisokka</a></li>
+<li><a href="food.php?foodid=3023&amp;lang=fi">Maa-artisokkakeitto kerma</a></li>
+<li><a href="food.php?foodid=378&amp;lang=fi">Maapähkinä</a></li>
+<li><a href="food.php?foodid=819&amp;lang=fi">Made</a></li>
+<li><a href="food.php?foodid=8029&amp;lang=fi">Mademuhennos</a></li>
+<li><a href="food.php?foodid=363&amp;lang=fi">Maissi jyvät</a></li>
+<li><a href="food.php?foodid=28958&amp;lang=fi">Maissi, grillattu</a></li>
+<li><a href="food.php?foodid=167&amp;lang=fi">Maissi, jyvä, kuivattu</a></li>
+<li><a href="food.php?foodid=163&amp;lang=fi">Maissihiutale corn flakes</a></li>
+<li><a href="food.php?foodid=29775&amp;lang=fi">Maissihiutale, sokerihuurrettu muro</a></li>
+<li><a href="food.php?foodid=29823&amp;lang=fi">Maissijauho, hienoksi jauhettu</a></li>
+<li><a href="food.php?foodid=29822&amp;lang=fi">Maissijauho, karkea, polentajauho</a></li>
+<li><a href="food.php?foodid=6004&amp;lang=fi">Maissikiisseli</a></li>
+<li><a href="food.php?foodid=184&amp;lang=fi">Maissilastu tacokuori</a></li>
+<li><a href="food.php?foodid=30187&amp;lang=fi">Maissinaksu, suolaton</a></li>
+<li><a href="food.php?foodid=3040&amp;lang=fi">Maissinjyvät keitetyt</a></li>
+<li><a href="food.php?foodid=28962&amp;lang=fi">Maissintähkä, kokonainen</a></li>
+<li><a href="food.php?foodid=28943&amp;lang=fi">Maissintähkä, kokonainen, suolattomassa vedessä</a></li>
+<li><a href="food.php?foodid=30924&amp;lang=fi">Maissipuuro, polenta</a></li>
+<li><a href="food.php?foodid=27&amp;lang=fi">Maissitärkkelys</a></li>
+<li><a href="food.php?foodid=1549&amp;lang=fi">Maissivanukas kevytmaito</a></li>
+<li><a href="food.php?foodid=1548&amp;lang=fi">Maissivelli maito</a></li>
+<li><a href="food.php?foodid=543&amp;lang=fi">Maissiöljy</a></li>
+<li><a href="food.php?foodid=11572&amp;lang=fi">Maito kalsium, rasvaton</a></li>
+<li><a href="food.php?foodid=672&amp;lang=fi">Maitojauhe rasvaton</a></li>
+<li><a href="food.php?foodid=31487&amp;lang=fi">Maitojauhe rasvaton vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=31488&amp;lang=fi">Maitojauhe rasvaton, laktoositon</a></li>
+<li><a href="food.php?foodid=29064&amp;lang=fi">Maitojuoma, laktoositon, rasvaa 1,5 g</a></li>
+<li><a href="food.php?foodid=30423&amp;lang=fi">Maitojuoma, laktoositon, rasvaton</a></li>
+<li><a href="food.php?foodid=666&amp;lang=fi">Maitojäätelö</a></li>
+<li><a href="food.php?foodid=1242&amp;lang=fi">Maitokastike jauhosuurus</a></li>
+<li><a href="food.php?foodid=1239&amp;lang=fi">Maitokastike kevytmaito, rasva-jauhosuurus</a></li>
+<li><a href="food.php?foodid=29044&amp;lang=fi">Maitokastike kevytmaito, voi, rasva-jauhosuurus</a></li>
+<li><a href="food.php?foodid=29045&amp;lang=fi">Maitokastike kevytmaito, öljy, rasva-jauhosuurus</a></li>
+<li><a href="food.php?foodid=6000&amp;lang=fi">Maitokiisseli kevytmaito, kananmuna</a></li>
+<li><a href="food.php?foodid=6001&amp;lang=fi">Maitokiisseli sokeriton</a></li>
+<li><a href="food.php?foodid=2005&amp;lang=fi">Maitoperuna kevytmaito</a></li>
+<li><a href="food.php?foodid=622&amp;lang=fi">Maitorahka < 0,5% rasvaa</a></li>
+<li><a href="food.php?foodid=11156&amp;lang=fi">Maitorahka vähälaktoosinen, <0,5% rasvaa</a></li>
+<li><a href="food.php?foodid=33&amp;lang=fi">Maitosuklaa</a></li>
+<li><a href="food.php?foodid=30195&amp;lang=fi">Maitosuklaavanukas keskiarvo</a></li>
+<li><a href="food.php?foodid=11068&amp;lang=fi">Maitovanukas</a></li>
+<li><a href="food.php?foodid=578&amp;lang=fi">Majoneesi 27-33 % rasvaa</a></li>
+<li><a href="food.php?foodid=30925&amp;lang=fi">Majoneesi 80 % rasvaa</a></li>
+<li><a href="food.php?foodid=5001&amp;lang=fi">Majoneesi kotitekoinen</a></li>
+<li><a href="food.php?foodid=30926&amp;lang=fi">Majoneesi rasvaton</a></li>
+<li><a href="food.php?foodid=11690&amp;lang=fi">Majoneesi vähärasvainen 15 % rasvaa</a></li>
+<li><a href="food.php?foodid=562&amp;lang=fi">Majoneesi, hampurilaiskastike, 60 % rasvaa</a></li>
+<li><a href="food.php?foodid=31230&amp;lang=fi">Majoneesi, kananmunaton</a></li>
+<li><a href="food.php?foodid=3320&amp;lang=fi">Majoneesisalaatti keskiarvo, kastikkeellinen</a></li>
+<li><a href="food.php?foodid=1372&amp;lang=fi">Makaroni keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=187&amp;lang=fi">Makaroni keitinvedessä öljyä</a></li>
+<li><a href="food.php?foodid=30356&amp;lang=fi">Makaroni keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=119&amp;lang=fi">Makaroni tumma</a></li>
+<li><a href="food.php?foodid=1374&amp;lang=fi">Makaroni tumma, keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=123&amp;lang=fi">Makaroni tumma, suolaton keitinvesi</a></li>
+<li><a href="food.php?foodid=29496&amp;lang=fi">Makaroni, gluteeniton</a></li>
+<li><a href="food.php?foodid=29497&amp;lang=fi">Makaroni, gluteeniton, keitetty ilman suolaa</a></li>
+<li><a href="food.php?foodid=1294&amp;lang=fi">Makaroni, paistettu</a></li>
+<li><a href="food.php?foodid=117&amp;lang=fi">Makaroni, pasta</a></li>
+<li><a href="food.php?foodid=31482&amp;lang=fi">Makaroni, pasta, sisältää kananmunaa</a></li>
+<li><a href="food.php?foodid=31483&amp;lang=fi">Makaroni, pasta, sisältää kananmunaa, keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=1291&amp;lang=fi">Makaronilaatikko kevytmaito, ei lihaa</a></li>
+<li><a href="food.php?foodid=7066&amp;lang=fi">Makaronilaatikko lihaton/lihainen keskiarvo, sika-nauta</a></li>
+<li><a href="food.php?foodid=1290&amp;lang=fi">Makaronipuuro maito</a></li>
+<li><a href="food.php?foodid=1289&amp;lang=fi">Makaronivelli maito</a></li>
+<li><a href="food.php?foodid=5&amp;lang=fi">Makeinen karamelli</a></li>
+<li><a href="food.php?foodid=35&amp;lang=fi">Makeinen sokeriton</a></li>
+<li><a href="food.php?foodid=39&amp;lang=fi">Makeutusaine aspartaami, jauhe</a></li>
+<li><a href="food.php?foodid=70&amp;lang=fi">Makeutusaine sakariini</a></li>
+<li><a href="food.php?foodid=7619&amp;lang=fi">Makkara-kasvisrisotto perusrisotto sisältää lenkkimakkaraa</a></li>
+<li><a href="food.php?foodid=7620&amp;lang=fi">Makkara-perunasoselaatikko lenkkimakkara</a></li>
+<li><a href="food.php?foodid=7613&amp;lang=fi">Makkarakastike lenkkimakkara</a></li>
+<li><a href="food.php?foodid=7615&amp;lang=fi">Makkarakeitto</a></li>
+<li><a href="food.php?foodid=7624&amp;lang=fi">Makkaramunakas lenkkimakkara</a></li>
+<li><a href="food.php?foodid=7618&amp;lang=fi">Makkarapata lihaliemi, lenkkimakkara, peruna, sekavihannekset</a></li>
+<li><a href="food.php?foodid=7634&amp;lang=fi">Makkarasalaatti meetvursti, makaroni, kasvikset</a></li>
+<li><a href="food.php?foodid=827&amp;lang=fi">Makrilli savustettu tai veteen säilötty</a></li>
+<li><a href="food.php?foodid=788&amp;lang=fi">Maksa broilerin</a></li>
+<li><a href="food.php?foodid=790&amp;lang=fi">Maksa keskiarvo</a></li>
+<li><a href="food.php?foodid=786&amp;lang=fi">Maksa naudan</a></li>
+<li><a href="food.php?foodid=789&amp;lang=fi">Maksa poron</a></li>
+<li><a href="food.php?foodid=787&amp;lang=fi">Maksa sian</a></li>
+<li><a href="food.php?foodid=7850&amp;lang=fi">Maksa, keitetty</a></li>
+<li><a href="food.php?foodid=7858&amp;lang=fi">Maksa-porkkana-stroganoff</a></li>
+<li><a href="food.php?foodid=7855&amp;lang=fi">Maksakastike</a></li>
+<li><a href="food.php?foodid=7876&amp;lang=fi">Maksalaatikko kotitekoinen</a></li>
+<li><a href="food.php?foodid=7862&amp;lang=fi">Maksalaatikko ohraryynit, rasvaton maito</a></li>
+<li><a href="food.php?foodid=31492&amp;lang=fi">Maksalaatikko teollinen</a></li>
+<li><a href="food.php?foodid=30372&amp;lang=fi">Maksamakkara tai -pasteija, keskiarvo</a></li>
+<li><a href="food.php?foodid=30373&amp;lang=fi">Maksamakkara tai -pasteija, kevyt, keskiarvo</a></li>
+<li><a href="food.php?foodid=7851&amp;lang=fi">Maksapaisti</a></li>
+<li><a href="food.php?foodid=7864&amp;lang=fi">Maksapasteija/patee</a></li>
+<li><a href="food.php?foodid=7863&amp;lang=fi">Maksapata maksa, peruna</a></li>
+<li><a href="food.php?foodid=7852&amp;lang=fi">Maksapihvi leivitetty</a></li>
+<li><a href="food.php?foodid=1416&amp;lang=fi">Mallasleipä saaristolaisleipä, rukiinen</a></li>
+<li><a href="food.php?foodid=11046&amp;lang=fi">Mandariini kuorittu</a></li>
+<li><a href="food.php?foodid=28935&amp;lang=fi">Mandariini, keskiarvo, punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=31468&amp;lang=fi">Mango-chutney, hapanimeläkastike</a></li>
+<li><a href="food.php?foodid=360&amp;lang=fi">Mangoldi</a></li>
+<li><a href="food.php?foodid=1280&amp;lang=fi">Manna-aprikoosipuuro vatkattu</a></li>
+<li><a href="food.php?foodid=1278&amp;lang=fi">Mannamarjapuuro vatkattu, puolukka</a></li>
+<li><a href="food.php?foodid=1279&amp;lang=fi">Mannamarjapuuro vatkattu, sokeriton, puolukka</a></li>
+<li><a href="food.php?foodid=1277&amp;lang=fi">Mannapuuro maito</a></li>
+<li><a href="food.php?foodid=1285&amp;lang=fi">Mannapuuro tumma, maito</a></li>
+<li><a href="food.php?foodid=1284&amp;lang=fi">Mannapuuro tumma, vesi</a></li>
+<li><a href="food.php?foodid=1281&amp;lang=fi">Mannasuklaapuuro</a></li>
+<li><a href="food.php?foodid=112&amp;lang=fi">Mannasuurimo</a></li>
+<li><a href="food.php?foodid=113&amp;lang=fi">Mannasuurimo tumma</a></li>
+<li><a href="food.php?foodid=1282&amp;lang=fi">Mannavanukas</a></li>
+<li><a href="food.php?foodid=1276&amp;lang=fi">Mannavelli maito</a></li>
+<li><a href="food.php?foodid=1283&amp;lang=fi">Mannavelli tumma, maito</a></li>
+<li><a href="food.php?foodid=447&amp;lang=fi">Mansikka</a></li>
+<li><a href="food.php?foodid=11012&amp;lang=fi">Mansikkahillo</a></li>
+<li><a href="food.php?foodid=4407&amp;lang=fi">Mansikkasurvos tuore, sokeroitu</a></li>
+<li><a href="food.php?foodid=379&amp;lang=fi">Manteli</a></li>
+<li><a href="food.php?foodid=28977&amp;lang=fi">Marenki</a></li>
+<li><a href="food.php?foodid=29159&amp;lang=fi">Margariini 40 % keskiarvo</a></li>
+<li><a href="food.php?foodid=30616&amp;lang=fi">Margariini 40 % rainbow/eldorado</a></li>
+<li><a href="food.php?foodid=30621&amp;lang=fi">Margariini 40% keiju kevyt laktoositon</a></li>
+<li><a href="food.php?foodid=30631&amp;lang=fi">Margariini 60 % keskiarvo</a></li>
+<li><a href="food.php?foodid=30629&amp;lang=fi">Margariini 60 % kultarypsi</a></li>
+<li><a href="food.php?foodid=568&amp;lang=fi">Margariini 60 % kultasula/rainbow/pirkka/euroshopper</a></li>
+<li><a href="food.php?foodid=29409&amp;lang=fi">Margariini 60% becel laktoositon</a></li>
+<li><a href="food.php?foodid=30619&amp;lang=fi">Margariini 60% keiju normaalisuolainen</a></li>
+<li><a href="food.php?foodid=572&amp;lang=fi">Margariini lätta 40%</a></li>
+<li><a href="food.php?foodid=30630&amp;lang=fi">Margariini, flora kevyt 40</a></li>
+<li><a href="food.php?foodid=454&amp;lang=fi">Marja keskiarvo</a></li>
+<li><a href="food.php?foodid=30462&amp;lang=fi">Marja-/hedelmäjogurtti rasvaa 1,5 %, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=621&amp;lang=fi">Marja-/hedelmäjogurtti rasvaa 2 %</a></li>
+<li><a href="food.php?foodid=30456&amp;lang=fi">Marja-/hedelmäjogurtti rasvaa 2 %, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=11727&amp;lang=fi">Marja-/hedelmäjogurtti rasvaa 2,5 %</a></li>
+<li><a href="food.php?foodid=11723&amp;lang=fi">Marja-/hedelmäjogurtti rasvaa n. 3 %</a></li>
+<li><a href="food.php?foodid=685&amp;lang=fi">Marja-/hedelmäjogurtti rasvaton, fruktoosi/aspartaami, keskiarvo</a></li>
+<li><a href="food.php?foodid=639&amp;lang=fi">Marja-/hedelmäjogurtti rasvaton, keskiarvo</a></li>
+<li><a href="food.php?foodid=30464&amp;lang=fi">Marja-/hedelmäjogurtti rasvaton, laktoositon</a></li>
+<li><a href="food.php?foodid=686&amp;lang=fi">Marja-/hedelmäjogurtti runsasrasvainen 7 %</a></li>
+<li><a href="food.php?foodid=30453&amp;lang=fi">Marja-/hedelmäjogurtti, kuitu, vähälakt., rasvaton, os keinotekoisesti makeutett</a></li>
+<li><a href="food.php?foodid=30673&amp;lang=fi">Marja-/hedelmärahka, rasvaa 3,5 %</a></li>
+<li><a href="food.php?foodid=1180&amp;lang=fi">Marja-kermaviili-piirakka muropohja</a></li>
+<li><a href="food.php?foodid=450&amp;lang=fi">Marjahillo keskiarvo</a></li>
+<li><a href="food.php?foodid=4420&amp;lang=fi">Marjahyytelö marjat, hyytelösokeri</a></li>
+<li><a href="food.php?foodid=29015&amp;lang=fi">Marjajogurttijuoma</a></li>
+<li><a href="food.php?foodid=4410&amp;lang=fi">Marjakeitto / -kiisseli</a></li>
+<li><a href="food.php?foodid=29216&amp;lang=fi">Marjakeitto/-kiisseli vitaminoitu</a></li>
+<li><a href="food.php?foodid=4416&amp;lang=fi">Marjakeitto/kiisseli fruktoosilla makeutettu</a></li>
+<li><a href="food.php?foodid=4411&amp;lang=fi">Marjakeitto/kiisseli sokeriton</a></li>
+<li><a href="food.php?foodid=6009&amp;lang=fi">Marjamaito</a></li>
+<li><a href="food.php?foodid=4414&amp;lang=fi">Marjapaistos marjat, vehnäjauhot, sokeri</a></li>
+<li><a href="food.php?foodid=1344&amp;lang=fi">Marjapiirakka fruktoosilla makeutettu, pehmeä</a></li>
+<li><a href="food.php?foodid=1305&amp;lang=fi">Marjapiirakka muro/pullapohja, keskiarvo</a></li>
+<li><a href="food.php?foodid=1187&amp;lang=fi">Marjapiirakka muropohja, sokeriton</a></li>
+<li><a href="food.php?foodid=1179&amp;lang=fi">Marjapiirakka murotaikinapohja</a></li>
+<li><a href="food.php?foodid=1343&amp;lang=fi">Marjapiirakka pehmeä, peruspiirakka sekamarjoista</a></li>
+<li><a href="food.php?foodid=1161&amp;lang=fi">Marjapiirakka pullapohja, kevytmaito</a></li>
+<li><a href="food.php?foodid=1176&amp;lang=fi">Marjapiirakka pullapohja, kevytmaito, sokeriton</a></li>
+<li><a href="food.php?foodid=1186&amp;lang=fi">Marjapiirakka täytetty, pohja + kansi</a></li>
+<li><a href="food.php?foodid=29077&amp;lang=fi">Marjapiirakka, tuorejuustotäyte, pohja öljyyn</a></li>
+<li><a href="food.php?foodid=6010&amp;lang=fi">Marjapirtelö maito, marjat, jäätelö</a></li>
+<li><a href="food.php?foodid=30672&amp;lang=fi">Marjarahka kevytmaitoon, kotitekoinen</a></li>
+<li><a href="food.php?foodid=6015&amp;lang=fi">Marjarahka kuohukermaan, kotitekoinen</a></li>
+<li><a href="food.php?foodid=4413&amp;lang=fi">Marjasorbetti marjat, valkuainen, sokeri</a></li>
+<li><a href="food.php?foodid=11470&amp;lang=fi">Marjasose keskiarvo, teollinen lastenruoka</a></li>
+<li><a href="food.php?foodid=4415&amp;lang=fi">Marjatalkkuna</a></li>
+<li><a href="food.php?foodid=474&amp;lang=fi">Marjatäysmehu, makeuttamaton</a></li>
+<li><a href="food.php?foodid=4412&amp;lang=fi">Marjavaahto marjat, kerma, muna</a></li>
+<li><a href="food.php?foodid=456&amp;lang=fi">Marmeladi marjoista</a></li>
+<li><a href="food.php?foodid=9&amp;lang=fi">Marmeladimakeinen</a></li>
+<li><a href="food.php?foodid=10&amp;lang=fi">Marsipaani mantelimassa</a></li>
+<li><a href="food.php?foodid=838&amp;lang=fi">Mauste/suolasilakka keskiarvo</a></li>
+<li><a href="food.php?foodid=837&amp;lang=fi">Mauste/suolasilli keskiarvo</a></li>
+<li><a href="food.php?foodid=1199&amp;lang=fi">Maustekakku</a></li>
+<li><a href="food.php?foodid=348&amp;lang=fi">Maustekurkku sokerisuolattu</a></li>
+<li><a href="food.php?foodid=30306&amp;lang=fi">Meetvursti</a></li>
+<li><a href="food.php?foodid=30305&amp;lang=fi">Meetvursti, kevyt</a></li>
+<li><a href="food.php?foodid=4409&amp;lang=fi">Mehuhyytelö</a></li>
+<li><a href="food.php?foodid=30392&amp;lang=fi">Mehujuoma</a></li>
+<li><a href="food.php?foodid=29215&amp;lang=fi">Mehujuoma c-vitaminoitu</a></li>
+<li><a href="food.php?foodid=30607&amp;lang=fi">Mehujuoma c-vitaminoitu, kuitu</a></li>
+<li><a href="food.php?foodid=30390&amp;lang=fi">Mehujuoma, kevyt, osittain keinotekoisesti makeutettu</a></li>
+<li><a href="food.php?foodid=30388&amp;lang=fi">Mehujuoma, osittain keinotekoisesti makeutettu</a></li>
+<li><a href="food.php?foodid=30396&amp;lang=fi">Mehujuoma, sokeriton, keinotekoisesti makeutettu</a></li>
+<li><a href="food.php?foodid=30394&amp;lang=fi">Mehujuoma, tiiviste, keskiarvo</a></li>
+<li><a href="food.php?foodid=30633&amp;lang=fi">Mehujuoma, tiiviste, vitaminoitu</a></li>
+<li><a href="food.php?foodid=11142&amp;lang=fi">Mehujää keskiarvo</a></li>
+<li><a href="food.php?foodid=11149&amp;lang=fi">Mehujää-jäätelöpuikko keskiarvo</a></li>
+<li><a href="food.php?foodid=31493&amp;lang=fi">Mehukeitto, c-vitaminoitu, teollinen</a></li>
+<li><a href="food.php?foodid=31494&amp;lang=fi">Mehukeitto, keinotekoisesti makeutettu, teollinen</a></li>
+<li><a href="food.php?foodid=28915&amp;lang=fi">Meloni, verkko/cantaluponmeloni, punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=477&amp;lang=fi">Meloni, verkkomeloni/cantaluponmeloni kuorittu</a></li>
+<li><a href="food.php?foodid=11076&amp;lang=fi">Merilevä spirulina</a></li>
+<li><a href="food.php?foodid=753&amp;lang=fi">Metsälintu</a></li>
+<li><a href="food.php?foodid=7511&amp;lang=fi">Metsälintu grillattu/paistettu</a></li>
+<li><a href="food.php?foodid=936&amp;lang=fi">Mieto viini 4-5 til% alkoholia</a></li>
+<li><a href="food.php?foodid=36&amp;lang=fi">Mineraalisuola keskiarvo</a></li>
+<li><a href="food.php?foodid=7013&amp;lang=fi">Minestronekeitto</a></li>
+<li><a href="food.php?foodid=6012&amp;lang=fi">Mokka-/suklaapirtelö</a></li>
+<li><a href="food.php?foodid=1356&amp;lang=fi">Mokkakakku kuorrutettu</a></li>
+<li><a href="food.php?foodid=30362&amp;lang=fi">Moniviljapasta keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=30361&amp;lang=fi">Moniviljapasta keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=3327&amp;lang=fi">Moussaka munakoisovuoka</a></li>
+<li><a href="food.php?foodid=29239&amp;lang=fi">Mozzarella juusto</a></li>
+<li><a href="food.php?foodid=3365&amp;lang=fi">Mozzarella-salaatti kotijuustolla</a></li>
+<li><a href="food.php?foodid=30196&amp;lang=fi">Mozzarellapizza tomaatti, pesto</a></li>
+<li><a href="food.php?foodid=1346&amp;lang=fi">Muffini gluteeniton</a></li>
+<li><a href="food.php?foodid=809&amp;lang=fi">Muikku järvi</a></li>
+<li><a href="food.php?foodid=811&amp;lang=fi">Muikku järvi, savustettu</a></li>
+<li><a href="food.php?foodid=810&amp;lang=fi">Muikku järvi, suolattu</a></li>
+<li><a href="food.php?foodid=8008&amp;lang=fi">Muikku, paistettu</a></li>
+<li><a href="food.php?foodid=30278&amp;lang=fi">Muikkusäilyke tomaattikastikkeessa</a></li>
+<li><a href="food.php?foodid=7628&amp;lang=fi">Muna-kinkkuvuoka</a></li>
+<li><a href="food.php?foodid=1533&amp;lang=fi">Muna-riisipasteija voitaikina</a></li>
+<li><a href="food.php?foodid=8503&amp;lang=fi">Munakas ranskalainen, täytteetön</a></li>
+<li><a href="food.php?foodid=8515&amp;lang=fi">Munakasrulla kinkkutäyte</a></li>
+<li><a href="food.php?foodid=8514&amp;lang=fi">Munakasrulla lohitäyte</a></li>
+<li><a href="food.php?foodid=1247&amp;lang=fi">Munakastike kevytmaito, rasva-jauhosuurus</a></li>
+<li><a href="food.php?foodid=362&amp;lang=fi">Munakoiso</a></li>
+<li><a href="food.php?foodid=3801&amp;lang=fi">Munakoiso täytetty, sieni, paprika, tomaatti</a></li>
+<li><a href="food.php?foodid=3034&amp;lang=fi">Munakoiso, paistettu</a></li>
+<li><a href="food.php?foodid=29028&amp;lang=fi">Munakoisonyytti juusto- ja tomaattitäyte</a></li>
+<li><a href="food.php?foodid=8506&amp;lang=fi">Munakokkeli kevytmaito</a></li>
+<li><a href="food.php?foodid=953&amp;lang=fi">Munatoti</a></li>
+<li><a href="food.php?foodid=1101&amp;lang=fi">Munavelli maito</a></li>
+<li><a href="food.php?foodid=8509&amp;lang=fi">Munavoi</a></li>
+<li><a href="food.php?foodid=1139&amp;lang=fi">Munkki kevytmaito, kotitekoinen</a></li>
+<li><a href="food.php?foodid=31485&amp;lang=fi">Munkki leipomo,  hilloa ja sokerivesikuorrute</a></li>
+<li><a href="food.php?foodid=11095&amp;lang=fi">Munkki leipomo, veteen</a></li>
+<li><a href="food.php?foodid=29233&amp;lang=fi">Munkki paistettu rypsiöljyssä</a></li>
+<li><a href="food.php?foodid=791&amp;lang=fi">Munuainen</a></li>
+<li><a href="food.php?foodid=7865&amp;lang=fi">Munuainen keitetty</a></li>
+<li><a href="food.php?foodid=7866&amp;lang=fi">Munuainen paistettu</a></li>
+<li><a href="food.php?foodid=7867&amp;lang=fi">Munuaiskastike munuaiset, sipuli, kerma, suurustettu</a></li>
+<li><a href="food.php?foodid=1195&amp;lang=fi">Murokakku</a></li>
+<li><a href="food.php?foodid=1211&amp;lang=fi">Muropikkuleipä ei munaa</a></li>
+<li><a href="food.php?foodid=29752&amp;lang=fi">Muropikkuleipä sis. kananmunaa</a></li>
+<li><a href="food.php?foodid=444&amp;lang=fi">Mustaherukka</a></li>
+<li><a href="food.php?foodid=458&amp;lang=fi">Mustaherukka-puolukkamehujuoma</a></li>
+<li><a href="food.php?foodid=30575&amp;lang=fi">Mustaherukkahöyrymehu laimennettu, sokeriton</a></li>
+<li><a href="food.php?foodid=462&amp;lang=fi">Mustaherukkahöyrymehu laimennettu, sokeroitu</a></li>
+<li><a href="food.php?foodid=30574&amp;lang=fi">Mustaherukkahöyrymehu laimentamaton, sokeriton</a></li>
+<li><a href="food.php?foodid=452&amp;lang=fi">Mustaherukkahöyrymehu laimentamaton, sokeroitu</a></li>
+<li><a href="food.php?foodid=4405&amp;lang=fi">Mustaherukkakeitto / -kiisseli</a></li>
+<li><a href="food.php?foodid=312&amp;lang=fi">Mustajuuri</a></li>
+<li><a href="food.php?foodid=3025&amp;lang=fi">Mustajuurimuhennos</a></li>
+<li><a href="food.php?foodid=11177&amp;lang=fi">Mustapippuri</a></li>
+<li><a href="food.php?foodid=865&amp;lang=fi">Mustekala</a></li>
+<li><a href="food.php?foodid=442&amp;lang=fi">Mustikka metsä-</a></li>
+<li><a href="food.php?foodid=4404&amp;lang=fi">Mustikkakeitto / -kiisseli</a></li>
+<li><a href="food.php?foodid=4403&amp;lang=fi">Mustikkasurvos tuore, sokeroitu</a></li>
+<li><a href="food.php?foodid=1348&amp;lang=fi">Mysli hedelmäinen</a></li>
+<li><a href="food.php?foodid=29784&amp;lang=fi">Mysli viljainen</a></li>
+<li><a href="food.php?foodid=29786&amp;lang=fi">Mysli, muromysli</a></li>
+<li><a href="food.php?foodid=29785&amp;lang=fi">Mysli, perus</a></li>
+<li><a href="food.php?foodid=1023&amp;lang=fi">Mämmi</a></li>
+<li><a href="food.php?foodid=11004&amp;lang=fi">Mäti keskiarvo</a></li>
+<li><a href="food.php?foodid=11691&amp;lang=fi">Mäti keskiarvo, suolattu</a></li>
+<li><a href="food.php?foodid=28985&amp;lang=fi">Mätikastike, ranskankerma</a></li>
+<li><a href="food.php?foodid=832&amp;lang=fi">Mätikaviaari sampikalojen tumma mäti</a></li>
+<li><a href="food.php?foodid=833&amp;lang=fi">Mätitahna</a></li>
+<li><a href="food.php?foodid=29260&amp;lang=fi">Naan leipä</a></li>
+<li><a href="food.php?foodid=825&amp;lang=fi">Nahkiainen, savustettu</a></li>
+<li><a href="food.php?foodid=7601&amp;lang=fi">Nakki grillattu</a></li>
+<li><a href="food.php?foodid=7600&amp;lang=fi">Nakki keitetty</a></li>
+<li><a href="food.php?foodid=7602&amp;lang=fi">Nakki paistettu</a></li>
+<li><a href="food.php?foodid=7643&amp;lang=fi">Nakki paistettu ilman rasvaa</a></li>
+<li><a href="food.php?foodid=30317&amp;lang=fi">Nakki, keskiarvo</a></li>
+<li><a href="food.php?foodid=30329&amp;lang=fi">Nakki, kevyt, grillattu</a></li>
+<li><a href="food.php?foodid=30341&amp;lang=fi">Nakki, kevyt, keitetty</a></li>
+<li><a href="food.php?foodid=30325&amp;lang=fi">Nakki, kevyt, keskiarvo</a></li>
+<li><a href="food.php?foodid=30339&amp;lang=fi">Nakki, kevyt, uunissa</a></li>
+<li><a href="food.php?foodid=30281&amp;lang=fi">Nakki, sis juustoa</a></li>
+<li><a href="food.php?foodid=30330&amp;lang=fi">Nakki, sis. juustoa, grillattu</a></li>
+<li><a href="food.php?foodid=30340&amp;lang=fi">Nakki, sisältää juustoa, uunissa</a></li>
+<li><a href="food.php?foodid=30338&amp;lang=fi">Nakki, uunissa</a></li>
+<li><a href="food.php?foodid=7603&amp;lang=fi">Nakki-sekavihannesvuoka</a></li>
+<li><a href="food.php?foodid=7614&amp;lang=fi">Nakkikastike</a></li>
+<li><a href="food.php?foodid=30154&amp;lang=fi">Nakkikeitto</a></li>
+<li><a href="food.php?foodid=7616&amp;lang=fi">Nakkikeitto kevytnakista</a></li>
+<li><a href="food.php?foodid=7604&amp;lang=fi">Nakkistroganoff</a></li>
+<li><a href="food.php?foodid=7157&amp;lang=fi">Naudan/vasikankyljys leivitetty</a></li>
+<li><a href="food.php?foodid=722&amp;lang=fi">Naudanfilee</a></li>
+<li><a href="food.php?foodid=7195&amp;lang=fi">Naudanfilee grillattu</a></li>
+<li><a href="food.php?foodid=30677&amp;lang=fi">Naudanfilee paistettu</a></li>
+<li><a href="food.php?foodid=30676&amp;lang=fi">Naudanfilee uunissa paistettu</a></li>
+<li><a href="food.php?foodid=723&amp;lang=fi">Naudankylki</a></li>
+<li><a href="food.php?foodid=719&amp;lang=fi">Naudanlapa / etuselkä</a></li>
+<li><a href="food.php?foodid=11509&amp;lang=fi">Naudanliha keitetty, suolaton</a></li>
+<li><a href="food.php?foodid=714&amp;lang=fi">Naudanliha keskiarvo</a></li>
+<li><a href="food.php?foodid=7150&amp;lang=fi">Naudanliha keskirasvainen</a></li>
+<li><a href="food.php?foodid=11472&amp;lang=fi">Naudanliha-kasvissose keskiarvo, teollinen lastenruoka</a></li>
+<li><a href="food.php?foodid=7181&amp;lang=fi">Naudanliha-pastakeitto papuja, paprikaa, purjoa, porkkanaa</a></li>
+<li><a href="food.php?foodid=7170&amp;lang=fi">Naudanliha-perunalaatikko</a></li>
+<li><a href="food.php?foodid=7159&amp;lang=fi">Naudanlihakastike keskirasvainen nauta</a></li>
+<li><a href="food.php?foodid=7156&amp;lang=fi">Naudanlihaleike leivitetty</a></li>
+<li><a href="food.php?foodid=29286&amp;lang=fi">Naudanlihaleike leivitetty, paistettu voissa</a></li>
+<li><a href="food.php?foodid=29285&amp;lang=fi">Naudanlihaleike leivitetty, paistettu öljyssä</a></li>
+<li><a href="food.php?foodid=776&amp;lang=fi">Naudanlihaleikkele</a></li>
+<li><a href="food.php?foodid=7155&amp;lang=fi">Naudanlihapihvi, grillattu</a></li>
+<li><a href="food.php?foodid=7085&amp;lang=fi">Naudanlihapihvi, paistettu</a></li>
+<li><a href="food.php?foodid=29284&amp;lang=fi">Naudanlihapihvi, paistettu voissa</a></li>
+<li><a href="food.php?foodid=31145&amp;lang=fi">Naudanlihasuikale, marinoitu</a></li>
+<li><a href="food.php?foodid=31147&amp;lang=fi">Naudanlihasuikale, marinoitu, paistettu öljyssä</a></li>
+<li><a href="food.php?foodid=29182&amp;lang=fi">Naudanlihasuikale, paistettu öljyssä</a></li>
+<li><a href="food.php?foodid=29183&amp;lang=fi">Naudanlihasuikalekastike ruoanvalmistuskerma</a></li>
+<li><a href="food.php?foodid=741&amp;lang=fi">Naudanlihasäilyke</a></li>
+<li><a href="food.php?foodid=7254&amp;lang=fi">Naudanlihaviillokki lapa</a></li>
+<li><a href="food.php?foodid=718&amp;lang=fi">Naudanpaisti</a></li>
+<li><a href="food.php?foodid=7152&amp;lang=fi">Naudanpaisti uunissa paistettu</a></li>
+<li><a href="food.php?foodid=7178&amp;lang=fi">Naudanpaisti-kasviswokki</a></li>
+<li><a href="food.php?foodid=720&amp;lang=fi">Naudanpotka</a></li>
+<li><a href="food.php?foodid=721&amp;lang=fi">Naudanrinta</a></li>
+<li><a href="food.php?foodid=716&amp;lang=fi">Naudanruho keskirasvainen, 13 % rasvaa</a></li>
+<li><a href="food.php?foodid=304&amp;lang=fi">Nauris</a></li>
+<li><a href="food.php?foodid=473&amp;lang=fi">Nektari, hedelmäjuoma, hedelmäpitoisuus 50 %</a></li>
+<li><a href="food.php?foodid=478&amp;lang=fi">Nektari, marjajuoma, marjapitoisuus 50 %</a></li>
+<li><a href="food.php?foodid=11005&amp;lang=fi">Neljänviljanhiutale</a></li>
+<li><a href="food.php?foodid=29779&amp;lang=fi">Neljänviljanmuro</a></li>
+<li><a href="food.php?foodid=1030&amp;lang=fi">Neljänviljanpuuro maito</a></li>
+<li><a href="food.php?foodid=29294&amp;lang=fi">Neljänviljanpuuro vesi</a></li>
+<li><a href="food.php?foodid=1028&amp;lang=fi">Neljänviljanvelli maito</a></li>
+<li><a href="food.php?foodid=334&amp;lang=fi">Nokkonen</a></li>
+<li><a href="food.php?foodid=3223&amp;lang=fi">Nokkoskeitto</a></li>
+<li><a href="food.php?foodid=3224&amp;lang=fi">Nokkosmuhennos kevytmaito</a></li>
+<li><a href="food.php?foodid=3227&amp;lang=fi">Nokkosohukainen kevytmaito</a></li>
+<li><a href="food.php?foodid=11158&amp;lang=fi">Nuppuvihannes kukkakaali, porkkana, parsakaali</a></li>
+<li><a href="food.php?foodid=28969&amp;lang=fi">Nuudeli, keitetty ilman suolaa</a></li>
+<li><a href="food.php?foodid=30634&amp;lang=fi">Nuudeli, keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=30635&amp;lang=fi">Nuudeli, keitinvedessä suolaa ja öljyä</a></li>
+<li><a href="food.php?foodid=29055&amp;lang=fi">Nuudeli, riisi-</a></li>
+<li><a href="food.php?foodid=120&amp;lang=fi">Nuudeli, vehnä-</a></li>
+<li><a href="food.php?foodid=29031&amp;lang=fi">Nuudelikeitto</a></li>
+<li><a href="food.php?foodid=181&amp;lang=fi">Näkkileipä, gluteeniton</a></li>
+<li><a href="food.php?foodid=1506&amp;lang=fi">Ohra-marjapuuro</a></li>
+<li><a href="food.php?foodid=152&amp;lang=fi">Ohrahiutale</a></li>
+<li><a href="food.php?foodid=1510&amp;lang=fi">Ohrahiutalepuuro maito</a></li>
+<li><a href="food.php?foodid=1509&amp;lang=fi">Ohrahiutalepuuro vesi</a></li>
+<li><a href="food.php?foodid=150&amp;lang=fi">Ohrajauho</a></li>
+<li><a href="food.php?foodid=1501&amp;lang=fi">Ohrajauhopuuro vesi</a></li>
+<li><a href="food.php?foodid=1500&amp;lang=fi">Ohrajauhovelli maito</a></li>
+<li><a href="food.php?foodid=1502&amp;lang=fi">Ohraleipä kevytmaito, hiivaleipä-, ohrajauho, kaurahiutale</a></li>
+<li><a href="food.php?foodid=29788&amp;lang=fi">Ohraleipä veteen, rievä</a></li>
+<li><a href="food.php?foodid=151&amp;lang=fi">Ohrasuurimo</a></li>
+<li><a href="food.php?foodid=28908&amp;lang=fi">Ohrasuurimo keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=1505&amp;lang=fi">Ohrasuurimopuuro maito</a></li>
+<li><a href="food.php?foodid=30158&amp;lang=fi">Ohrasuurimopuuro uunissa</a></li>
+<li><a href="food.php?foodid=1504&amp;lang=fi">Ohrasuurimovelli maito</a></li>
+<li><a href="food.php?foodid=68&amp;lang=fi">Ohratärkkelys</a></li>
+<li><a href="food.php?foodid=7055&amp;lang=fi">Ohukainen jauhelihatäyte, kevytmaito, sika-nauta</a></li>
+<li><a href="food.php?foodid=7507&amp;lang=fi">Ohukainen kanamuhennostäyte, kevytmaito</a></li>
+<li><a href="food.php?foodid=3027&amp;lang=fi">Ohukainen kasvistäyte, kevytmaito</a></li>
+<li><a href="food.php?foodid=1223&amp;lang=fi">Ohukainen kevytmaito</a></li>
+<li><a href="food.php?foodid=1227&amp;lang=fi">Ohukainen ternimaito</a></li>
+<li><a href="food.php?foodid=1386&amp;lang=fi">Ohukainen veteen</a></li>
+<li><a href="food.php?foodid=431&amp;lang=fi">Oliivi keskiarvo punnittu kivineen, öljysäilötty, vihreä/musta</a></li>
+<li><a href="food.php?foodid=28938&amp;lang=fi">Oliivi keskiarvo, kivetön, öljysäilötty, vihreä/musta</a></li>
+<li><a href="food.php?foodid=536&amp;lang=fi">Oliiviöljy</a></li>
+<li><a href="food.php?foodid=913&amp;lang=fi">Olut  i-olut, <2,8 til% alkoholia</a></li>
+<li><a href="food.php?foodid=903&amp;lang=fi">Olut a-olut, 5- 5,5 til% alkoholia</a></li>
+<li><a href="food.php?foodid=902&amp;lang=fi">Olut keskiolut, 4,5 til% alkoholia</a></li>
+<li><a href="food.php?foodid=940&amp;lang=fi">Olut vahva 7,5- 8 til% alkoholia</a></li>
+<li><a href="food.php?foodid=401&amp;lang=fi">Omena kuivattu</a></li>
+<li><a href="food.php?foodid=28916&amp;lang=fi">Omena, keskiarvo, punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=28941&amp;lang=fi">Omena, kotimainen, keskiarvo, kuorineen</a></li>
+<li><a href="food.php?foodid=11060&amp;lang=fi">Omena, kotimainen, kuorittu</a></li>
+<li><a href="food.php?foodid=28942&amp;lang=fi">Omena, ulkomainen, keskiarvo, kuorineen</a></li>
+<li><a href="food.php?foodid=11061&amp;lang=fi">Omena, ulkomainen, kuorittu</a></li>
+<li><a href="food.php?foodid=4002&amp;lang=fi">Omena-kaurahiutalepaistos</a></li>
+<li><a href="food.php?foodid=1531&amp;lang=fi">Omena-riisipuuro</a></li>
+<li><a href="food.php?foodid=31459&amp;lang=fi">Omenahillo</a></li>
+<li><a href="food.php?foodid=4000&amp;lang=fi">Omenakeitto / -kiisseli tuoreet omenat</a></li>
+<li><a href="food.php?foodid=4001&amp;lang=fi">Omenakeitto/kiisseli kuivatut omenat</a></li>
+<li><a href="food.php?foodid=4004&amp;lang=fi">Omenapannukakku</a></li>
+<li><a href="food.php?foodid=1183&amp;lang=fi">Omenapiirakka muropohja</a></li>
+<li><a href="food.php?foodid=1190&amp;lang=fi">Omenapiirakka piimätaikinapohja</a></li>
+<li><a href="food.php?foodid=1170&amp;lang=fi">Omenapiirakka pullapohja, kevytmaito</a></li>
+<li><a href="food.php?foodid=1185&amp;lang=fi">Omenarahkapiirakka muropohja</a></li>
+<li><a href="food.php?foodid=472&amp;lang=fi">Omenasose makeuttamaton</a></li>
+<li><a href="food.php?foodid=433&amp;lang=fi">Omenatäysmehu</a></li>
+<li><a href="food.php?foodid=11191&amp;lang=fi">Oregano, kuivattu</a></li>
+<li><a href="food.php?foodid=863&amp;lang=fi">Osteri punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=29040&amp;lang=fi">Osterikeitto, kuohukerma</a></li>
+<li><a href="food.php?foodid=11735&amp;lang=fi">Osterivinokas</a></li>
+<li><a href="food.php?foodid=29806&amp;lang=fi">Paahtoleipä, monivilja</a></li>
+<li><a href="food.php?foodid=29795&amp;lang=fi">Paahtoleipä, vehnä, veteen</a></li>
+<li><a href="food.php?foodid=7515&amp;lang=fi">Paella broileria, äyriäisiä</a></li>
+<li><a href="food.php?foodid=1245&amp;lang=fi">Paistinkastike kermaan</a></li>
+<li><a href="food.php?foodid=550&amp;lang=fi">Paistinrasva laardi</a></li>
+<li><a href="food.php?foodid=11685&amp;lang=fi">Paistoöljy palmu-, palmuydin- ja rypsiöljyseos</a></li>
+<li><a href="food.php?foodid=8014&amp;lang=fi">Pakastekala leivitetty, paistettu</a></li>
+<li><a href="food.php?foodid=7160&amp;lang=fi">Palapaisti</a></li>
+<li><a href="food.php?foodid=29293&amp;lang=fi">Palapaisti ei kermaa</a></li>
+<li><a href="food.php?foodid=11701&amp;lang=fi">Palmuydinöljy</a></li>
+<li><a href="food.php?foodid=11014&amp;lang=fi">Palmuöljy</a></li>
+<li><a href="food.php?foodid=309&amp;lang=fi">Palsternakka</a></li>
+<li><a href="food.php?foodid=29510&amp;lang=fi">Palsternakka keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=3022&amp;lang=fi">Palsternakkamuhennos</a></li>
+<li><a href="food.php?foodid=931&amp;lang=fi">Pannukahvijuoma</a></li>
+<li><a href="food.php?foodid=1231&amp;lang=fi">Pannukakku kevytmaito</a></li>
+<li><a href="food.php?foodid=30151&amp;lang=fi">Pannukakku laktoosittomaan maitojuomaan</a></li>
+<li><a href="food.php?foodid=1235&amp;lang=fi">Pannukakku ternimaito</a></li>
+<li><a href="food.php?foodid=28975&amp;lang=fi">Pannukakku veteen</a></li>
+<li><a href="food.php?foodid=1262&amp;lang=fi">Pappilan hätävara kermaa, hilloa, pikkuleipää</a></li>
+<li><a href="food.php?foodid=388&amp;lang=fi">Paprika keltainen</a></li>
+<li><a href="food.php?foodid=355&amp;lang=fi">Paprika keskiarvo</a></li>
+<li><a href="food.php?foodid=386&amp;lang=fi">Paprika punainen</a></li>
+<li><a href="food.php?foodid=7054&amp;lang=fi">Paprika täytetty riisi, jauheliha, sipuli</a></li>
+<li><a href="food.php?foodid=387&amp;lang=fi">Paprika vihreä</a></li>
+<li><a href="food.php?foodid=11182&amp;lang=fi">Paprikajauhe</a></li>
+<li><a href="food.php?foodid=373&amp;lang=fi">Papu ruskea/valkoinen</a></li>
+<li><a href="food.php?foodid=395&amp;lang=fi">Papu valkoinen, keitetty</a></li>
+<li><a href="food.php?foodid=3336&amp;lang=fi">Papu-kasviskastike</a></li>
+<li><a href="food.php?foodid=3712&amp;lang=fi">Papukeitto</a></li>
+<li><a href="food.php?foodid=3704&amp;lang=fi">Papumuhennos maitoon, tuoreet pavut</a></li>
+<li><a href="food.php?foodid=3705&amp;lang=fi">Papumuhennos veteen,  kuivatut pavut</a></li>
+<li><a href="food.php?foodid=3706&amp;lang=fi">Papumureke/pyörykkä</a></li>
+<li><a href="food.php?foodid=3713&amp;lang=fi">Papupata</a></li>
+<li><a href="food.php?foodid=340&amp;lang=fi">Parsa</a></li>
+<li><a href="food.php?foodid=11689&amp;lang=fi">Parsa puhdistettu</a></li>
+<li><a href="food.php?foodid=3030&amp;lang=fi">Parsa voisulaa</a></li>
+<li><a href="food.php?foodid=324&amp;lang=fi">Parsakaali brokkoli</a></li>
+<li><a href="food.php?foodid=3347&amp;lang=fi">Parsakaali keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=3343&amp;lang=fi">Parsakaali keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=3212&amp;lang=fi">Parsakaalimuhennos</a></li>
+<li><a href="food.php?foodid=3239&amp;lang=fi">Parsakeitto</a></li>
+<li><a href="food.php?foodid=6017&amp;lang=fi">Pasha</a></li>
+<li><a href="food.php?foodid=29023&amp;lang=fi">Pasta-mäti-katkarapusalaatti</a></li>
+<li><a href="food.php?foodid=29038&amp;lang=fi">Pasta-vihanneskeitto, maidoton</a></li>
+<li><a href="food.php?foodid=30670&amp;lang=fi">Pasta-vihannessalaatti</a></li>
+<li><a href="food.php?foodid=8058&amp;lang=fi">Patakukko</a></li>
+<li><a href="food.php?foodid=1309&amp;lang=fi">Patonki / ranskanleipä vesi, vehnäjauho, teollinen</a></li>
+<li><a href="food.php?foodid=1445&amp;lang=fi">Patonki täytetty, tomaatti, paprika, juusto, salaatti, sipuli</a></li>
+<li><a href="food.php?foodid=29053&amp;lang=fi">Patonki, valkosipuli/yrttivoi</a></li>
+<li><a href="food.php?foodid=661&amp;lang=fi">Pehmytjäätelö, soft ice</a></li>
+<li><a href="food.php?foodid=707&amp;lang=fi">Pekoni rasvainen</a></li>
+<li><a href="food.php?foodid=28947&amp;lang=fi">Pekoni, filee, rasvaa 18 g</a></li>
+<li><a href="food.php?foodid=29050&amp;lang=fi">Pekoni, filee, rasvaa 18 g, paistettu</a></li>
+<li><a href="food.php?foodid=7001&amp;lang=fi">Pekoni, paistettu</a></li>
+<li><a href="food.php?foodid=30991&amp;lang=fi">Pellavansiemen kokonainen</a></li>
+<li><a href="food.php?foodid=412&amp;lang=fi">Persikka kuivattu</a></li>
+<li><a href="food.php?foodid=11051&amp;lang=fi">Persikka/nektariini kuorittu, kivetön</a></li>
+<li><a href="food.php?foodid=28922&amp;lang=fi">Persikka/nektariini, keskiarvo, punnittu kivineen</a></li>
+<li><a href="food.php?foodid=411&amp;lang=fi">Persikkasäilyke sokeriliemessä</a></li>
+<li><a href="food.php?foodid=333&amp;lang=fi">Persilja</a></li>
+<li><a href="food.php?foodid=28914&amp;lang=fi">Peruna, keitetty kuorineen, keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=28955&amp;lang=fi">Peruna, keitetty kuorineen, keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=202&amp;lang=fi">Peruna, kuivattu</a></li>
+<li><a href="food.php?foodid=2033&amp;lang=fi">Peruna, kuorittu, keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=11511&amp;lang=fi">Peruna, kuorittu, keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=11680&amp;lang=fi">Peruna, kuorittu, suurtaloustuote, suojakaasupakattu</a></li>
+<li><a href="food.php?foodid=2002&amp;lang=fi">Peruna, paistettu</a></li>
+<li><a href="food.php?foodid=29139&amp;lang=fi">Peruna, paistettu voissa</a></li>
+<li><a href="food.php?foodid=28913&amp;lang=fi">Peruna, punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=204&amp;lang=fi">Peruna, uusi</a></li>
+<li><a href="food.php?foodid=28953&amp;lang=fi">Peruna, uusi, keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=28954&amp;lang=fi">Peruna, uusi, keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=205&amp;lang=fi">Peruna, vanha, kuorittu</a></li>
+<li><a href="food.php?foodid=28963&amp;lang=fi">Peruna-kasvispata</a></li>
+<li><a href="food.php?foodid=3026&amp;lang=fi">Peruna-kasvispata porkkanaa, lanttua, kukkakaalia</a></li>
+<li><a href="food.php?foodid=31470&amp;lang=fi">Peruna-kukkakaalicurry</a></li>
+<li><a href="food.php?foodid=2028&amp;lang=fi">Peruna-pinaattisose</a></li>
+<li><a href="food.php?foodid=31453&amp;lang=fi">Peruna-porkkanasose</a></li>
+<li><a href="food.php?foodid=29275&amp;lang=fi">Peruna-sipulilaatikko kasvirasvakerma 15%</a></li>
+<li><a href="food.php?foodid=2012&amp;lang=fi">Peruna-sipulilaatikko kevytmaito</a></li>
+<li><a href="food.php?foodid=30260&amp;lang=fi">Peruna-sipulilaatikko pakastesekoituksesta, kasvirasvakerma 15%</a></li>
+<li><a href="food.php?foodid=30599&amp;lang=fi">Peruna-sipulisekoitus, paistettu</a></li>
+<li><a href="food.php?foodid=30259&amp;lang=fi">Peruna-sipulisekoitus, pakaste</a></li>
+<li><a href="food.php?foodid=209&amp;lang=fi">Perunahiutale</a></li>
+<li><a href="food.php?foodid=162&amp;lang=fi">Perunajauho / -suurimo perunatärkkelys</a></li>
+<li><a href="food.php?foodid=28951&amp;lang=fi">Perunakroketti, uppopaistettu</a></li>
+<li><a href="food.php?foodid=28956&amp;lang=fi">Perunalaatikko, imelletty</a></li>
+<li><a href="food.php?foodid=203&amp;lang=fi">Perunalastu</a></li>
+<li><a href="food.php?foodid=29809&amp;lang=fi">Perunalimppu</a></li>
+<li><a href="food.php?foodid=28957&amp;lang=fi">Perunamoussaka sika-nauta</a></li>
+<li><a href="food.php?foodid=2015&amp;lang=fi">Perunaohukainen kevytmaito</a></li>
+<li><a href="food.php?foodid=2026&amp;lang=fi">Perunaohukainen kevytmaito, vähärasvainen</a></li>
+<li><a href="food.php?foodid=2018&amp;lang=fi">Perunapihvi / -pyörykkä kevytmaito</a></li>
+<li><a href="food.php?foodid=1014&amp;lang=fi">Perunapiirakka ruiskuori</a></li>
+<li><a href="food.php?foodid=28950&amp;lang=fi">Perunaruusu, duchesse</a></li>
+<li><a href="food.php?foodid=3337&amp;lang=fi">Perunasalaatti majoneesikastike</a></li>
+<li><a href="food.php?foodid=2010&amp;lang=fi">Perunasalaatti, perunaa ja sipulia, ei majoneesia</a></li>
+<li><a href="food.php?foodid=2029&amp;lang=fi">Perunasose kevytmaitoon</a></li>
+<li><a href="food.php?foodid=30367&amp;lang=fi">Perunasose rasvattomaan maitoon</a></li>
+<li><a href="food.php?foodid=30368&amp;lang=fi">Perunasose täysmaitoon</a></li>
+<li><a href="food.php?foodid=2023&amp;lang=fi">Perunasose vesi, perunasosejauheesta</a></li>
+<li><a href="food.php?foodid=30366&amp;lang=fi">Perunasose veteen</a></li>
+<li><a href="food.php?foodid=206&amp;lang=fi">Perunasosejauhe valmistamaton</a></li>
+<li><a href="food.php?foodid=2011&amp;lang=fi">Perunasoselaatikko</a></li>
+<li><a href="food.php?foodid=1547&amp;lang=fi">Perunasuurimopuuro maito</a></li>
+<li><a href="food.php?foodid=1546&amp;lang=fi">Perunasuurimovelli maito</a></li>
+<li><a href="food.php?foodid=3323&amp;lang=fi">Pestokastike, yrttikastike</a></li>
+<li><a href="food.php?foodid=457&amp;lang=fi">Pihlajanmarja</a></li>
+<li><a href="food.php?foodid=1197&amp;lang=fi">Piimäkakku hapankermasta</a></li>
+<li><a href="food.php?foodid=1359&amp;lang=fi">Piimäkakku piimästä</a></li>
+<li><a href="food.php?foodid=1297&amp;lang=fi">Piimälimppu piimä, vehnä-, hiivaleipäjauho</a></li>
+<li><a href="food.php?foodid=1226&amp;lang=fi">Piimäohukainen</a></li>
+<li><a href="food.php?foodid=1234&amp;lang=fi">Piimäpannukakku</a></li>
+<li><a href="food.php?foodid=1158&amp;lang=fi">Piirakan murotaikinapohja</a></li>
+<li><a href="food.php?foodid=1155&amp;lang=fi">Piirakan pullataikinapohja kevytmaito</a></li>
+<li><a href="food.php?foodid=29753&amp;lang=fi">Pikkuleipä</a></li>
+<li><a href="food.php?foodid=29754&amp;lang=fi">Pikkuleipä fruktoosilla makeutettu</a></li>
+<li><a href="food.php?foodid=5905&amp;lang=fi">Pikkuleipärasva</a></li>
+<li><a href="food.php?foodid=1371&amp;lang=fi">Pilahviriisi lihaliemessä</a></li>
+<li><a href="food.php?foodid=332&amp;lang=fi">Pinaatti</a></li>
+<li><a href="food.php?foodid=8512&amp;lang=fi">Pinaatti-munalaatikko</a></li>
+<li><a href="food.php?foodid=3222&amp;lang=fi">Pinaatti-riisilaatikko</a></li>
+<li><a href="food.php?foodid=3215&amp;lang=fi">Pinaattikeitto</a></li>
+<li><a href="food.php?foodid=6031&amp;lang=fi">Pinaattikohokas kevytmaito</a></li>
+<li><a href="food.php?foodid=3216&amp;lang=fi">Pinaattimuhennos kevytmaito</a></li>
+<li><a href="food.php?foodid=8505&amp;lang=fi">Pinaattimunakas</a></li>
+<li><a href="food.php?foodid=3219&amp;lang=fi">Pinaattiohukainen kevytmaito</a></li>
+<li><a href="food.php?foodid=29219&amp;lang=fi">Pinaattiohukainen maidoton</a></li>
+<li><a href="food.php?foodid=30189&amp;lang=fi">Pinaattiohukainen teollinen</a></li>
+<li><a href="food.php?foodid=186&amp;lang=fi">Pinaattispagetti keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=172&amp;lang=fi">Pinaattispagetti pasta sisältää kananmunaa</a></li>
+<li><a href="food.php?foodid=1210&amp;lang=fi">Piparkakku ruskea</a></li>
+<li><a href="food.php?foodid=31365&amp;lang=fi">Pita täytetty, broileri, salaatti, tomaatti, feta</a></li>
+<li><a href="food.php?foodid=1056&amp;lang=fi">Pitaleipä</a></li>
+<li><a href="food.php?foodid=11108&amp;lang=fi">Popcorn</a></li>
+<li><a href="food.php?foodid=1552&amp;lang=fi">Popcorn, ruokaöljy</a></li>
+<li><a href="food.php?foodid=300&amp;lang=fi">Porkkana</a></li>
+<li><a href="food.php?foodid=29229&amp;lang=fi">Porkkana keitetty suolaton</a></li>
+<li><a href="food.php?foodid=3341&amp;lang=fi">Porkkana keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=3352&amp;lang=fi">Porkkana keitinvedessä suolaa ja öljyä</a></li>
+<li><a href="food.php?foodid=302&amp;lang=fi">Porkkana kuivattu</a></li>
+<li><a href="food.php?foodid=3000&amp;lang=fi">Porkkana paistettu</a></li>
+<li><a href="food.php?foodid=3283&amp;lang=fi">Porkkana-ananassalaatti raaste</a></li>
+<li><a href="food.php?foodid=3282&amp;lang=fi">Porkkana-appelsiinisalaatti raaste</a></li>
+<li><a href="food.php?foodid=3287&amp;lang=fi">Porkkana-kurpitsasalaatti raaste</a></li>
+<li><a href="food.php?foodid=3288&amp;lang=fi">Porkkana-lanttusalaatti raaste</a></li>
+<li><a href="food.php?foodid=3284&amp;lang=fi">Porkkana-omenasalaatti raaste</a></li>
+<li><a href="food.php?foodid=11471&amp;lang=fi">Porkkana-perunasose keskiarvo, teollinen lastenruoka</a></li>
+<li><a href="food.php?foodid=3285&amp;lang=fi">Porkkana-puolukkasalaatti raaste</a></li>
+<li><a href="food.php?foodid=3286&amp;lang=fi">Porkkana-raejuustosalaatti raaste</a></li>
+<li><a href="food.php?foodid=1534&amp;lang=fi">Porkkana-riisipiirakka voitaikina, kevytmaito</a></li>
+<li><a href="food.php?foodid=28948&amp;lang=fi">Porkkana-riisipiirakka, sekakuori</a></li>
+<li><a href="food.php?foodid=3330&amp;lang=fi">Porkkanakakku makea kuorrutus</a></li>
+<li><a href="food.php?foodid=3005&amp;lang=fi">Porkkanalaatikko</a></li>
+<li><a href="food.php?foodid=29791&amp;lang=fi">Porkkanaleipä veteen</a></li>
+<li><a href="food.php?foodid=3002&amp;lang=fi">Porkkanamuhennos</a></li>
+<li><a href="food.php?foodid=3006&amp;lang=fi">Porkkanaohukainen kevytmaito</a></li>
+<li><a href="food.php?foodid=1218&amp;lang=fi">Porkkanapiirakka voitaikina</a></li>
+<li><a href="food.php?foodid=3004&amp;lang=fi">Porkkanasosekeitto maito</a></li>
+<li><a href="food.php?foodid=3003&amp;lang=fi">Porkkanasosekeitto vesi</a></li>
+<li><a href="food.php?foodid=3001&amp;lang=fi">Porkkanasurvos</a></li>
+<li><a href="food.php?foodid=1298&amp;lang=fi">Porkkanasämpylä kevytmaito, hiivaleipä-, sämpyläjauho</a></li>
+<li><a href="food.php?foodid=29792&amp;lang=fi">Porkkanasämpylä veteen</a></li>
+<li><a href="food.php?foodid=797&amp;lang=fi">Poroleikkele kylmäsavustettu</a></li>
+<li><a href="food.php?foodid=7317&amp;lang=fi">Poronkäristys</a></li>
+<li><a href="food.php?foodid=29226&amp;lang=fi">Poronkäristys vähärasvainen</a></li>
+<li><a href="food.php?foodid=734&amp;lang=fi">Poronliha</a></li>
+<li><a href="food.php?foodid=7308&amp;lang=fi">Poronliha keitetty</a></li>
+<li><a href="food.php?foodid=30262&amp;lang=fi">Poronliha, paistettu</a></li>
+<li><a href="food.php?foodid=7034&amp;lang=fi">Poronlihamureke</a></li>
+<li><a href="food.php?foodid=7027&amp;lang=fi">Poronlihapyörykkä/pulla</a></li>
+<li><a href="food.php?foodid=7854&amp;lang=fi">Poronmaksapihvi</a></li>
+<li><a href="food.php?foodid=7309&amp;lang=fi">Poronpaisti</a></li>
+<li><a href="food.php?foodid=11513&amp;lang=fi">Porsaanfilee ulko/sisäfilee, rasvaa 4,5 %</a></li>
+<li><a href="food.php?foodid=7095&amp;lang=fi">Porsaanfilee uunissa</a></li>
+<li><a href="food.php?foodid=30263&amp;lang=fi">Porsaanfilee, paistettu</a></li>
+<li><a href="food.php?foodid=7008&amp;lang=fi">Porsaankyljys grillattu</a></li>
+<li><a href="food.php?foodid=7007&amp;lang=fi">Porsaankyljys leivitetty</a></li>
+<li><a href="food.php?foodid=7096&amp;lang=fi">Porsaankyljys silavaton grillattu</a></li>
+<li><a href="food.php?foodid=7094&amp;lang=fi">Porsaankyljys silavaton paistettu</a></li>
+<li><a href="food.php?foodid=7186&amp;lang=fi">Porsaankylki paistettu ilman rasvaa</a></li>
+<li><a href="food.php?foodid=30149&amp;lang=fi">Porsaankylki, paistettu</a></li>
+<li><a href="food.php?foodid=7084&amp;lang=fi">Porsaanleike leivitetty</a></li>
+<li><a href="food.php?foodid=11473&amp;lang=fi">Porsaanliha-kasvissose keskiarvo, teollinen lastenruoka</a></li>
+<li><a href="food.php?foodid=7083&amp;lang=fi">Porsaanpaisti vähärasvainen</a></li>
+<li><a href="food.php?foodid=30226&amp;lang=fi">Porsas-kasviswokki, wokkivihannekset</a></li>
+<li><a href="food.php?foodid=7099&amp;lang=fi">Possupaisti hedelmäinen appelsiinituoremehu, omena</a></li>
+<li><a href="food.php?foodid=30665&amp;lang=fi">Proteiinipatukka, keskiarvo</a></li>
+<li><a href="food.php?foodid=1345&amp;lang=fi">Pulla keskirasvainen, kevytmaito, fruktoosilla makeutettu</a></li>
+<li><a href="food.php?foodid=30298&amp;lang=fi">Pulla keskirasvainen, kevytmaito, makeutusaineella makeutettu</a></li>
+<li><a href="food.php?foodid=1385&amp;lang=fi">Pulla keskirasvainen, kevytmaito, munaton</a></li>
+<li><a href="food.php?foodid=1126&amp;lang=fi">Pulla keskirasvainen, kevytmaito, rasvaa 150 g/5 dl</a></li>
+<li><a href="food.php?foodid=29000&amp;lang=fi">Pulla keskirasvainen, kevytmaito, voi</a></li>
+<li><a href="food.php?foodid=28996&amp;lang=fi">Pulla keskirasvainen, kevytmaito, öljy</a></li>
+<li><a href="food.php?foodid=30424&amp;lang=fi">Pulla keskirasvainen, laktoosittomaan maitoon</a></li>
+<li><a href="food.php?foodid=11123&amp;lang=fi">Pulla keskirasvainen, leipomo</a></li>
+<li><a href="food.php?foodid=28999&amp;lang=fi">Pulla keskirasvainen, rasvaton maito, voi</a></li>
+<li><a href="food.php?foodid=28995&amp;lang=fi">Pulla keskirasvainen, rasvaton maito, öljy</a></li>
+<li><a href="food.php?foodid=29001&amp;lang=fi">Pulla keskirasvainen, tilamaito, voi</a></li>
+<li><a href="food.php?foodid=28997&amp;lang=fi">Pulla keskirasvainen, tilamaito, öljy</a></li>
+<li><a href="food.php?foodid=28974&amp;lang=fi">Pulla keskirasvainen, veteen</a></li>
+<li><a href="food.php?foodid=28998&amp;lang=fi">Pulla keskirasvainen, veteen, voi</a></li>
+<li><a href="food.php?foodid=28994&amp;lang=fi">Pulla keskirasvainen, veteen, öljyyn</a></li>
+<li><a href="food.php?foodid=11124&amp;lang=fi">Pulla runsasrasvainen, kevytmaito, leipomo</a></li>
+<li><a href="food.php?foodid=1129&amp;lang=fi">Pulla runsasrasvainen, kevytmaito, rasvaa 250g/5dl</a></li>
+<li><a href="food.php?foodid=1135&amp;lang=fi">Pulla runsasrasvainen, kevytmaito, sokeriton</a></li>
+<li><a href="food.php?foodid=1130&amp;lang=fi">Pulla runsasrasvainen, rasvaton maito, rasvaa 250 g/5 dl</a></li>
+<li><a href="food.php?foodid=5901&amp;lang=fi">Pulla- ja piirakkarasva</a></li>
+<li><a href="food.php?foodid=846&amp;lang=fi">Puna-ahven pakaste</a></li>
+<li><a href="food.php?foodid=806&amp;lang=fi">Puna-ahven savustettu</a></li>
+<li><a href="food.php?foodid=445&amp;lang=fi">Punaherukka</a></li>
+<li><a href="food.php?foodid=4406&amp;lang=fi">Punaherukkakeitto/kiisseli</a></li>
+<li><a href="food.php?foodid=305&amp;lang=fi">Punajuuri</a></li>
+<li><a href="food.php?foodid=3351&amp;lang=fi">Punajuuri keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=30382&amp;lang=fi">Punajuuri keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=3292&amp;lang=fi">Punajuuri-omenasalaatti</a></li>
+<li><a href="food.php?foodid=3293&amp;lang=fi">Punajuuri-sieni-sipulisalaatti</a></li>
+<li><a href="food.php?foodid=3018&amp;lang=fi">Punajuurikastike ei lihaa, kevytmaito</a></li>
+<li><a href="food.php?foodid=7605&amp;lang=fi">Punajuurikeitto borssi, nakki</a></li>
+<li><a href="food.php?foodid=3021&amp;lang=fi">Punajuurikeitto ei lihaa</a></li>
+<li><a href="food.php?foodid=7606&amp;lang=fi">Punajuurikeitto naudan paisti</a></li>
+<li><a href="food.php?foodid=29012&amp;lang=fi">Punajuurilaatikko riisi</a></li>
+<li><a href="food.php?foodid=3016&amp;lang=fi">Punajuuripihvi ei lihaa</a></li>
+<li><a href="food.php?foodid=11523&amp;lang=fi">Punajuurisalaatti majoneesikastikkeella</a></li>
+<li><a href="food.php?foodid=321&amp;lang=fi">Punakaali</a></li>
+<li><a href="food.php?foodid=3303&amp;lang=fi">Punakaali-ananassalaatti</a></li>
+<li><a href="food.php?foodid=3306&amp;lang=fi">Punakaali-omenasalaatti</a></li>
+<li><a href="food.php?foodid=3305&amp;lang=fi">Punakaali-puolukkasalaatti</a></li>
+<li><a href="food.php?foodid=3206&amp;lang=fi">Punakaalimuhennos, haudutettu punakaali</a></li>
+<li><a href="food.php?foodid=924&amp;lang=fi">Punaviini</a></li>
+<li><a href="food.php?foodid=11133&amp;lang=fi">Puolikova juusto rasvaa 15-18g, kevyt turunmaa/edam 17/adam/magre</a></li>
+<li><a href="food.php?foodid=655&amp;lang=fi">Puolikova juusto rasvaa 25-35g, lappi/polar/småland/billinge/rustholli</a></li>
+<li><a href="food.php?foodid=30402&amp;lang=fi">Puolikova juusto rasvaa 5 g, polar/turunmaa</a></li>
+<li><a href="food.php?foodid=644&amp;lang=fi">Puolikova juusto rasvaa 9-11g, kevyt edam/kadett</a></li>
+<li><a href="food.php?foodid=440&amp;lang=fi">Puolukka</a></li>
+<li><a href="food.php?foodid=31457&amp;lang=fi">Puolukkahillo</a></li>
+<li><a href="food.php?foodid=4400&amp;lang=fi">Puolukkakeitto/kiisseli</a></li>
+<li><a href="food.php?foodid=29150&amp;lang=fi">Puolukkamehujuoma laimennettu</a></li>
+<li><a href="food.php?foodid=459&amp;lang=fi">Puolukkamehujuoma laimentamaton</a></li>
+<li><a href="food.php?foodid=4421&amp;lang=fi">Puolukkasurvos sokeroimaton</a></li>
+<li><a href="food.php?foodid=4401&amp;lang=fi">Puolukkasurvos sokeroitu</a></li>
+<li><a href="food.php?foodid=3232&amp;lang=fi">Purjo paistettu, haudutettu: kasvisliemi, siirappi</a></li>
+<li><a href="food.php?foodid=2009&amp;lang=fi">Purjo-perunasosekeitto veteen</a></li>
+<li><a href="food.php?foodid=337&amp;lang=fi">Purjosipuli</a></li>
+<li><a href="food.php?foodid=66&amp;lang=fi">Purukumi</a></li>
+<li><a href="food.php?foodid=3321&amp;lang=fi">Pussikeitto keskiarvo</a></li>
+<li><a href="food.php?foodid=7622&amp;lang=fi">Pyttipannu ei munaa</a></li>
+<li><a href="food.php?foodid=3707&amp;lang=fi">Pähkinämureke/pyörykkä</a></li>
+<li><a href="food.php?foodid=11580&amp;lang=fi">Pähkinävälipala makea, patukka/levy</a></li>
+<li><a href="food.php?foodid=11062&amp;lang=fi">Päärynä kuorittu</a></li>
+<li><a href="food.php?foodid=28917&amp;lang=fi">Päärynä, punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=30391&amp;lang=fi">Päärynätäysmehu</a></li>
+<li><a href="food.php?foodid=649&amp;lang=fi">Raejuusto rasvaa 2-5g</a></li>
+<li><a href="food.php?foodid=30406&amp;lang=fi">Raejuusto rasvaa 2-5g, laktoositon</a></li>
+<li><a href="food.php?foodid=11155&amp;lang=fi">Raejuusto rasvaa 2-5g, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=635&amp;lang=fi">Raejuusto rasvaton, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=3314&amp;lang=fi">Raejuusto-herne-maissi-paprikasalaatti</a></li>
+<li><a href="food.php?foodid=8510&amp;lang=fi">Raejuusto-munavoi</a></li>
+<li><a href="food.php?foodid=1184&amp;lang=fi">Rahkapiirakka muropohja</a></li>
+<li><a href="food.php?foodid=1173&amp;lang=fi">Rahkapiirakka pullapohja, kevytmaito</a></li>
+<li><a href="food.php?foodid=563&amp;lang=fi">Ranskalainen salaatinkastike</a></li>
+<li><a href="food.php?foodid=5003&amp;lang=fi">Ranskalainen salaatinkastike, kotitekoinen: öljy, mehu, sokeri ja suola</a></li>
+<li><a href="food.php?foodid=5000&amp;lang=fi">Ranskalainen salaatinkastike, ravintolakastike: öljy, keltuainen, sokeri, suola</a></li>
+<li><a href="food.php?foodid=5005&amp;lang=fi">Ranskalainen salaatinkastike: öljy ja etikka</a></li>
+<li><a href="food.php?foodid=1107&amp;lang=fi">Ranskanleipä kevytmaito, vehnäjauho</a></li>
+<li><a href="food.php?foodid=2003&amp;lang=fi">Ranskanperuna uppopaistettu</a></li>
+<li><a href="food.php?foodid=2025&amp;lang=fi">Ranskanperuna uunissa kypsennetty</a></li>
+<li><a href="food.php?foodid=207&amp;lang=fi">Ranskanperunavalmiste</a></li>
+<li><a href="food.php?foodid=338&amp;lang=fi">Raparperi</a></li>
+<li><a href="food.php?foodid=28976&amp;lang=fi">Raparperi-kaurahiutalepaistos</a></li>
+<li><a href="food.php?foodid=1530&amp;lang=fi">Raparperi-riisipuuro</a></li>
+<li><a href="food.php?foodid=3238&amp;lang=fi">Raparperikeitto/kiisseli</a></li>
+<li><a href="food.php?foodid=1182&amp;lang=fi">Raparperipiirakka muropohja</a></li>
+<li><a href="food.php?foodid=1189&amp;lang=fi">Raparperipiirakka piimätaikinapohja</a></li>
+<li><a href="food.php?foodid=1167&amp;lang=fi">Raparperipiirakka pullapohja, kevytmaito</a></li>
+<li><a href="food.php?foodid=836&amp;lang=fi">Rapu</a></li>
+<li><a href="food.php?foodid=28986&amp;lang=fi">Rapu, keitetty</a></li>
+<li><a href="food.php?foodid=30644&amp;lang=fi">Rasvaseos 30 % oivariini balansia</a></li>
+<li><a href="food.php?foodid=30611&amp;lang=fi">Rasvaseos 30% kevyt levi</a></li>
+<li><a href="food.php?foodid=570&amp;lang=fi">Rasvaseos 40% kevyt levi</a></li>
+<li><a href="food.php?foodid=565&amp;lang=fi">Rasvaseos 40% vähäsuolainen kevyt levi</a></li>
+<li><a href="food.php?foodid=11568&amp;lang=fi">Rasvaseos 60 %</a></li>
+<li><a href="food.php?foodid=501&amp;lang=fi">Rasvaseos 80 %</a></li>
+<li><a href="food.php?foodid=586&amp;lang=fi">Rasvaseos 80 % voimakassuolainen</a></li>
+<li><a href="food.php?foodid=587&amp;lang=fi">Rasvaseos 80 % vähäsuolainen</a></li>
+<li><a href="food.php?foodid=597&amp;lang=fi">Rasvaseoslevite 75 %</a></li>
+<li><a href="food.php?foodid=29211&amp;lang=fi">Rasvaton luomumaito, ei lisätty d-vitamiinia</a></li>
+<li><a href="food.php?foodid=29212&amp;lang=fi">Rasvaton luomupiimä, ei lisätty d-vitamiinia</a></li>
+<li><a href="food.php?foodid=606&amp;lang=fi">Rasvaton maito</a></li>
+<li><a href="food.php?foodid=11145&amp;lang=fi">Rasvaton maito vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=29090&amp;lang=fi">Rasvaton maito, keitetty</a></li>
+<li><a href="food.php?foodid=612&amp;lang=fi">Rasvaton piimä</a></li>
+<li><a href="food.php?foodid=11165&amp;lang=fi">Rasvaton piimä vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=7059&amp;lang=fi">Ravioli jauhelihatäyte</a></li>
+<li><a href="food.php?foodid=1860&amp;lang=fi">Ravioli pinaattitäytteellä</a></li>
+<li><a href="food.php?foodid=308&amp;lang=fi">Retiisi</a></li>
+<li><a href="food.php?foodid=1111&amp;lang=fi">Rieska kevytmaito, vehnä-, ruisjauho</a></li>
+<li><a href="food.php?foodid=29802&amp;lang=fi">Rieska, ohra-, teollinen</a></li>
+<li><a href="food.php?foodid=1582&amp;lang=fi">Rieska, ohra-peruna-, sisältää vehnäjauhoa, maitoa</a></li>
+<li><a href="food.php?foodid=1507&amp;lang=fi">Rieska, ohrasuurimo-,  sisältää piimää</a></li>
+<li><a href="food.php?foodid=29801&amp;lang=fi">Rieska, peruna-, teollinen</a></li>
+<li><a href="food.php?foodid=29803&amp;lang=fi">Rieska, peruna-ohra, sisältää vettä, vehnäjauhoa, teollinen</a></li>
+<li><a href="food.php?foodid=29232&amp;lang=fi">Rieska, peruna-ohra-, valmistettu perunasosejauheesta</a></li>
+<li><a href="food.php?foodid=1503&amp;lang=fi">Rieska, peruna-ohra-, vesi, ohrajauho, kotitekoinen</a></li>
+<li><a href="food.php?foodid=28983&amp;lang=fi">Riimiliha</a></li>
+<li><a href="food.php?foodid=1379&amp;lang=fi">Riisi keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=1370&amp;lang=fi">Riisi keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=30347&amp;lang=fi">Riisi pitkäjyväinen, kasvisliemessä</a></li>
+<li><a href="food.php?foodid=1376&amp;lang=fi">Riisi pitkäjyväinen, keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=30346&amp;lang=fi">Riisi pitkäjyväinen, keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=1560&amp;lang=fi">Riisi pitkäjyväinen, lihaliemessä</a></li>
+<li><a href="food.php?foodid=11521&amp;lang=fi">Riisi pitkäjyväinen, puuroutumaton</a></li>
+<li><a href="food.php?foodid=156&amp;lang=fi">Riisi puuroutuva</a></li>
+<li><a href="food.php?foodid=28910&amp;lang=fi">Riisi tumma</a></li>
+<li><a href="food.php?foodid=28911&amp;lang=fi">Riisi tumma, keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=30348&amp;lang=fi">Riisi tumma, keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=7046&amp;lang=fi">Riisi-jauhelihalaatikko sika-nautajauheliha</a></li>
+<li><a href="food.php?foodid=30351&amp;lang=fi">Riisi-kauraseos keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=30352&amp;lang=fi">Riisi-kauraseos keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=1537&amp;lang=fi">Riisi-kermajälkiruokapohja</a></li>
+<li><a href="food.php?foodid=31253&amp;lang=fi">Riisi-maissikakku</a></li>
+<li><a href="food.php?foodid=1570&amp;lang=fi">Riisi-marjavanukas</a></li>
+<li><a href="food.php?foodid=29781&amp;lang=fi">Riisi-vehnähiutale muro</a></li>
+<li><a href="food.php?foodid=1571&amp;lang=fi">Riisihiutalevelli maito</a></li>
+<li><a href="food.php?foodid=1572&amp;lang=fi">Riisihiutalevelli vesi</a></li>
+<li><a href="food.php?foodid=182&amp;lang=fi">Riisijauho / -hiutale</a></li>
+<li><a href="food.php?foodid=29499&amp;lang=fi">Riisijauhoseos, gluteeniton</a></li>
+<li><a href="food.php?foodid=30212&amp;lang=fi">Riisijuoma, lisätty kalsiumia</a></li>
+<li><a href="food.php?foodid=11687&amp;lang=fi">Riisijuoma, maustamaton</a></li>
+<li><a href="food.php?foodid=31252&amp;lang=fi">Riisikakku</a></li>
+<li><a href="food.php?foodid=29783&amp;lang=fi">Riisimuro</a></li>
+<li><a href="food.php?foodid=29056&amp;lang=fi">Riisinuudeli keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=1568&amp;lang=fi">Riisipuuro kevytmaitoon</a></li>
+<li><a href="food.php?foodid=30159&amp;lang=fi">Riisipuuro maitoon, suolaton</a></li>
+<li><a href="food.php?foodid=1559&amp;lang=fi">Riisipuuro maitoon, täysjyväriisi</a></li>
+<li><a href="food.php?foodid=30162&amp;lang=fi">Riisipuuro täysmaitoon</a></li>
+<li><a href="food.php?foodid=28970&amp;lang=fi">Riisipuuro veteen</a></li>
+<li><a href="food.php?foodid=30440&amp;lang=fi">Riisisuklaa</a></li>
+<li><a href="food.php?foodid=11507&amp;lang=fi">Riisitärkkelys</a></li>
+<li><a href="food.php?foodid=1539&amp;lang=fi">Riisivanukas</a></li>
+<li><a href="food.php?foodid=29500&amp;lang=fi">Riisivanukas, vaniljariisi</a></li>
+<li><a href="food.php?foodid=1569&amp;lang=fi">Riisivelli maito</a></li>
+<li><a href="food.php?foodid=7512&amp;lang=fi">Riista keskiarvo, paistettu</a></li>
+<li><a href="food.php?foodid=948&amp;lang=fi">Rommikola</a></li>
+<li><a href="food.php?foodid=3017&amp;lang=fi">Rosolli, ei kastiketta ,ei silliä</a></li>
+<li><a href="food.php?foodid=29798&amp;lang=fi">Rouheleipä vaalea, veteen</a></li>
+<li><a href="food.php?foodid=29799&amp;lang=fi">Rouhesämpylä veteen, vaalea</a></li>
+<li><a href="food.php?foodid=1015&amp;lang=fi">Ruis-marjapiirakka marjasurvos, ruiskuori</a></li>
+<li><a href="food.php?foodid=1006&amp;lang=fi">Ruis-marjapuuro</a></li>
+<li><a href="food.php?foodid=1007&amp;lang=fi">Ruis-marjapuuro sokeriton</a></li>
+<li><a href="food.php?foodid=1005&amp;lang=fi">Ruis-perunapuuro veteen</a></li>
+<li><a href="food.php?foodid=1375&amp;lang=fi">Ruis-riisiseos keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=30350&amp;lang=fi">Ruis-riisiseos keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=11522&amp;lang=fi">Ruis-riisiseos, riisi ja ruisrouhe</a></li>
+<li><a href="food.php?foodid=1390&amp;lang=fi">Ruis-vehnä-perunakuori täytteetön</a></li>
+<li><a href="food.php?foodid=1389&amp;lang=fi">Ruis-vehnä-perunataikina</a></li>
+<li><a href="food.php?foodid=189&amp;lang=fi">Ruis-vehnäjauhoseos</a></li>
+<li><a href="food.php?foodid=7107&amp;lang=fi">Ruishampurilainen, naudanliha</a></li>
+<li><a href="food.php?foodid=30171&amp;lang=fi">Ruishampurilainen, porsaan ulkofilee</a></li>
+<li><a href="food.php?foodid=1330&amp;lang=fi">Ruishiivaleipä vesi, ruis-, hiivaleipäjauho</a></li>
+<li><a href="food.php?foodid=103&amp;lang=fi">Ruishiutale</a></li>
+<li><a href="food.php?foodid=1027&amp;lang=fi">Ruishiutalepuuro maito</a></li>
+<li><a href="food.php?foodid=1026&amp;lang=fi">Ruishiutalepuuro vesi</a></li>
+<li><a href="food.php?foodid=1025&amp;lang=fi">Ruishiutalevelli maito</a></li>
+<li><a href="food.php?foodid=100&amp;lang=fi">Ruisjauho kokojyväjauho</a></li>
+<li><a href="food.php?foodid=1009&amp;lang=fi">Ruisleipä perinteinen, vesi, ruisjauho</a></li>
+<li><a href="food.php?foodid=1036&amp;lang=fi">Ruisleipä ruista 51%</a></li>
+<li><a href="food.php?foodid=1331&amp;lang=fi">Ruisleipä vesi, ruis-, hiivaleipäjauho, teollinen</a></li>
+<li><a href="food.php?foodid=29237&amp;lang=fi">Ruislese</a></li>
+<li><a href="food.php?foodid=28909&amp;lang=fi">Ruismakaroni</a></li>
+<li><a href="food.php?foodid=28912&amp;lang=fi">Ruismakaroni keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=30360&amp;lang=fi">Ruismakaroni keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=43&amp;lang=fi">Ruismallas</a></li>
+<li><a href="food.php?foodid=29771&amp;lang=fi">Ruisnäkkileipä</a></li>
+<li><a href="food.php?foodid=29797&amp;lang=fi">Ruispaahtoleipä</a></li>
+<li><a href="food.php?foodid=1003&amp;lang=fi">Ruispuuro maito</a></li>
+<li><a href="food.php?foodid=1002&amp;lang=fi">Ruispuuro vesi</a></li>
+<li><a href="food.php?foodid=176&amp;lang=fi">Ruisrouhe</a></li>
+<li><a href="food.php?foodid=1338&amp;lang=fi">Ruisrouheleipä perunainen, ruispalat</a></li>
+<li><a href="food.php?foodid=29800&amp;lang=fi">Ruisrouhesämpylä veteen</a></li>
+<li><a href="food.php?foodid=29811&amp;lang=fi">Ruissekaleipä</a></li>
+<li><a href="food.php?foodid=11030&amp;lang=fi">Ruissihtijauho</a></li>
+<li><a href="food.php?foodid=11006&amp;lang=fi">Ruissihtileipä vesi, ruissihti-, hiivaleipäjauho</a></li>
+<li><a href="food.php?foodid=29808&amp;lang=fi">Ruissämpylä</a></li>
+<li><a href="food.php?foodid=1001&amp;lang=fi">Ruisvelli mehuun</a></li>
+<li><a href="food.php?foodid=1000&amp;lang=fi">Ruisvelli vesi</a></li>
+<li><a href="food.php?foodid=30222&amp;lang=fi">Runebergintorttu</a></li>
+<li><a href="food.php?foodid=687&amp;lang=fi">Ruoanvalmistusjogurtti, rasvaa 6-8 g</a></li>
+<li><a href="food.php?foodid=632&amp;lang=fi">Ruoanvalmistuskerma 19% rasvaa, kahvikerma</a></li>
+<li><a href="food.php?foodid=699&amp;lang=fi">Ruoanvalmistuskerma, kasvirasvakerma 15% rasvaa</a></li>
+<li><a href="food.php?foodid=29065&amp;lang=fi">Ruoanvalmistuskerma, rasvaa 15 g</a></li>
+<li><a href="food.php?foodid=30646&amp;lang=fi">Ruoanvalmistuskerma, rasvaa 5 g, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=5900&amp;lang=fi">Ruoanvalmistusrasva keskiarvo</a></li>
+<li><a href="food.php?foodid=392&amp;lang=fi">Ruohosipuli</a></li>
+<li><a href="food.php?foodid=31160&amp;lang=fi">Ruokasooda</a></li>
+<li><a href="food.php?foodid=79&amp;lang=fi">Ruokasuola jodioimaton vuorisuola</a></li>
+<li><a href="food.php?foodid=30&amp;lang=fi">Ruokasuola jodioitu</a></li>
+<li><a href="food.php?foodid=541&amp;lang=fi">Ruokaöljy keskiarvo</a></li>
+<li><a href="food.php?foodid=531&amp;lang=fi">Ruokaöljy teollisuuskäyttöön</a></li>
+<li><a href="food.php?foodid=428&amp;lang=fi">Rusina</a></li>
+<li><a href="food.php?foodid=4014&amp;lang=fi">Rusinakeitto</a></li>
+<li><a href="food.php?foodid=11197&amp;lang=fi">Ruskea maustekastike hp-kastike</a></li>
+<li><a href="food.php?foodid=1244&amp;lang=fi">Ruskeakastike rasva-jauhosuurus</a></li>
+<li><a href="food.php?foodid=29046&amp;lang=fi">Ruskeakastike voihin, rasva-jauhosuurus</a></li>
+<li><a href="food.php?foodid=29047&amp;lang=fi">Ruskeakastike öljyyn, rasva-jauhosuurus</a></li>
+<li><a href="food.php?foodid=327&amp;lang=fi">Ruusukaali</a></li>
+<li><a href="food.php?foodid=3349&amp;lang=fi">Ruusukaali keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=3344&amp;lang=fi">Ruusukaali keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=3213&amp;lang=fi">Ruusukaalikeitto</a></li>
+<li><a href="food.php?foodid=11007&amp;lang=fi">Ruusunmarja</a></li>
+<li><a href="food.php?foodid=11587&amp;lang=fi">Ruusunmarjajuoma pro viva, sis. kauraa ja lactobacillus plantarum-bakteereja</a></li>
+<li><a href="food.php?foodid=4009&amp;lang=fi">Ruusunmarjakeitto/kiisseli</a></li>
+<li><a href="food.php?foodid=11065&amp;lang=fi">Ruusunmarjasose sokeroimaton</a></li>
+<li><a href="food.php?foodid=535&amp;lang=fi">Rypsiöljy</a></li>
+<li><a href="food.php?foodid=11695&amp;lang=fi">Rypsiöljy kylmäpuristettu</a></li>
+<li><a href="food.php?foodid=11198&amp;lang=fi">Rypälesokeri</a></li>
+<li><a href="food.php?foodid=11503&amp;lang=fi">Rypäletäysmehu</a></li>
+<li><a href="food.php?foodid=7647&amp;lang=fi">Ryynimakkara paistettu ilman rasvaa</a></li>
+<li><a href="food.php?foodid=30322&amp;lang=fi">Ryynimakkara, keskiarvo</a></li>
+<li><a href="food.php?foodid=7610&amp;lang=fi">Ryynimakkara, paistettu</a></li>
+<li><a href="food.php?foodid=2030&amp;lang=fi">Röstiperuna</a></li>
+<li><a href="food.php?foodid=1209&amp;lang=fi">Sacherkakku/leivos</a></li>
+<li><a href="food.php?foodid=376&amp;lang=fi">Saksanpähkinä</a></li>
+<li><a href="food.php?foodid=579&amp;lang=fi">Salaatinkastike rasvaa <17%, vähärasvainen</a></li>
+<li><a href="food.php?foodid=11144&amp;lang=fi">Salaatinkastike rasvaton</a></li>
+<li><a href="food.php?foodid=5004&amp;lang=fi">Salaatinkastike sinappinen, öljy, mehu, etikka</a></li>
+<li><a href="food.php?foodid=29304&amp;lang=fi">Salaattipöydän antimet ilman kastiketta</a></li>
+<li><a href="food.php?foodid=3360&amp;lang=fi">Salaattipöydän antimet tavanomainen, ka, salaatinkastike</a></li>
+<li><a href="food.php?foodid=7637&amp;lang=fi">Salamipizza</a></li>
+<li><a href="food.php?foodid=29687&amp;lang=fi">Salmiakkimakeinen</a></li>
+<li><a href="food.php?foodid=12&amp;lang=fi">Salmiakkipastilli</a></li>
+<li><a href="food.php?foodid=831&amp;lang=fi">Sardiini keskiarvo, öljyssä ja tomaattikastikkeessa</a></li>
+<li><a href="food.php?foodid=775&amp;lang=fi">Saunapalvikinkku</a></li>
+<li><a href="food.php?foodid=8048&amp;lang=fi">Savukala-lehtisalaatti-munasalaatti</a></li>
+<li><a href="food.php?foodid=8051&amp;lang=fi">Savukala-raejuusto-hernesalaatti</a></li>
+<li><a href="food.php?foodid=8050&amp;lang=fi">Savukala-ruohosipuli-peruna-punajuurisalaatti</a></li>
+<li><a href="food.php?foodid=8093&amp;lang=fi">Savukalasalaatti peruna-omena-purjo</a></li>
+<li><a href="food.php?foodid=7625&amp;lang=fi">Savusilavakastike saunapalvikinkku, kevytmaito</a></li>
+<li><a href="food.php?foodid=949&amp;lang=fi">Screwdriewer tuoremehuvodka</a></li>
+<li><a href="food.php?foodid=385&amp;lang=fi">Seesaminsiemen, kuorineen</a></li>
+<li><a href="food.php?foodid=826&amp;lang=fi">Seiti pakaste</a></li>
+<li><a href="food.php?foodid=427&amp;lang=fi">Sekahedelmä, kuivattu</a></li>
+<li><a href="food.php?foodid=4012&amp;lang=fi">Sekahedelmäkeitto/kiisseli</a></li>
+<li><a href="food.php?foodid=4013&amp;lang=fi">Sekahedelmäkeitto/kiisseli sokeriton</a></li>
+<li><a href="food.php?foodid=29805&amp;lang=fi">Sekaleipä vaalea, vesi, vehnäjauho, vehnärouhe</a></li>
+<li><a href="food.php?foodid=11126&amp;lang=fi">Sekaleipä vesi, graham-, ruis-, vehnäjauho</a></li>
+<li><a href="food.php?foodid=29804&amp;lang=fi">Sekaleipä vesi, vehnä-, ruisjauho, perunahiutale</a></li>
+<li><a href="food.php?foodid=3350&amp;lang=fi">Sekavihannes keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=3345&amp;lang=fi">Sekavihannes keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=356&amp;lang=fi">Sekavihannes porkkana, kukkakaali, herne, papu</a></li>
+<li><a href="food.php?foodid=3269&amp;lang=fi">Sekavihannesmuhennos kevytmaito</a></li>
+<li><a href="food.php?foodid=3024&amp;lang=fi">Sellerimuhennos</a></li>
+<li><a href="food.php?foodid=29810&amp;lang=fi">Setsuuri, pääsiäis-/joululimppu</a></li>
+<li><a href="food.php?foodid=708&amp;lang=fi">Sian selkäsilava</a></li>
+<li><a href="food.php?foodid=7076&amp;lang=fi">Siankinkku rasvaton</a></li>
+<li><a href="food.php?foodid=7003&amp;lang=fi">Siankinkku rasvoineen</a></li>
+<li><a href="food.php?foodid=704&amp;lang=fi">Siankinkku silavoineen</a></li>
+<li><a href="food.php?foodid=11512&amp;lang=fi">Siankyljys, rasvaa  8,6 %</a></li>
+<li><a href="food.php?foodid=703&amp;lang=fi">Siankyljys/selkä paksu rasvakerros</a></li>
+<li><a href="food.php?foodid=706&amp;lang=fi">Siankylki</a></li>
+<li><a href="food.php?foodid=705&amp;lang=fi">Sianlapa</a></li>
+<li><a href="food.php?foodid=7000&amp;lang=fi">Sianliha keitetty</a></li>
+<li><a href="food.php?foodid=11508&amp;lang=fi">Sianliha keitetty, suolaton</a></li>
+<li><a href="food.php?foodid=713&amp;lang=fi">Sianliha keskiarvo</a></li>
+<li><a href="food.php?foodid=7068&amp;lang=fi">Sianliha-perunalaatikko</a></li>
+<li><a href="food.php?foodid=7009&amp;lang=fi">Sianlihakastike</a></li>
+<li><a href="food.php?foodid=7067&amp;lang=fi">Sianlihakastike vähärasvainen</a></li>
+<li><a href="food.php?foodid=29181&amp;lang=fi">Sianlihasuikale paistettu öljyssä</a></li>
+<li><a href="food.php?foodid=31144&amp;lang=fi">Sianlihasuikale, marinoitu</a></li>
+<li><a href="food.php?foodid=31146&amp;lang=fi">Sianlihasuikale, marinoitu, paistettu öljyssä</a></li>
+<li><a href="food.php?foodid=29180&amp;lang=fi">Sianlihasuikalekastike ruoanvalmistuskerma</a></li>
+<li><a href="food.php?foodid=7006&amp;lang=fi">Sianpaisti kassler, tirripaisti, sianlapa, paistettu</a></li>
+<li><a href="food.php?foodid=748&amp;lang=fi">Sianpaisti vähärasvainen</a></li>
+<li><a href="food.php?foodid=709&amp;lang=fi">Sianpotka</a></li>
+<li><a href="food.php?foodid=7005&amp;lang=fi">Sianpotka/sorkka haudutettu</a></li>
+<li><a href="food.php?foodid=701&amp;lang=fi">Sianruho keskirasvainen</a></li>
+<li><a href="food.php?foodid=343&amp;lang=fi">Sieni rouskut, suolattu</a></li>
+<li><a href="food.php?foodid=342&amp;lang=fi">Sieni tatti, hapero</a></li>
+<li><a href="food.php?foodid=3240&amp;lang=fi">Sieni, paistettu</a></li>
+<li><a href="food.php?foodid=3254&amp;lang=fi">Sieni-juurespata perunaa, juureksia</a></li>
+<li><a href="food.php?foodid=3252&amp;lang=fi">Sieni-kaalikääryle</a></li>
+<li><a href="food.php?foodid=29073&amp;lang=fi">Sieni-kasvismuhennos, kasvirasvakerma</a></li>
+<li><a href="food.php?foodid=7081&amp;lang=fi">Sieni-lihapulla naudanpaisti</a></li>
+<li><a href="food.php?foodid=7028&amp;lang=fi">Sieni-lihapulla sika-nauta</a></li>
+<li><a href="food.php?foodid=3251&amp;lang=fi">Sieni-makaronilaatikko</a></li>
+<li><a href="food.php?foodid=29025&amp;lang=fi">Sieni-ohrakeitto</a></li>
+<li><a href="food.php?foodid=3250&amp;lang=fi">Sieni-ohrasuurimolaatikko vesiliemi</a></li>
+<li><a href="food.php?foodid=3249&amp;lang=fi">Sieni-perunalaatikko munamaito</a></li>
+<li><a href="food.php?foodid=3246&amp;lang=fi">Sieni-sipulihakkelus</a></li>
+<li><a href="food.php?foodid=3245&amp;lang=fi">Sienikastike veteen, rasvasuurus</a></li>
+<li><a href="food.php?foodid=3242&amp;lang=fi">Sienikastike/muhennos kevytmaito, kerma</a></li>
+<li><a href="food.php?foodid=3241&amp;lang=fi">Sienikeitto</a></li>
+<li><a href="food.php?foodid=3255&amp;lang=fi">Sieniohukainen kevytmaito</a></li>
+<li><a href="food.php?foodid=3253&amp;lang=fi">Sienipannukakku</a></li>
+<li><a href="food.php?foodid=3258&amp;lang=fi">Sienipihvi/pyörykkä lihaton</a></li>
+<li><a href="food.php?foodid=1220&amp;lang=fi">Sienipiirakka voitaikina</a></li>
+<li><a href="food.php?foodid=31455&amp;lang=fi">Sienirisotto</a></li>
+<li><a href="food.php?foodid=3248&amp;lang=fi">Sienirisotto perusrisotto + ruskistetut sienet</a></li>
+<li><a href="food.php?foodid=3247&amp;lang=fi">Sienisalaatti kerma</a></li>
+<li><a href="food.php?foodid=30166&amp;lang=fi">Sienisalaatti kevytkerma</a></li>
+<li><a href="food.php?foodid=911&amp;lang=fi">Siideri makea, <3 til% alkoholia</a></li>
+<li><a href="food.php?foodid=30636&amp;lang=fi">Siideri, kevyt, 4,7 til% alkoholia</a></li>
+<li><a href="food.php?foodid=29135&amp;lang=fi">Siideri, kuiva, 4,7 til% alkoholia</a></li>
+<li><a href="food.php?foodid=30430&amp;lang=fi">Siideri, kuiva, 5,5 til% alkoholia</a></li>
+<li><a href="food.php?foodid=939&amp;lang=fi">Siideri, makea, 4,7 til% alkoholia</a></li>
+<li><a href="food.php?foodid=30432&amp;lang=fi">Siiderijuoma, 0,7 til% alkoholia</a></li>
+<li><a href="food.php?foodid=815&amp;lang=fi">Siika</a></li>
+<li><a href="food.php?foodid=816&amp;lang=fi">Siika savustettu</a></li>
+<li><a href="food.php?foodid=8011&amp;lang=fi">Siika, paistettu</a></li>
+<li><a href="food.php?foodid=3&amp;lang=fi">Siirappi</a></li>
+<li><a href="food.php?foodid=11734&amp;lang=fi">Siitakesieni</a></li>
+<li><a href="food.php?foodid=743&amp;lang=fi">Sika-nautasäilyke</a></li>
+<li><a href="food.php?foodid=8068&amp;lang=fi">Silakka</a></li>
+<li><a href="food.php?foodid=802&amp;lang=fi">Silakka , savustettu, itämeri</a></li>
+<li><a href="food.php?foodid=801&amp;lang=fi">Silakka , suolattu, itämeri</a></li>
+<li><a href="food.php?foodid=860&amp;lang=fi">Silakka tilli-/sinappikastikkeessa</a></li>
+<li><a href="food.php?foodid=8007&amp;lang=fi">Silakka, leivitetty, paistettu</a></li>
+<li><a href="food.php?foodid=800&amp;lang=fi">Silakka, tuore, itämeri</a></li>
+<li><a href="food.php?foodid=29207&amp;lang=fi">Silakkafilee</a></li>
+<li><a href="food.php?foodid=8059&amp;lang=fi">Silakkahyytelö</a></li>
+<li><a href="food.php?foodid=8030&amp;lang=fi">Silakkalaatikko</a></li>
+<li><a href="food.php?foodid=29248&amp;lang=fi">Silakkalaatikko ei pekonia</a></li>
+<li><a href="food.php?foodid=29249&amp;lang=fi">Silakkalaatikko maidoton</a></li>
+<li><a href="food.php?foodid=31449&amp;lang=fi">Silakkalaatikko, teollinen</a></li>
+<li><a href="food.php?foodid=8064&amp;lang=fi">Silakkapihvi</a></li>
+<li><a href="food.php?foodid=7012&amp;lang=fi">Silavapannukakku</a></li>
+<li><a href="food.php?foodid=803&amp;lang=fi">Silli tynnyriin suolattu</a></li>
+<li><a href="food.php?foodid=859&amp;lang=fi">Silli valkosipuli-/sinappikastikkeessa</a></li>
+<li><a href="food.php?foodid=912&amp;lang=fi">Sima</a></li>
+<li><a href="food.php?foodid=28988&amp;lang=fi">Simpukkakastike</a></li>
+<li><a href="food.php?foodid=29013&amp;lang=fi">Simpukkakeitto, kuohukerma</a></li>
+<li><a href="food.php?foodid=28&amp;lang=fi">Sinappi</a></li>
+<li><a href="food.php?foodid=30428&amp;lang=fi">Sinihomejuusto rasvaa 17 g, aura</a></li>
+<li><a href="food.php?foodid=653&amp;lang=fi">Sinihomejuusto rasvaa 27-30 g, aura/danazole keskiarvo rasvaa 50 % kuivapainosta</a></li>
+<li><a href="food.php?foodid=6040&amp;lang=fi">Sinihomejuustokastike rasva-jauhosuurus</a></li>
+<li><a href="food.php?foodid=11074&amp;lang=fi">Sinimailasen itu</a></li>
+<li><a href="food.php?foodid=807&amp;lang=fi">Sinipallas</a></li>
+<li><a href="food.php?foodid=834&amp;lang=fi">Sinisimpukka vedessä</a></li>
+<li><a href="food.php?foodid=335&amp;lang=fi">Sipuli</a></li>
+<li><a href="food.php?foodid=336&amp;lang=fi">Sipuli kuivattu</a></li>
+<li><a href="food.php?foodid=3231&amp;lang=fi">Sipuli paistettu, haudutettu: kasvisliemi, siirappi</a></li>
+<li><a href="food.php?foodid=7053&amp;lang=fi">Sipuli täytetty riisillä ja jauhelihalla</a></li>
+<li><a href="food.php?foodid=3230&amp;lang=fi">Sipuli, paistettu</a></li>
+<li><a href="food.php?foodid=30732&amp;lang=fi">Sipulikeitto</a></li>
+<li><a href="food.php?foodid=3233&amp;lang=fi">Sipulikeitto juustokuorrutettu</a></li>
+<li><a href="food.php?foodid=3234&amp;lang=fi">Sipulimuhennos kevytmaito</a></li>
+<li><a href="food.php?foodid=3331&amp;lang=fi">Sipulipiirakka muropohja</a></li>
+<li><a href="food.php?foodid=30369&amp;lang=fi">Siskonmakkara</a></li>
+<li><a href="food.php?foodid=7617&amp;lang=fi">Siskonmakkarakeitto</a></li>
+<li><a href="food.php?foodid=11048&amp;lang=fi">Sitruuna kuorittu</a></li>
+<li><a href="food.php?foodid=28925&amp;lang=fi">Sitruuna, keskiarvo, punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=1452&amp;lang=fi">Sitruunakastike kermainen</a></li>
+<li><a href="food.php?foodid=917&amp;lang=fi">Sitruunateejuomajauhe valmistamaton, makeutettu pikatee</a></li>
+<li><a href="food.php?foodid=437&amp;lang=fi">Sitruunatäysmehu laimennettu</a></li>
+<li><a href="food.php?foodid=11557&amp;lang=fi">Sitruunatäysmehu laimentamaton</a></li>
+<li><a href="food.php?foodid=6023&amp;lang=fi">Sitruunavaahto kerma, muna, sitruuna, sokeri, liivate</a></li>
+<li><a href="food.php?foodid=630&amp;lang=fi">Smetana n. 40% rasvaa</a></li>
+<li><a href="food.php?foodid=8095&amp;lang=fi">Smetanalohi</a></li>
+<li><a href="food.php?foodid=7100&amp;lang=fi">Smetanassa haudutettu porsaankyljys</a></li>
+<li><a href="food.php?foodid=29264&amp;lang=fi">Soija-kasvislasagne</a></li>
+<li><a href="food.php?foodid=29241&amp;lang=fi">Soija-kasvisrisotto</a></li>
+<li><a href="food.php?foodid=30180&amp;lang=fi">Soija-makaronilaatikko</a></li>
+<li><a href="food.php?foodid=380&amp;lang=fi">Soijajauho rasvainen</a></li>
+<li><a href="food.php?foodid=381&amp;lang=fi">Soijajauho vähärasvainen</a></li>
+<li><a href="food.php?foodid=31246&amp;lang=fi">Soijajuoma , soijamaito, vitaminoitu</a></li>
+<li><a href="food.php?foodid=31248&amp;lang=fi">Soijajuoma , suklaa-, vitaminoitu</a></li>
+<li><a href="food.php?foodid=30207&amp;lang=fi">Soijajuoma, soijamaito,  lisätty kalsiumia</a></li>
+<li><a href="food.php?foodid=31247&amp;lang=fi">Soijajuoma, soijamaito, ei lisättyä sokeria</a></li>
+<li><a href="food.php?foodid=31&amp;lang=fi">Soijakastike</a></li>
+<li><a href="food.php?foodid=31231&amp;lang=fi">Soijakerma</a></li>
+<li><a href="food.php?foodid=391&amp;lang=fi">Soijapapu</a></li>
+<li><a href="food.php?foodid=3710&amp;lang=fi">Soijapapu keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=3714&amp;lang=fi">Soijapihvi</a></li>
+<li><a href="food.php?foodid=11700&amp;lang=fi">Soijaproteiini konsentraatti, 58 % proteiinia</a></li>
+<li><a href="food.php?foodid=3715&amp;lang=fi">Soijarouhe, keitetty</a></li>
+<li><a href="food.php?foodid=11585&amp;lang=fi">Soijarouhe, vaalea</a></li>
+<li><a href="food.php?foodid=28961&amp;lang=fi">Soijarouhe-tomaattikastike</a></li>
+<li><a href="food.php?foodid=30185&amp;lang=fi">Soijavanukas</a></li>
+<li><a href="food.php?foodid=542&amp;lang=fi">Soijaöljy</a></li>
+<li><a href="food.php?foodid=1&amp;lang=fi">Sokeri</a></li>
+<li><a href="food.php?foodid=1194&amp;lang=fi">Sokerikakku</a></li>
+<li><a href="food.php?foodid=29765&amp;lang=fi">Sokerikorppu kevytmaitoon, kotitekoinen</a></li>
+<li><a href="food.php?foodid=29763&amp;lang=fi">Sokerikorppu rasvattomaan maitoon, teollinen</a></li>
+<li><a href="food.php?foodid=29764&amp;lang=fi">Sokerikorppu veteen, teollinen</a></li>
+<li><a href="food.php?foodid=1150&amp;lang=fi">Sokeririnkeli kevytmaito</a></li>
+<li><a href="food.php?foodid=30172&amp;lang=fi">Sokerivesikuorrutus</a></li>
+<li><a href="food.php?foodid=24&amp;lang=fi">Sorbitoli</a></li>
+<li><a href="food.php?foodid=7082&amp;lang=fi">Spagetin jauhelihakastike naudanpaisti</a></li>
+<li><a href="food.php?foodid=7021&amp;lang=fi">Spagetin jauhelihakastike sika-nauta</a></li>
+<li><a href="food.php?foodid=121&amp;lang=fi">Spagetti</a></li>
+<li><a href="food.php?foodid=188&amp;lang=fi">Spagetti keitinvedessä öljyä</a></li>
+<li><a href="food.php?foodid=1373&amp;lang=fi">Spagetti, keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=30357&amp;lang=fi">Spagetti, keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=31451&amp;lang=fi">Spagettilihavuoka</a></li>
+<li><a href="food.php?foodid=6&amp;lang=fi">Suklaa keskiarvo</a></li>
+<li><a href="food.php?foodid=32&amp;lang=fi">Suklaa tumma</a></li>
+<li><a href="food.php?foodid=29156&amp;lang=fi">Suklaa valkoinen</a></li>
+<li><a href="food.php?foodid=37&amp;lang=fi">Suklaa, sokeriton, makeutettu sorbitolilla</a></li>
+<li><a href="food.php?foodid=29067&amp;lang=fi">Suklaa-pähkinälevite</a></li>
+<li><a href="food.php?foodid=1200&amp;lang=fi">Suklaa/tiikerikakku</a></li>
+<li><a href="food.php?foodid=6034&amp;lang=fi">Suklaakastike</a></li>
+<li><a href="food.php?foodid=29756&amp;lang=fi">Suklaakeksi teollinen</a></li>
+<li><a href="food.php?foodid=6003&amp;lang=fi">Suklaakiisseli sokeriton</a></li>
+<li><a href="food.php?foodid=6002&amp;lang=fi">Suklaakiisseli, kevytmaito</a></li>
+<li><a href="food.php?foodid=7&amp;lang=fi">Suklaakonvehti</a></li>
+<li><a href="food.php?foodid=1192&amp;lang=fi">Suklaakääretorttu kreemitäyte, unelmatorttu</a></li>
+<li><a href="food.php?foodid=29780&amp;lang=fi">Suklaamuro</a></li>
+<li><a href="food.php?foodid=14&amp;lang=fi">Suklaapatukka suklainen, keskiarvo</a></li>
+<li><a href="food.php?foodid=44&amp;lang=fi">Suklaapatukka täytesuklaa, keskiarvo</a></li>
+<li><a href="food.php?foodid=63&amp;lang=fi">Suklaapatukka vähärasvainen</a></li>
+<li><a href="food.php?foodid=31254&amp;lang=fi">Suklaarusina</a></li>
+<li><a href="food.php?foodid=1205&amp;lang=fi">Suklaatäytekakku kerma-hillotäyte</a></li>
+<li><a href="food.php?foodid=6024&amp;lang=fi">Suklaavaahto</a></li>
+<li><a href="food.php?foodid=11129&amp;lang=fi">Suklaavanukas</a></li>
+<li><a href="food.php?foodid=6019&amp;lang=fi">Suklaavanukas kermainen, kotitekoinen</a></li>
+<li><a href="food.php?foodid=647&amp;lang=fi">Sulatejuusto rasvaa 20-24g keskirasvainen</a></li>
+<li><a href="food.php?foodid=648&amp;lang=fi">Sulatejuusto rasvaa 27-35 g, runsasrasvainen</a></li>
+<li><a href="food.php?foodid=30310&amp;lang=fi">Sulatejuusto rasvaa 5 g, vähärasvainen</a></li>
+<li><a href="food.php?foodid=659&amp;lang=fi">Sulatejuusto rasvaa 9-12g, vähärasvainen</a></li>
+<li><a href="food.php?foodid=1016&amp;lang=fi">Sultsina ruisvehnäkuori</a></li>
+<li><a href="food.php?foodid=930&amp;lang=fi">Suodatinkahvijuoma</a></li>
+<li><a href="food.php?foodid=29769&amp;lang=fi">Suolakeksi</a></li>
+<li><a href="food.php?foodid=383&amp;lang=fi">Suolapähkinä</a></li>
+<li><a href="food.php?foodid=30664&amp;lang=fi">Suolapähkinä-hedelmä-sekoitus</a></li>
+<li><a href="food.php?foodid=449&amp;lang=fi">Suomuurain lakka, hilla</a></li>
+<li><a href="food.php?foodid=30203&amp;lang=fi">Sushi, levärulla , tuoresuolattu lohi</a></li>
+<li><a href="food.php?foodid=30202&amp;lang=fi">Sushi, tonnikala, ilman levää</a></li>
+<li><a href="food.php?foodid=792&amp;lang=fi">Sydän naudan</a></li>
+<li><a href="food.php?foodid=528&amp;lang=fi">Syväpaistorasva 100 % uppopaistorasva</a></li>
+<li><a href="food.php?foodid=1301&amp;lang=fi">Sämpylä, kevytmaito, sämpyläjauho</a></li>
+<li><a href="food.php?foodid=29006&amp;lang=fi">Sämpylä, kevytmaito, voi, sämpyläjauho</a></li>
+<li><a href="food.php?foodid=29807&amp;lang=fi">Sämpylä, monivilja</a></li>
+<li><a href="food.php?foodid=29003&amp;lang=fi">Sämpylä, rasvaton maito, öljy, sämpyläjauho</a></li>
+<li><a href="food.php?foodid=29007&amp;lang=fi">Sämpylä, tilamaito, voi, sämpyläjauho</a></li>
+<li><a href="food.php?foodid=1556&amp;lang=fi">Sämpylä, vesi, sämpyläjauho</a></li>
+<li><a href="food.php?foodid=29005&amp;lang=fi">Sämpylä, vesi, voi, sämpyläjauho</a></li>
+<li><a href="food.php?foodid=29002&amp;lang=fi">Sämpylä, vesi, öljy, sämpyläjauho</a></li>
+<li><a href="food.php?foodid=125&amp;lang=fi">Sämpyläjauho, vehnäjauho, ruisjauho, vehnärouhe</a></li>
+<li><a href="food.php?foodid=845&amp;lang=fi">Särki</a></li>
+<li><a href="food.php?foodid=28937&amp;lang=fi">Taateli, kuivattu, punnittu kivineen</a></li>
+<li><a href="food.php?foodid=1203&amp;lang=fi">Taatelikakku</a></li>
+<li><a href="food.php?foodid=823&amp;lang=fi">Taimen</a></li>
+<li><a href="food.php?foodid=553&amp;lang=fi">Tali raaka naudanrasva</a></li>
+<li><a href="food.php?foodid=154&amp;lang=fi">Talkkunajauho, sisältää ohraa</a></li>
+<li><a href="food.php?foodid=1527&amp;lang=fi">Talkkunapiimä piimää ja talkkunaa</a></li>
+<li><a href="food.php?foodid=1526&amp;lang=fi">Talkkunapuuro vesi</a></li>
+<li><a href="food.php?foodid=7623&amp;lang=fi">Talonpoikaismunakas muna, peruna, lenkkimakkara, sipuli</a></li>
+<li><a href="food.php?foodid=519&amp;lang=fi">Talousmargariini 80 % keskiarvo, leivontaan ja ruoanlaittoon</a></li>
+<li><a href="food.php?foodid=611&amp;lang=fi">Talouspiimä 0,8% rasvaa</a></li>
+<li><a href="food.php?foodid=5006&amp;lang=fi">Tartarkastike majoneesipohjainen</a></li>
+<li><a href="food.php?foodid=28984&amp;lang=fi">Tartarpihvi</a></li>
+<li><a href="food.php?foodid=1576&amp;lang=fi">Tattari keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=1579&amp;lang=fi">Tattari keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=1320&amp;lang=fi">Tattarileipä vesi, tattarijauho</a></li>
+<li><a href="food.php?foodid=1545&amp;lang=fi">Tattaripuuro maito</a></li>
+<li><a href="food.php?foodid=1544&amp;lang=fi">Tattaripuuro vesi</a></li>
+<li><a href="food.php?foodid=161&amp;lang=fi">Tattarisuurimo / -jauho</a></li>
+<li><a href="food.php?foodid=1543&amp;lang=fi">Tattarivelli maito</a></li>
+<li><a href="food.php?foodid=901&amp;lang=fi">Tee</a></li>
+<li><a href="food.php?foodid=1114&amp;lang=fi">Teeleipä kevytmaito, vehnäjauho</a></li>
+<li><a href="food.php?foodid=529&amp;lang=fi">Teollisuusmargariini 80% kaulinta</a></li>
+<li><a href="food.php?foodid=5907&amp;lang=fi">Teollisuusuppopaistorasva</a></li>
+<li><a href="food.php?foodid=602&amp;lang=fi">Ternimaito</a></li>
+<li><a href="food.php?foodid=600&amp;lang=fi">Tilamaito 4,4% rasvaa, raakamaito, ei lisätty d-vitamiinia</a></li>
+<li><a href="food.php?foodid=369&amp;lang=fi">Tilli, tuore</a></li>
+<li><a href="food.php?foodid=5002&amp;lang=fi">Tillikastike sis. valkoviiniä</a></li>
+<li><a href="food.php?foodid=7162&amp;lang=fi">Tilliliha piparjuuriliha, naudan etuselkä</a></li>
+<li><a href="food.php?foodid=11194&amp;lang=fi">Timjami</a></li>
+<li><a href="food.php?foodid=1143&amp;lang=fi">Tippaleipä kevytmaito</a></li>
+<li><a href="food.php?foodid=6049&amp;lang=fi">Tiramisu</a></li>
+<li><a href="food.php?foodid=11&amp;lang=fi">Toffee</a></li>
+<li><a href="food.php?foodid=11163&amp;lang=fi">Tofu soijavalmiste, soijapapujuusto</a></li>
+<li><a href="food.php?foodid=11581&amp;lang=fi">Tofujogurtti, soijajogurtti, hapatettu soijavalmiste</a></li>
+<li><a href="food.php?foodid=11199&amp;lang=fi">Tofujäädyke soijapohjainen, maidoton, gluteeniton, kolesteroliton</a></li>
+<li><a href="food.php?foodid=31229&amp;lang=fi">Tofujäädykepuikko, suklaakuorrute</a></li>
+<li><a href="food.php?foodid=951&amp;lang=fi">Tom collins ginidrinkki</a></li>
+<li><a href="food.php?foodid=352&amp;lang=fi">Tomaatti</a></li>
+<li><a href="food.php?foodid=3266&amp;lang=fi">Tomaatti sienitäyte, gratinoitu</a></li>
+<li><a href="food.php?foodid=30444&amp;lang=fi">Tomaatti, aurinkokuivattu, öljyssä</a></li>
+<li><a href="food.php?foodid=3309&amp;lang=fi">Tomaatti-papu-sipulisalaatti</a></li>
+<li><a href="food.php?foodid=3308&amp;lang=fi">Tomaatti-sipulisalaatti</a></li>
+<li><a href="food.php?foodid=30728&amp;lang=fi">Tomaattikastike</a></li>
+<li><a href="food.php?foodid=3265&amp;lang=fi">Tomaattikeitto</a></li>
+<li><a href="food.php?foodid=353&amp;lang=fi">Tomaattiketsuppi</a></li>
+<li><a href="food.php?foodid=390&amp;lang=fi">Tomaattimehu</a></li>
+<li><a href="food.php?foodid=398&amp;lang=fi">Tomaattimurska</a></li>
+<li><a href="food.php?foodid=1448&amp;lang=fi">Tomaattisalsa</a></li>
+<li><a href="food.php?foodid=8041&amp;lang=fi">Tomaattisilakka</a></li>
+<li><a href="food.php?foodid=354&amp;lang=fi">Tomaattisose tomaattipyree</a></li>
+<li><a href="food.php?foodid=29501&amp;lang=fi">Tonikki, tonic vesi</a></li>
+<li><a href="food.php?foodid=862&amp;lang=fi">Tonnikala</a></li>
+<li><a href="food.php?foodid=11059&amp;lang=fi">Tonnikala keskiarvo</a></li>
+<li><a href="food.php?foodid=11067&amp;lang=fi">Tonnikala vedessä</a></li>
+<li><a href="food.php?foodid=828&amp;lang=fi">Tonnikala öljyssä</a></li>
+<li><a href="food.php?foodid=30605&amp;lang=fi">Tonnikala, paistettu</a></li>
+<li><a href="food.php?foodid=29041&amp;lang=fi">Tonnikala-kasvissalaatti</a></li>
+<li><a href="food.php?foodid=30181&amp;lang=fi">Tonnikala-makaronilaatikko</a></li>
+<li><a href="food.php?foodid=8047&amp;lang=fi">Tonnikala-perunasalaatti</a></li>
+<li><a href="food.php?foodid=31450&amp;lang=fi">Tonnikala-perunasoselaatikko</a></li>
+<li><a href="food.php?foodid=8065&amp;lang=fi">Tonnikala-riisisalaatti</a></li>
+<li><a href="food.php?foodid=29250&amp;lang=fi">Tonnikalakastike</a></li>
+<li><a href="food.php?foodid=8069&amp;lang=fi">Tonnikalakastike sisältää kermaa</a></li>
+<li><a href="food.php?foodid=31465&amp;lang=fi">Tonnikalakolmioleipä</a></li>
+<li><a href="food.php?foodid=8076&amp;lang=fi">Tonnikalapizza</a></li>
+<li><a href="food.php?foodid=30163&amp;lang=fi">Tonnikalasalaatti kananmunalla</a></li>
+<li><a href="food.php?foodid=1160&amp;lang=fi">Torttupohja sokeriton</a></li>
+<li><a href="food.php?foodid=1202&amp;lang=fi">Toscakakku</a></li>
+<li><a href="food.php?foodid=6048&amp;lang=fi">Tsatsiki kreikkalainen jogurttikastike</a></li>
+<li><a href="food.php?foodid=1342&amp;lang=fi">Tumma täysjyväleipä vähäsuolainen</a></li>
+<li><a href="food.php?foodid=11571&amp;lang=fi">Tuorejuusto rasvaa 13 g</a></li>
+<li><a href="food.php?foodid=30443&amp;lang=fi">Tuorejuusto rasvaa 15 g, creme bonjour light</a></li>
+<li><a href="food.php?foodid=11550&amp;lang=fi">Tuorejuusto rasvaa 30 g, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=682&amp;lang=fi">Tuorejuusto rasvaa 30g, hapatettu kermavalmiste, cremebonjour/cantadou</a></li>
+<li><a href="food.php?foodid=658&amp;lang=fi">Tuorejuusto rasvaa 36-44g, runsasrasvainen, kasakka/musta-pekka</a></li>
+<li><a href="food.php?foodid=11130&amp;lang=fi">Tuorejuusto rasvaa 6-11 g</a></li>
+<li><a href="food.php?foodid=11132&amp;lang=fi">Tuorejuusto-kasvirasvavalmiste rasvaa 24-30g</a></li>
+<li><a href="food.php?foodid=943&amp;lang=fi">Tuoremehucampari katkerodrinkki</a></li>
+<li><a href="food.php?foodid=31256&amp;lang=fi">Tuorepasta, sisältää kananmunaa</a></li>
+<li><a href="food.php?foodid=31257&amp;lang=fi">Tuorepasta, sisältää kananmunaa, keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=804&amp;lang=fi">Turska</a></li>
+<li><a href="food.php?foodid=1222&amp;lang=fi">Tuulihattu ei täytettä</a></li>
+<li><a href="food.php?foodid=455&amp;lang=fi">Tyrnimarja</a></li>
+<li><a href="food.php?foodid=946&amp;lang=fi">Tärkkelyssiirappi</a></li>
+<li><a href="food.php?foodid=158&amp;lang=fi">Täysjyväriisi</a></li>
+<li><a href="food.php?foodid=30349&amp;lang=fi">Täysjyväriisi keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=1377&amp;lang=fi">Täysjyväriisi keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=183&amp;lang=fi">Täysjyväriisijauho</a></li>
+<li><a href="food.php?foodid=30051&amp;lang=fi">Täysksylitolipastilli</a></li>
+<li><a href="food.php?foodid=689&amp;lang=fi">Täysmaito 3,5% rasvaa</a></li>
+<li><a href="food.php?foodid=28992&amp;lang=fi">Täysmaito, keitetty</a></li>
+<li><a href="food.php?foodid=29495&amp;lang=fi">Täysmehu c-vitaminoitu, keskiarvo</a></li>
+<li><a href="food.php?foodid=436&amp;lang=fi">Täysmehu keskiarvo</a></li>
+<li><a href="food.php?foodid=469&amp;lang=fi">Täysmehu, viiden hedelmän mehu</a></li>
+<li><a href="food.php?foodid=30606&amp;lang=fi">Täysmehu, vitaminoitu, keskiarvo</a></li>
+<li><a href="food.php?foodid=29265&amp;lang=fi">Täytekakku kasvirasvakerma</a></li>
+<li><a href="food.php?foodid=29758&amp;lang=fi">Täytekeksi</a></li>
+<li><a href="food.php?foodid=30194&amp;lang=fi">Urheilujuoma</a></li>
+<li><a href="food.php?foodid=29306&amp;lang=fi">Uunibanaani</a></li>
+<li><a href="food.php?foodid=8004&amp;lang=fi">Uunihauki täytetty luumu, riisi, muna</a></li>
+<li><a href="food.php?foodid=6026&amp;lang=fi">Uunijuusto ternimaidosta</a></li>
+<li><a href="food.php?foodid=30201&amp;lang=fi">Uunikala</a></li>
+<li><a href="food.php?foodid=29255&amp;lang=fi">Uunikala ruoanvalmistuskermaan</a></li>
+<li><a href="food.php?foodid=8043&amp;lang=fi">Uunikala seiti, valkokastike, juusto, kevytmaito</a></li>
+<li><a href="food.php?foodid=8003&amp;lang=fi">Uunikala, leivitetty</a></li>
+<li><a href="food.php?foodid=7612&amp;lang=fi">Uunimakkara, sisältää lenkkimakkaraa, juustoa ja sinappia</a></li>
+<li><a href="food.php?foodid=4003&amp;lang=fi">Uuniomena</a></li>
+<li><a href="food.php?foodid=28952&amp;lang=fi">Uuniperuna ilman täytettä kuorineen, ei rasvaa, ei suolaa</a></li>
+<li><a href="food.php?foodid=2045&amp;lang=fi">Uuniperuna kalatäytteellä savusilakka, ranskankerma</a></li>
+<li><a href="food.php?foodid=2046&amp;lang=fi">Uuniperuna savukinkkutäyte, tuorejuustoa, sieniä</a></li>
+<li><a href="food.php?foodid=8005&amp;lang=fi">Uunisilakka silakkafilee, kerma, korppujauho</a></li>
+<li><a href="food.php?foodid=1243&amp;lang=fi">Vaalea kastike lihaliemeen, jauhosuurus</a></li>
+<li><a href="food.php?foodid=1196&amp;lang=fi">Vaalea peruskakku muffini</a></li>
+<li><a href="food.php?foodid=1341&amp;lang=fi">Vaalea rouheleipä vesi, vehnäjauho, ruis-, vehnärouhe, kaurahiutale</a></li>
+<li><a href="food.php?foodid=1558&amp;lang=fi">Vaalealeipä/sämpylä, gluteeniton</a></li>
+<li><a href="food.php?foodid=448&amp;lang=fi">Vadelma</a></li>
+<li><a href="food.php?foodid=4419&amp;lang=fi">Vadelmasorbetti</a></li>
+<li><a href="food.php?foodid=4408&amp;lang=fi">Vadelmasurvos tuore, sokeroitu</a></li>
+<li><a href="food.php?foodid=11131&amp;lang=fi">Valkohome/valkosinihomejuusto rasvaa 40g, vit castello/blå castello/saga</a></li>
+<li><a href="food.php?foodid=30429&amp;lang=fi">Valkohomejuusto rasvaa 16g, camembert/brie</a></li>
+<li><a href="food.php?foodid=640&amp;lang=fi">Valkohomejuusto rasvaa 26-30g, camembert/brie</a></li>
+<li><a href="food.php?foodid=11090&amp;lang=fi">Valkoinen papu tomaattikastikkeessa</a></li>
+<li><a href="food.php?foodid=3035&amp;lang=fi">Valkokaali keitetty/paistettu</a></li>
+<li><a href="food.php?foodid=320&amp;lang=fi">Valkokaali keräkaali</a></li>
+<li><a href="food.php?foodid=11178&amp;lang=fi">Valkopippuri</a></li>
+<li><a href="food.php?foodid=393&amp;lang=fi">Valkosipuli</a></li>
+<li><a href="food.php?foodid=28990&amp;lang=fi">Valkosipulietana</a></li>
+<li><a href="food.php?foodid=29790&amp;lang=fi">Valkosipulipatonki</a></li>
+<li><a href="food.php?foodid=2022&amp;lang=fi">Valkosipuliperuna</a></li>
+<li><a href="food.php?foodid=925&amp;lang=fi">Valkoviini kuiva</a></li>
+<li><a href="food.php?foodid=926&amp;lang=fi">Valkoviini makea</a></li>
+<li><a href="food.php?foodid=6005&amp;lang=fi">Vaniljakastike/kiisseli</a></li>
+<li><a href="food.php?foodid=6018&amp;lang=fi">Vaniljavanukas kermavanukas, kotitekoinen</a></li>
+<li><a href="food.php?foodid=11164&amp;lang=fi">Vanilliinikastike vispautuva</a></li>
+<li><a href="food.php?foodid=11188&amp;lang=fi">Vanilliinisokeri</a></li>
+<li><a href="food.php?foodid=29814&amp;lang=fi">Varrasleipä</a></li>
+<li><a href="food.php?foodid=726&amp;lang=fi">Vasikanpaisti</a></li>
+<li><a href="food.php?foodid=7251&amp;lang=fi">Vasikanpaisti uunissa paistettu</a></li>
+<li><a href="food.php?foodid=7253&amp;lang=fi">Vasikanpotka haudutettu</a></li>
+<li><a href="food.php?foodid=30178&amp;lang=fi">Vatruska, voideltu</a></li>
+<li><a href="food.php?foodid=114&amp;lang=fi">Vehnähiutale</a></li>
+<li><a href="food.php?foodid=1288&amp;lang=fi">Vehnähiutalepuuro maito</a></li>
+<li><a href="food.php?foodid=1286&amp;lang=fi">Vehnähiutalevelli maito</a></li>
+<li><a href="food.php?foodid=1287&amp;lang=fi">Vehnähiutalevelli vesi</a></li>
+<li><a href="food.php?foodid=142&amp;lang=fi">Vehnäjauho leipomoteollisuus, vastajauhettu</a></li>
+<li><a href="food.php?foodid=110&amp;lang=fi">Vehnäjauho puolikarkea</a></li>
+<li><a href="food.php?foodid=28905&amp;lang=fi">Vehnäjauho, durum</a></li>
+<li><a href="food.php?foodid=1104&amp;lang=fi">Vehnäjauhopuuro kevytmaito</a></li>
+<li><a href="food.php?foodid=1100&amp;lang=fi">Vehnäjauhovelli maito</a></li>
+<li><a href="food.php?foodid=29768&amp;lang=fi">Vehnäkorppu maitoon</a></li>
+<li><a href="food.php?foodid=29815&amp;lang=fi">Vehnäkorppu veteen</a></li>
+<li><a href="food.php?foodid=116&amp;lang=fi">Vehnälese</a></li>
+<li><a href="food.php?foodid=115&amp;lang=fi">Vehnänalkio</a></li>
+<li><a href="food.php?foodid=29812&amp;lang=fi">Vehnänäkkileipä</a></li>
+<li><a href="food.php?foodid=29778&amp;lang=fi">Vehnärengasmuro</a></li>
+<li><a href="food.php?foodid=1577&amp;lang=fi">Vehnärouhe keitinvedessä suolaa</a></li>
+<li><a href="food.php?foodid=1580&amp;lang=fi">Vehnärouhe keitinvesi suolaton</a></li>
+<li><a href="food.php?foodid=175&amp;lang=fi">Vehnärouhe kokojyvästä</a></li>
+<li><a href="food.php?foodid=1108&amp;lang=fi">Vehnäsämpylä kevytmaito</a></li>
+<li><a href="food.php?foodid=11733&amp;lang=fi">Vehnäsämpylä vesi</a></li>
+<li><a href="food.php?foodid=30186&amp;lang=fi">Vehnätortilla</a></li>
+<li><a href="food.php?foodid=1031&amp;lang=fi">Vehnätortilla burrito, wrap, kasvistäyte</a></li>
+<li><a href="food.php?foodid=1035&amp;lang=fi">Vehnätortilla, wrap broileritäytteellä</a></li>
+<li><a href="food.php?foodid=1033&amp;lang=fi">Vehnätortilla, wrap jauhelihatäytteellä</a></li>
+<li><a href="food.php?foodid=1034&amp;lang=fi">Vehnätortilla, wrap tonnikalatäytteellä</a></li>
+<li><a href="food.php?foodid=8023&amp;lang=fi">Venäläinen kalakeitto seljanka</a></li>
+<li><a href="food.php?foodid=794&amp;lang=fi">Veri</a></li>
+<li><a href="food.php?foodid=1010&amp;lang=fi">Verileipä veri, kalja, ruisjauho</a></li>
+<li><a href="food.php?foodid=30371&amp;lang=fi">Verimakkara mustamakkara</a></li>
+<li><a href="food.php?foodid=7871&amp;lang=fi">Veriohukainen</a></li>
+<li><a href="food.php?foodid=30188&amp;lang=fi">Veriohukainen teollinen</a></li>
+<li><a href="food.php?foodid=7872&amp;lang=fi">Verivanukas</a></li>
+<li><a href="food.php?foodid=922&amp;lang=fi">Vesi, vesijohtovesi</a></li>
+<li><a href="food.php?foodid=30214&amp;lang=fi">Vesikastanja</a></li>
+<li><a href="food.php?foodid=11055&amp;lang=fi">Vesimeloni kuorittu</a></li>
+<li><a href="food.php?foodid=28931&amp;lang=fi">Vesimeloni, punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=1149&amp;lang=fi">Vesirinkeli</a></li>
+<li><a href="food.php?foodid=3324&amp;lang=fi">Vihanneshöystö/kasvispata/-lisäke ratatouille</a></li>
+<li><a href="food.php?foodid=3319&amp;lang=fi">Vihanneskeitto veteen</a></li>
+<li><a href="food.php?foodid=364&amp;lang=fi">Vihanneskrassi</a></li>
+<li><a href="food.php?foodid=3275&amp;lang=fi">Vihannesmunavuoka</a></li>
+<li><a href="food.php?foodid=30818&amp;lang=fi">Vihersekasalaatti jäävuorisalaatti, tomaatti, kurkku</a></li>
+<li><a href="food.php?foodid=3348&amp;lang=fi">Vihersekasalaatti jäävuorisalaatti, tomaatti, kurkku, ranskalainen kastike</a></li>
+<li><a href="food.php?foodid=372&amp;lang=fi">Vihreä papu/härkäpapu</a></li>
+<li><a href="food.php?foodid=29022&amp;lang=fi">Vihreä papu/härkäpapu, keitetty</a></li>
+<li><a href="food.php?foodid=937&amp;lang=fi">Vihreä tee</a></li>
+<li><a href="food.php?foodid=28936&amp;lang=fi">Viikuna, punnittu kuorineen</a></li>
+<li><a href="food.php?foodid=617&amp;lang=fi">Viili 3,5% rasvaa</a></li>
+<li><a href="food.php?foodid=29128&amp;lang=fi">Viili, rasvaton</a></li>
+<li><a href="food.php?foodid=906&amp;lang=fi">Viina kirkas, vodka, gini</a></li>
+<li><a href="food.php?foodid=11069&amp;lang=fi">Viini alkoholiton</a></li>
+<li><a href="food.php?foodid=904&amp;lang=fi">Viini keskiarvo, 8-15 til% alkoholia</a></li>
+<li><a href="food.php?foodid=929&amp;lang=fi">Viinietikka</a></li>
+<li><a href="food.php?foodid=945&amp;lang=fi">Viiniglögi</a></li>
+<li><a href="food.php?foodid=28928&amp;lang=fi">Viininlehti, säilötty suolaliemeen</a></li>
+<li><a href="food.php?foodid=28959&amp;lang=fi">Viininlehtikääryle, riisitäyte</a></li>
+<li><a href="food.php?foodid=423&amp;lang=fi">Viinirypäle, keskiarvo, kivetön,  vihreä/tumma</a></li>
+<li><a href="food.php?foodid=28932&amp;lang=fi">Viinirypäle, keskiarvo, punnittu kivineen, vihreä/tumma</a></li>
+<li><a href="food.php?foodid=855&amp;lang=fi">Viiriäisen muna</a></li>
+<li><a href="food.php?foodid=910&amp;lang=fi">Virvoitusjuoma</a></li>
+<li><a href="food.php?foodid=938&amp;lang=fi">Virvoitusjuoma osittain keinotekoisesti makeutettu</a></li>
+<li><a href="food.php?foodid=920&amp;lang=fi">Virvoitusjuoma sokeriton, light</a></li>
+<li><a href="food.php?foodid=1236&amp;lang=fi">Vohveli kevytmaito</a></li>
+<li><a href="food.php?foodid=29761&amp;lang=fi">Vohvelikeksi</a></li>
+<li><a href="food.php?foodid=29762&amp;lang=fi">Vohvelikeksi suklaakuorrute</a></li>
+<li><a href="food.php?foodid=133&amp;lang=fi">Vohvelikuori esim. tuutissa</a></li>
+<li><a href="food.php?foodid=500&amp;lang=fi">Voi</a></li>
+<li><a href="food.php?foodid=30446&amp;lang=fi">Voi 40% rasvaa</a></li>
+<li><a href="food.php?foodid=30445&amp;lang=fi">Voi 60% rasvaa</a></li>
+<li><a href="food.php?foodid=576&amp;lang=fi">Voi suolaton</a></li>
+<li><a href="food.php?foodid=585&amp;lang=fi">Voi voimakassuolainen</a></li>
+<li><a href="food.php?foodid=30610&amp;lang=fi">Voi vähäsuolainen</a></li>
+<li><a href="food.php?foodid=29132&amp;lang=fi">Voileipä lämmin juustoleipä</a></li>
+<li><a href="food.php?foodid=29131&amp;lang=fi">Voileipä, lämmin sienileipä</a></li>
+<li><a href="food.php?foodid=29130&amp;lang=fi">Voileipä, lämmin, oopperaleipä</a></li>
+<li><a href="food.php?foodid=29770&amp;lang=fi">Voileipäkeksi vesikeksi</a></li>
+<li><a href="food.php?foodid=5007&amp;lang=fi">Voileipäpikkelssi</a></li>
+<li><a href="food.php?foodid=1310&amp;lang=fi">Voisarvi croissant</a></li>
+<li><a href="food.php?foodid=1215&amp;lang=fi">Voitaikina keskiarvo, täytteetön</a></li>
+<li><a href="food.php?foodid=5904&amp;lang=fi">Voitaikinarasva</a></li>
+<li><a href="food.php?foodid=598&amp;lang=fi">Voiöljy 100 % maitorasvaa</a></li>
+<li><a href="food.php?foodid=905&amp;lang=fi">Väkevä viini makea, katkero, sherry, vermutti, madeira, hedelmäviini</a></li>
+<li><a href="food.php?foodid=933&amp;lang=fi">Väkiviinaetikka</a></li>
+<li><a href="food.php?foodid=29747&amp;lang=fi">Välipalakeksi, digestive</a></li>
+<li><a href="food.php?foodid=40&amp;lang=fi">Välipalapatukka kuituinen</a></li>
+<li><a href="food.php?foodid=29777&amp;lang=fi">Weetabix banaani, muroke</a></li>
+<li><a href="food.php?foodid=29776&amp;lang=fi">Weetabix muroke</a></li>
+<li><a href="food.php?foodid=1132&amp;lang=fi">Wienerleipä kevytmaito, runsasrasvainen, rasvaa 500 g/5 dl</a></li>
+<li><a href="food.php?foodid=30206&amp;lang=fi">Wienerleipä veteen, leipomo</a></li>
+<li><a href="food.php?foodid=1353&amp;lang=fi">Wienerleipä, gluteeniton</a></li>
+<li><a href="food.php?foodid=5903&amp;lang=fi">Wienerleipärasva</a></li>
+<li><a href="food.php?foodid=30219&amp;lang=fi">Wok-kasvikset wokattu, lanttu, porkkana, parsakaali, vesikastanja, maissi, herne</a></li>
+<li><a href="food.php?foodid=30216&amp;lang=fi">Wok-kasvikset wokattu, maissi, porkkana, herne, parsakaali, paprika, sieni</a></li>
+<li><a href="food.php?foodid=29098&amp;lang=fi">Wok-kasvikset wokattu, paprika, sipuli, maissi, vihreä ja valkoinen papu</a></li>
+<li><a href="food.php?foodid=29099&amp;lang=fi">Wok-kasvikset wokattu, porkkana, herkkusieni, sipuli, paprika, herne</a></li>
+<li><a href="food.php?foodid=30217&amp;lang=fi">Wok-kasvikset wokattu, porkkana, herne, vesikastanja, bambunverso, sipuli</a></li>
+<li><a href="food.php?foodid=29100&amp;lang=fi">Wok-kasvikset wokattu, vihreä papu, porkkana, paprika, maissi, palsternakka</a></li>
+<li><a href="food.php?foodid=30218&amp;lang=fi">Wok-kasvikset, lanttu, porkkana, parsakaali, vesikastanja, maissi, herne, sieni</a></li>
+<li><a href="food.php?foodid=30213&amp;lang=fi">Wok-kasvikset, maissi, porkkana, herne, parsakaali, paprika, sieni, purjo</a></li>
+<li><a href="food.php?foodid=29079&amp;lang=fi">Wok-kasvikset, paprika, sipuli, maissi, vihreä papu, valkoinen/ruskea papu</a></li>
+<li><a href="food.php?foodid=29048&amp;lang=fi">Wok-kasvikset, porkkana, herkkusieni, sipuli, paprika, herne</a></li>
+<li><a href="food.php?foodid=30215&amp;lang=fi">Wok-kasvikset, porkkana, herne, vesikastanja, bambunverso, paprika, sieni</a></li>
+<li><a href="food.php?foodid=29049&amp;lang=fi">Wok-kasvikset, vihreä papu, porkkana, paprika, maissi, palsternakka</a></li>
+<li><a href="food.php?foodid=627&amp;lang=fi">Ykkösmaito 1% rasvaa</a></li>
+<li><a href="food.php?foodid=680&amp;lang=fi">Ykkösviili 1 % rasvaa</a></li>
+<li><a href="food.php?foodid=30449&amp;lang=fi">Ykkösviili 1 % rasvaa, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=636&amp;lang=fi">Ykkösviili maustettu hillolla 1 % rasvaa, vähälaktoosinen</a></li>
+<li><a href="food.php?foodid=5917&amp;lang=fi">Yrttilevite tuorejuusto, marg., valkosipuli</a></li>
+<li><a href="food.php?foodid=923&amp;lang=fi">Yrttitee juoma</a></li>
+<li><a href="food.php?foodid=29412&amp;lang=fi">Äidinmaidonkorvike keskiarvo jauhe</a></li>
+<li><a href="food.php?foodid=29413&amp;lang=fi">Äidinmaidonkorvike keskiarvo käyttövalmis</a></li>
+<li><a href="food.php?foodid=603&amp;lang=fi">Äidinmaito</a></li>
+<li><a href="food.php?foodid=8053&amp;lang=fi">Äyriäis-herkkusienisalaatti</a></li>
+<li><a href="food.php?foodid=8055&amp;lang=fi">Äyriäispizza</a></li>
+</ul>
+<!-- sivun sisältö loppuu -->
+<br>
+</td>
+</tr>
+<tr valign="bottom">
+<td><div class="printhide"><!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style">
+<a href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4c6cfab9065bca44" class="addthis_button_compact">Jaa</a>
+<span class="addthis_separator">|</span>
+<a class="addthis_button_facebook"></a>
+<a class="addthis_button_myspace"></a>
+<a class="addthis_button_google"></a>
+<a class="addthis_button_twitter"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4c6cfab9065bca44"></script>
+<!-- AddThis Button END --></div><hr class="footer"><table border="0" cellpadding="0" cellspacing="0">
+<tr valign="bottom">
+<td><font class="footertext">&copy; 2003-2011 Terveyden ja hyvinvoinnin laitos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+</td>
+<td class="printhide"><a class="footerlink" href="showpage.php?page=feedback&amp;lang=fi">Palaute</a>
+<font class="footertext">&nbsp;|&nbsp;</font>
+</td>
+<td class="printhide"><a class="footerlink" href="showpage.php?page=copyright&amp;lang=fi">Tekij&auml;noikeus</a>
+<font class="footertext">&nbsp;|&nbsp;</font>
+</td>
+<td class="printhide" valign="bottom"><img src="img/email-webmaster.gif" width="85" height="12" border="0" alt="webmaster"></td>
+</table>
+</td></tr>
+</table>
+</div>
+<script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www."); document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">try {var pageTracker = _gat._getTracker("UA-15334632-1");pageTracker._trackPageview();} catch(err) {}</script>
+</body>
+</html>
