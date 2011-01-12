@@ -39,6 +39,8 @@ $(document).ready(function() {
     }
 	});
 	
+	//$("#serving_sizes").tabs();
+	
 	// Validations
 	// $("#new_product").validate({
 	// 	

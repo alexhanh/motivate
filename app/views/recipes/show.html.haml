@@ -2,4 +2,27 @@
 
 %p= link_to "Syo", new_recipe_food_entry_path(@recipe)
 
-= render :partial => "shared/serving_size", :collection => @recipe.serving_sizes
+- unless @recipe.user.nil?
+  %p= "Käyttäjän " + @recipe.user.username + " lisäämä"
+  
+%p= @recipe.favorites_count.to_s + " ihmisellä on tämä suosikeissaan"
+
+/= render :partial => "shared/serving_size", :collection => @recipe.serving_sizes
+
+%table
+  %tr
+    %th Yksikkö
+    %th Energiaa (kcal)
+    %th Hiilihydraattia (g)
+    %th Proteiinia (g)
+    %th Rasvaa (g)
+  - @recipe.serving_sizes.each do |ss|
+    %tr
+      - if ss.root?
+        %td= ss.unit_name(true)
+      - else
+        %td= "#{ss.unit_name(true)} (#{ss.parent_quantity} #{ss.display_parent_unit})"
+      %td= ss.compute_data.energy.round(1)
+      %td= ss.compute_data.carbs.round(1)
+      %td= ss.compute_data.protein.round(1)
+      %td= ss.compute_data.fat.round(1)

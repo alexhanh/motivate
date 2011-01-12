@@ -1,10 +1,43 @@
 %h2= @product.name
 
-%p= @product.favorites_count.to_s + " ihmisellä on tämä suosikeissaan."
 %p= link_to "Syö", new_product_food_entry_path(@product)
 
-= render :partial => "shared/serving_size", :collection => @product.serving_sizes
-      
+
+- unless @product.user.nil?
+  %p= "Käyttäjän " + @product.user.username + " lisäämä"
+  
+%p= @product.favorites_count.to_s + " ihmisellä on tämä suosikeissaan"
+
+
+/= render :partial => "shared/serving_size", :collection => @product.serving_sizes
+
+/ #serving_sizes
+/   %ul
+/     - @product.serving_sizes.each_with_index do |ss, i|
+/       %li
+/         %a{:href => "#tabs-#{i+1}"}= ss.unit_name(true)
+/   - @product.serving_sizes.each_with_index do |ss, i|
+/     %div{:id => "tabs-#{i+1}"}
+/       hehee
+
+%table
+  %tr
+    %th Yksikkö
+    %th Energiaa (kcal)
+    %th Hiilihydraattia (g)
+    %th Proteiinia (g)
+    %th Rasvaa (g)
+  - @product.serving_sizes.each do |ss|
+    %tr
+      - if ss.root?
+        %td= ss.unit_name(true)
+      - else
+        %td= "#{ss.unit_name(true)} (#{ss.parent_quantity} #{ss.display_parent_unit})"
+      %td= ss.compute_data.energy.round(1)
+      %td= ss.compute_data.carbs.round(1)
+      %td= ss.compute_data.protein.round(1)
+      %td= ss.compute_data.fat.round(1)
+%br
 = link_to 'Lisää annoskoko', new_product_serving_size_path(@product)
 %br
 

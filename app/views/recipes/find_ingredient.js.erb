@@ -2,12 +2,18 @@ $("#add_ingredient_dialog").html("<%= escape_javascript(render("ingredient")) %>
 	modal:true,
 	show:'fade',
 	hide:'fade',
+	title:'<%= escape_javascript(@product.name) %>',
+	height:'auto',
+	width:'auto',
+	resizable:false,
+	draggable:false,
+	closeText:'Peruuta',
 	buttons: {
 		"Lisää": function () {
 			$(this).dialog("close")
 			$("#new_ingredient").submit();
 		},
-		Cancel: function() {
+		"Peruuta": function() {
 			$(this).dialog("close");
 		}
 	}
