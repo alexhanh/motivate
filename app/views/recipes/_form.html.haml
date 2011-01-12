@@ -1,8 +1,7 @@
 = form_tag new_recipe_path, :url => "#", :method => "get", :id => 'products_search' do
   = text_field_tag :search, params[:search], :autocomplete => "off"
 
-#products  
-  = render 'products'
+= render 'products'
 
 #add_ingredient_dialog
 

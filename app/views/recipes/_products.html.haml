@@ -1,6 +1,7 @@
-- @products.each do |product|
-  .product
-    = link_to product.name, product
-    = link_to "Lisää reseptiin", "/recipes/find_ingredient/"+product.id.to_s, :method => :post, :remote => true
+#products  
+  - @products.each do |product|
+    .product
+      = link_to product.name, product
+      = link_to "Lisää reseptiin", "/recipes/find_ingredient/"+product.id.to_s, :method => :post, :remote => true
 
-= will_paginate @products
+  = will_paginate @products

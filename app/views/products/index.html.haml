@@ -1,16 +1,9 @@
 %h1 Tuotteet
 
-- @products.each do |product|
-  .product
-    = link_to product.name, product
-    = link_to_eat(product)
-    - if user_signed_in?
-      - if current_user.favorite?(product)
-        = link_to_remove_from_favorites(product)
-      - else
-        = link_to_add_to_favorites(product)
+= form_tag new_recipe_path, :url => "#", :method => "get", :id => 'products_search' do
+  = text_field_tag :search, params[:search], :autocomplete => "off"
 
-%br
-= will_paginate @products
+= render "products"
+
 %br
 = link_to 'Lisää tuote', new_product_path
