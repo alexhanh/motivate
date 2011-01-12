@@ -27,9 +27,10 @@ class Product
   #http://www.2dconcept.com/articles/12-ruby_on_rails_mongo_mapper
   def self.search(search)
     if search
-      where(:name => /#{Regexp.escape(search)}/i)
+      p where(:name => /#{Regexp.escape(search)}/i).order(:name)
+      where(:name => /#{Regexp.escape(search)}/i).order(:name)
     else
-      where()
+      where().order(:name)
     end
   end
 end
