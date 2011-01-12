@@ -6,6 +6,7 @@ require File.expand_path("../../config/environment", __FILE__)
 def assign_serving_sizes(product, unit_page)
   s = unit_page.css("th:contains('Ruokamitta')").first.parent.next_sibling
 
+  volume_added = false
   while !s.nil?
     serving_size = ServingSize.new
     serving_size.parent_unit_proxy = (Units::GRAM).to_s
@@ -16,12 +17,20 @@ def assign_serving_sizes(product, unit_page)
     name = s.children[0].text
     if name.casecmp("desilitra") == 0
       serving_size.unit = Units::DECILITER
+    elsif name.casecmp("ruokalusikka") == 0
+      serving_size.unit = Units::TABLESPOON
+    elsif name.casecmp("teelusikka") == 0
+      serving_size.unit = Units::TEASPOON
     else
       serving_size.unit = Units::CUSTOM
       serving_size.custom_unit = name
     end
-        
-    product.serving_sizes << serving_size
+    
+    if !(volume_added && serving_size.unit.volume?) || serving_size.unit.custom?
+      product.serving_sizes << serving_size
+    end 
+    
+    volume_added = true if serving_size.unit.volume?
     
     s = s.next_sibling
   end
