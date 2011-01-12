@@ -27,7 +27,7 @@
     %fieldset
       %legend Ravintoarvot
       = f.fields_for :serving_sizes do |ss|
-        = ss.label :quantity, "Maara"
+        = ss.label :quantity, "Määrä"
         = ss.text_field :quantity
         
         = ss.collection_select :unit, Units::Common, :to_s, :unit_name
@@ -39,7 +39,7 @@
           .field
             = nd.label :energy, "Energiaa"
             = nd.text_field :energy
-            g
+            kcal
           .field
             = nd.label :protein, "Proteiinia"
             = nd.text_field :protein
