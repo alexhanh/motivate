@@ -7,8 +7,7 @@ class ProductsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @products = Product.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
-    #respond_with(@products)
+    @products = Product.search(params[:search]).paginate(:per_page => 5, :page => params[:page])    
   end
 
   # GET /posts/1

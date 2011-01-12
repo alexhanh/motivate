@@ -1,6 +1,6 @@
 %h1 Tuotteet
 
-= form_tag new_recipe_path, :url => "#", :method => "get", :id => 'products_search' do
+= form_tag products_path, :url => "#", :method => "get", :id => 'products_search' do
   = text_field_tag :search, params[:search], :autocomplete => "off"
 
 = render "products"
