@@ -8,6 +8,7 @@ namespace :statistics do
   task :content => :environment do
     puts "Products: %i" % [Product.count]
     puts "Recipes: %i" % [Recipe.count]
+    puts "Food logs: %i" % [FoodEntry.count]
     puts "Favorites: %i" % [Favorite.count]
   end
   task :genders => :environment do
