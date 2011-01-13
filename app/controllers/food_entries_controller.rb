@@ -19,7 +19,7 @@ class FoodEntriesController < ApplicationController
       end
     end
 
-    @food_entries = current_user.food_entries.on_date(@time + 1.hour).paginate(:per_page => 5, :page => params[:page])
+    @food_entries = current_user.food_entries.on_date(@time + 1.hour).all#.paginate(:per_page => 5, :page => params[:page])
     @stats = NutritionStats.new
     @food_entries.each { |food_entry| @stats.add(food_entry) }
     
