@@ -11,11 +11,11 @@
     %h4  Yhteenveto päivästä
     = "Energiaa " + @stats.energy.round(1).to_s + " kcal"
     %br
-    = "Proteiinia " + @stats.protein.round(1).to_s + " kcal"
+    = "Proteiinia " + @stats.protein.round(1).to_s + " g"
     %br
-    = "Rasvaa " + @stats.fat.round(1).to_s + " kcal"
+    = "Hiilihydraattia " + @stats.carbs.round(1).to_s + " g"
     %br
-    = "Hiilihydraattia " + @stats.carbs.round(1).to_s + " kcal"
+    = "Rasvaa " + @stats.fat.round(1).to_s + " g"
 
   %h3 Syödyt
 
