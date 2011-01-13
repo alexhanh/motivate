@@ -2,11 +2,13 @@
   - @products.each do |product|
     .product
       = link_to product.name, product
-      = link_to_eat(product)
       - if user_signed_in?
+        %br
+        = link_to_eat(product)
         - if current_user.favorite?(product)
           = link_to_remove_from_favorites(product)
         - else
           = link_to_add_to_favorites(product)
+    %br
   %br
   = will_paginate @products
