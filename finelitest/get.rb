@@ -73,7 +73,7 @@ def correct_energy(food_page)
     energy = $1
   end
   
-  return energy.to_f
+  return energy.to_f/100.0
 end
 
 def should_update(food_page)

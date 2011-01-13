@@ -28,15 +28,7 @@
     %th Proteiinia (g)
     %th Rasvaa (g)
   - @product.serving_sizes.each do |ss|
-    %tr
-      - if ss.root?
-        %td= ss.unit_name(true)
-      - else
-        %td= "#{ss.unit_name(true)} (#{ss.parent_quantity} #{ss.display_parent_unit})"
-      %td= ss.compute_data.energy.round(1)
-      %td= ss.compute_data.carbs.round(1)
-      %td= ss.compute_data.protein.round(1)
-      %td= ss.compute_data.fat.round(1)
+    != default_unit(ss)
 %br
 = link_to 'Lisää annoskoko', new_product_serving_size_path(@product)
 %br

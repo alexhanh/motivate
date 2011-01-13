@@ -40,4 +40,42 @@ module ApplicationHelper
     end
     return s
   end
+  
+  def default_unit(o)
+    data = o.compute_data
+    scale = 1
+    unit_name = o.unit_name
+    if o.unit.weight?
+      scale = 100
+      unit_name = 'g'
+      data = data.scale(100.0)
+    elsif o.unit.volume?
+      scale = 100
+      unit_name = 'ml'
+      #todo: fix me!
+     # Units::convert()
+     # data = data.scale(10.0)
+    else
+    end
+    
+    parent = ""
+    parent = " (#{o.parent_quantity} #{o.display_parent_unit})" unless o.root?
+    
+    s = "<tr>" +
+        "<td>#{scale} #{unit_name}#{parent}</td>" +
+        "<td>#{quantity_string(data.energy)}</td>" +
+        "<td>#{quantity_string(data.carbs)}</td>" +
+        "<td>#{quantity_string(data.protein)}</td>" +
+        "<td>#{quantity_string(data.fat)}</td>" +
+        "</tr>"
+    return s
+  end
+  
+  def quantity_string(float)
+    if float < 0.1 && float > 0.0
+      return "<0.1" 
+    else
+      return float.round(1).to_s
+    end
+  end
 end
