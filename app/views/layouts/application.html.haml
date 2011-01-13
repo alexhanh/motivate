@@ -12,22 +12,23 @@
     = csrf_meta_tag 
 
   %body
-    %p.notice= notice
-    %p.alert= alert
+    #container
+      - flash.each do |name, msg| 
+        %div{ :id => "flash_#{name}" }= msg
 
-    - if user_signed_in?
-      = link_to 'Kirjaudu ulos', destroy_user_session_path
-    - else
-      = link_to 'Kirjaudu sisään', new_user_session_path
-    |
-    = link_to "Tuotteet", products_path
-    |
-    = link_to "Reseptit", recipes_path
-    |
-    = link_to "Suosikit", favorites_path
-    |
-    = link_to "Syöty", eaten_path
+      - if user_signed_in?
+        = link_to 'Kirjaudu ulos', destroy_user_session_path
+      - else
+        = link_to 'Kirjaudu sisään', new_user_session_path
+      |
+      = link_to "Tuotteet", products_path
+      |
+      = link_to "Reseptit", recipes_path
+      |
+      = link_to "Suosikit", favorites_path
+      |
+      = link_to "Syöty", eaten_path
     
-    <p>Huom! Käyttäkää desimaalierottimena pistettä eikä pilkkua!</p>
+      <p>Huom! Käyttäkää desimaalierottimena pistettä eikä pilkkua!</p>
     
-    = yield
+      = yield

@@ -41,6 +41,7 @@ def food_name(food_page)
 end
 
 #assumes a nokogiri doc!
+#todo: handle fields with <0.1
 def nutrition_data(food_page)
   td = food_page.css("a:contains('energia, laskennallinen')").first.parent
   energy = td.next_sibling.text
@@ -66,22 +67,6 @@ def nutrition_data(food_page)
   return data
 end
 
-def correct_energy(food_page)
-  td = food_page.css("a:contains('energia, laskennallinen')").first.parent
-  energy = td.next_sibling.text
-  if energy =~ /\((.+)\)/
-    energy = $1
-  end
-  
-  return energy.to_f/100.0
-end
-
-def should_update(food_page)
-  td = food_page.css("a:contains('energia, laskennallinen')").first.parent
-  energy = td.next_sibling.text
-  return energy.include? "."
-end
-
 def link_to_food_page(id)
   "http://www.fineli.fi/food.php?foodid=#{id}&lang=fi"
 end
@@ -101,33 +86,22 @@ end
 
 counter = 1
 food_ids.each do |food_id|
-  #p "Food: #{counter}, id: #{food_id}"
+  p "Food: #{counter}, id: #{food_id}"
   food_page = Nokogiri::HTML(open(link_to_food_page(food_id)))
-  #unit_page = Nokogiri::HTML(open(link_to_food_unit(food_id)))
+  unit_page = Nokogiri::HTML(open(link_to_food_unit(food_id)))
+
+  @product = Product.new
+  @product.name = food_name(food_page)
+  grams_ss = ServingSize.new
+  grams_ss.unit = Units::GRAM
+  grams_ss.quantity = 100
+  grams_ss.nutrition_data = nutrition_data(food_page)
   
-  if should_update(food_page)
-    name = food_name(food_page)
-    p = Product.where(:name => name).first
-    p "Updating: #{name} #{food_id}"
-    p "Old: #{p.serving_sizes.first.nutrition_data.energy} New: #{correct_energy(food_page)}"
-    p.serving_sizes.first.nutrition_data.energy = correct_energy(food_page)
-    p.save!
-  end
-  #100g
-  #selvemmat
-  #syodyt
-  # @product = Product.new
-  # @product.name = food_name(food_page)
-  # grams_ss = ServingSize.new
-  # grams_ss.unit = Units::GRAM
-  # grams_ss.quantity = 100
-  # grams_ss.nutrition_data = nutrition_data(food_page)
-  # 
-  # @product.serving_sizes << grams_ss
-  # @product.save!
-  # 
-  # assign_serving_sizes(@product, unit_page)
-  # @product.save!
+  @product.serving_sizes << grams_ss
+  @product.save!
+  
+  assign_serving_sizes(@product, unit_page)
+  @product.save!
   counter = counter + 1
 end
 
