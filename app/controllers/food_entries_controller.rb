@@ -55,6 +55,7 @@ class FoodEntriesController < ApplicationController
     @food_entry.user = current_user
 
     if @food_entry.valid? && @food_entry.update_data && @food_entry.save
+      @consumable.add_eaten!
       flash[:notice] = 'Ruokalogi lisättiin onnistuneesti!.'
       redirect_to index
     else

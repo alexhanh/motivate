@@ -2,7 +2,6 @@
 class Recipe
   include MongoMapper::Document
   include Support::Consumable
-  include Support::Favorable
   
   #include Support::Voteable
   

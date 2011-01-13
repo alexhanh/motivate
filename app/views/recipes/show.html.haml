@@ -5,6 +5,7 @@
 - unless @recipe.user.nil?
   %p= "Käyttäjän " + @recipe.user.username + " lisäämä"
   
+%p= "Syöty yhteensä #{@recipe.eaten_count.to_s} kertaa."
 %p= @recipe.favorites_count.to_s + " ihmisellä on tämä suosikeissaan"
 
 /= render :partial => "shared/serving_size", :collection => @recipe.serving_sizes

@@ -5,6 +5,9 @@ module Consumable
       extend ClassMethods
       include InstanceMethods
       include MongoMapper::NestedAttributes
+      include Support::Favorable
+      
+      key :eaten_count, Integer, :default => 0
       
       many :serving_sizes, :class_name => 'ServingSize', :dependent => :destroy
       accepts_nested_attributes_for :serving_sizes, :allow_destroy => true
@@ -18,6 +21,9 @@ module Consumable
   end
   
   module InstanceMethods
+    def add_eaten!()
+      self.increment({:eaten_count => 1})
+    end
     
     def find_serving_size(unit, custom_unit=nil)
       wanted_type = unit.unit_type

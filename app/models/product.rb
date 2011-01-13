@@ -1,7 +1,6 @@
 class Product
   include MongoMapper::Document
   include Support::Consumable
-  include Support::Favorable
   
   key :name, String
   

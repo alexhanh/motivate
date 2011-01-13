@@ -5,8 +5,9 @@
 
 - unless @product.user.nil?
   %p= "Käyttäjän " + @product.user.username + " lisäämä"
-  
-%p= @product.favorites_count.to_s + " ihmisellä on tämä suosikeissaan"
+
+%p= "Syöty #{@product.eaten_count.to_s} kertaa."
+%p= @product.favorites_count.to_s + " ihmisellä on tämä suosikeissaan."
 
 
 /= render :partial => "shared/serving_size", :collection => @product.serving_sizes
