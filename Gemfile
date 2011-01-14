@@ -5,24 +5,30 @@ gem 'rails', '3.0.3'
 # HTML Parsing
 gem "nokogiri"
 
-#MongoDB
 gem "mongo", "1.1" 
 gem "mongo_mapper", :branch => "rails3", :git => "git://github.com/jnunemaker/mongomapper"
 gem "bson_ext", "1.1"
 gem "bson", "1.1"
 
+# authentication
 gem "devise", "1.1.3" 
 gem 'devise-mongo_mapper', :git => 'git://github.com/collectiveidea/devise-mongo_mapper'
 #todo: concider changing to https://github.com/kristianmandrup/mm-devise (seems to work with devise 1.1.5)
 #      or https://github.com/kristianmandrup/cream-app-mongo_mapper
+
+# authorization
 gem 'cancan'
 
+# views
 gem "haml"
 gem "will_paginate", "3.0.pre2"
 
 gem "responders", "0.6.2"
 gem "unicode"
 gem "nifty-generators"
+
+# queue
+gem 'resque'
 
 group :production do 
   gem "heroku", "1.10.5" 

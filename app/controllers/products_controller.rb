@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
+    Resque.enqueue(Jobs::TestJob, "Lol")
     @products = Product.search(params[:search]).paginate(:per_page => 5, :page => params[:page])    
   end
 

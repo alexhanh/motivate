@@ -9,12 +9,12 @@ $("#add_ingredient_dialog").html("<%= escape_javascript(render("ingredient")) %>
 	draggable:false,
 	closeText:'Peruuta',
 	buttons: {
+		"Peruuta": function() {
+			$(this).dialog("close");
+		},
 		"Lisää": function () {
 			$(this).dialog("close")
 			$("#new_ingredient").submit();
-		},
-		"Peruuta": function() {
-			$(this).dialog("close");
 		}
 	}
 	});

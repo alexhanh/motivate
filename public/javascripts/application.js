@@ -39,6 +39,15 @@ $(document).ready(function() {
     }
 	});
 	
+	// Apply styling to elements
+	
+	// Buttons
+	$("#add_product_button").button();
+	$("#add_recipe_button").button();
+	
+	// Flash boxes
+	//$("#flash_notice").addClass('ui-widget').find("div").addClass('ui-state-highlight ui-corner-all');
+	
 	//$("#serving_sizes").tabs();
 	
 	// Validations
