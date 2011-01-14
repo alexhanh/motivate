@@ -41,6 +41,8 @@ $(document).ready(function() {
 	
 	// Apply styling to elements
 	
+	// Check jquery.bassistance.de/aristo-preview/demo.html for Aristo demos!
+	
 	// Buttons
 	$("#add_product_button").button();
 	$("#add_recipe_button").button();
