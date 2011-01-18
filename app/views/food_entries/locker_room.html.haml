@@ -22,7 +22,7 @@
   .food_entries
     - @food_entries.each do |f|
       .food_entry
-        = quantity_unit(f) + " #{f.consumable.name} (#{f.nutrition_data.energy.round(1)} kcal)"
+        = "#{f.consumable.name} (#{quantity_unit(f)})"
         = link_to 'Poista', f, :method => :delete
 
   /= will_paginate @food_entries

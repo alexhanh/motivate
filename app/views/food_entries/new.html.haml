@@ -1,4 +1,4 @@
-%h1 Uusi ruokalogi
+%h1= "Uusi ruokalogi (#{@consumable.name})"
 
 = form_for [@consumable, @food_entry] do |f|
   = f.error_messages
@@ -6,6 +6,12 @@
   = f.text_field :quantity
 
   = f.select :unit_proxy, @consumable.to_units
+  
+  = f.label "Kuinka paljon?"
+  
+  .field
+    = f.text_field :eaten_at
+    = f.label :eaten_at, "Milloin?"
   
   = f.submit "Lisää"
   

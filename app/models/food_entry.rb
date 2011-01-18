@@ -18,16 +18,17 @@ class FoodEntry
   key :consumable_type, String
   belongs_to :consumable, :polymorphic => true
   
-  timestamps!
+  key :eaten_at, Date, :default => Date.today
   
+  # todo: add validation for date? http://stackoverflow.com/questions/1370926/rails-built-in-datetime-validation
+  
+  #todo: fix me or the code querying!
   scope :on_date, lambda { |date|
     today = date.to_time.in_time_zone("UTC").beginning_of_day 
-    p today
     tomorrow = (date+1.day).to_time.in_time_zone("UTC").beginning_of_day 
-    p tomorrow
     where( 
-      :created_at.gte => today, 
-      :created_at.lt => tomorrow 
+      :eaten_at.gte => today, 
+      :eaten_at.lt => tomorrow 
     ) 
   }
   

@@ -39,6 +39,13 @@ $(document).ready(function() {
     }
 	});
 	
+	// Apply calendar
+	
+	// Calendarify *eaten_at* inputs
+	var $cals = $('input:[id*="eaten_at"]').datepicker();
+	// todo: set only if it is empty
+	$cals.datepicker('setDate', new Date());
+	
 	// Apply styling to elements
 	
 	// Check jquery.bassistance.de/aristo-preview/demo.html for Aristo demos!

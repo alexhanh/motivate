@@ -8,6 +8,12 @@
       
     = stylesheet_link_tag :all
     = stylesheet_link_tag "vendor/Aristo/jquery-ui.css"
+    / todo: move to assets.yml like in diaspora
+    = javascript_include_tag "vendor/jquery.js"
+    = javascript_include_tag "vendor/jquery-ui"
+    / Overrides default locale of datepicker only if the localization file is found!
+    = javascript_include_tag "vendor/i18n/jquery.ui.datepicker-#{I18n.locale.to_s}"
+    = javascript_include_tag "vendor/jquery.validate"
     = javascript_include_tag :defaults
     = csrf_meta_tag 
 
