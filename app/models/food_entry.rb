@@ -24,8 +24,12 @@ class FoodEntry
   
   #todo: fix me or the code querying!
   scope :on_date, lambda { |date|
+    p "In scope"
+    p date
     today = date.to_time.in_time_zone("UTC").beginning_of_day 
     tomorrow = (date+1.day).to_time.in_time_zone("UTC").beginning_of_day 
+    p today
+    p tomorrow
     where( 
       :eaten_at.gte => today, 
       :eaten_at.lt => tomorrow 

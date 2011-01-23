@@ -68,7 +68,6 @@ class RecipesController < ApplicationController
   end
 
   def find_ingredient
-    p "Findissa ollaan"
     @product = Product.find(params[:ingredient_id])
     @recipe = Recipe.new
     @recipe.ingredients.build(:product => @product)

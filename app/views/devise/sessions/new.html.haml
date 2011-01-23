@@ -1,9 +1,9 @@
-%h2= t('.login')
+/%h2= t('.login')
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   %p
-    = f.label :email, t('.email')
+    = f.label :username, t('.username')
     %br/
-    = f.text_field :email
+    = f.text_field :username
   %p
     = f.label :password, t('.password')
     %br/

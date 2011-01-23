@@ -1,0 +1,176 @@
+// Page layout can be done using mixins applied to your semantic classes and IDs
+// For instance this layout defines a two column layout on pages with
+// a body class of "two-col".
+//
+// The markup would look like:
+//    <div id="container">
+//      <div id="header"></div>
+//      <div id="sidebar"></div>
+//      <div id="content"></div>
+//      <div id="footer"></div>
+//    </div>
+//
+// and the layout would look like:
+//    +------------------------+
+//    |        #header         |
+//    +--------+---------------+
+//    |        |               |
+//    |#sidebar|    #content   |
+//    |        |               |
+//    +------------------------+
+//    |        #footer         |
+//    +--------+---------------+
+
+//@import "blueprint/typography"
+@import compass/utilities
+
+
+body.two-col
+	background-color: #4B7399
+	a
+		+hover-link	
+		// normal, hover, active, visited, focus
+		+link-colors(#0000FF, #0000FF, #0000FF, #0000FF, #0000FF)
+	font-family: Verdana, Helvetica, Arial
+	font-size: 14px
+	
+	
+	#container
+		+container
+		//+showgrid
+		background-color: white
+		border: 1px solid black
+		border-top: 0px
+	
+	#header, #footer
+		+column($blueprint-grid-columns)
+	
+	#header
+	
+	#logo
+		position: relative
+		left: 20px
+		top: 14px
+		
+	#userbox
+		+prepend-top(-55px)
+		+float-right
+		+append(1)
+	
+	#date_nav
+		+prepend-top(35px)
+		+prepend(9)
+		ul
+			+horizontal-list
+		#prev_day, #next_day
+			margin-top: 4px
+		#datepicker
+			border: 0
+			background: none
+			color: black
+			font-weight: bold
+			font-size: 16px
+			width: 94px
+			display: inline
+		#days_ago
+			+prepend(1)
+					
+	#usernav
+		+horizontal-list
+		
+	#nav
+		+prepend-top(30px)
+		+prepend(1)
+		ul
+			+horizontal-list
+			+pretty-bullets("nav-rule.png", 2px, 12px)
+		
+	.product
+		width: 700px
+		height: 50px
+		.consumable_nav
+			float: right
+			ul
+				+no-bullets
+	
+	#search
+		input
+			padding: 0
+			margin: 0
+			border: 0
+	
+	//#sidebar
+		// One third of the grid columns, rounding down. With 24 cols, this is 8.
+		//$sidebar-columns: floor($blueprint-grid-columns / 3)
+		//+column($sidebar-columns)
+	#content
+		// Two thirds of the grid columns, rounding up.
+		// With 24 cols, this is 16.
+		//$content-columns: ceil(2 * $blueprint-grid-columns / 3)
+		// true means it's the last column in the row
+		+column(24, true)//$content-columns, true)
+		+append-bottom(30px)
+		+prepend-top(35px)
+		+prepend(1)
+	
+	// link-colors specify overriding selector for 'a' and screws Aristo colors, set back the correct ones
+	#add_product_button, #add_recipe_button, #product_submit
+		&:link, &:visited
+			color: #4F4F4F
+		&:hover
+			color: #313131
+		&:active
+			color: #1c4257
+		
+	#flash_notice
+		+success
+	#flash_error
+		+error
+	#flash_alert
+		+notice
+		
+	#products
+		+prepend-top(20px)
+		
+	.label 
+		background: #FFCC33
+		padding: 5px
+		font: bold 10px Arial, sans-serif
+		position: absolute
+		top: 0
+		left: 0
+	.form 
+		padding: 20px 20px 10px
+		background: #E0F4F8
+		width: 580px
+		overflow: hidden
+	.form p 
+		margin: 0 0 10px 0
+		float:left
+		clear:both
+		display: block
+	.form label 
+		font: bold 0.9em Helvetica, Arial, sans-serif
+		color: #0077AA
+		padding: 0 0 0 5px
+	.form .w 
+		float: left
+		clear: both
+		padding: 5px 5px 0
+		background: #D7EBEF
+		font: bold 0.8em Helvetica, Arial, sans-serif
+		color: #333
+		overflow: hidden
+	.form .w span 
+		padding: 0 0 5px
+		float:left
+	.form .input
+		border: 1px solid #A5C2C8
+		padding: 5px 5px 5px 5px
+		margin: 0 0 5px 0
+		width: 200px
+		font: bold 16px/20px Helvetiva, Arial, sans-serif
+	.form .w label
+		padding: 0
+	.form .input.empty 
+		color: #aaa

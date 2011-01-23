@@ -22,6 +22,7 @@ gem 'cancan'
 # views
 gem "haml"
 gem "will_paginate", "3.0.pre2"
+gem "compass"
 
 gem "responders", "0.6.2"
 gem "unicode"

@@ -1,0 +1,12 @@
+= form_for [@consumable, @food_entry], :remote => :true do |f|
+  
+  = f.error_messages
+
+  .field
+    = f.label "Kuinka paljon?"
+    = f.text_field :quantity, :autocomplete => "off"
+
+    = f.select :unit_proxy, @consumable.to_units
+    
+  - unless request.xhr?
+    = f.submit "Lisää"

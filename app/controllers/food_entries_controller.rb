@@ -9,17 +9,20 @@ class FoodEntriesController < ApplicationController
   end
   
   def listtest    
-    if params[:date].nil?
-      @time = Time.now
-    else
-      begin
-        @time = Time.strptime(params[:date], "%d%m%Y") + 12.hour # todo: why do we need to add 12 hours for this to work?
-      rescue
-        @time = Time.now
-      end
-    end
+    # if params[:date].nil?
+    #   @time = Time.now
+    # else
+    #   begin
+    #     @time = Time.strptime(params[:date], "%d%m%Y") + 12.hour # todo: why do we need to add 12 hours for this to work?
+    #   rescue
+    #     @time = Time.now
+    #   end
+    # end
 
-    @food_entries = current_user.food_entries.on_date(@time + 1.hour).all#.paginate(:per_page => 5, :page => params[:page])
+    # todo: fix the hard coded time zone offset, ie. 3.hours.. Use time.zone
+    # http://stackoverflow.com/questions/942747/set-current-time-zone-in-rails
+    
+    @food_entries = current_user.food_entries.on_date(@date + 3.hours).all#.paginate(:per_page => 5, :page => params[:page])
     @stats = NutritionStats.new
     @food_entries.each { |food_entry| @stats.add(food_entry) }
     
@@ -36,6 +39,10 @@ class FoodEntriesController < ApplicationController
   def new
     @consumable = find_consumable
     @food_entry = FoodEntry.new
+    
+    if request.xhr?
+      render 'new.js.erb'
+    end
   end
 
   # GET /posts/1/edit
@@ -53,13 +60,18 @@ class FoodEntriesController < ApplicationController
     # @food_entry.consumable = @consumable
     @food_entry = @consumable.food_entries.build(params[:food_entry])
     @food_entry.user = current_user
+    @food_entry.eaten_at = @date
 
     if @food_entry.valid? && @food_entry.update_data && @food_entry.save
       @consumable.add_eaten!
       flash[:notice] = 'Ruokalogi lisättiin onnistuneesti!'
       redirect_to index
     else
-      render :action => 'new'
+      if request.xhr?
+        render 'new.js.erb'
+      else
+        render :action => 'new'
+      end
     end
   end
 

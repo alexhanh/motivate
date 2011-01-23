@@ -1,11 +1,4 @@
-%br
 
-%h3= @time.strftime("%d.%m.%Y")
-
-.date_nav
-  = link_to_unless (@time.future?), "Edellinen päivä", :date => @time.yesterday.strftime("%d%m%Y")
-  = link_to_unless (@time.today? || @time.future?), "Seuraava päivä", :date => @time.tomorrow.strftime("%d%m%Y")
-  
 - if @food_entries.length > 0
   .overall
     %h4  Yhteenveto päivästä

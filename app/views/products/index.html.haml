@@ -1,7 +1,8 @@
-%h1 Tuotteet
-
-= form_tag products_path, :url => "#", :method => "get", :id => 'products_search' do
-  = text_field_tag :search, params[:search], :autocomplete => "off"
+= form_tag products_path, :url => "#", :method => "get", :id => 'products_search', :class => 'form' do
+  %p
+    %label.w Haku
+    %span.w
+      = text_field_tag :search, params[:search], :autocomplete => "off", :class => 'input'
 
 = render "products"
 

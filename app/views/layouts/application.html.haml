@@ -6,37 +6,58 @@
     %title
       = "Gr"
       
-    = stylesheet_link_tag :all
+    /= stylesheet_link_tag :all
+    = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'compiled/print.css', :media => 'print'
+    /[if lt IE 8]
+      = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+
     = stylesheet_link_tag "vendor/Aristo/jquery-ui.css"
+    /= stylesheet_link_tag "vendor/ui-lightness/jquery-ui.css"
     / todo: move to assets.yml like in diaspora
     = javascript_include_tag "vendor/jquery.js"
     = javascript_include_tag "vendor/jquery-ui"
     / Overrides default locale of datepicker only if the localization file is found!
     = javascript_include_tag "vendor/i18n/jquery.ui.datepicker-#{I18n.locale.to_s}"
     = javascript_include_tag "vendor/jquery.validate"
+    = javascript_include_tag "vendor/jquery.defaultvalue"
     = javascript_include_tag :defaults
     = csrf_meta_tag 
 
-  %body
+  %body{ :class => "two-col" }
     #container
       - flash.each do |name, msg| 
         %div{ :id => "flash_#{name}" }
-          %div
-            %p= msg
+          %p= msg
+      #header
+        #date_nav
+          %ul
+            - unless (@date.future?)
+              %li#prev_day= link_to "<<", root_path(:date => @date.yesterday.strftime("%d%m%Y"))
+            %li
+              = form_for "", :html => {:id => 'dateform', :method => :get}, :url => root_path(:date => @date.yesterday.strftime("%d%m%Y")) do |f|
+                %input#datepicker{:value => I18n.l(@date.to_date, :format => :short)}
+                %input#date{:name => "date", :type => :hidden}
+            - unless (@date.today? || @date.future?)
+              %li#next_day= link_to ">>", root_path(:date => @date.tomorrow.strftime("%d%m%Y"))
+          #days_ago= days_ago(@date)
 
-      - if user_signed_in?
-        = link_to 'Kirjaudu ulos', destroy_user_session_path
-      - else
-        = link_to 'Kirjaudu sisään', new_user_session_path
-      |
-      = link_to "Tuotteet", products_path
-      |
-      = link_to "Reseptit", recipes_path
-      |
-      = link_to "Suosikit", favorites_path
-      |
-      = link_to "Syöty", eaten_path
+        #userbox
+          %ul#usernav
+            - if user_signed_in?
+              %li= current_user.username
+              %li= link_to 'Kirjaudu ulos', destroy_user_session_path
+            - else
+              %li= link_to 'Kirjaudu sisään', new_user_session_path
+              %li tai
+              %li.last= link_to 'rekisteröidy', new_user_registration_path
+        #nav
+          %ul
+            %li.first= link_to "Tuotteet", products_path
+            %li= link_to "Reseptit", recipes_path
+            %li= link_to "Suosikit", favorites_path
+            %li.last= link_to "Syöty", eaten_path
     
-      <p>Huom! Käyttäkää desimaalierottimena pistettä eikä pilkkua!</p>
-    
-      = yield
+      #content
+        = yield
+      #footer

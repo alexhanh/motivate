@@ -31,7 +31,7 @@ class ServingSize
   key :unit, Integer
 
   # Original quantity used when this was created.
-  key :quantity, Float, :default => 1
+  key :quantity, Float
                      
   key :custom_unit, String
   
@@ -61,11 +61,14 @@ class ServingSize
   validates_length_of :custom_unit, :in => 1..20, :if => lambda { |s| s.custom? }
   
   #validates_presence_of :nutrition_data, :if => lambda { |s| s.root? }
+  validates_associated :nutrition_data
   
   validates_presence_of :unit
   validates_numericality_of :unit, :greater_than_or_equal_to => 0
   
-  # todo: add validations for quantity
+  validates_presence_of :quantity
+  validates_numericality_of :quantity, :greater_than_or_equal_to => 0
+  
   validates_numericality_of :depth, :less_than_or_equal_to => 3
   
   validate :unit_validness
