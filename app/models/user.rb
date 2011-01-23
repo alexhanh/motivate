@@ -10,8 +10,8 @@ class User
    # NOTE: "Devise doesn’t use attr_accessible or attr_protected inside its modules, 
    # =>    so be sure to define attributes as accessible or protected in your model."
          
-  key :username, :unique => true, :default => "anonyymi"
-  key :email, String, :unique => true
+  key :username, :unique => true, :required => true
+  key :email, String
   
   many :food_entries
   many :recipes

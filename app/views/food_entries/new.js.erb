@@ -1,14 +1,14 @@
-if ($("#add_ingredient_dialog").length == 0) {
+if ($("#new_food_entry_dialog").length == 0) {
 	$("<div/>", {
-		id: "add_ingredient_dialog"
+		id: "new_food_entry_dialog"
 	}).appendTo("body");
 }
 
-$("#add_ingredient_dialog").html("<%= escape_javascript(render("ingredient")) %>").dialog({
+$("#new_food_entry_dialog").html("<%= escape_javascript(render("form")) %>").dialog({
 	modal:true,
 	show:'fade',
 	hide:'fade',
-	title:'<%= escape_javascript(@product.name) %>',
+	title:'<%= escape_javascript(@consumable.name) %>',
 	height:'auto',
 	width:'auto',
 	resizable:false,
@@ -20,8 +20,7 @@ $("#add_ingredient_dialog").html("<%= escape_javascript(render("ingredient")) %>
 		},
 		"Lisää": function () {
 			$(this).dialog("close")
-			$("#new_ingredient").submit();
+			$("#new_food_entry").submit();
 		}
 	}
 	});
-

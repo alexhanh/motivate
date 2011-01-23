@@ -1,14 +1,15 @@
 #products
+  - if @products.count == 0
+    %p Ei osumia!
   - @products.each do |product|
     .product
       = link_to product.name, product
-      - if user_signed_in?
-        %br
-        = link_to_eat(product)
-        - if current_user.favorite?(product)
-          = link_to_remove_from_favorites(product)
-        - else
-          = link_to_add_to_favorites(product)
-    %br
-  %br
+      .consumable_nav
+        %ul
+          - if user_signed_in?
+            %li= link_to_eat(product)
+            - if current_user.favorite?(product)
+              %li= link_to_remove_from_favorites(product)
+            - else
+              %li= link_to_add_to_favorites(product)
   = will_paginate @products

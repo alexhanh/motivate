@@ -1,0 +1,54 @@
+# http://apidock.com/rails/ActiveModel/Errors/generate_message
+fi:
+  errors:
+    template:
+      header:
+        one:    "Virhe syötteessä esti mallin %{model} tallentamisen"
+        other:  "%{count} virhettä esti mallin %{model} tallentamisen"
+      body: "Seuraavat kentät aiheuttivat ongelmia:"
+    messages:
+      inclusion: "ei löydy listasta"
+      exclusion: "on varattu"
+      invalid: "on kelvoton"
+      confirmation: "ei vastaa varmennusta"
+      accepted: "täytyy olla hyväksytty"
+      empty: "ei voi olla tyhjä"
+      blank: "ei voi olla sisällötön"
+      too_long: "on liian pitkä (saa olla enintään %{count} merkkiä)"
+      too_short: "on liian lyhyt (oltava vähintään %{count} merkkiä)"
+      wrong_length: "on väärän pituinen (täytyy olla täsmälleen %{count} merkkiä)"
+      taken: "on jo käytössä"
+      not_a_number: "ei ole luku"
+      greater_than: "täytyy olla suurempi kuin %{count}"
+      greater_than_or_equal_to: "täytyy olla suurempi tai yhtä suuri kuin %{count}"
+      equal_to: "täytyy olla yhtä suuri kuin %{count}"
+      less_than: "täytyy olla pienempi kuin %{count}"
+      less_than_or_equal_to: "täytyy olla pienempi tai yhtä suuri kuin %{count}"
+      odd: "täytyy olla pariton"
+      even: "täytyy olla parillinen"
+      record_invalid: "Validointi epäonnistui: %{errors}"
+        
+  activemodel:
+    attributes:
+      user:
+        username: "Käyttäjätunnus"
+        email: "Sähköposti"
+        password: "Salasana"
+      food_entry:
+        quantity: "Määrä"
+      product:
+        name: "Nimi"
+    errors:
+      models:
+        products:
+          attributes:
+            serving_sizes:
+              invalid: "nope"
+  #   errors:
+  #     models:
+  #       user:
+  #         attributes:
+  #           email:
+  #             taken: "on jo käytössä."
+  #           username:
+  #             taken: "on jo käytössä."

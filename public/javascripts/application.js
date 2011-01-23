@@ -39,20 +39,61 @@ $(document).ready(function() {
     }
 	});
 	
+	//////////////////
 	// Apply calendar
-	
+	//////////////////
+		
 	// Calendarify *eaten_at* inputs
 	var $cals = $('input:[id*="eaten_at"]').datepicker();
 	// todo: set only if it is empty
 	$cals.datepicker('setDate', new Date());
+
+
+	// Idea how to get this to work
+	// Apply the click bind on #datepicker
 	
+	// todo: set max date
+	var $dp = $("#datepicker").datepicker({
+		// altFormat: "ddmmyy",
+		// altField: "#date"
+		showAnim: '',
+		onSelect: function(date, inst) {
+			//alert($("#datepicker").datepicker('option', 'dateFormat'));
+			d = $.datepicker.parseDate($("#datepicker").datepicker('option', 'dateFormat'), date);
+			$("#date").val($.datepicker.formatDate("ddmmyy", d));
+			$("#dateform").submit();
+		}
+	});
+	// add on select	
+	
+	//////////////////
 	// Apply styling to elements
+	//////////////////
 	
 	// Check jquery.bassistance.de/aristo-preview/demo.html for Aristo demos!
 	
 	// Buttons
 	$("#add_product_button").button();
 	$("#add_recipe_button").button();
+	$("#product_submit").button();
+	$("#food_entry_submit").button();
+	
+	// Date prev and next links
+	// $("#date_nav #next_day a").text('').addClass('ui-icon ui-icon-carat-1-e').hover(
+	// 	function() {
+	// 		$(this).addClass('ui-state-hover');
+	// 	},
+	// 	function() {
+	// 		$(this).removeClass('ui-state-hover');
+	// 	});
+	// 
+	// $("#date_nav #prev_day a").text('').addClass('ui-icon ui-icon-carat-1-w').hover(
+	// 	function() {
+	// 		$(this).addClass('ui-state-hover');
+	// 	},
+	// 	function() {
+	// 		$(this).removeClass('ui-state-hover');
+	// 	});
 	
 	// Flash boxes
 	//$("#flash_notice").addClass('ui-widget').find("div").addClass('ui-state-highlight ui-corner-all');
@@ -67,4 +108,13 @@ $(document).ready(function() {
 	// Style forms and buttons with jQuery UI
 	// $("form input:not(:submit)").addClass("ui-widget-content");
 	// $(":submit").button();
+	
+	//////////////////
+	// Uncategorized
+	//////////////////
+	
+	// Default values for text fields
+	$("#search").defaultValue({
+		'value': 'Kirjoita tähän...'
+	});
 });

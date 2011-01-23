@@ -52,7 +52,13 @@ fi:
         send_password_instructions: "Lähetä minulle salasanan uudelleenasettamisohjeet"
       send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä, miten voit asettaa salasanasi uudelleen."
       updated: "Salasanasi on vaihdettu onnistuneesti. Olet nyt kirjautunut sisään."
-    registrations: 
+    registrations:
+      new:
+        username: "Käyttäjätunnus"
+        email: 'Sähköposti'
+        password: 'Salasana'
+        password_confirmation: 'Salasana uudelleen'
+        register: 'Rekisteröidy'
       destroyed: "Näkemiin! Käyttäjätilisi on onnistuneesti peruutettu. Toivottavasti näemme sinut pian uudelleen."
       signed_up: "Käyttäjätilin luominen onnistui. Mahdollinen vahvistus on lähetetty sähköpostiisi."
       updated: "Päivitit käyttäjätilisi onnistuneesti."
@@ -86,8 +92,8 @@ fi:
         resend_unlock: "Lähetä lukituksenpoisto-ohjeet uudelleen"
       send_instructions: "Saat hetken kuluttua sähköpostiisi ohjeet siitä, miten avaat käyttäjätilisi lukituksen."
       unlocked: "Käyttäjätilisi lukitus on avattu onnistuneesti. Olet nyt kirjautunut sisään."
-  errors: 
-    messages: 
-      already_confirmed: "oli jo varmistettu"
-      not_found: "ei löytynyt"
-      not_locked: "ei ollut lukittu"
+    errors: 
+      messages: 
+        already_confirmed: "oli jo varmistettu"
+        not_found: "ei löytynyt"
+        not_locked: "ei ollut lukittu"

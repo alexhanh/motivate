@@ -54,6 +54,8 @@ GEM
     bson_ext (1.1)
     builder (2.1.2)
     cancan (1.4.1)
+    compass (0.10.6)
+      haml (>= 3.0.4)
     configuration (1.2.0)
     cucumber (0.9.0)
       builder (~> 2.1.2)
@@ -204,6 +206,7 @@ DEPENDENCIES
   bson (= 1.1)
   bson_ext (= 1.1)
   cancan
+  compass
   cucumber
   cucumber-rails (= 0.3.2)
   database_cleaner

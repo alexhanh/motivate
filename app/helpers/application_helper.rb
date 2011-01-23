@@ -16,7 +16,7 @@ module ApplicationHelper
   end
   
   def link_to_eat(consumable)    
-    link_to "Syö", send("new_#{consumable.class.name.downcase}_food_entry_path".to_sym, consumable)
+    link_to "Syö", send("new_#{consumable.class.name.downcase}_food_entry_path".to_sym, consumable), :remote => true
   end
   
   def link_to_add_to_favorites(favoritable)
@@ -77,5 +77,13 @@ module ApplicationHelper
     else
       return float.round(1).to_s
     end
+  end
+  
+  def days_ago(date)
+    distance_in_days = ((Time.now - date)/(60*60*24)).round - 1
+    
+    return "Tänään" if distance_in_days <= 0
+    return "Eilen" if distance_in_days <= 1
+    return I18n.t('datetime.distance_in_words.x_days', :count => distance_in_days) + " sitten"
   end
 end

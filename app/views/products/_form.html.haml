@@ -1,22 +1,24 @@
 = form_for @product do |f|
-  -if @product.errors.any?
-    #errorExplanation
-      %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
-      %ul
-        - @product.errors.full_messages.each do |msg|
-          %li= msg
-  -#if !@serving_size.nil? && @serving_size.errors.any?
-    #errorExplanation
-      %h2= "#{pluralize(@serving_size.errors.count, "error")} prohibited this product from being saved:"
-      %ul
-        - @serving_size.errors.full_messages.each do |msg|
-          %li= msg
-  -#if !@nutrition_data.nil? && @nutrition_data.errors.any?
-    #errorExplanation
-      %h2= "#{pluralize(@nutrition_data.errors.count, "error")} prohibited this product from being saved:"
-      %ul
-        - @nutrition_data.errors.full_messages.each do |msg|
-          %li= msg
+  /= f.error_messages
+  = error_messages_for(@product, @product.serving_sizes.first, @product.serving_sizes.first.nutrition_data)
+  / -if @product.errors.any?
+  /   #errorExplanation
+  /     %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
+  /     %ul
+  /       - @product.errors.full_messages.each do |msg|
+  /         %li= msg
+  / -if !@serving_size.nil? && @serving_size.errors.any?
+  /   #errorExplanation
+  /     %h2= "#{pluralize(@serving_size.errors.count, "error")} prohibited this product from being saved:"
+  /     %ul
+  /       - @serving_size.errors.full_messages.each do |msg|
+  /         %li= msg
+  / -if !@product.serving_sizes.first.nutrition_data.nil? && @product.serving_sizes.first.nutrition_data.errors.any?
+  /   #errorExplanation
+  /     %h2= "#{pluralize(@product.serving_sizes.first.nutrition_data.errors.count, "error")} prohibited this product from being saved:"
+  /     %ul
+  /       - @product.serving_sizes.first.nutrition_data.errors.full_messages.each do |msg|
+  /         %li= msg
   
 
   .field
@@ -27,6 +29,7 @@
     %fieldset
       %legend Ravintoarvot
       = f.fields_for :serving_sizes do |ss|
+        /= ss.error_messages
         = ss.label :quantity, "Määrä"
         = ss.text_field :quantity
         
@@ -54,4 +57,4 @@
             g
       
   .actions
-    = f.submit 'Lisaa'
+    = f.submit 'Lisää'
