@@ -119,8 +119,8 @@ fi:
       second: "Sekunti"
 
   # which one should it be
-  #activemodel:
-  activerecord:
+  activemodel:
+  #activerecord:
     errors:
       template:
         header:
@@ -128,7 +128,6 @@ fi:
           other:  "%{count} virhettä esti mallin %{model} tallentamisen"
         body: "Seuraavat kentät aiheuttivat ongelmia:"
   #activerecord:
-    #errors:
       messages:
         inclusion: "ei löydy listasta"
         exclusion: "on varattu"
@@ -136,7 +135,7 @@ fi:
         confirmation: "ei vastaa varmennusta"
         accepted: "täytyy olla hyväksytty"
         empty: "ei voi olla tyhjä"
-        blank: "ei voi olla sisällötön"
+        blank: "ei voi olla tyhjä"
         too_long: "on liian pitkä (saa olla enintään %{count} merkkiä)"
         too_short: "on liian lyhyt (oltava vähintään %{count} merkkiä)"
         wrong_length: "on väärän pituinen (täytyy olla täsmälleen %{count} merkkiä)"
