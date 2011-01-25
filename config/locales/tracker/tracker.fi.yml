@@ -1,0 +1,8 @@
+fi:
+  tracker:
+    weight:
+      name: "Paino"
+    height:
+      name: "Pituus"
+    body_fat:
+      name: "Rasvaprosentti"

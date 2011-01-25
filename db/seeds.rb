@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+############
+# Trackers #
+############
+
+Tracker.create({ :private => false, :type => "weight" })
+Tracker.create({ :private => false, :type => "height" })
+Tracker.create({ :private => false, :type => "custom", :custom_name => "body_fat", :custom_unit => "%" })

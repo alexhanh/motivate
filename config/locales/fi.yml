@@ -29,6 +29,12 @@ fi:
       record_invalid: "Validointi epäonnistui: %{errors}"
         
   activemodel:
+    models:
+      favorite: "Suosikki"
+      user: "Käyttäjä"
+      recipe: "Resepti"
+      ingredient: "Ainesosa"
+      product: "Tuote"
     attributes:
       user:
         username: "Käyttäjätunnus"

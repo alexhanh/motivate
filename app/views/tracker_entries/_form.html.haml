@@ -1,0 +1,10 @@
+= form_for @entry, :remote => true do |f|
+  = f.error_messages
+
+  = f.hidden_field :tracker_id
+  = f.text_field :value
+  - if @entry.tracker.custom?
+    = f.hidden_field :unit
+    = @entry.tracker.custom_unit
+  - else
+    = f.collection_select :unit, @entry.tracker.units, :to_i, :unit_name

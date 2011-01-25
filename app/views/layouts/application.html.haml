@@ -21,6 +21,7 @@
     = javascript_include_tag "vendor/i18n/jquery.ui.datepicker-#{I18n.locale.to_s}"
     = javascript_include_tag "vendor/jquery.validate"
     = javascript_include_tag "vendor/jquery.defaultvalue"
+    = javascript_include_tag "vendor/highcharts"
     = javascript_include_tag :defaults
     = csrf_meta_tag 
 
@@ -56,7 +57,9 @@
             %li.first= link_to "Tuotteet", products_path
             %li= link_to "Reseptit", recipes_path
             %li= link_to "Suosikit", favorites_path
-            %li.last= link_to "Syöty", eaten_path
+            %li= link_to "Lisää mittaus", new_tracker_entry_path, :remote => true
+            %li= link_to "Syöty", eaten_path
+            %li.last= link_to "Mittaukset", tracker_entries_path
     
       #content
         = yield

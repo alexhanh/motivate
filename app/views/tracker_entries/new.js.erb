@@ -1,0 +1,27 @@
+if ($("#add_tracker_entry_dialog").length == 0) {
+	$("<div/>", {
+		id: "add_tracker_entry_dialog"
+	}).appendTo("body");
+}
+
+$("#add_tracker_entry_dialog").html("<%= escape_javascript(render("change_tracker_form")) %>").dialog({
+	modal:true,
+	show:'fade',
+	hide:'fade',
+	title:'<%= escape_javascript("Päivälle "+I18n.l(@date.to_date, :format => :short)) %>',
+	height:'auto',
+	width:'auto',
+	resizable:false,
+	draggable:false,
+	closeText:'Peruuta',
+	buttons: {
+		"Peruuta": function() {
+			$(this).dialog("close");
+		},
+		"Lisää": function () {
+			//$(this).dialog("close")
+			// todo: lock interface, and show loading process
+			$("#new_tracker_entry").submit();
+		}
+	}
+	});

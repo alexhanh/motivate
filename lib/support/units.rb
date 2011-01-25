@@ -17,12 +17,15 @@ module Units
   COFFEESPOON = 1008
   CUP         = 1009
   
+  METER       = 10001
+  CENTIMETER  = 10002
+  
   All = {}
   Common = [GRAM, DECILITER, MILLILITER, TEASPOON, TABLESPOON, CUP]
   CommonWeight = [GRAM]
   CommonVolume = [DECILITER, MILLILITER, TEASPOON, TABLESPOON, CUP]
   
-  Scales = {GRAM => 1.0, LITER => 1.0}
+  Scales = {GRAM => 1.0, LITER => 1.0, METER => 1.0}
 
   Scales[KILOGRAM] =    Scales[GRAM]*1000
   Scales[MILLIGRAM] =   Scales[GRAM]/1000
@@ -38,6 +41,7 @@ module Units
   Scales[TABLESPOON] =  Scales[MILLILITER]*15
   Scales[CUP] =         Scales[MILLILITER]*250
   
+  Scales[CENTIMETER] =  Scales[METER]/100
   
   def self.convert(quantity, from, to)
     raise "Incompatible conversion" if from.unit_type != to.unit_type
@@ -51,6 +55,7 @@ module Units
     return quantity if unit.custom?
     return convert(quantity, unit, Units::GRAM) if unit.weight?
     return convert(quantity, unit, Units::LITER) if unit.volume?
+    return convert(quantity, unit, Units::METER) if unit.length?
   end
    
   def self.norm(s)
@@ -99,19 +104,29 @@ module Units
   CUSTOM_TYPE      = 0
   WEIGHT_TYPE      = 10  
   VOLUME_TYPE      = 1000
+  LENGTH_TYPE      = 10000
+  
+  Types = [CUSTOM_TYPE, WEIGHT_TYPE, VOLUME_TYPE, LENGTH_TYPE]
   
   Numeric.class_eval do
     define_method("unit_type") do
       if (self == Units::CUSTOM_TYPE ||
           self == Units::WEIGHT_TYPE ||
-          self == Units::VOLUME_TYPE)
+          self == Units::VOLUME_TYPE ||
+          self == Units::LENGTH_TYPE)
         raise "Cannot call unit_type for unit type"
       end
+      
+      return Units::LENGTH_TYPE if self > 10000
       return Units::VOLUME_TYPE if self > 1000
       return Units::WEIGHT_TYPE if self > 10
       return Units::CUSTOM_TYPE    
     end
     
+    
+    define_method("length?") do
+      self.unit_type == Units::LENGTH_TYPE
+    end
     define_method("weight?") do
       self.unit_type == Units::WEIGHT_TYPE
     end
@@ -131,6 +146,7 @@ module Units
       return self if custom?
       return Units::GRAM if weight?
       return Units::LITER if volume?
+      return Units::METER if length?
     end
   end
 end

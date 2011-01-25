@@ -1,0 +1,6 @@
+= form_for TrackerEntry.new, :url => "/tracker_entries/change_tracker", :html => {:id => 'change_tracker'}, :remote => :true do |f|
+  = f.error_messages
+  = f.collection_select(:tracker_id, @trackers, :id, :name, {}, {:id => 'tracker_select_list'})
+  
+#add_tracker_entry_form
+  = render :partial => "form", :locals => { :@entry => TrackerEntry.new({ :tracker => @trackers.first }) }

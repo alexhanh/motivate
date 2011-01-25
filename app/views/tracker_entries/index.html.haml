@@ -1,0 +1,42 @@
+%ul#trackers_nav
+  - @trackers.each do |tracker|
+    %li= link_to tracker.name, :tracker_id => tracker.id
+
+- if @entries.count > 0
+  :javascript
+    $(function() {
+      new Highcharts.Chart({
+        chart: {
+          renderTo: "chart"
+        },
+        credits: {
+          enabled: false
+        },
+        title: {
+          text: "#{@tracker.name}"
+        },
+        xAxis: {
+          type: "datetime"
+        },
+        yAxis: {
+          title: {
+            text: "#{@entries.first.unit_name}"
+          }
+        },
+        series: [{
+          name: "",
+          data: #{@data}
+        }]
+      });
+    });
+  
+  #chart{ :style => "width: 560px; height: 300px;" }
+- else
+  %p Ei yhtään pistettä vielä.
+
+#tracker_entries
+  - @entries.each do |entry|
+    %p
+      %span.date= I18n.l(entry.logged_on, :format => :short) 
+      = " " + entry.value.round(0).to_s + " " + entry.unit_name
+      = link_to "Poista", tracker_entry_path(entry, :tracker_id => entry.tracker), :method => :delete

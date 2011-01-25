@@ -23,7 +23,9 @@
 
 //@import "blueprint/typography"
 @import compass/utilities
+@import compass/css3/border-radius
 
+// check modernizer !!
 
 body.two-col
 	background-color: #4B7399
@@ -81,9 +83,14 @@ body.two-col
 	#nav
 		+prepend-top(30px)
 		+prepend(1)
+		+append(10)
 		ul
 			+horizontal-list
 			+pretty-bullets("nav-rule.png", 2px, 12px)
+			+border-radius(10px, 10px)
+			padding: 15px // HAAACK
+			border: 1px solid hsl(0%, 0%, 85%) // HAAACK
+			background-color: hsl(0%, 0%, 97%) // HAAACK
 		
 	.product
 		width: 700px
@@ -98,6 +105,14 @@ body.two-col
 			padding: 0
 			margin: 0
 			border: 0
+	
+	#trackers_nav
+		+horizontal-list
+		+pretty-bullets("nav-rule.png", 2px, 12px)
+		
+	#tracker_entries
+		.date
+			color: hsl(0%, 0%, 40%)
 	
 	//#sidebar
 		// One third of the grid columns, rounding down. With 24 cols, this is 8.

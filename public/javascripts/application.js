@@ -1,4 +1,5 @@
-$(document).ready(function() {
+$(document).ready(function() {	
+
   $("#products .pagination a").live("click", function() {
     $.getScript(this.href);
     return false;
@@ -37,6 +38,14 @@ $(document).ready(function() {
 			$new_unit_name.val('');
       $new_unit_name.hide();
     }
+	});
+	
+	// Tracker entry add, tracker select list change
+	var $tracker_select = $('#tracker_select_list');
+	$tracker_select.live('change', function(){
+		if ($(this).val() != '') {
+			$('#change_tracker').submit();
+		}
 	});
 	
 	//////////////////

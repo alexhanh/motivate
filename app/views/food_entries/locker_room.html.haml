@@ -1,3 +1,32 @@
+/= high_chart("my_id", @h)
+/%script{ :type=> "text/javascript" }
+:javascript
+  $(function() {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: "weight_chart"
+      },
+      credits: {
+        enabled: false
+      },
+      title: {
+        text: "Paino"
+      },
+      xAxis: {
+        type: "datetime"
+      },
+      yAxis: {
+        title: {
+          text: "Kg"
+        }
+      },
+      series: [{
+        data: #{@data}
+      }]
+    });
+  });
+  
+#weight_chart{ :style => "width: 560px; height: 300px;" }
 
 - if @food_entries.length > 0
   .overall

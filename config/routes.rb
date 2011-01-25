@@ -22,6 +22,12 @@ Gr::Application.routes.draw do
   
   resources :food_entries
   
+  resources :tracker_entries do
+    collection do
+      post 'change_tracker'
+    end
+  end
+  
   devise_for :users
   resource :users
 
