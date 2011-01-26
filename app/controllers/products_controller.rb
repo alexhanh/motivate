@@ -1,3 +1,4 @@
+# coding: utf-8
 class ProductsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 #  load_and_authorize_resource
@@ -44,7 +45,7 @@ class ProductsController < ApplicationController
     @product.user = current_user
 
     if @product.save
-      flash[:notice] = 'Product was successfully created.'
+      flash[:notice] = 'Tuote lisättiin onnistuneesti!'
       redirect_to @product
     else
       render :action => 'new'

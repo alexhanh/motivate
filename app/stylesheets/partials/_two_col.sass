@@ -43,6 +43,8 @@ body.two-col
 		background-color: white
 		border: 1px solid black
 		border-top: 0px
+		+border-bottom-radius(20px)
+		
 	
 	#header, #footer
 		+column($blueprint-grid-columns)
@@ -146,7 +148,10 @@ body.two-col
 		
 	#products
 		+prepend-top(20px)
-		
+	
+	#products_search
+		+border-radius(10px, 10px)
+	
 	.label 
 		background: #FFCC33
 		padding: 5px

@@ -52,9 +52,8 @@ module ApplicationHelper
     elsif o.unit.volume?
       scale = 100
       unit_name = 'ml'
-      #todo: fix me!
-     # Units::convert()
-     # data = data.scale(10.0)
+      
+      data = data.scale(0.1)
     else
     end
     

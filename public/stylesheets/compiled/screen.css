@@ -543,8 +543,20 @@ body.two-col #container {
   background-color: white;
   border: 1px solid black;
   border-top: 0px;
+  -moz-border-radius-bottomleft: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -o-border-bottom-left-radius: 20px;
+  -ms-border-bottom-left-radius: 20px;
+  -khtml-border-bottom-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  -webkit-border-bottom-right-radius: 20px;
+  -o-border-bottom-right-radius: 20px;
+  -ms-border-bottom-right-radius: 20px;
+  -khtml-border-bottom-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
-/* line 47, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 49, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #header, body.two-col #footer {
   display: inline;
   float: left;
@@ -555,25 +567,25 @@ body.two-col #header, body.two-col #footer {
 * html body.two-col #header, * html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 52, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 54, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #logo {
   position: relative;
   left: 20px;
   top: 14px;
 }
-/* line 57, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 59, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #userbox {
   margin-top: -55px;
   display: inline;
   float: right;
   padding-right: 40px;
 }
-/* line 62, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 64, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #date_nav {
   margin-top: 35px;
   padding-left: 360px;
 }
-/* line 65, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 67, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #date_nav ul {
   margin: 0;
   padding: 0;
@@ -601,11 +613,11 @@ body.two-col #date_nav ul li:first-child, body.two-col #date_nav ul li.first {
 body.two-col #date_nav ul li:last-child, body.two-col #date_nav ul li.last {
   padding-right: 0;
 }
-/* line 67, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 69, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #date_nav #prev_day, body.two-col #date_nav #next_day {
   margin-top: 4px;
 }
-/* line 69, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 71, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #date_nav #datepicker {
   border: 0;
   background: none;
@@ -615,11 +627,11 @@ body.two-col #date_nav #datepicker {
   width: 94px;
   display: inline;
 }
-/* line 77, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 79, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #date_nav #days_ago {
   padding-left: 40px;
 }
-/* line 80, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 82, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #usernav {
   margin: 0;
   padding: 0;
@@ -647,13 +659,13 @@ body.two-col #usernav li:first-child, body.two-col #usernav li.first {
 body.two-col #usernav li:last-child, body.two-col #usernav li.last {
   padding-right: 0;
 }
-/* line 83, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 85, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #nav {
   margin-top: 30px;
   padding-left: 40px;
   padding-right: 400px;
 }
-/* line 87, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 89, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #nav ul {
   margin: 0;
   padding: 0;
@@ -697,16 +709,16 @@ body.two-col #nav ul li {
   background: url('/images/nav-rule.png?1295782502') no-repeat 6px 3px;
   list-style-type: none;
 }
-/* line 95, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 97, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col .product {
   width: 700px;
   height: 50px;
 }
-/* line 98, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 100, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col .product .consumable_nav {
   float: right;
 }
-/* line 100, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 102, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col .product .consumable_nav ul {
   list-style: none;
 }
@@ -716,13 +728,13 @@ body.two-col .product .consumable_nav ul li {
   list-style-type: none;
   margin-left: 0px;
 }
-/* line 104, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 106, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #search input {
   padding: 0;
   margin: 0;
   border: 0;
 }
-/* line 109, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 111, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #trackers_nav {
   margin: 0;
   padding: 0;
@@ -757,11 +769,11 @@ body.two-col #trackers_nav li {
   background: url('/images/nav-rule.png?1295782502') no-repeat 6px 3px;
   list-style-type: none;
 }
-/* line 114, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 116, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #tracker_entries .date {
   color: #666666;
 }
-/* line 121, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 123, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #content {
   display: inline;
   float: left;
@@ -775,19 +787,19 @@ body.two-col #content {
 * html body.two-col #content {
   overflow-x: hidden;
 }
-/* line 133, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 135, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #add_product_button:link, body.two-col #add_product_button:visited, body.two-col #add_recipe_button:link, body.two-col #add_recipe_button:visited, body.two-col #product_submit:link, body.two-col #product_submit:visited {
   color: #4f4f4f;
 }
-/* line 135, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 137, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #add_product_button:hover, body.two-col #add_recipe_button:hover, body.two-col #product_submit:hover {
   color: #313131;
 }
-/* line 137, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 139, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #add_product_button:active, body.two-col #add_recipe_button:active, body.two-col #product_submit:active {
   color: #1c4257;
 }
-/* line 140, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 142, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #flash_notice {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -800,7 +812,7 @@ body.two-col #flash_notice {
 body.two-col #flash_notice a {
   color: #264409;
 }
-/* line 142, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 144, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #flash_error {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -813,7 +825,7 @@ body.two-col #flash_error {
 body.two-col #flash_error a {
   color: #8a1f11;
 }
-/* line 144, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 146, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #flash_alert {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -826,11 +838,20 @@ body.two-col #flash_alert {
 body.two-col #flash_alert a {
   color: #514721;
 }
-/* line 147, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 149, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col #products {
   margin-top: 20px;
 }
-/* line 150, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 152, ../../../app/stylesheets/partials/_two_col.sass */
+body.two-col #products_search {
+  -webkit-border-radius: 10px 10px;
+  -moz-border-radius: 10px / 10px;
+  -o-border-radius: 10px / 10px;
+  -ms-border-radius: 10px / 10px;
+  -khtml-border-radius: 10px / 10px;
+  border-radius: 10px / 10px;
+}
+/* line 155, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col .label {
   background: #ffcc33;
   padding: 5px;
@@ -839,25 +860,25 @@ body.two-col .label {
   top: 0;
   left: 0;
 }
-/* line 157, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 162, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col .form {
   padding: 20px 20px 10px;
   background: #e0f4f8;
   width: 580px;
   overflow: hidden;
 }
-/* line 162, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 167, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col .form p {
   margin: 0 0 10px 0;
   display: block;
 }
-/* line 167, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 172, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col .form label {
   font: bold 0.9em Helvetica, Arial, sans-serif;
   color: #0077aa;
   padding: 0 0 0 5px;
 }
-/* line 171, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 176, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col .form .w {
   float: left;
   clear: both;
@@ -867,11 +888,11 @@ body.two-col .form .w {
   color: #333333;
   overflow: hidden;
 }
-/* line 179, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 184, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col .form .w span {
   padding: 0 0 5px;
 }
-/* line 182, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 187, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col .form .input {
   border: 1px solid #a5c2c8;
   padding: 5px 5px 5px 5px;
@@ -879,11 +900,11 @@ body.two-col .form .input {
   width: 200px;
   font: bold 16px/20px Helvetiva, Arial, sans-serif;
 }
-/* line 188, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 193, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col .form .w label {
   padding: 0;
 }
-/* line 190, ../../../app/stylesheets/partials/_two_col.sass */
+/* line 195, ../../../app/stylesheets/partials/_two_col.sass */
 body.two-col .form .input.empty {
   color: #aaaaaa;
 }
