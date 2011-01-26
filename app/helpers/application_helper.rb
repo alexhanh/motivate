@@ -80,10 +80,10 @@ module ApplicationHelper
   end
   
   def days_ago(date)
-    distance_in_days = ((Time.now - date)/(60*60*24)).round - 1
+    distance_in_days = ((Time.zone.now - date)/(60*60*24)) - 1
     
     return "Tänään" if distance_in_days <= 0
     return "Eilen" if distance_in_days <= 1
-    return I18n.t('datetime.distance_in_words.x_days', :count => distance_in_days) + " sitten"
+    return I18n.t('datetime.distance_in_words.x_days', :count => distance_in_days.ceil) + " sitten"
   end
 end
