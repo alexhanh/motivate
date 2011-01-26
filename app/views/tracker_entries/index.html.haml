@@ -5,6 +5,16 @@
 - if @entries.count > 0
   :javascript
     $(function() {
+      // http://www.highcharts.com/ref/#lang
+      Highcharts.setOptions({
+      	lang: {
+      		months: #{I18n.t("date.month_names").drop(1).inspect},
+      		weekdays: #{I18n.t("date.day_names").inspect},
+      		loading: "Ladataan..."
+      		// todo: set decimalPoint and thousandsSep
+      	}
+      });
+    
       new Highcharts.Chart({
         chart: {
           renderTo: "chart"
@@ -24,7 +34,7 @@
           }
         },
         series: [{
-          name: "",
+          name: "#{@entries.first.unit_name}",
           data: #{@data}
         }]
       });
