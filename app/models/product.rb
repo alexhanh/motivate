@@ -16,7 +16,7 @@ class Product
   # Validations
   #/////////////////////////
  
-
+  many :favorites
   
   #//////
   # Search

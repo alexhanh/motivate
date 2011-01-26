@@ -1,6 +1,6 @@
 #Alternatively use ../mongo.yml file, see http://bit.ly/9gWJSi
 
-MongoMapper.connection = Mongo::Connection.new('localhost', 27017)
+MongoMapper.connection = Mongo::Connection.new('localhost', 27017, :logger => Rails.logger)
 MongoMapper.database = "#gr-test"#"#gr-#{Rails.env}"
 
 if defined?(PhusionPassenger)

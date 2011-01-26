@@ -3,7 +3,8 @@ class FavoritesController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    
+    #@favorites = Favorite.where(:user_id => current_user.id).all
+    #@products = Product.where(:id$in => @favorites.map{|f| f.favorable_id})
   end
   
   def add

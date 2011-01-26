@@ -5,7 +5,7 @@ module Favorable
       extend ClassMethods
       include InstanceMethods
       key :favorites_count, Integer, :default => 0
-      has_many :favorites, :as => "favorable", :dependent => :destroy
+      many :favorites, :as => "favorable", :dependent => :destroy
       #has_many :favoriting_users, :through => :favorites, :source => :user
     end
   end

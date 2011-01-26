@@ -1,6 +1,6 @@
 %h2= @product.name
 
-%p= link_to "Syö", new_product_food_entry_path(@product)
+%p= link_to_eat(@product)
 
 
 - unless @product.user.nil?

@@ -46,7 +46,7 @@
         #userbox
           %ul#usernav
             - if user_signed_in?
-              %li= current_user.username
+              %li!= current_user.username + " (" + link_to("muokkaa", edit_user_registration_path) + ")"
               %li= link_to 'Kirjaudu ulos', destroy_user_session_path
             - else
               %li= link_to 'Kirjaudu sisään', new_user_session_path
