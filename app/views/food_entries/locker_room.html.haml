@@ -19,5 +19,62 @@
 
   /= will_paginate @food_entries
 
+  %br
+
+  :javascript
+    $(function() {
+      // http://www.highcharts.com/ref/#lang
+      Highcharts.setOptions({
+      	lang: {
+      		months: #{I18n.t("date.month_names").drop(1).inspect},
+      		weekdays: #{I18n.t("date.day_names").inspect},
+      		loading: "Ladataan..."
+      		// todo: set decimalPoint and thousandsSep
+      	}
+      });
+    
+      new Highcharts.Chart({
+        chart: {
+          renderTo: "energy_chart",
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false
+        },
+        tooltip: {
+           formatter: function() {
+              return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+           }
+        },
+        plotOptions: {
+          pie: {
+            dataLabels: {
+              enabled: true,
+              distance: 15,
+              formatter: function() {
+                return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+              }
+            }
+          }
+        },
+        credits: {
+          enabled: false
+        },
+        title: {
+          text: "Kokonaisenergian jakautuminen"
+        },
+        series: [{
+          type: 'pie',
+          name: "test",
+          data: [
+            ['Hiilihydraatti', #{(@stats.carbs*4/@stats.energy*100).round(1)}],
+            ['Proteiini', #{(@stats.protein*4/@stats.energy*100).round(1)}],
+            ['Rasva', #{(@stats.fat*9/@stats.energy*100).round(1)}]
+          ]
+        }]
+      });
+    });
+  
+  #energy_chart{ :style => "width: 300px; height: 240px;" }
+
 - else
   %p Et ole syönyt vielä mitään tänään.
