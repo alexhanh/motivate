@@ -1,6 +1,6 @@
 %ul#trackers_nav
   - @trackers.each do |tracker|
-    %li= link_to tracker.name, :tracker_id => tracker.id
+    %li= link_to tracker.to_s, :tracker_id => tracker.id
 
 - if @entries.count > 0
   :javascript
@@ -23,18 +23,18 @@
           enabled: false
         },
         title: {
-          text: "#{@tracker.name}"
+          text: "#{@tracker.to_s}"
         },
         xAxis: {
           type: "datetime"
         },
         yAxis: {
           title: {
-            text: "#{@entries.first.unit_name}"
+            text: "#{@tracker.base_unit.abbreviate}"
           }
         },
         series: [{
-          name: "#{@entries.first.unit_name}",
+          name: "#{@tracker.base_unit.abbreviate}",
           data: #{@data}
         }]
       });
@@ -48,5 +48,5 @@
   - @entries.each do |entry|
     %p
       %span.date= I18n.l(entry.logged_on, :format => :short) 
-      = " " + entry.value.round(0).to_s + " " + entry.unit_name
+      = " " + entry.quantity.to_s
       = link_to "Poista", tracker_entry_path(entry, :tracker_id => entry.tracker), :method => :delete

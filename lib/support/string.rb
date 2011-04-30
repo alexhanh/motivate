@@ -1,6 +1,10 @@
 class String
-  def is_i?
-     !!(self =~ /^[-+]?[0-9]+$/)
+  def is_i?(allow_signs = false)
+    if allow_signs
+      !!(self =~ /^[-+]?[0-9]+$/)
+    else
+      !!(self =~ /^[0-9]+$/)
+    end
   end
   
   def is_numeric?

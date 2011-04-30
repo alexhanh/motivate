@@ -1,0 +1,10 @@
+Docs
+  http://api.rubyonrails.org/
+  ActiveRecord http://ar.rubyonrails.org/
+  ActiveSupport http://as.rubyonrails.org/
+
+Books
+  Rails 3 in a Nutshell (some good stuff about I18n) http://rails-nutshell.labs.oreilly.com/index.html
+
+Ruby debugging
+  http://pivotallabs.com/users/chad/blog/articles/366-ruby-debug-in-30-seconds-we-don-t-need-no-stinkin-gui-

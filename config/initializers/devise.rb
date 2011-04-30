@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/mongo_mapper'
+  require 'devise/orm/active_record'
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating an user. By default is
@@ -20,13 +20,14 @@ Devise.setup do |config|
   # authenticating an user, both parameters are required. Remember that those
   # parameters are used only when authenticating and not when retrieving from
   # session. If you need permissions, you should implement that in a before filter.
+  # config.authentication_keys = [ :email ]
   config.authentication_keys = [ :username ]
 
   # Tell if authentication through request.params is enabled. True by default.
   # config.params_authenticatable = true
 
-  # Tell if authentication through HTTP Basic Auth is enabled. True by default.
-  # config.http_authenticatable = true
+  # Tell if authentication through HTTP Basic Auth is enabled. False by default.
+  # config.http_authenticatable = false
 
   # Set this to true to use Basic Auth for AJAX requests.  True by default.
   # config.http_authenticatable_on_xhr = true
@@ -46,7 +47,7 @@ Devise.setup do |config|
   config.encryptor = :bcrypt
 
   # Setup a pepper to generate the encrypted password.
-  config.pepper = "59a37a72403db9784f53a294bf5b551dc715baa5058b76e584a5d562489bb752559df87f62b759cffb98527a6c35256f93e81ed8e04958e1d62b694df5843d26"
+  config.pepper = "fbec0c27b7850f68b3fa0f2fd324ef704ccfb49f60731c6ba3c5161c8a8b7b12c37438a686aa22e6f6da21ccc41057d78f6c3ac35aa73d0e8ac5b6401a814b0e"
 
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time

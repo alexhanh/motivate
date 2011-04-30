@@ -1,6 +1,8 @@
 Gr::Application.routes.draw do
+  devise_for :users
+
   resources :products do
-    resources :serving_sizes
+    resources :food_units
     resources :food_entries
   end
   
@@ -8,11 +10,15 @@ Gr::Application.routes.draw do
     resources :food_entries
     resources :ingredients
   end
-
+  
+  match 'mockup/room' => 'mockup#room'
+  
+  resources :exercise_entries
+  
   match 'recipes/find_ingredient/:ingredient_id' => 'recipes#find_ingredient'
   match 'recipes/add_ingredient' => 'recipes#add_ingredient'
   match 'recipes/:id/remove_ingredient/:ingredient_id' => 'recipes#remove_ingredient'
-
+  
   # hack to display food_entries (since they are nested)
   match 'eaten' => 'food_entries#listtest', :as => :eaten
   
@@ -28,8 +34,8 @@ Gr::Application.routes.draw do
     end
   end
   
-  devise_for :users
-  resource :users
+  #devise_for :users
+  #resource :users
 
   root :to => "products#index"
 

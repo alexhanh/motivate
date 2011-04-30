@@ -1,52 +1,24 @@
-class User
-  include MongoMapper::Document
-  plugin MongoMapper::Devise
-
-  devise :registerable, :database_authenticatable, 
+class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable, :lockable and :timeoutable
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  
-  key :roles_mask, Integer
 
-   # NOTE: "Devise doesn’t use attr_accessible or attr_protected inside its modules, 
-   # =>    so be sure to define attributes as accessible or protected in your model."
-         
-  key :username, :unique => true, :required => true
-  key :email, String
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username
   
-  many :food_entries
-  many :recipes
+  has_many :favorites, :dependent => :destroy
+  has_many :food_entries, :dependent => :destroy
+  has_many :consumables #hmm, scopella recipet ja productit erikseen?
+                        # scope where type == food tjsp
+  has_many :exercises, :dependent => :destroy
+  has_many :tracker_entries
   
-  many :favorites
-  
-  #////////////
-  # Roles
-  #////////////
-
-  # todo: figure out how to do this in MM if something like this is needed
-  #scope :with_role, lambda { |role| {:conditions => "roles_mask & #{2**ROLES.index(role.to_s)} > 0"} }
-  
-  ROLES = %w[admin user]
-  
-  def roles=(roles)
-    self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.sum
-  end
-  
-  def roles
-    ROLES.reject { |r| ((roles_mask || 0) & 2**ROLES.index(r)).zero? }
-  end
-  
-  def role?(role)
-    roles.include? role.to_s
-  end
-  
-  #//////////////
-  # Uncathegorized
-  #//////////////
   def favorite?(favorable)
     !favorite(favorable).nil?
   end
   
   def favorite(favorable)
-    self.favorites.first(:favorable_id => favorable.id, :user_id => self.id) #needs favorable_type?
+    self.favorites.where(:favorable_id => favorable.id, :favorable_type => favorable.class.name, :user_id => self.id).first
   end
 end

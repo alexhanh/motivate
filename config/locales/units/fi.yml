@@ -1,0 +1,42 @@
+# http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/language_plural_rules.html
+fi:
+  units:
+    kilogram:
+      abbrevation: kg
+      one: kilogramma
+      other: kilogrammaa
+    gram:
+      abbrevation: g
+      one: gramma
+      other: grammaa
+    liter:
+      abbrevation: l
+      one: litra
+      other: litraa
+    deciliter:
+      abbrevation: dl
+      one: desilitra
+      other: desilitraa
+    milliliter:
+      abbrevation: ml
+      one: millilitra
+      other: millilitraa
+    teaspoon:
+      abbrevation: tl
+      one: teelusikka
+      other: teelusikkaa
+    tablespoon:
+      abbrevation: rkl
+      one: ruokalusikka
+      other: ruokalusikkaa
+    cup:
+      one: muki
+      other: mukia
+    meter:
+      abbrevation: m
+      one: metri
+      other: metriä
+    centimeter:
+      abbrevation: cm
+      one: senttimetri
+      other: senttimetriä

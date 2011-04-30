@@ -6,11 +6,15 @@ class TrackerEntriesController < ApplicationController
   def index
     @trackers = get_trackers
     
-    @tracker = Tracker.find(params[:tracker_id])
-    @tracker ||= @trackers.first
+    @tracker = nil
+    if params[:tracker_id]
+      @tracker = Tracker.find(params[:tracker_id])
+    else
+      @tracker ||= @trackers.first
+    end
     
     @entries = TrackerEntry.where(:user_id => current_user.id, :tracker_id => @tracker.id).all#.fields(:logged_on, :value)
-    @data = @entries.map { |e| [e.logged_on.to_time.to_i*1000, e.value] }.inspect
+    @data = @entries.map { |e| [e.logged_on.to_time.to_i*1000, e.quantity.convert(@tracker.base_unit).value] }.inspect
   end
   
   def new
@@ -40,12 +44,10 @@ class TrackerEntriesController < ApplicationController
       render :nothing => true
       # todo: handle better
     end
-    @entry.unit = Units::CUSTOM if @entry.tracker.custom?
+    @entry.unit = @entry.tracker.custom_unit if @entry.tracker.custom?
   end
   
   def get_trackers
-    # OR operator in MongoDB and MongoMapper
-    # http://groups.google.com/group/mongomapper/browse_thread/thread/ed3d9ec94fab5253?pli=1
-    Tracker.where(:$or => [{:private => false}, {:user_id => current_user.id}]).all
+    Tracker.where("private = ? OR user_id = ?", false, current_user.id)
   end
 end

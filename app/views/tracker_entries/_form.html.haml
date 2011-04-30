@@ -7,4 +7,4 @@
     = f.hidden_field :unit
     = @entry.tracker.custom_unit
   - else
-    = f.collection_select :unit, @entry.tracker.units, :to_i, :unit_name
+    = f.collection_select :unit, @entry.tracker.units, :id, :abbreviate

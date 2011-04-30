@@ -1,5 +1,46 @@
-$(document).ready(function() {	
+// http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
+var CustomUnit = (function($) {
+	var p = {};
+	var selectNameAttr = '';
+	var fieldNameAttr = '';
+	
+	p.init = function($select, $field) {
+		$select.append('<option value="0" id="new_unit_name_option">Uusi yksikkö</option>');
+		
+		selectNameAttr = $select.attr('name');
+		fieldNameAttr = $field.attr('name');
+	
+		if (isInt($field.val()) || ($field.val() == '' && $select.find("option").length > 1)) {
+			$field.val('').hide();
+			$field.removeAttr('name');
+		} 
+		else {
+			$select.find("#new_unit_name_option").attr("selected", "true");
+			$select.removeAttr('name');
+		}
+		
+		$select.change(function() {
+			if ($(this).val() == '0') {
+				$select.removeAttr('name');
+				$field.attr('name', fieldNameAttr);
+				$field.show().focus();
+			}
+			else {
+				$field.removeAttr('name');
+				$select.attr('name', selectNameAttr);
+				$field.val('').hide();
+			}
+		});
+	};
+	
+	function isInt(s) {
+		return s.match(/^\d+/);
+	}
+	
+	return p;
+}(jQuery));
 
+$(document).ready(function() {
   $("#products .pagination a").live("click", function() {
     $.getScript(this.href);
     return false;
@@ -17,28 +58,9 @@ $(document).ready(function() {
 	});
 	
 	
-	
-	var $units_select = $('#new_product select[name*="[unit]"], #new_recipe select[name*="[unit]"], #new_serving_size select[name*="[unit]"], .edit_serving_size select[name*="[unit]"], .edit_recipe select[name*="[unit]"]').append('<option value="1" id="new_unit_name_option">Uusi yksikkö</option>');
-	
-	var $new_unit_name = $('input[name*="[custom_unit]"]').hide();
-	
-	if ($new_unit_name.val() != '' || $units_select.val() == '1') {
-		$units_select.find("#new_unit_name_option").attr("selected", "true");
-		$new_unit_name.show();
-	}
-	
-	$units_select.change(function()
-  {
-    if ( $(this).val() == '1')
-    {
-      $new_unit_name.show().focus();
-    }
-    else
-    {
-			$new_unit_name.val('');
-      $new_unit_name.hide();
-    }
-	});
+	var $units_select = $('#new_product select[name*="[unit]"], #new_recipe select[name*="[unit]"], #new_food_unit select[name*="[unit]"], .edit_food_unit select[name*="[unit]"], .edit_recipe select[name*="[unit]"]');
+	var $new_unit_name = $('input[name*="[unit]"]');
+	CustomUnit.init($units_select, $new_unit_name);
 	
 	// Tracker entry add, tracker select list change
 	var $tracker_select = $('#tracker_select_list');

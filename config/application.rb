@@ -1,13 +1,9 @@
 require File.expand_path('../boot', __FILE__)
 
-# Pick the frameworks you want:
-# require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "active_resource/railtie"
-require "rails/test_unit/railtie"
+require 'rails/all'
 
-require 'unicode'
+# require 'unicode'
+
 # Include lib/support/*
 Dir[File.expand_path('../../lib/support/*.rb', __FILE__)].each {|f| require f}
 
@@ -40,9 +36,8 @@ module Gr
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :fi
 
+    # Configure generators values. Many other options are available, be sure to check the documentation.
     config.generators do |g|
-       g.orm             :mongo_mapper
-       g.template_engine :haml
        g.test_framework  :rspec
      end
 

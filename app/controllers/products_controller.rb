@@ -1,67 +1,47 @@
 # coding: utf-8
 class ProductsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
-#  load_and_authorize_resource
   
-  respond_to :html, :xml
+  respond_to :html
   
-  # GET /posts
-  # GET /posts.xml
   def index
     #Resque.enqueue(Jobs::TestJob, "Lol")
-    @products = Product.search(params[:search]).paginate(:per_page => 5, :page => params[:page])    
+    #@products = Product.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
+    @products = Product.paginate(:per_page => 5, :page => params[:page])
+    respond_with(@products)
   end
 
-  # GET /posts/1
-  # GET /posts/1.xml
   def show
+    @product = Product.find(params[:id], :include => [:user, :food_units])
+    respond_with(@product)
+  end
+
+  def new
+    @product = Product.new
+    @product.food_units.build
+    respond_with(@product)
+  end
+
+  def edit
     @product = Product.find(params[:id])
     respond_with(@product)
   end
 
-  # GET /posts/new
-  # GET /posts/new.xml
-  def new
-    @product = Product.new
-
-    #5.times do
-      @product.serving_sizes.build
-      @product.serving_sizes.first.nutrition_data.build
-    #end
-
-    respond_with @product
-  end
-
-  # GET /posts/1/edit
-  def edit
-    @product = Product.find(params[:id])
-  end
-
-  # POST /posts
-  # POST /posts.xml
   def create
     @product = Product.new(params[:product])
-
     @product.user = current_user
-
     if @product.save
       flash[:notice] = 'Tuote lisättiin onnistuneesti!'
-      redirect_to @product
-    else
-      render :action => 'new'
     end
+    respond_with(@product)
   end
-
-  # PUT /posts/1
-  # PUT /posts/1.xml
+  
   def update
     @product = Product.find(params[:id])
     flash[:notice] = 'Product was successfully updated.' if @product.update_attributes(params[:product])
     respond_with(@product)
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.xml
   def destroy
     @product = Post.first(params[:id])
     @product.destroy

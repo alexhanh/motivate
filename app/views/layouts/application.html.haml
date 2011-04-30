@@ -42,7 +42,7 @@
             - unless (@date.today? || @date.future?)
               %li#next_day= link_to ">>", root_path(:date => @date.tomorrow.strftime("%d%m%Y"))
           #days_ago= days_ago(@date)
-
+        
         #userbox
           %ul#usernav
             - if user_signed_in?
@@ -57,6 +57,7 @@
             %li.first= link_to "Tuotteet", products_path
             %li= link_to "Reseptit", recipes_path
             %li= link_to "Suosikit", favorites_path
+            %li= link_to "Lisää liikkuminen", new_exercise_entry_path
             %li= link_to "Lisää mittaus", new_tracker_entry_path, :remote => true
             %li= link_to "Syöty", eaten_path
             %li.last= link_to "Mittaukset", tracker_entries_path

@@ -4,9 +4,9 @@
 
   .field
     = f.label "Kuinka paljon?"
-    = f.text_field :quantity, :autocomplete => "off"
+    = f.text_field :value, :autocomplete => "off"
 
-    = f.select :unit_proxy, @consumable.to_units
+    = f.collection_select :unit, to_units(@consumable), :id, :abbreviate
     
   - unless request.xhr?
     = f.submit "Lisää"

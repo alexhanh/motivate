@@ -1,60 +1,39 @@
 = form_for @product do |f|
-  /= f.error_messages
-  = error_messages_for(@product, @product.serving_sizes.first, @product.serving_sizes.first.nutrition_data)
-  / -if @product.errors.any?
-  /   #errorExplanation
-  /     %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
-  /     %ul
-  /       - @product.errors.full_messages.each do |msg|
-  /         %li= msg
-  / -if !@serving_size.nil? && @serving_size.errors.any?
-  /   #errorExplanation
-  /     %h2= "#{pluralize(@serving_size.errors.count, "error")} prohibited this product from being saved:"
-  /     %ul
-  /       - @serving_size.errors.full_messages.each do |msg|
-  /         %li= msg
-  / -if !@product.serving_sizes.first.nutrition_data.nil? && @product.serving_sizes.first.nutrition_data.errors.any?
-  /   #errorExplanation
-  /     %h2= "#{pluralize(@product.serving_sizes.first.nutrition_data.errors.count, "error")} prohibited this product from being saved:"
-  /     %ul
-  /       - @product.serving_sizes.first.nutrition_data.errors.full_messages.each do |msg|
-  /         %li= msg
+  = f.error_messages
   
-
-  .field
-    = f.label :name, "Nimi"
-    = f.text_field :name
+  = f.label :name, "Nimi"
+  = f.text_field :name
   
-  -if @product.new?
+  -if @product.new_record?
     %fieldset
       %legend Ravintoarvot
-      = f.fields_for :serving_sizes do |ss|
+      = f.fields_for :food_units do |fu|
         /= ss.error_messages
-        = ss.label :quantity, "Määrä"
-        = ss.text_field :quantity
+        = fu.label :value, "Määrä"
+        = fu.text_field :value, :autocomplete => "off"
         
-        = ss.collection_select :unit, Units::Common, :to_s, :unit_name
-        = ss.text_field :custom_unit
-
+        = fu.collection_select :unit, all_food_units, :id, :abbreviate
+        = fu.text_field :unit, :id => "custom_unit", :autocomplete => "off"
         %hr
 
-        = ss.fields_for :nutrition_data do |nd|
-          .field
-            = nd.label :energy, "Energiaa"
-            = nd.text_field :energy
-            kcal
-          .field
-            = nd.label :protein, "Proteiinia"
-            = nd.text_field :protein
-            g
-          .field
-            = nd.label :carbs, "Hiilihydraatteja"
-            = nd.text_field :carbs
-            g
-          .field
-            = nd.label :fat, "Rasvaa"
-            = nd.text_field :fat
-            g
-      
-  .actions
-    = f.submit 'Lisää'
+        .field
+          = fu.label :energy, "Energiaa"
+          = fu.text_field :energy, :autocomplete => "off"
+          kcal
+
+        .field        
+          = fu.label :protein, "Proteiinia"
+          = fu.text_field :protein, :autocomplete => "off"
+          g
+
+        .field        
+          = fu.label :carbs, "Hiilihydraatteja"
+          = fu.text_field :carbs, :autocomplete => "off"
+          g
+
+        .field
+          = fu.label :fat, "Rasvaa"
+          = fu.text_field :fat, :autocomplete => "off"
+          g
+          
+  = f.submit 'Lisää'

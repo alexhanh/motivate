@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     # todo: take current locale and user time zone into consideration
     # todo: set time.now if not parseable
     # todo: set time.now if date passed is in the future
-    if params[:date]
+    if params[:date] # todo: use a cookie instead like here http://railscasts.com/episodes/224-controllers-in-rails-3
       @date = Time.strptime(params[:date], "%d%m%Y")
       @date = Time.now if @date > Time.now
       session[:date] = params[:date]

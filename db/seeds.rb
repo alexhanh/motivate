@@ -10,6 +10,12 @@
 # Trackers #
 ############
 
-Tracker.create({ :private => false, :type => "weight" })
-Tracker.create({ :private => false, :type => "height" })
-Tracker.create({ :private => false, :type => "custom", :custom_name => "body_fat", :custom_unit => "%" })
+User.create!(:email => "alexander.hanhikoski@gmail.com", :username => "alexhanh", :password => "salanopa", :password_confirmation => "salanopa")
+
+Tracker.create!(:private => false, :name => "weight")
+Tracker.create!(:private => false, :name => "height")
+Tracker.create!(:private => false, :name => "body_fat", :custom_unit => "%")
+
+Exercise.create!(:name => "Juoksu", :met => 10.0)
+Exercise.create!(:name => "Uinti", :met => 8.0)
+Exercise.create!(:name => "Istuminen", :met => 1.0)

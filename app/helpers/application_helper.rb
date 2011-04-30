@@ -1,20 +1,5 @@
 # coding: utf-8
-module ApplicationHelper
-  def unit_select_list(consumable, f)
-    has_weight = false
-    has_volume = false
-    consumable.serving_sizes.each do |s|
-      has_weight = true if s.weight?
-      has_volume = true if s.volume?
-    end
-    
-    units = []
-    units = units + Units::CommonVolume unless has_volume
-    units = units + Units::CommonWeight unless has_weight
-
-    f.collection_select :unit, units, :to_s, :unit_name
-  end
-  
+module ApplicationHelper  
   def link_to_eat(consumable)    
     link_to "Syö", send("new_#{consumable.class.name.downcase}_food_entry_path".to_sym, consumable), :remote => true
   end
@@ -38,35 +23,6 @@ module ApplicationHelper
     else
       s += o.unit.unit_name
     end
-    return s
-  end
-  
-  def default_unit(o)
-    data = o.compute_data
-    scale = 1
-    unit_name = o.unit_name
-    if o.unit.weight?
-      scale = 100
-      unit_name = 'g'
-      data = data.scale(100.0)
-    elsif o.unit.volume?
-      scale = 100
-      unit_name = 'ml'
-      
-      data = data.scale(0.1)
-    else
-    end
-    
-    parent = ""
-    parent = " (#{o.parent_quantity} #{o.display_parent_unit})" unless o.root?
-    
-    s = "<tr>" +
-        "<td>#{scale} #{unit_name}#{parent}</td>" +
-        "<td>#{quantity_string(data.energy)}</td>" +
-        "<td>#{quantity_string(data.carbs)}</td>" +
-        "<td>#{quantity_string(data.protein)}</td>" +
-        "<td>#{quantity_string(data.fat)}</td>" +
-        "</tr>"
     return s
   end
   

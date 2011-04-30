@@ -1,0 +1,28 @@
+= form_for [@product, @food_unit] do |f|
+  = f.error_messages
+  = error_messages_for @product
+
+  = f.label "Uusi yksikkö"
+
+  = f.collection_select :unit, unit_select_list(@product), :id, :abbreviate
+  = f.text_field :unit, :autocomplete => "off"
+
+  .field
+    = f.label :energy, "Energiaa"
+    = f.text_field :energy, :autocomplete => "off"
+    kcal
+
+  .field        
+    = f.label :protein, "Proteiinia"
+    = f.text_field :protein, :autocomplete => "off"
+    g
+
+  .field        
+    = f.label :carbs, "Hiilihydraatteja"
+    = f.text_field :carbs, :autocomplete => "off"
+    g
+
+  .field
+    = f.label :fat, "Rasvaa"
+    = f.text_field :fat, :autocomplete => "off"
+    g

@@ -6,8 +6,8 @@
 - unless @product.user.nil?
   %p= "Käyttäjän " + @product.user.username + " lisäämä"
 
-%p= "Syöty #{@product.eaten_count.to_s} kertaa."
-%p= @product.favorites_count.to_s + " ihmisellä on tämä suosikeissaan."
+/p= "Syöty #{@product.food_entries.count} kertaa."
+/p= "{@product.favorites.count} ihmisellä on tämä suosikeissaan."
 
 
 /= render :partial => "shared/serving_size", :collection => @product.serving_sizes
@@ -28,10 +28,10 @@
     %th Hiilihydraattia (g)
     %th Proteiinia (g)
     %th Rasvaa (g)
-  - @product.serving_sizes.each do |ss|
-    != default_unit(ss)
+  - @product.food_units.each do |fu|
+    /!= default_unit(ss)
 %br
-= link_to 'Lisää annoskoko', new_product_serving_size_path(@product)
+= link_to 'Lisää yksikkö', new_product_food_unit_path(@product)
 %br
 
 = link_to 'Muokkaa', edit_product_path(@product)
