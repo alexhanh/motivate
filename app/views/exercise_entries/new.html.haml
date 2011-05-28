@@ -1,17 +1,31 @@
 = form_for @entry do |f|
   = f.error_messages
   
-  .field
-    = f.label :energy
-    = f.text_field :energy
-    
-  .field
-    = f.number_field :hours, :min => 0, :max => 60
-    \:
-    = f.number_field :minutes, :min => 0, :max => 60
-    \:
-    = f.number_field :seconds, :min => 0, :max => 60
+  = f.collection_select :exercise_id, Exercise.all, :id, :name, :prompt => "Valitse laji"
+  %br
+  %br
   
-  = f.collection_select :exercise_id, Exercise.all, :id, :name, :promp => true
+  Matka  
+  .field
+    = f.text_field :distance_value
+    / = f.hidden_field :distance_unit
+    / = @entry.distance.unit.abbreviate
+    = f.collection_select :distance_unit, [Units.km, Units.mi], :id, :abbreviate
   
-  = f.submit
+  Ajallinen pituus h:m:s (valinnainen)
+  .field
+    = f.text_field :hours
+    \:
+    = f.text_field :minutes
+    \:
+    = f.text_field :seconds
+  
+  Energiaa (valinnainen)
+  .field
+    = f.text_field :energy_value
+    / = f.hidden_field :energy_unit
+    / = @entry.energy.unit.abbreviate
+    = f.collection_select :energy_unit, [Units.kcal, Units.kj], :id, :abbreviate
+  
+  %br
+  = f.submit "Lisää"

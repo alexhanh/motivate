@@ -8,7 +8,6 @@ module Support
 
         has_many :food_units, :as => :consumable, :dependent => :destroy
         has_many :food_entries, :as => :consumable
-        has_many :favorites, :as => :favorable, :dependent => :destroy
         
         # http://api.rubyonrails.org/classes/ActiveRecord/NestedAttributes/ClassMethods.html
         accepts_nested_attributes_for :food_units, :allow_destroy => true
@@ -23,6 +22,15 @@ module Support
           return fu if fu.quantity.unit.loose_match?(unit)
         end
         nil
+      end
+      
+      # Computes Food::Data for a given quantity ("100g") or
+      # returns nil if no compatible unit conversion can be done.
+      def compute_data(quantity)
+        food_unit = find_food_unit(quantity.unit)
+        return nil if food_unit.nil?
+        
+        food_unit.food_data.scale(quantity.convert(food_unit.quantity.unit).value/food_unit.value)
       end
     end
 

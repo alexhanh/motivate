@@ -68,26 +68,28 @@ class Unit
   WEIGHT_TYPE = 1
   VOLUME_TYPE = 2
   LENGTH_TYPE = 3
+  ENERGY_TYPE = 4
   
-  TYPES = [CUSTOM_TYPE, WEIGHT_TYPE, VOLUME_TYPE, LENGTH_TYPE]
+  TYPES = [CUSTOM_TYPE, WEIGHT_TYPE, VOLUME_TYPE, LENGTH_TYPE, ENERGY_TYPE]
   
-  # Cache stuff for optimization
-  @@NAME_MAP = {}
-  self.constants.each do |c|
-    cs = c.to_s
-    @@NAME_MAP[const_get(c)] = cs.underscore unless cs =~ /TYPE/
-  end
-  
-  attr_reader :scale, :type, :id, :custom_name
+  attr_reader :scale, :type, :id, :custom_name, :yaml
   
   # Creates a new unit. First parameter is either the unique unit id or
   # a non-numeric string for a custom unit. Yaml is used to lookup the 
   # translation for non-custom units. Scale tells how this unit
   # relates to the base unit of this unit type.
-  def initialize(id, yaml=nil, scale=1.0)
+  def initialize(id, yaml=nil, scale=1.0, skip_search=false)
     return if id.nil?
     if (id.is_a?(Numeric) || id.is_i?)
       @id = id.to_i
+      
+      u = Units.find(id) unless skip_search
+      if u
+        @type = u.type
+        @yaml = u.yaml
+        @scale = u.scale
+        return
+      end
     else
       @id = CUSTOM
       @custom_name = id
@@ -146,5 +148,6 @@ class Unit
     return VOLUME_TYPE if @id > 200 && @id < 300
     return WEIGHT_TYPE if @id > 300 && @id < 400
     return LENGTH_TYPE if @id > 400 && @id < 500
+    return ENERGY_TYPE if @id > 500 && @id < 600
   end
 end

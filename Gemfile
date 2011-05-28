@@ -24,6 +24,7 @@ gem "compass"
 gem 'resque'
 
 # Uncategorized
+gem 'httparty'
 
 group :production do 
 #  gem "heroku", "1.10.5" 
@@ -37,7 +38,7 @@ group :development do
 end 
 group :test do 
 #  gem "simplecov", "0.3.6" 
-#  gem "rspec", '>= 2.0.0'
+  gem "rspec"
 #  gem "autotest" 
 #  gem "webrat"
 #  gem 'factory_girl_rails'
@@ -52,10 +53,10 @@ group :test do
 end 
 group :development, :test do 
 #  gem "mocha" 
-#  gem "rspec-rails", '>= 2.0.0'
+  gem "rspec-rails"
 #  gem 'cucumber-rails', '0.3.2' 
 end 
 group :console do 
-#  gem "wirble" 
-#  gem "hirb" 
+  # gem "wirble" 
+  # gem "hirb" 
 end 

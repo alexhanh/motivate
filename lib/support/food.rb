@@ -16,7 +16,7 @@ module Food
     end
   
     def scale(f)
-      NutritionData.new(
+      Food::Data.new(
         f*energy,
         f*protein,
         f*carbs,

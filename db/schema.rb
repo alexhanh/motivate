@@ -10,13 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110420183258) do
+ActiveRecord::Schema.define(:version => 20110527124021) do
+
+  create_table "achievements", :force => true do |t|
+    t.integer "user_id"
+    t.string  "token"
+    t.integer "source_id"
+    t.string  "source_type"
+  end
 
   create_table "exercise_entries", :force => true do |t|
     t.integer  "user_id"
     t.integer  "exercise_id"
-    t.float    "energy",       :null => false
-    t.datetime "exercised_at", :null => false
+    t.float    "energy_value",   :null => false
+    t.string   "energy_unit",    :null => false
+    t.datetime "exercised_at",   :null => false
+    t.float    "distance_value"
+    t.string   "distance_unit"
     t.integer  "hours"
     t.integer  "minutes"
     t.integer  "seconds"
@@ -40,6 +50,11 @@ ActiveRecord::Schema.define(:version => 20110420183258) do
     t.float    "value"
     t.string   "unit",            :limit => 50
     t.datetime "eaten_at",                      :null => false
+    t.float    "energy_value"
+    t.string   "energy_unit"
+    t.float    "protein"
+    t.float    "carbs"
+    t.float    "fat"
   end
 
   add_index "food_entries", ["eaten_at"], :name => "index_food_entries_on_eaten_at"
@@ -81,13 +96,12 @@ ActiveRecord::Schema.define(:version => 20110420183258) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
+    t.string   "email",                                   :default => "",    :null => false
+    t.string   "encrypted_password",       :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count",                           :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -95,6 +109,13 @@ ActiveRecord::Schema.define(:version => 20110420183258) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"
+    t.date     "birthday"
+    t.boolean  "gender"
+    t.float    "weight_change_rate_value",                :default => 0.0
+    t.string   "weight_change_rate_unit",                 :default => "102"
+    t.string   "weight_unit_unit",                        :default => "102"
+    t.string   "energy_unit_unit",                        :default => "502"
+    t.string   "length_unit_unit",                        :default => "303"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

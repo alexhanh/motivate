@@ -8,6 +8,11 @@ class CreateFoodEntries < ActiveRecord::Migration
       t.string :unit, :limit => 50
       
       t.timestamp :eaten_at, :null => false
+      
+      t.float :energy
+      t.float :protein
+      t.float :carbs
+      t.float :fat
     end
     
     add_index :food_entries, :eaten_at

@@ -1,0 +1,16 @@
+= "Sinun tämän hetkinen tavoitteesi on #{wordify_weight_change_rate(user_unit(current_user.weight_change_rate))}."
+
+%br
+%br
+
+= form_for current_user, :url => update_goals_path, :method => :put do |f|
+  %p!= 'Aseta uusi tavoite.. Haluan ' + select_tag(:weight_goal, options_for_select({ "Laihduttaa" => "lose", "Säilyttää nykyisen painoni" => "keep", "Lisätä painoa" => "gain" }))
+  
+  #weight_change_rate
+    = hidden_field_tag 'goal'
+    = text_field_tag 'weight'
+    = current_user.weight_unit.abbreviate
+    = text_field_tag 'weeks'
+    viikossa
+  
+  = f.submit "Päivitä"

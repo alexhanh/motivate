@@ -13,6 +13,8 @@ class FavoritesController < ApplicationController
     @favorite.favorable = @favorable
     @favorite.user = current_user
     if @favorite.save
+      Jobs::Consumables.on_favorite(@favorable.id, @favorable.class.to_s)
+      
       @favorable.add_favorite!(current_user)
       flash[:notice] = "Lisättiin suosikkeihin onnistuneesti!"
     else

@@ -1,23 +1,28 @@
-- if @food_entries.length > 0
+/ = "Laihdut #{FoodScience::energy_to_fat(Quantity.new(500, Units.kcal), Units.kg).scale(7)} viikossa syömällä 500 kaloria vähemmän mitä kulutat päivässä."
+/ 
+/ %br
+
+= "Kulutat #{user_unit(@bmr).to_s(:format => :long, :digits => 0)} päivässä tekemättä mitään. Olet lisäksi polttanut liikunnan kautta #{user_unit(@energy_burned).to_s(:format => :long, :digits => 0)}."
+
+%br
+%br
+
+= "Tavoite #{user_unit(@bmr + FoodScience::fat_to_energy(current_user.weight_change_rate / 7))}"
+
+- if @food_entries.entries_count.to_i > 0
   .overall
     %h4  Yhteenveto päivästä
-    = "Energiaa " + @stats.energy.round(1).to_s + " kcal"
+    = "Energiaa syöty #{@stats.energy.round.to_s} kcal"
+    
+    .net{:style => "margin-top: 1em;"}
+      != "<b>Nettotilanne</b>: #{@stats.energy.round.to_s} kcal (syöty) - #{@bmr.to_s(:digits => 0)} (ylläpito) - #{@energy_burned.to_s(:digits => 0)} (liikunta) = <b>#{(@stats.energy - @bmr.value - @energy_burned.value).round} kcal</b>"
+    
     %br
     = "Hiilihydraattia " + @stats.carbs.round(1).to_s + " g"
     %br
     = "Proteiinia " + @stats.protein.round(1).to_s + " g"
     %br
     = "Rasvaa " + @stats.fat.round(1).to_s + " g"
-
-  %h3 Syödyt
-
-  .food_entries
-    - @food_entries.each do |f|
-      .food_entry
-        = "#{f.consumable.name} (#{quantity_unit(f)})"
-        = link_to 'Poista', f, :method => :delete
-
-  /= will_paginate @food_entries
 
   %br
 
@@ -66,9 +71,9 @@
           type: 'pie',
           name: "test",
           data: [
-            ['Hiilihydraatti', #{(@stats.carbs*4/@stats.energy*100).round(1)}],
-            ['Proteiini', #{(@stats.protein*4/@stats.energy*100).round(1)}],
-            ['Rasva', #{(@stats.fat*9/@stats.energy*100).round(1)}]
+            ['Hiilihydraatti', #{(@stats.carbs*4/@stats.energy_pcf*100).round(1)}],
+            ['Proteiini', #{(@stats.protein*4/@stats.energy_pcf*100).round(1)}],
+            ['Rasva', #{(@stats.fat*9/@stats.energy_pcf*100).round(1)}]
           ]
         }]
       });

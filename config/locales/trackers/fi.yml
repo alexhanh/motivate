@@ -1,0 +1,10 @@
+fi:
+  trackers:
+    weight:
+      name: Paino
+    height:
+      name: Pituus
+    body_fat:
+      name: Rasvaprosentti
+    steps:
+      name: Askeleita

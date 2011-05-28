@@ -28,6 +28,8 @@ class TrackerEntriesController < ApplicationController
     
     if !@entry.save
       render "change_tracker.js.erb"
+    else
+      Jobs::TrackerEntries.on_create(@entry.id)
     end
   end
   

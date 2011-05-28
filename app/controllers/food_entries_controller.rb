@@ -20,9 +20,21 @@ class FoodEntriesController < ApplicationController
     # todo: fix the hard coded time zone offset, ie. 3.hours.. Use time.zone
     # http://stackoverflow.com/questions/942747/set-current-time-zone-in-rails
     
-    @food_entries = current_user.food_entries.on_date(@date + 3.hours).all#.paginate(:per_page => 5, :page => params[:page])
+    # @food_entries = current_user.food_entries.on_date(@date + 3.hours).all#.paginate(:per_page => 5, :page => params[:page])
+    # @stats = Food::Stats.new
+    # @food_entries.each { |food_entry| @stats.add(food_entry) }
+    
+    # TODO: might be able to replace the above computation using SUM(foodentries.energy), SUM()....
+    # See mockup controller for more details
+
+    @food_entries = current_user.food_entries.on_date(@date + 3.hours).select("SUM(energy_value) AS energy, SUM(protein) AS protein, SUM(fat) AS fat, SUM(carbs) AS carbs, COUNT(*) AS entries_count")[0]
     @stats = Food::Stats.new
-    @food_entries.each { |food_entry| @stats.add(food_entry) }
+    @stats.add(@food_entries) if @food_entries.entries_count.to_i > 0
+
+    @exercise_entries = current_user.exercise_entries.on_date(@date + 3.hours).select("SUM(energy_value) AS energy_total")[0]
+    @energy_burned = Quantity.new(@exercise_entries.energy_total.to_f, Units.kcal)
+    
+    @bmr = current_user.bmr(Time.now)
     
     render :locker_room
   end

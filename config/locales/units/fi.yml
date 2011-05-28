@@ -9,6 +9,14 @@ fi:
       abbrevation: g
       one: gramma
       other: grammaa
+    pound:
+      abbrevation: lb
+      one: pauna
+      other: paunaa
+    ounce:
+      abbrevation: oz
+      one: unssi
+      other: unssia
     liter:
       abbrevation: l
       one: litra
@@ -36,7 +44,23 @@ fi:
       abbrevation: m
       one: metri
       other: metriä
+    kilometer:
+      abbrevation: km
+      one: kilometri
+      other: kilometriä      
     centimeter:
       abbrevation: cm
       one: senttimetri
       other: senttimetriä
+    mile:
+      abbrevation: mi
+      one: maili
+      other: mailia
+    kilocalorie:
+      abbrevation: kcal
+      one: kalori
+      other: kaloria
+    kilojoule:
+      abbrevation: kJ
+      one: kilojoule
+      other: kilojoulea

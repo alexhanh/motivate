@@ -3,6 +3,7 @@ class ExerciseEntriesController < ApplicationController
   
   def new
     @entry = ExerciseEntry.new
+    @entry.userfy(current_user)
   end
   
   def create
@@ -11,6 +12,7 @@ class ExerciseEntriesController < ApplicationController
     @entry.exercised_at = @date
     
     if @entry.save
+      Jobs::ExerciseEntries.on_create(@entry.id)
       flash[:notice] = "Entry succesfully saved."
       redirect_to :root
       return
@@ -20,6 +22,8 @@ class ExerciseEntriesController < ApplicationController
   end
   
   def edit
+    @entry = ExerciseEntry.find(params[:id])
+    @entry.userfy(current_user)
   end
   
   def update

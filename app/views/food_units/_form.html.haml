@@ -3,7 +3,10 @@
   = error_messages_for @product
 
   = f.label "Uusi yksikkö"
-
+  
+  = f.label :value, "Määrä"
+  = f.text_field :value, :autocomplete => "off"
+  
   = f.collection_select :unit, unit_select_list(@product), :id, :abbreviate
   = f.text_field :unit, :autocomplete => "off"
 
@@ -26,3 +29,5 @@
     = f.label :fat, "Rasvaa"
     = f.text_field :fat, :autocomplete => "off"
     g
+    
+  = f.submit "Lähetä"

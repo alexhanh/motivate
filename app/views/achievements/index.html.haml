@@ -1,0 +1,10 @@
+- for achievement in @achievements
+  %h3= achievement.name
+  = achievement.description
+
+%br
+%br
+
+%p Ansaitut papukaijamerkit
+- for achievement in current_user.achievements
+  %h3= achievement.name

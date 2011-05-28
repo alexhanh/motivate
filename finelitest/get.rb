@@ -1,6 +1,7 @@
 # include Rails environment
 require File.expand_path("../../config/environment", __FILE__)
 
+
 #doc = Nokogiri::HTML(open('mitat.html'))
 
 def assign_serving_sizes(product, unit_page)
@@ -8,11 +9,11 @@ def assign_serving_sizes(product, unit_page)
 
   volume_added = false
   while !s.nil?
-    serving_size = ServingSize.new
-    serving_size.parent_unit_proxy = (Units::GRAM).to_s
+    food_unit = FoodUnit.new
+    # food_unit.parent_unit_proxy = (Units::GRAM).to_s
 
     # always grams, which is always product.serving_sizes[0]
-    serving_size.parent_quantity = s.children[1].text.to_f
+    # serving_size.parent_quantity = s.children[1].text.to_f
   
     name = s.children[0].text
     if name.casecmp("desilitra") == 0
@@ -42,7 +43,7 @@ end
 
 #assumes a nokogiri doc!
 #todo: handle fields with <0.1
-def nutrition_data(food_page)
+def food_data(food_page)
   td = food_page.css("a:contains('energia, laskennallinen')").first.parent
   energy = td.next_sibling.text
   if energy =~ /\((.+)\)/
@@ -58,7 +59,7 @@ def nutrition_data(food_page)
   tr = tr.next_sibling
   protein = tr.children[1].text
   
-  data = NutritionData.new
+  data = FoodUnit.new
   data.energy = energy.to_f
   data.carbs = carbs.to_f
   data.protein = protein.to_f
@@ -90,17 +91,18 @@ food_ids.each do |food_id|
   food_page = Nokogiri::HTML(open(link_to_food_page(food_id)))
   unit_page = Nokogiri::HTML(open(link_to_food_unit(food_id)))
 
-  @product = Product.new
+  @product = Product.new(:user => User.first)
   @product.name = food_name(food_page)
-  grams_ss = ServingSize.new
-  grams_ss.unit = Units::GRAM
-  grams_ss.quantity = 100
-  grams_ss.nutrition_data = nutrition_data(food_page)
+  grams = FoodUnit.new
   
-  @product.serving_sizes << grams_ss
+  grams.quantity = Quantity.new(100, Units.g)
+  
+  grams.food_data = food_data(food_page)
+  
+  @product.food_units << grams
   @product.save!
   
-  assign_serving_sizes(@product, unit_page)
+  # assign_serving_sizes(@product, unit_page)
   @product.save!
   counter = counter + 1
 end

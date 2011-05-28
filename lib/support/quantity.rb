@@ -1,4 +1,6 @@
 class Quantity
+  include Comparable
+  
   attr_reader :value, :unit
   
   def unit_id
@@ -15,7 +17,7 @@ class Quantity
   end
   
   def round(precision = 0)
-    @value.round(precision)
+    precision > 0 ? @value.round(precision) : @value.round
   end
   
   def convert(to)
@@ -23,14 +25,48 @@ class Quantity
     Quantity.new(@value*@unit.convert(to), to)
   end
   
+  def scale(multiplier)
+    Quantity.new(@value*multiplier, @unit)
+  end
+  def *(multiplier)
+    scale(multiplier)
+  end
+  
+  def add(q)
+    Quantity.new(self.value + q.convert(self.unit).value, self.unit)
+  end
+  def +(q)
+    add(q)
+  end
+  
+  def substract(q)
+    Quantity.new(self.value - q.convert(self.unit).value, self.unit)
+  end
+  def -(q)
+    substract(q)
+  end
+  
+  def divide(s)
+    Quantity.new(@value/s, @unit)
+  end
+  def /(s)
+    divide(s)
+  end
+  
+  def <=>(q)
+    self.convert(q.unit).value <=> q.value
+  end
+  
   def to_s(options = {})
     format = options[:format] || :short
     digits = options[:digits] || 1
+    number_part = "#{round(digits)} "
+    
     case format
       when :short
-        "#{round(digits)} " + @unit.abbreviate(@value)
+        number_part + @unit.abbreviate(@value)
       when :long
-        "#{round(digits)} " + @unit.pluralize(@value)
+        number_part + @unit.pluralize(@value)
     end
   end
   
@@ -43,5 +79,17 @@ class Quantity
   
   def custom?
     @unit.custom?
+  end
+  
+  def weight?
+    @unit.type == Unit::WEIGHT_TYPE
+  end
+  
+  def energy?
+    @unit.type == Unit::ENERGY_TYPE
+  end
+  
+  def length?
+    @unit.type == Unit::LENGTH_TYPE
   end
 end

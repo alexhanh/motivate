@@ -1,3 +1,32 @@
+var Goals = (function($) {
+  var p = {};
+  
+  p.init = function() {
+    $("#weight_goal").change(function() {
+      if ($(this).val() == 'lose') {
+        $("#weight_change_rate").show();
+        update(0.5, 1, -1);
+      }
+      else if ($(this).val() == 'keep') {
+        $("#weight_change_rate").hide();
+        update(0.0, 0.0, 0);
+      }
+      else {
+        $("#weight_change_rate").show();
+        update(0.5, 1, 1);
+      }
+    });
+  };
+  
+  function update(weight, weeks, goal) {
+    $("#weight").val(weight);
+    $("#weeks").val(weeks);
+    $("#goal").val(goal);
+  }
+  
+  return p;
+}(jQuery));
+
 // http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 var CustomUnit = (function($) {
 	var p = {};
@@ -5,6 +34,9 @@ var CustomUnit = (function($) {
 	var fieldNameAttr = '';
 	
 	p.init = function($select, $field) {
+	  if ($select.length == 0 || $field.length == 0)
+	    return;
+	  
 		$select.append('<option value="0" id="new_unit_name_option">Uusi yksikkö</option>');
 		
 		selectNameAttr = $select.attr('name');
@@ -41,10 +73,12 @@ var CustomUnit = (function($) {
 }(jQuery));
 
 $(document).ready(function() {
-  $("#products .pagination a").live("click", function() {
-    $.getScript(this.href);
-    return false;
-  });
+  Goals.init();
+  
+  // $("#products .pagination a").live("click", function() {
+  //   $.getScript(this.href);
+  //   return false;
+  // });
   $("#products_search input").keyup(function() {
     $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, "script");
     return false;

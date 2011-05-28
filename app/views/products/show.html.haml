@@ -28,7 +28,15 @@
     %th Hiilihydraattia (g)
     %th Proteiinia (g)
     %th Rasvaa (g)
+    %th Muokkaa
   - @product.food_units.each do |fu|
+    %tr
+      %td= fu.quantity
+      %td= fu.energy
+      %td= fu.carbs
+      %td= fu.protein
+      %td= fu.fat
+      %td= link_to "Muokkaa", edit_product_food_unit_path(@product, fu)
     /!= default_unit(ss)
 %br
 = link_to 'Lisää yksikkö', new_product_food_unit_path(@product)

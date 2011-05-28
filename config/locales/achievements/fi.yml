@@ -1,0 +1,14 @@
+fi:
+  achievements:
+    measurer:
+      name: Mittailija
+      description: Lisännyt 10 mittaustulosta.      
+    marathonist:
+      name: Maratoonari
+      description: Juossut 42.195 km alle kuudessa tunnissa.
+    popular_product:
+      name: Suosittu tuote
+      description: Suosittu yli 10 kertaa.
+    highlander:
+      name: Highlander
+      description: Juossut yhteensä yli 1000 km.

@@ -48,5 +48,5 @@
   - @entries.each do |entry|
     %p
       %span.date= I18n.l(entry.logged_on, :format => :short) 
-      = " " + entry.quantity.to_s
+      = user_unit(entry.quantity)
       = link_to "Poista", tracker_entry_path(entry, :tracker_id => entry.tracker), :method => :delete

@@ -50,7 +50,7 @@ class Tracker < ActiveRecord::Base
     if private?
       self.name
     else
-      I18n.t("tracker.#{name}.name")
+      I18n.t("trackers.#{name}.name")
     end
   end
   
@@ -65,7 +65,7 @@ class Tracker < ActiveRecord::Base
   
   def units
     if custom?
-      return Unit.new(self.custom_unit)
+      return [Unit.new(self.custom_unit)]
     else
       DEFAULT_UNITS[self.name]
     end

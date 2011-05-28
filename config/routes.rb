@@ -11,6 +11,14 @@ Gr::Application.routes.draw do
     resources :ingredients
   end
   
+  match 'badges' => 'achievements#index', :as => :achievements
+  
+  match 'goals' => 'goals#update', :as => :update_goals, :via => :put
+  match 'goals' => 'goals#index', :as => :goals
+  
+  match 'settings' => 'settings#update', :as => :update_settings, :via => :put
+  match 'settings' => 'settings#index', :as => :settings
+
   match 'mockup/room' => 'mockup#room'
   
   resources :exercise_entries

@@ -25,4 +25,9 @@ class FoodUnitsController < ApplicationController
       render :action => 'new'
     end
   end
+  
+  def edit
+    @food_unit = FoodUnit.find(params[:id])
+    @product = Product.find(params[:product_id])
+  end
 end

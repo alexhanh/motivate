@@ -4,8 +4,13 @@ class CreateExercises < ActiveRecord::Migration
       t.references :user
       t.references :exercise
 
-      t.float :energy, :null => false
+      t.float :energy_value, :null => false
+      t.string :energy_unit, :null => false
+      
       t.timestamp :exercised_at, :null => false
+      
+      t.float :distance_value
+      t.string :distance_unit
       
       t.integer :hours
       t.integer :minutes
