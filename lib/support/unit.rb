@@ -133,8 +133,11 @@ class Unit
   end    
   
   def convertable_to?(to)
-    @type == to.type
-    @custom_name == to.custom_name
+    if custom?
+      @custom_name == to.custom_name
+    else
+      @type == to.type
+    end
   end
   
   def convert(to)
@@ -146,8 +149,7 @@ class Unit
     return CUSTOM_TYPE if @id == 0
     return WEIGHT_TYPE if @id > 100 && @id < 200
     return VOLUME_TYPE if @id > 200 && @id < 300
-    return WEIGHT_TYPE if @id > 300 && @id < 400
-    return LENGTH_TYPE if @id > 400 && @id < 500
-    return ENERGY_TYPE if @id > 500 && @id < 600
+    return LENGTH_TYPE if @id > 300 && @id < 400
+    return ENERGY_TYPE if @id > 400 && @id < 500
   end
 end

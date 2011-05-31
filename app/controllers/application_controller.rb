@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # todo: probably should remove me after done hacking locales
   # see better ways to set this here http://guides.rubyonrails.org/i18n.html
   before_filter :set_locale
-  before_filter :set_date
+  # before_filter :set_date
   
   # after_filter :ensure_cancan_used
   # def ensure_cancan_used
@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
   def set_locale
    # if params[:locale] is nil then I18n.default_locale will be used
    I18n.locale = params[:locale]
+   Time.zone = current_user.time_zone || 'UTC' if current_user
   end
   
   def set_date

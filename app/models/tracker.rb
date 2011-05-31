@@ -1,7 +1,7 @@
 class Tracker < ActiveRecord::Base  
   DEFAULT_UNITS = {
     "weight" => [Units.kg],
-    "height" => [Units.cm, Units.m]
+    "height" => [Units.cm]
   }
   
   #key :name, String

@@ -4,6 +4,4 @@ fi:
       user:
         birthday: Syntymäpäivä
         gender: Sukupuoli
-        weight_unit_unit: Painoyksikkö
-        energy_unit_unit: Energiayksikkö
-        length_unit_unit: Matkayksikkö
+        time_zone: Aikavyöhyke

@@ -17,11 +17,11 @@ module Jobs
     def self.on_create(exercise_entry_id)
       entry = ExerciseEntry.includes(:user, :exercise).find(exercise_entry_id)
       
-      if entry.exercise.running? && entry.distance >= Quantity.new(42.195, Units.km) && entry.duration < 60*60*6
+      if entry.exercise.running? && entry.distance_q >= Quantity.new(42.195, Units.km) && entry.duration < 60*60*6
         award(entry.user, :token => 'marathonist', :unique => true)
       end
 
-      if entry.exercise.running? && entry.user.exercise_entries.sum(:distance_value) > 1000
+      if entry.exercise.running? && entry.user.exercise_entries.sum(:distance) > 1000
         award(entry.user, :token => 'highlander', :unique => true)
       end
     end

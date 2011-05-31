@@ -27,11 +27,13 @@ class FoodEntriesController < ApplicationController
     # TODO: might be able to replace the above computation using SUM(foodentries.energy), SUM()....
     # See mockup controller for more details
 
-    @food_entries = current_user.food_entries.on_date(@date + 3.hours).select("SUM(energy_value) AS energy, SUM(protein) AS protein, SUM(fat) AS fat, SUM(carbs) AS carbs, COUNT(*) AS entries_count")[0]
+    @date = Date.current
+
+    @food_entries = current_user.food_entries.on_date(@date + 3.hours).select("SUM(energy) AS energy, SUM(protein) AS protein, SUM(fat) AS fat, SUM(carbs) AS carbs, COUNT(*) AS entries_count")[0]
     @stats = Food::Stats.new
     @stats.add(@food_entries) if @food_entries.entries_count.to_i > 0
 
-    @exercise_entries = current_user.exercise_entries.on_date(@date + 3.hours).select("SUM(energy_value) AS energy_total")[0]
+    @exercise_entries = current_user.exercise_entries.on_date(@date + 3.hours).select("SUM(energy) AS energy_total")[0]
     @energy_burned = Quantity.new(@exercise_entries.energy_total.to_f, Units.kcal)
     
     @bmr = current_user.bmr(Time.now)
@@ -62,7 +64,6 @@ class FoodEntriesController < ApplicationController
     @food_entry.consumable = @consumable
 
     @food_entry.user = current_user
-    @food_entry.eaten_at = @date
 
     if @food_entry.save
       # @consumable.add_eaten!

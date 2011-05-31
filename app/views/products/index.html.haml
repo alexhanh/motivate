@@ -1,3 +1,10 @@
 = link_to "Lisää tuote", new_product_path
 
+%br
+%br
+
+= form_tag products_path, :method => :get do
+  = text_field_tag :search, params[:search], :autocomplete => "off"
+  = submit_tag "Hae", :name => nil
+
 = render :partial => "products"

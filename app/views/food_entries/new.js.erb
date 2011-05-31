@@ -8,7 +8,7 @@ $("#new_food_entry_dialog").html("<%= escape_javascript(render("form")) %>").dia
 	modal:true,
 	show:'fade',
 	hide:'fade',
-	title:'<%= escape_javascript(@consumable.name) %>',
+	title:'Lisää syöminen (<%= escape_javascript(@consumable.name) %>)',
 	height:'auto',
 	width:'auto',
 	resizable:false,

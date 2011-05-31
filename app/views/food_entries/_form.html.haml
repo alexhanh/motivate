@@ -7,6 +7,9 @@
     = f.text_field :value, :autocomplete => "off"
 
     = f.collection_select :unit, to_units(@consumable), :id, :abbreviate
+  .field
+    = f.label "Milloin?"
+    = f.date_select :eaten_at
     
   - unless request.xhr?
     = f.submit "Lisää"

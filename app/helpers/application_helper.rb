@@ -41,10 +41,4 @@ module ApplicationHelper
     return "Eilen" if distance_in_days <= 1
     return I18n.t('datetime.distance_in_words.x_days', :count => distance_in_days.ceil) + " sitten"
   end
-  
-  def user_unit(quantity)
-    return quantity.convert(current_user.weight_unit) if quantity.weight?
-    return quantity.convert(current_user.energy_unit) if quantity.energy?
-    quantity
-  end
 end

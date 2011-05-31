@@ -2,6 +2,9 @@ var Goals = (function($) {
   var p = {};
   
   p.init = function() {
+    // Lose is selected by default, thus -1.
+    update(0.5, 1, -1); 
+    
     $("#weight_goal").change(function() {
       if ($(this).val() == 'lose') {
         $("#weight_change_rate").show();
@@ -179,7 +182,7 @@ $(document).ready(function() {
 	//////////////////
 	
 	// Default values for text fields
-	$("#search").defaultValue({
-		'value': 'Kirjoita tähän...'
-	});
+  // $("#search").defaultValue({
+  //  'value': 'Kirjoita tähän...'
+  // });
 });

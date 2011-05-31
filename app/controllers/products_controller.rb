@@ -5,9 +5,14 @@ class ProductsController < ApplicationController
   respond_to :html
   
   def index
-    #Resque.enqueue(Jobs::TestJob, "Lol")
-    #@products = Product.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
-    @products = Product.paginate(:per_page => 5, :page => params[:page])
+    # http://pivotallabs.com/users/grant/blog/articles/1566-pg-search-how-i-learned-to-stop-worrying-and-love-postgresql-full-text-search
+    # TODO: - Should use a Finnish dictionary?
+    #       - Add an index!!!
+    if params[:search].empty?
+      @products = Product.paginate(:per_page => 5, :page => params[:page])
+    else
+      @products = Product.search_by_name(params[:search]).paginate(:per_page => 5, :page => params[:page])
+    end
     respond_with(@products)
   end
 

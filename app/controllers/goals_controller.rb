@@ -13,7 +13,7 @@ class GoalsController < ApplicationController
       rate = 0
     end
     
-    current_user.weight_change_rate = Quantity.new(rate, current_user.weight_unit)
+    current_user.weight_change_rate = rate
     current_user.save
     
     redirect_to goals_path

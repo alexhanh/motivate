@@ -5,7 +5,7 @@ class FoodEntry < ActiveRecord::Base
   
   composed_of :quantity, :mapping => [%w(value value), %w(unit unit_id)]
   
-  scope :on_date, lambda { |date| where(:eaten_at => Range.new(date.beginning_of_day, date.end_of_day)) }
+  scope :on_date, lambda { |date| where(:eaten_at => date.beginning_of_day.utc..date.end_of_day) }
   
   composed_of :food_data, :class_name => "Food::Data", :mapping => [%w(energy energy), %w(protein protein), %w(carbs carbs), %w(fat fat)]
   before_save :update_data

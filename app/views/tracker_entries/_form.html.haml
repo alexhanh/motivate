@@ -1,4 +1,4 @@
-= form_for @entry, :remote => true do |f|
+= form_for @entry, :remote => (@remote || true) do |f|
   = f.error_messages
 
   = f.hidden_field :tracker_id
@@ -8,3 +8,9 @@
     = @entry.tracker.custom_unit
   - else
     = f.collection_select :unit, @entry.tracker.units, :id, :abbreviate
+  %br
+  = f.date_select :logged_on
+  
+  %br
+  - if @show_submit
+    = f.submit "Lähetä"

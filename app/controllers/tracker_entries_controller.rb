@@ -14,7 +14,9 @@ class TrackerEntriesController < ApplicationController
     end
     
     @entries = TrackerEntry.where(:user_id => current_user.id, :tracker_id => @tracker.id).all#.fields(:logged_on, :value)
-    @data = @entries.map { |e| [e.logged_on.to_time.to_i*1000, e.quantity.convert(@tracker.base_unit).value] }.inspect
+
+    # TODO: Check that the date is converted properly and Time.zone is respected
+    @data = @entries.map { |e| [e.logged_on.to_date.to_datetime.to_i*1000, e.quantity.convert(@tracker.base_unit).value] }.inspect
   end
   
   def new
@@ -24,12 +26,28 @@ class TrackerEntriesController < ApplicationController
   def create
     @entry = TrackerEntry.new(params[:tracker_entry])
     @entry.user = current_user
-    @entry.logged_on = @date
     
     if !@entry.save
       render "change_tracker.js.erb"
     else
       Jobs::TrackerEntries.on_create(@entry.id)
+    end
+  end
+  
+  # extra important to check permission with cancan
+  def edit
+    @entry = TrackerEntry.find(params[:id])
+    @show_submit = true
+    @remote = false
+  end
+
+  # extra important to check permission with cancan  
+  def update
+    @entry = TrackerEntry.find(params[:id])
+    if @entry.update_attributes(params[:tracker_entry])
+      redirect_to tracker_entries_path, :notice => "Mittaustulosta muokattu onnistuneesti!"
+    else
+      render :action => :edit
     end
   end
   

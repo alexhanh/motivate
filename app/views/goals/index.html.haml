@@ -1,4 +1,4 @@
-= "Sinun tämän hetkinen tavoitteesi on #{wordify_weight_change_rate(user_unit(current_user.weight_change_rate))}."
+= "Sinun tämän hetkinen tavoitteesi on #{wordify_weight_change_rate(current_user.weight_change_rate_q)}."
 
 %br
 %br
@@ -9,7 +9,7 @@
   #weight_change_rate
     = hidden_field_tag 'goal'
     = text_field_tag 'weight'
-    = current_user.weight_unit.abbreviate
+    kg
     = text_field_tag 'weeks'
     viikossa
   

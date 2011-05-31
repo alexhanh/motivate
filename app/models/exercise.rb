@@ -6,4 +6,8 @@ class Exercise < ActiveRecord::Base
   def running?
     self.name == "Juoksu"
   end
+  
+  def tname
+    @tname ||= I18n.t("exercises.#{self.name}")
+  end
 end

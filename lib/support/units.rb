@@ -84,11 +84,11 @@ class Units
   
   # Energy
   def self.kilojoule
-    @kilojoule ||= Unit.new(501, "kilojoule", 1.0, true)
+    @kilojoule ||= Unit.new(401, "kilojoule", 1.0, true)
   end
   
   def self.kilocalorie
-    @kilocalorie ||= Unit.new(502, "kilocalorie", 4.184, true)
+    @kilocalorie ||= Unit.new(402, "kilocalorie", 4.184, true)
   end
   
   # Add aliases

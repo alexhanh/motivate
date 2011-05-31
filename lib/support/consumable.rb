@@ -21,7 +21,6 @@ module Support
         self.food_units.each do |fu|
           return fu if fu.quantity.unit.loose_match?(unit)
         end
-        nil
       end
       
       # Computes Food::Data for a given quantity ("100g") or
@@ -29,7 +28,7 @@ module Support
       def compute_data(quantity)
         food_unit = find_food_unit(quantity.unit)
         return nil if food_unit.nil?
-        
+
         food_unit.food_data.scale(quantity.convert(food_unit.quantity.unit).value/food_unit.value)
       end
     end

@@ -9,22 +9,7 @@
     = f.label :gender, 'Nainen', :value => false
     = f.radio_button :gender, false
   .field
-    = f.label :weight_unit_unit
-    = f.label :weight_unit_unit, Units.kg.abbreviate, :value => Units.kg.id
-    = f.radio_button :weight_unit_unit, Units.kg.id
-    = f.label :weight_unit_unit, Units.lb.abbreviate, :value => Units.lb.id
-    = f.radio_button :weight_unit_unit, Units.lb.id
-  .field
-    = f.label :energy_unit_unit
-    = f.label :energy_unit_unit, Units.kcal.abbreviate, :value => Units.kcal.id
-    = f.radio_button :energy_unit_unit, Units.kcal.id
-    = f.label :energy_unit_unit, Units.kj.abbreviate, :value => Units.kj.id
-    = f.radio_button :energy_unit_unit, Units.kj.id
-  .field
-    = f.label :length_unit_unit
-    = f.label :length_unit_unit, Units.km.abbreviate, :value => Units.km.id
-    = f.radio_button :length_unit_unit, Units.km.id
-    = f.label :length_unit_unit, Units.mi.abbreviate, :value => Units.mi.id
-    = f.radio_button :length_unit_unit, Units.mi.id
+    = f.label :time_zone
+    = f.time_zone_select :time_zone
   %br
   = f.submit "Päivitä"

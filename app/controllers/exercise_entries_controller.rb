@@ -3,13 +3,11 @@ class ExerciseEntriesController < ApplicationController
   
   def new
     @entry = ExerciseEntry.new
-    @entry.userfy(current_user)
   end
   
   def create
     @entry = ExerciseEntry.new(params[:exercise_entry])
     @entry.user = current_user
-    @entry.exercised_at = @date
     
     if @entry.save
       Jobs::ExerciseEntries.on_create(@entry.id)
@@ -23,7 +21,6 @@ class ExerciseEntriesController < ApplicationController
   
   def edit
     @entry = ExerciseEntry.find(params[:id])
-    @entry.userfy(current_user)
   end
   
   def update

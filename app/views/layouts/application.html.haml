@@ -30,19 +30,7 @@
       - flash.each do |name, msg| 
         %div{ :id => "flash_#{name}" }
           %p= msg
-      #header
-        #date_nav
-          %ul
-            - unless (@date.future?)
-              %li#prev_day= link_to "<<", root_path(:date => @date.yesterday.strftime("%d%m%Y"))
-            %li
-              = form_for "", :html => {:id => 'dateform', :method => :get}, :url => root_path(:date => @date.yesterday.strftime("%d%m%Y")) do |f|
-                %input#datepicker{:value => I18n.l(@date.to_date, :format => :short)}
-                %input#date{:name => "date", :type => :hidden}
-            - unless (@date.today? || @date.future?)
-              %li#next_day= link_to ">>", root_path(:date => @date.tomorrow.strftime("%d%m%Y"))
-          #days_ago= days_ago(@date)
-        
+      #header        
         #userbox
           %ul#usernav
             - if user_signed_in?

@@ -1,3 +1,6 @@
+require './lib/support/unit'
+require './lib/support/units'
+
 class Quantity
   include Comparable
   
@@ -21,9 +24,11 @@ class Quantity
   end
   
   def convert(to)
+    to = Units.send(to) if to.is_a?(Symbol)
     raise "Incompatible conversion" unless @unit.convertable_to?(to)
     Quantity.new(@value*@unit.convert(to), to)
   end
+  alias :to :convert
   
   def scale(multiplier)
     Quantity.new(@value*multiplier, @unit)
@@ -91,5 +96,18 @@ class Quantity
   
   def length?
     @unit.type == Unit::LENGTH_TYPE
+  end
+  
+  def volume?
+    @unit.type == Unit::VOLUME_TYPE
+  end
+end
+
+# Monkey-patch Numeric for 100.kg, 0.5.dl, etc.
+class Numeric
+  Units.singleton_methods(false)[0..-3].each do |unit_sym|
+    send :define_method, unit_sym do
+      Quantity.new(self, Units.send(unit_sym))
+    end
   end
 end

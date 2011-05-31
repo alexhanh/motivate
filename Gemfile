@@ -8,6 +8,7 @@ gem "nokogiri"
 # Database/PostgreSQL
 gem 'pg'
 gem 'ancestry'
+gem 'pg_search'
 
 # Authentication
 gem "devise"
