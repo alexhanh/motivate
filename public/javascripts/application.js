@@ -33,24 +33,22 @@ var Goals = (function($) {
 // http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 var CustomUnit = (function($) {
 	var p = {};
-	var selectNameAttr = '';
-	var fieldNameAttr = '';
 	
-	p.init = function($select, $field) {
+	p.init = function($select, $field, new_unit_name_option) {
 	  if ($select.length == 0 || $field.length == 0)
 	    return;
 	  
-		$select.append('<option value="0" id="new_unit_name_option">Uusi yksikkö</option>');
+		$select.append('<option value="0" id="' + new_unit_name_option + '">Uusi yksikkö</option>');
 		
-		selectNameAttr = $select.attr('name');
-		fieldNameAttr = $field.attr('name');
+		var selectNameAttr = $select.attr('name');
+		var fieldNameAttr = $field.attr('name');
 	
 		if (isInt($field.val()) || ($field.val() == '' && $select.find("option").length > 1)) {
 			$field.val('').hide();
 			$field.removeAttr('name');
 		} 
 		else {
-			$select.find("#new_unit_name_option").attr("selected", "true");
+			$select.find("#" + new_unit_name_option).attr("selected", "true");
 			$select.removeAttr('name');
 		}
 		
@@ -69,7 +67,7 @@ var CustomUnit = (function($) {
 	};
 	
 	function isInt(s) {
-		return s.match(/^\d+/);
+		return s.match(/^\d+$/);
 	}
 	
 	return p;
@@ -95,9 +93,11 @@ $(document).ready(function() {
 	});
 	
 	
-	var $units_select = $('#new_product select[name*="[unit]"], #new_recipe select[name*="[unit]"], #new_food_unit select[name*="[unit]"], .edit_food_unit select[name*="[unit]"], .edit_recipe select[name*="[unit]"]');
-	var $new_unit_name = $('input[name*="[unit]"]');
-	CustomUnit.init($units_select, $new_unit_name);
+  var $units_select = $('#new_product select[name*="[unit]"], #new_recipe select[name*="[unit]"], #new_food_unit select[name*="[unit]"], .edit_food_unit select[name*="[unit]"], .edit_recipe select[name*="[unit]"]');
+  var $new_unit_name = $('input[name*="[unit]"]');
+  CustomUnit.init($units_select, $new_unit_name, "new_unit_name_option");
+  
+  CustomUnit.init($('#relation select[name*="runit"]'), $('input[name*="runit"]'), "rnew_unit_name_option");
 	
 	// Tracker entry add, tracker select list change
 	var $tracker_select = $('#tracker_select_list');

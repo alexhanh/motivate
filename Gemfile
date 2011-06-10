@@ -20,12 +20,16 @@ gem 'cancan'
 gem "haml"
 gem "will_paginate", "3.0.pre2"
 gem "compass"
+gem 'rails3-jquery-autocomplete'
 
 # Queue
 gem 'resque'
 
 # Uncategorized
 gem 'httparty'
+
+# Have to explicitly set until 0.9.x is stable enough to use
+# gem 'rake', '0.8.7'
 
 group :production do 
 #  gem "heroku", "1.10.5" 

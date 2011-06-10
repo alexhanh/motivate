@@ -1,0 +1,30 @@
+= form_for @exercise_entry do |f|
+  = f.error_messages
+  
+  = f.collection_select :exercise_id, Exercise.all, :id, :lname, :prompt => "Valitse laji"
+  %br
+  / Respects Time.zone
+  = f.date_select :exercised_at
+
+  %br
+  
+  Matka (valinnainen)
+  .field
+    = f.text_field :distance
+    km
+  
+  Ajallinen pituus h:m:s
+  .field
+    = f.text_field :hours
+    \:
+    = f.text_field :minutes
+    \:
+    = f.text_field :seconds
+  
+  Energiaa (valinnainen, arvioidaan jos jätetään tyhjäksi)
+  .field
+    = f.text_field :energy
+    kcal
+  
+  %br
+  = f.submit "Lisää"

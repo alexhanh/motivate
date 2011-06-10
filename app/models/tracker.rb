@@ -48,19 +48,17 @@ class Tracker < ActiveRecord::Base
   
   def to_s
     if private?
-      self.name
+      tracker_name = self.name
     else
-      I18n.t("trackers.#{name}.name")
+      tracker_name = I18n.t("trackers.#{name}.name")
     end
+    
+    tracker_name + " (#{base_unit.abbreviate})"
   end
   
   # Returns the tracker's base unit which is used if there are several default units
   def base_unit
-    if custom?
-      return Unit.new(self.custom_unit)
-    else
-      DEFAULT_UNITS[self.name][0]
-    end
+    units[0]
   end
   
   def units

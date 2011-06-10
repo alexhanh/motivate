@@ -1,39 +1,44 @@
 = form_for @product do |f|
   = f.error_messages
   
-  = f.label :name, "Nimi"
+  = f.label :name
   = f.text_field :name
+  %br
+  = f.label :brand
+  / = f.text_field :brand
+  = f.autocomplete_field :brand, autocomplete_product_brand_products_path
   
   -if @product.new_record?
     %fieldset
-      %legend Ravintoarvot
-      = f.fields_for :food_units do |fu|
-        /= ss.error_messages
-        = fu.label :value, "Määrä"
-        = fu.text_field :value, :autocomplete => "off"
+      %legend 
+        Ravintoarvot
+        = f.fields_for :food_units do |fu|
+          / = fu.error_messages
+
+          = fu.label :value, "Määrä"
+          = fu.text_field :value, :autocomplete => "off"
         
-        = fu.collection_select :unit, all_food_units, :id, :abbreviate
-        = fu.text_field :unit, :id => "custom_unit", :autocomplete => "off"
-        %hr
+          = fu.collection_select :unit, all_food_units, :id, :abbreviate
+          = fu.text_field :unit, :id => "custom_unit", :autocomplete => "off"
 
-        .field
-          = fu.label :energy, "Energiaa"
-          = fu.text_field :energy, :autocomplete => "off"
-          kcal
+          .field
+            = fu.label :energy, "Energiaa"
+            = fu.text_field :energy, :autocomplete => "off"
+            kcal
 
-        .field        
-          = fu.label :protein, "Proteiinia"
-          = fu.text_field :protein, :autocomplete => "off"
-          g
+          .field        
+            = fu.label :protein, "Proteiinia"
+            = fu.text_field :protein, :autocomplete => "off"
+            g
 
-        .field        
-          = fu.label :carbs, "Hiilihydraatteja"
-          = fu.text_field :carbs, :autocomplete => "off"
-          g
+          .field        
+            = fu.label :carbs, "Hiilihydraatteja"
+            = fu.text_field :carbs, :autocomplete => "off"
+            g
 
-        .field
-          = fu.label :fat, "Rasvaa"
-          = fu.text_field :fat, :autocomplete => "off"
-          g
+          .field
+            = fu.label :fat, "Rasvaa"
+            = fu.text_field :fat, :autocomplete => "off"
+            g
           
   = f.submit 'Lisää'

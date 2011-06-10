@@ -1,0 +1,14 @@
+= link_to "Lisää liikunta", new_exercise_entry_path
+
+%br
+%br
+
+- for entry in @entries
+  = I18n.l(entry.exercised_at.to_date, :format => :short)
+  = entry.exercise.lname
+  = entry.energy_q.to_s(:digits => 0)
+  = link_to "Muokkaa", edit_exercise_entry_path(entry)
+  = link_to "Poista", exercise_entry_path(entry), :method => :delete
+  %br
+  
+= will_paginate(@entries)

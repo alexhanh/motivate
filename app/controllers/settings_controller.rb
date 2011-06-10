@@ -1,4 +1,8 @@
 # encoding: utf-8
+
+# This controller doesn't require CanCan permissions because it
+# refers to the current user only. No way to hack unless you are
+# able to login as the user.
 class SettingsController < ApplicationController
   before_filter :authenticate_user!
   

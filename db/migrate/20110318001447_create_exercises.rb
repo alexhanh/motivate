@@ -10,9 +10,7 @@ class CreateExercises < ActiveRecord::Migration
       
       t.float :distance
       
-      t.integer :hours
-      t.integer :minutes
-      t.integer :seconds
+      t.integer :duration
     end
     
     create_table(:exercises) do |t|

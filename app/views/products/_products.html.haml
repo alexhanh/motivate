@@ -1,6 +1,4 @@
 #products
-  - if @products.count == 0
-    %p Ei osumia!
   - @products.each do |product|
     .product
       = link_to product.name, product

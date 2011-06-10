@@ -16,8 +16,6 @@ class FoodUnitsController < ApplicationController
     @food_unit = FoodUnit.new(params[:food_unit])
     @food_unit.value = 1.0
     @food_unit.consumable = @product
-    # TODO: check for parent unit's existence
-    # TODO: check if product already contains the unit
 
     if @food_unit.save
       redirect_to @product, :notice => "Annoskoko lisättiin onnistuneesti!"
@@ -29,5 +27,36 @@ class FoodUnitsController < ApplicationController
   def edit
     @food_unit = FoodUnit.find(params[:id])
     @product = Product.find(params[:product_id])
+  end
+  
+  def update
+    @food_unit = FoodUnit.includes(:consumable).find(params[:id])
+    
+    if @food_unit.update_attributes(params[:food_unit])
+      redirect_to polymorphic_url(@food_unit.consumable), :notice => "Yksikköä muokattu onnistuneesti!"
+    else
+      @product = Product.find(params[:product_id])
+      render :action => :edit
+    end
+  end
+  
+  def destroy
+    @food_unit = FoodUnit.includes(:consumable).find(params[:id])
+    consumable = @food_unit.consumable
+    if @food_unit.destroy
+      redirect_to polymorphic_url(consumable), :notice => "Yksikkö poistettu onnistuneesti!"
+    end
+  end
+  
+  def relation
+    @product = Product.find(params[:product_id])
+    @food_unit = FoodUnit.new(:consumable => @product, :value => 1.0, :unit => params[:runit], :parent_value => params[:parent_value], :parent_unit => params[:parent_unit])
+    
+    if @food_unit.save
+      redirect_to polymorphic_url(@food_unit.consumable), :notice => "Yksikkö lisätty onnistuneesti!"
+    else
+      @render_new = false
+      render :action => :new
+    end
   end
 end

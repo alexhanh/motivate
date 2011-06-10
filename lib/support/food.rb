@@ -12,15 +12,15 @@ module Food
     include Components
  
     def initialize(energy, protein, carbs, fat)
-      @energy, @protein, @carbs, @fat = energy, protein, carbs, fat
+      @energy, @protein, @carbs, @fat = energy||0.0, protein||0.0, carbs||0.0, fat||0.0
     end
   
     def scale(f)
       Food::Data.new(
-        f*energy,
-        f*protein,
-        f*carbs,
-        f*fat
+        energy ? f*energy : nil,
+        protein ? f*protein : nil,
+        carbs ? f*carbs : nil,
+        fat ? f*fat : nil
         )
     end
   end
@@ -41,10 +41,10 @@ module Food
     end
   
     def add(o)
-      @energy += o.energy
-      @protein += o.protein
-      @carbs += o.carbs
-      @fat += o.fat
+      @energy += o.energy || 0
+      @protein += o.protein || 0
+      @carbs += o.carbs || 0
+      @fat += o.fat || 0
     end
   
     # The difference between energy and energy_pcf is that

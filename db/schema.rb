@@ -10,11 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110529110608) do
+ActiveRecord::Schema.define(:version => 20110602062936) do
 
   create_table "achievements", :force => true do |t|
     t.integer "user_id"
     t.string  "token"
+    t.string  "achievement_type", :limit => 6, :null => false
     t.integer "source_id"
     t.string  "source_type"
   end
@@ -25,9 +26,8 @@ ActiveRecord::Schema.define(:version => 20110529110608) do
     t.float    "energy",       :null => false
     t.datetime "exercised_at", :null => false
     t.float    "distance"
-    t.integer  "hours"
-    t.integer  "minutes"
-    t.integer  "seconds"
+    t.integer  "duration"
+    t.boolean  "estimated",    :null => false
   end
 
   create_table "exercises", :force => true do |t|
@@ -57,11 +57,8 @@ ActiveRecord::Schema.define(:version => 20110529110608) do
   add_index "food_entries", ["eaten_at"], :name => "index_food_entries_on_eaten_at"
 
   create_table "food_units", :force => true do |t|
-    t.string  "ancestry"
     t.float   "value"
     t.string  "unit"
-    t.float   "parent_value"
-    t.string  "parent_unit"
     t.integer "consumable_id",   :null => false
     t.string  "consumable_type", :null => false
     t.float   "energy"
@@ -70,12 +67,13 @@ ActiveRecord::Schema.define(:version => 20110529110608) do
     t.float   "fat"
   end
 
-  add_index "food_units", ["ancestry"], :name => "index_food_units_on_ancestry"
-
   create_table "products", :force => true do |t|
-    t.string  "name",    :null => false
-    t.integer "user_id", :null => false
+    t.string  "name",                  :null => false
+    t.integer "user_id",               :null => false
+    t.string  "brand",   :limit => 20
   end
+
+  add_index "products", ["brand"], :name => "index_products_on_brand"
 
   create_table "tracker_entries", :force => true do |t|
     t.float    "value",      :null => false

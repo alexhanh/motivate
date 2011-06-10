@@ -1,0 +1,4 @@
+- for brand in @brands
+  = link_to brand, fast_food_products_path(:brand => brand)
+
+= render :partial => "products"

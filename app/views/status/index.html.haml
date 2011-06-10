@@ -1,10 +1,10 @@
-/ = "Kulutat #{@bmr.to_s(:format => :long, :digits => 0)} päivässä tekemättä mitään. Olet lisäksi polttanut liikunnan kautta #{@energy_burned.to_s(:format => :long, :digits => 0)}."
+/= "Kulutat #{@bmr.to_s(:format => :long, :digits => 0)} päivässä tekemättä mitään. Olet lisäksi polttanut liikunnan kautta #{@energy_burned.to_s(:format => :long, :digits => 0)}."
 
 %br
 
 
   .overall
-    %h4  Yhteenveto päivästä
+    %h4= "Yhteenveto päivästä #{I18n.l(@date, :format => :short)}"
     
     .net{:style => "margin-top: 1em;"}
       / != "<b>Nettotilanne</b>: #{@stats.energy.round.to_s} kcal (syöty) - #{@bmr.to_s(:digits => 0)} (ylläpito) - #{@energy_burned.to_s(:digits => 0)} (liikunta) = <b>#{(@stats.energy - @bmr.value - @energy_burned.value).round} kcal</b>"
@@ -65,12 +65,16 @@
           type: 'pie',
           name: "test",
           data: [
-            ['Hiilihydraatti', #{(@stats.carbs*4/@stats.energy_pcf*100).round(1)}],
-            ['Proteiini', #{(@stats.protein*4/@stats.energy_pcf*100).round(1)}],
-            ['Rasva', #{(@stats.fat*9/@stats.energy_pcf*100).round(1)}]
+            ['Hiilihydraatti', #{percentage(@stats.carbs*4, @stats.energy_pcf)}],
+            ['Proteiini', #{percentage(@stats.protein*4, @stats.energy_pcf)}],
+            ['Rasva', #{percentage(@stats.fat*9, @stats.energy_pcf)}]
           ]
         }]
       });
     });
   
   #energy_chart{ :style => "width: 300px; height: 240px;" }
+  
+= link_to "Edellinen päivä", status_path(:date => @date.yesterday)
+%br
+= link_to_if @date < Date.current, "Seuraava päivä", status_path(:date => @date.tomorrow)

@@ -1,3 +1,7 @@
+= link_to "Lisää mittaus", new_tracker_entry_path
+
+%br
+
 %ul#trackers_nav
   - @trackers.each do |tracker|
     %li= link_to tracker.to_s, :tracker_id => tracker.id
@@ -47,7 +51,8 @@
 #tracker_entries
   - @entries.each do |entry|
     %p
-      %span.date= I18n.l(entry.logged_on, :format => :short) 
+      %span.date= I18n.l(entry.logged_on.to_date, :format => :short) 
       = entry.quantity
-      = link_to "Muokkaa", edit_tracker_entry_path(entry)
+      = link_to "Muokkaa", edit_tracker_entry_path(entry, :tracker_id => entry.tracker)
       = link_to "Poista", tracker_entry_path(entry, :tracker_id => entry.tracker), :method => :delete
+  = will_paginate(@entries)

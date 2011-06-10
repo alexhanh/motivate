@@ -1,13 +1,11 @@
 = form_for [@product, @food_unit] do |f|
   = f.error_messages
   = error_messages_for @product
-
-  = f.label "Uusi yksikkö"
   
   = f.label :value, "Määrä"
   = f.text_field :value, :autocomplete => "off"
   
-  = f.collection_select :unit, unit_select_list(@product), :id, :abbreviate
+  = f.collection_select :unit, unit_select_list(@product, (@food_unit.new_record?) ? [] : [@food_unit.quantity.unit]), :id, :abbreviate
   = f.text_field :unit, :autocomplete => "off"
 
   .field

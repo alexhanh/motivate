@@ -41,4 +41,12 @@ module ApplicationHelper
     return "Eilen" if distance_in_days <= 1
     return I18n.t('datetime.distance_in_words.x_days', :count => distance_in_days.ceil) + " sitten"
   end
+  
+  def percentage(a, b, digits=1)
+    if b < 0.000000001
+      0.0.round(digits)
+    else
+      (a/b*100).round(digits)
+    end
+  end
 end

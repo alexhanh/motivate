@@ -2,7 +2,16 @@ Gr::Application.routes.draw do
   devise_for :users
 
   resources :products do
-    resources :food_units
+    collection do
+      get 'fast_food'
+      get :autocomplete_product_brand
+    end
+     
+    resources :food_units do
+      collection do
+        post 'relation'
+      end
+    end
     resources :food_entries
   end
   
@@ -28,7 +37,7 @@ Gr::Application.routes.draw do
   match 'recipes/:id/remove_ingredient/:ingredient_id' => 'recipes#remove_ingredient'
   
   # hack to display food_entries (since they are nested)
-  match 'eaten' => 'food_entries#listtest', :as => :eaten
+  match 'status' => 'status#index', :as => :status
   
   match 'favorites/add/:favorable_type/:favorable_id' => 'favorites#add', :as => :add_to_favorites
   match 'favorites/remove/:favorable_type/:favorable_id' => 'favorites#remove', :as => :remove_from_favorites

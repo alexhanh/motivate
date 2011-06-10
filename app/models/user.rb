@@ -77,4 +77,9 @@ class User < ActiveRecord::Base
     # TODO: Note, we don't multiply by 1.2!! See http://en.wikipedia.org/wiki/Harris-Benedict_equation
     FoodScience.harris_benedict(weight, height, age, gender)
   end
+  
+  def achievement_counts
+    # Note: Be careful, since this caches the results
+    @cached ||= achievements.count(:achievement_type, :group => :achievement_type)
+  end
 end

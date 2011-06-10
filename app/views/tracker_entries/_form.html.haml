@@ -1,16 +1,10 @@
-= form_for @entry, :remote => (@remote || true) do |f|
+= form_for @tracker_entry do |f|
   = f.error_messages
 
-  = f.hidden_field :tracker_id
+  = f.collection_select :tracker_id, @trackers, :id, :to_s
   = f.text_field :value
-  - if @entry.tracker.custom?
-    = f.hidden_field :unit
-    = @entry.tracker.custom_unit
-  - else
-    = f.collection_select :unit, @entry.tracker.units, :id, :abbreviate
   %br
   = f.date_select :logged_on
   
   %br
-  - if @show_submit
-    = f.submit "Lähetä"
+  = f.submit "Lähetä"

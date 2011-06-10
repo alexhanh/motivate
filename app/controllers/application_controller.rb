@@ -36,4 +36,14 @@ class ApplicationController < ActionController::Base
       @date = Time.strptime(session[:date], "%d%m%Y")
     end
   end
+  
+  protected
+  def find_consumable
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        return $1.pluralize.classify.constantize.find(value) 
+      end
+    end
+    nil
+  end
 end

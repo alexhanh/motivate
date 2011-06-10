@@ -19,6 +19,7 @@
     = javascript_include_tag "vendor/jquery-ui"
     / Overrides default locale of datepicker only if the localization file is found!
     = javascript_include_tag "vendor/i18n/jquery.ui.datepicker-#{I18n.locale.to_s}"
+    = javascript_include_tag "autocomplete-rails"
     = javascript_include_tag "vendor/jquery.validate"
     = javascript_include_tag "vendor/jquery.defaultvalue"
     = javascript_include_tag "vendor/highcharts"
@@ -34,7 +35,7 @@
         #userbox
           %ul#usernav
             - if user_signed_in?
-              %li!= current_user.username + " (" + link_to("muokkaa", edit_user_registration_path) + ")"
+              %li!= current_user.username + " " + achievements(current_user) + " (" + link_to("muokkaa", edit_user_registration_path) + ")" 
               %li= link_to 'Kirjaudu ulos', destroy_user_session_path
             - else
               %li= link_to 'Kirjaudu sisään', new_user_session_path
@@ -42,12 +43,10 @@
               %li.last= link_to 'rekisteröidy', new_user_registration_path
         #nav
           %ul
-            %li.first= link_to "Tuotteet", products_path
+            %li.first= link_to "Ruoka", products_path
             / %li= link_to "Reseptit", recipes_path
-            %li= link_to "Suosikit", favorites_path
-            %li= link_to "Lisää liikkuminen", new_exercise_entry_path
-            %li= link_to "Lisää mittaus", new_tracker_entry_path, :remote => true
-            %li= link_to "Syöty", eaten_path
+            %li= link_to "Liikunta", exercise_entries_path
+            %li= link_to "Tilanne", status_path
             %li= link_to "Mittaukset", tracker_entries_path
             %li= link_to "Saavutukset", achievements_path
             %li= link_to "Tavoitteet", goals_path

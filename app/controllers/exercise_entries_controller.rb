@@ -1,31 +1,43 @@
+# encoding: utf-8
 class ExerciseEntriesController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
+  
+  def index
+    @entries = ExerciseEntry.where(:user_id => current_user.id).includes(:exercise).order("exercised_at DESC").paginate(:per_page => 5, :page => params[:page])
+  end
   
   def new
-    @entry = ExerciseEntry.new
   end
   
   def create
-    @entry = ExerciseEntry.new(params[:exercise_entry])
-    @entry.user = current_user
+    @exercise_entry.user = current_user
     
-    if @entry.save
-      Jobs::ExerciseEntries.on_create(@entry.id)
-      flash[:notice] = "Entry succesfully saved."
-      redirect_to :root
-      return
+    if @exercise_entry.save
+      Jobs::ExerciseEntries.on_create(@exercise_entry.id)
+      redirect_to exercise_entries_url, :notice => "Liikunta lisätty onnistuneesti!"
+    else
+      render :new
     end
-    
-    render :new
   end
   
   def edit
-    @entry = ExerciseEntry.find(params[:id])
+    @exercise_entry.energy = nil if @exercise_entry.estimated
   end
   
   def update
+    estimated = {}
+    estimated = { :estimated => false } unless params[:exercise_entry][:energy].blank?
+    
+    if @exercise_entry.update_attributes(params[:exercise_entry].merge(estimated))
+      redirect_to exercise_entries_url, :notice => "Liikuntalogia muokattu onnistuneesti!"
+    else
+      render :action => :edit
+    end
   end
   
-  def delete
+  def destroy
+    @exercise_entry.destroy
+    redirect_to :action => :index
   end
 end

@@ -1,3 +1,18 @@
-%h2="Uusi yksikkö tuotteelle #{@product.name}"
+- unless @render_new == false
+  %h2="Uusi yksikkö tuotteelle #{@product.name}"
 
-= render :partial => "form", :locals => { :product => @product, :food_unit => @food_unit }
+  = render :partial => "form", :locals => { :product => @product, :food_unit => @food_unit }
+
+%br
+%br
+
+Tai hyödynnä olemassaolevia yksiköitä ja määrittele niiden avulla uusi
+
+= form_tag [:relation, @product, @food_unit], :id => 'relation'
+= error_messages_for(@food_unit)
+= select_tag 'runit', options_from_collection_for_select(unit_select_list(@product), :id, :abbreviate)
+= text_field_tag 'runit'
+vastaa
+= text_field_tag 'parent_value'
+= select_tag 'parent_unit', options_from_collection_for_select(to_units(@product), :id, :abbreviate)
+= submit_tag 'Lähetä'

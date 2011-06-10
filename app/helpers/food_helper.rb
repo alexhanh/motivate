@@ -3,6 +3,14 @@ module FoodHelper
     @@all_foods ||= [Units.g, Units.dl, Units.ml, Units.tsp, Units.tbsp, Units.cup]
   end
   
+  def volume_units
+    @@volume_units ||= all_food_units.select { |unit| unit.volume? }
+  end
+  
+  def weight_units
+    @@weight_units ||= all_food_units.select { |unit| unit.weight? }
+  end
+  
   # Take a consumable (that has many food units), inspects each supported
   # type and returns all supported units.
   def to_units(consumable)
@@ -12,9 +20,17 @@ module FoodHelper
     custom_units + common_units
   end
   
-  def unit_select_list(consumable)
-    # returns all common units that aren't already defined by consumable.food_units
-    all_food_units - to_units(consumable)
+  # returns all common units that aren't already defined by consumable.food_units
+  def unit_select_list(consumable, units_to_keep = [])
+    t = []
+    for unit in units_to_keep
+      if unit.custom?
+        t << unit        
+      else
+        t = t + all_food_units.select { |u| u.loose_match?(unit) }
+      end
+    end
+    (all_food_units - to_units(consumable)) | t.uniq
   end
   
   def default_unit(food_unit)

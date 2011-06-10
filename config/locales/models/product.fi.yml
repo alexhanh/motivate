@@ -1,0 +1,6 @@
+fi:
+  activerecord:
+    attributes:
+      product:
+        name: Nimi
+        brand: Brändi

@@ -1,3 +1,6 @@
+# This controller doesn't require CanCan permissions because it
+# refers to the current users only. No way to hack unless you are
+# able to login as the user.
 class GoalsController < ApplicationController
   before_filter :authenticate_user!
   

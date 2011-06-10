@@ -4,10 +4,10 @@ class Exercise < ActiveRecord::Base
   validates_presence_of :name
   
   def running?
-    self.name == "Juoksu"
+    self.name == "running"
   end
   
-  def tname
-    @tname ||= I18n.t("exercises.#{self.name}")
+  def lname
+    @lname ||= I18n.t("exercises.#{self.name}")
   end
 end
