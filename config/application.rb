@@ -4,9 +4,15 @@ require 'rails/all'
 
 # require 'unicode'
 
+# Include lib/support/*
+
+# Dir[File.expand_path('../../lib/*.rb', __FILE__)].each {|f| require f}
+
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
+
+Dir[File.expand_path('../../lib/support/*.rb', __FILE__)].each {|f| require f}
 
 module Gr
   class Application < Rails::Application
