@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
   include Support::Consumable
   include PgSearch
   
-  pg_search_scope :search_by_name, :against => [:name, :brand]
+  pg_search_scope :search_by_name, :against => [:name, :brand], :using => { :tsearch => { :prefix => true } }
   
   scope :uniquely_branded, select("DISTINCT(products.brand)")#group(:id, :brand)
     
