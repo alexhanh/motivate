@@ -35,7 +35,6 @@ GEM
     builder (2.1.2)
     cancan (1.6.5)
     chunky_png (1.2.5)
-    community (0.1.8)
     compass (0.11.5)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -69,7 +68,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     multi_json (1.0.3)
-    multi_xml (0.4.0)
+    multi_xml (0.4.1)
     nokogiri (1.5.0)
     orm_adapter (0.0.5)
     pg (0.11.0)
@@ -96,7 +95,7 @@ GEM
       ruby-graphviz (~> 0.9.18)
     rails3-generators (0.17.4)
       railties (>= 3.0.0)
-    rails3-jquery-autocomplete (1.0.3)
+    rails3-jquery-autocomplete (1.0.4)
       rails (~> 3.0)
     railties (3.0.7)
       actionpack (= 3.0.7)
@@ -151,7 +150,6 @@ PLATFORMS
 DEPENDENCIES
   ancestry
   cancan
-  community
   compass
   devise
   haml

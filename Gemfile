@@ -28,7 +28,6 @@ gem 'resque'
 
 # Uncategorized
 gem 'httparty'
-gem 'community'
 
 # Have to explicitly set until 0.9.x is stable enough to use
 # gem 'rake', '0.8.7'
