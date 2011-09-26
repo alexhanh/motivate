@@ -97,9 +97,11 @@ end
 # Vaikka yksikön nimi voi olla mielivaltainen, niin kannattaa silti ajatella miltä syömislogi näyttää.. 
 # esim. söin 22.5.2011 puolikkaan Bic Mac hampurilaisen.. tällöin järjestelmä näyttää nettisivulla
 # 22.5.2011 0.5 kpl Bic Mac Hampurilainen
+# (näyttää siis järkevältä)
 #
 # Jos olisimme nimenneet yksikön 'hampurilainen' 'kpl' sijaan, niin syömislogi näyttäisi seuraavalta
 # 22.5.2011 0.5 hampurilainen Bic Mac Hampurilainen
+# (ei näytä hyvältä)
 #
 # Järkevä nimi custom yksikölle riippuu tuotteesta. Hyviä yleisiä lyhenteitä ovat kpl (TODO: lisää!)
 #
@@ -150,8 +152,8 @@ add_relation(p, 'kpl', 30.g)
 # Ohjeistus:
 # - Ei tarvitse lisätä kevennettyjä pizzoja
 # - Ei tarvitse lisätä ravintotietoja painoyksiköille (grammoille).. "kpl" riittää
-# - Käytä seuraavaa nimeämiskonventiota: tuotteen_nimi tuotteen_tyyppi (lisätarkennukset)
-#   esim. Alla Pollo
+
+# En oikein tiedä mikä seuraavista nimeämiskäytännöistä olisi paras:
 
 # Pizza Alla Pollo (Normaali, Runsaskuituinen)
 # Alla Pollo Pizza (Normaali, Runsaskuituinen)
@@ -161,12 +163,6 @@ add_relation(p, 'kpl', 30.g)
 # 
 # Alla Pollo pizza - Perhe
 # Alla Pollo pizza (Perhe)
-
-# Alla Pollo, Normaali                    {kpl}
-# Alla Pollo, Normaali, Runsaskuituinen   {kpl}
-# Alla Pollo, Normaali (Runsaskuituinen)  {kpl}
-# Alla Pollo (Normaali, Runsaskuituinen)  {kpl}
-# Alla Pollo, Gluteeniton
 
 create_product('Pizza Alla Pollo (Normaali, Runsaskuituinen)')
 create_product('Alla Pollo Pizza (Normaali, Runsaskuituinen)')
@@ -190,3 +186,9 @@ p = create_product('Italian B.M.T', 'Subway')
 add_unit(p, :quantity => 237.g, :energy => 453, :fat => 20.8, :carbs => 46.2, :protein => 25)
 add_relation(p, 'kpl (15cm)', 237.g)
 add_relation(p, 'kpl (30cm)', 2*237.g)
+
+###################
+# McDonald's      #
+###################
+
+# http://www.mcdonaldsmenu.info/nutrition/

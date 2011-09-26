@@ -1,6 +1,7 @@
 source 'http://rubygems.org' 
 
-gem 'rails', '3.0.7' 
+# gem 'rails', '3.1.0.rc4' 
+gem 'rails', '3.0.7'
 
 # HTML Parsing
 gem "nokogiri"
@@ -27,6 +28,7 @@ gem 'resque'
 
 # Uncategorized
 gem 'httparty'
+gem 'community'
 
 # Have to explicitly set until 0.9.x is stable enough to use
 # gem 'rake', '0.8.7'
@@ -34,7 +36,8 @@ gem 'httparty'
 group :production do 
 #  gem "heroku", "1.10.5" 
 end 
-group :development do 
+group :development do
+  gem "rails-erd"
   gem "hpricot" # Only required for 'rails g devise:views' 
   gem "ruby_parser" # Only required for 'rails g devise:views' 
   gem "haml-rails" # Template generator for HAML 

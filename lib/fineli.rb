@@ -97,6 +97,8 @@ class Fineli
       food_page = Nokogiri::HTML(open(link_to_food_page(food_id)))
       unit_page = Nokogiri::HTML(open(link_to_food_unit(food_id)))
   
+      p link_to_food_page(food_id)
+  
       @product = Product.new(:user => User.first)
       @product.name = food_name(food_page)
       food_unit = FoodUnit.new(:quantity => 100.g)

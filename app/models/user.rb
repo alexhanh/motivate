@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   has_many :tracker_entries
   
   has_many :achievements
+  
+  has_many :topics, :dependent => :destroy
+  has_many :posts, :dependent => :destroy
 
   def weight_change_rate_q
     Quantity.new(weight_change_rate, Units.kg)

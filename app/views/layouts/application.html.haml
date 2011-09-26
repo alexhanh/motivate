@@ -12,6 +12,8 @@
     /[if lt IE 8]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
 
+    = stylesheet_link_tag "community"
+
     = stylesheet_link_tag "vendor/Aristo/jquery-ui.css"
     /= stylesheet_link_tag "vendor/ui-lightness/jquery-ui.css"
     / todo: move to assets.yml like in diaspora
@@ -51,6 +53,7 @@
             %li= link_to "Saavutukset", achievements_path
             %li= link_to "Tavoitteet", goals_path
             %li= link_to "Asetukset", settings_path
+            %li= link_to "Keskustelu", forums_path
     
       #content
         = yield
