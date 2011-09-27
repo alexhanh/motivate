@@ -1,10 +1,10 @@
-module Support
+module Motivate
   module Consumable
     def self.included(klass)
       klass.class_eval do
         extend ClassMethods
         include InstanceMethods
-        include Support::Favorable
+        include Motivate::Favorable
 
         has_many :food_units, :as => :consumable, :dependent => :destroy
         has_many :food_entries, :as => :consumable

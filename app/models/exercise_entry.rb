@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class ExerciseEntry < ActiveRecord::Base
-  include Support::HasDuration
+  include Motivate::HasDuration
   
   belongs_to :user
   belongs_to :exercise

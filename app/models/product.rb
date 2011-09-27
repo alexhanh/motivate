@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  include Support::Consumable
+  include Motivate::Consumable
   include PgSearch
   
   pg_search_scope :search_by_name, :against => [:name, :brand], :using => { :tsearch => { :prefix => true } }

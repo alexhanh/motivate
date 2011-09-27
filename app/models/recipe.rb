@@ -1,5 +1,5 @@
 class Recipe < ActiveRecord::Base
-  include Support::Consumable
+  include Motivate::Consumable
   
   belongs_to :user
     

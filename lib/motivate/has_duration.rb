@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 # All this fucking hours, minutes and seconds getters and setters hack just to get durations and forms work nicely!
-module Support
+module Motivate
   module HasDuration
     def self.included(klass)
       klass.class_eval do

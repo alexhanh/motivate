@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110610155702) do
+ActiveRecord::Schema.define(:version => 20110602062936) do
 
   create_table "achievements", :force => true do |t|
     t.integer "user_id"
@@ -18,14 +18,6 @@ ActiveRecord::Schema.define(:version => 20110610155702) do
     t.string  "achievement_type", :limit => 6, :null => false
     t.integer "source_id"
     t.string  "source_type"
-  end
-
-  create_table "categories", :force => true do |t|
-    t.string   "title"
-    t.boolean  "state",      :default => true
-    t.integer  "position",   :default => 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "exercise_entries", :force => true do |t|
@@ -75,27 +67,6 @@ ActiveRecord::Schema.define(:version => 20110610155702) do
     t.float   "fat"
   end
 
-  create_table "forums", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.boolean  "state",        :default => true
-    t.integer  "topics_count", :default => 0
-    t.integer  "posts_count",  :default => 0
-    t.integer  "position",     :default => 0
-    t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "posts", :force => true do |t|
-    t.string   "body"
-    t.integer  "forum_id"
-    t.integer  "topic_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "products", :force => true do |t|
     t.string  "name",                  :null => false
     t.integer "user_id",               :null => false
@@ -103,18 +74,6 @@ ActiveRecord::Schema.define(:version => 20110610155702) do
   end
 
   add_index "products", ["brand"], :name => "index_products_on_brand"
-
-  create_table "topics", :force => true do |t|
-    t.string   "title"
-    t.integer  "hits",        :default => 0
-    t.boolean  "sticky",      :default => false
-    t.boolean  "locked",      :default => false
-    t.integer  "posts_count"
-    t.integer  "forum_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "tracker_entries", :force => true do |t|
     t.float    "value",      :null => false
@@ -149,8 +108,6 @@ ActiveRecord::Schema.define(:version => 20110610155702) do
     t.boolean  "gender"
     t.float    "weight_change_rate",                  :default => 0.0
     t.string   "time_zone",                           :default => "Helsinki"
-    t.integer  "topics_count",                        :default => 0
-    t.integer  "posts_count",                         :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
