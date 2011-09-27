@@ -1,6 +1,3 @@
-require './lib/support/unit'
-require './lib/support/units'
-
 class Quantity
   include Comparable
   

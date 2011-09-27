@@ -2,17 +2,9 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# require 'unicode'
-
-# Include lib/support/*
-
-# Dir[File.expand_path('../../lib/*.rb', __FILE__)].each {|f| require f}
-
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
-
-Dir[File.expand_path('../../lib/support/*.rb', __FILE__)].each {|f| require f}
 
 module Gr
   class Application < Rails::Application
@@ -22,7 +14,7 @@ module Gr
 
     # Custom directories with classes and modules you want to be autoloadable.
     #config.autoload_paths += %W(#{config.root}/extras)
-    config.autoload_paths += %W(#{config.root}/lib #{config.root}/lib/jobs #{config.root}/support)
+    config.autoload_paths += %W(#{config.root}/lib #{config.root}/lib/jobs #{config.root}/lib/support)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
