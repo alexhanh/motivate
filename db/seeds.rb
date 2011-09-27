@@ -185,7 +185,7 @@ add_unit(p, :quantity => Quantity.new(1, 'kpl'), :energy => 837, :protein => 53.
 p = create_product('Italian B.M.T', 'Subway')
 add_unit(p, :quantity => 237.g, :energy => 453, :fat => 20.8, :carbs => 46.2, :protein => 25)
 add_relation(p, 'puolikas', 237.g)
-add_relation(p, 'kokonainen', 2*237.g)
+add_relation(p, 'kokonainen', (2*237).g)
 
 ###################
 # McDonald's      #
