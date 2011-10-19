@@ -27,6 +27,7 @@ fi:
       odd: "täytyy olla pariton"
       even: "täytyy olla parillinen"
       record_invalid: "Validointi epäonnistui: %{errors}"
+      not_saved: "tallennus epäonnistui seuraavien virheiden takia:"
         
   activemodel:
     models:
@@ -50,6 +51,60 @@ fi:
           attributes:
             serving_sizes:
               invalid: "nope"
+
+  registrations: 
+    closed: "Rekisteröityminen on suljettu tässä Diaspora-podissa."
+    create: 
+      success: "Olet liittynyt Diasporaan!"
+    edit: 
+      cancel_my_account: "Poista käyttäjätilini"
+      edit: "Muokkaa %{name}"
+      leave_blank: "(jätä tyhjäksi, mikäli et halua muuttaa)"
+      password_to_confirm: "(tarvitsemme nykyisen salasanasi muutosten varmistusta varten)"
+      unhappy: "Epäonnellinen?"
+      update: "Päivitä"
+    new: 
+      create_my_account: "Create my account"
+      enter_email: "Syötä sähköpostiosoite"
+      enter_password: "Syötä salasana"
+      enter_password_again: "Syötä sama salasana kuin edellä"
+      enter_username: "Valitse käyttäjänimi (vain kirjaimet, numerot ja alaviivat sallittuja)"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
+  requests: 
+    create: 
+      sending: "Lähetetään..."
+      sent: "Haluat jakaa %{name} kanssa. Heidän pitäisi nähdä se kirjautuessaan seuraavan kerran Diasporaan."
+    destroy: 
+      error: "Ole hyvä, valitse näkymä!"
+      ignore: "Hylätty kontaktipyyntö."
+      success: "Olet nyt jakamassa."
+    helper: 
+      new_requests: 
+        few: "%{count} uutta pyyntöä!"
+        many: "%{count} uutta pyyntöä!"
+        one: "uusi pyyntö!"
+        other: "%{count} uutta pyyntöä!"
+        two: "%{count} new requests!"
+        zero: "ei uusia pyyntöjä"
+    manage_aspect_contacts: 
+      existing: "Olemassa olevat kontaktit"
+      manage_within: "Muokkaa kontakteja näkymässä"
+    new_request_to_person: 
+      sent: "lähetetty!"
+              
+  email: "Sähköposti"
+  password: "Salasana"
+  password_confirmation: "Salasanan varmistus"
+  current_password: "Nykyinen salasana"
+  edit_user: "Muokkaa käyttäjää"
+  back: "Takaisin"
+  username: "Käyttäjätunnus"
+  remember_me: "Muista minut"
+  sign_up: "Rekisteröidy"
+
+  update: "Päivitä"
+
   #   errors:
   #     models:
   #       user:

@@ -7,11 +7,11 @@ fi:
       send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä, miten vahvistat käyttäjätilisi."
     failure: 
       inactive: "Käyttätiliäsi ei ole vielä aktivoitu."
-      invalid: "Väärä sähköpostiosoite tai salasana."
+      invalid: "Virheellinen käyttäjätunnus tai salasana."
       invalid_token: "Virheellinen todennustunnus."
       locked: "Käyttäjätilisi on lukittu."
       timeout: "Istunto on vanhentunut, kirjaudu uudelleen jatkaaksesi."
-      unauthenticated: "Sinun tulee kirjautua, tai rekisteröityä ennen jatkamista."
+      unauthenticated: "Sinun tulee rekisteröityä ja/tai kirjautua ennen jatkamista."
       unconfirmed: "Sinun täytyy vahvistaa käyttäjätilisi ennen kuin voit jatkaa"
     invitations: 
       invitation_token_invalid: "Kutsun vahvistustunnus on virheellinen!"
@@ -23,15 +23,15 @@ fi:
         subject: "Vahvistamisohjeet"
         you_can_confirm: "Voit vahvistaa käyttäjätilisi alla olevan linkin kautta:"
       hello: "Hei, %{email}!"
-      invitation: 
+      invitation_instructions: 
         accept: "Hyväksy kutsu"
-        ignore: "Jos et halua hyväksyä kutsua, voit jättää tämän viestin huomioimatta."
+        ignore: "Mikäli et halua hyväksyä kutsua, voit jättää tämän viestin huomioimatta."
         no_account_till: "Käyttäjätilisi luodaan vasta, kun rekisteröidyt yllä olevan linkin kautta. "
         subject: "Sinut on kutsuttu käyttämään Diasporaa!"
-      inviters: 
-        accept_at: ", osoitteessa %{url}, voit hyväksyä sen alla olevan linkin kautta."
-        has_invited_you: "%{name} on kutsunut sinut liittymään Diasporaan"
-        have_invited_you: "%{names} ovat kutsuneet sinut Diasporan käyttäjäksi"
+      inviter: 
+        accept_at: "osoitteessa %{url}, hyväksyminen alla olevasta linkistä."
+        has_invited_you: "%{names}"
+        have_invited_you: "%{names} on kutsunut sinut Diasporan käyttäjäksi"
       reset_password_instructions: 
         change: "Vaihda salasanani"
         ignore: "Jos et pyytänyt tätä, voit jättää viestin huomiotta."
@@ -49,26 +49,19 @@ fi:
         change_password: "Vaihda salasanani"
       new: 
         forgot_password: "Unohditko salasanasi?"
+        no_account: "Tunnusta tälle sähköpostille ei ole olemassa. Mikäli odotat vielä kutsua, pyrimme lähettämänää sen niin pian kuin mahdollista."
         send_password_instructions: "Lähetä minulle salasanan uudelleenasettamisohjeet"
       send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä, miten voit asettaa salasanasi uudelleen."
       updated: "Salasanasi on vaihdettu onnistuneesti. Olet nyt kirjautunut sisään."
-    registrations:
-      new:
-        username: "Käyttäjätunnus"
-        email: 'Sähköposti'
-        password: 'Salasana'
-        password_confirmation: 'Salasana uudelleen'
-        register: 'Rekisteröidy'
+    registrations: 
       destroyed: "Näkemiin! Käyttäjätilisi on onnistuneesti peruutettu. Toivottavasti näemme sinut pian uudelleen."
       signed_up: "Käyttäjätilin luominen onnistui. Mahdollinen vahvistus on lähetetty sähköpostiisi."
       updated: "Päivitit käyttäjätilisi onnistuneesti."
     sessions: 
-      new:
-        email: 'Sähköposti'
+      new: 
         alpha_software: "Olet aikeissa käyttää alpha-versiota ohjelmistosta."
         bugs_and_feedback: "Ota huomioon, että tulet kohtaamaan ohjelmistovirheitä. Kannustamme sinua ilmoittamaan kaikki huomaamasi virheet oikealla olevan Feedback-nappulan kautta! Työskentelemme niin nopeasti kuin voimme selvittääksemme ilmoittamasi virheet."
         bugs_and_feedback_mobile: "Tulet todennäköisesti kohtaamaan ohjelmistovirheitä. Kerro mahdollisista ongelmatilanteista ja virheistä meille. Pyrimme korjaamaan ilmoittamasi virheet niin nopeasti kuin voimme."
-        have_a_problem: "Ongelmia? Löydä ratkaisu täältä"
         login: "Kirjautuminen"
         modern_browsers: "tukee vain moderneja selaimia."
         password: "Salasana"
@@ -92,8 +85,8 @@ fi:
         resend_unlock: "Lähetä lukituksenpoisto-ohjeet uudelleen"
       send_instructions: "Saat hetken kuluttua sähköpostiisi ohjeet siitä, miten avaat käyttäjätilisi lukituksen."
       unlocked: "Käyttäjätilisi lukitus on avattu onnistuneesti. Olet nyt kirjautunut sisään."
-    errors: 
-      messages: 
-        already_confirmed: "oli jo varmistettu"
-        not_found: "ei löytynyt"
-        not_locked: "ei ollut lukittu"
+  errors: 
+    messages: 
+      already_confirmed: "oli jo varmistettu"
+      not_found: "ei löytynyt"
+      not_locked: "ei ollut lukittu"
